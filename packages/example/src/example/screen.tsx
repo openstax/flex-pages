@@ -65,7 +65,7 @@ const sampleConent = [
       "content": [
         {
           "type": "text",
-          "value": "<h2 data-block-key=\"npzc6\">They&#x27;re flexible!</h2><p data-block-key=\"f5993\">FlexPages can be used to create pages on openstax.org without a developer. There is one editing interface that is used for any page, and no special code is necessary for your new page or content edits to be published.</p><p data-block-key=\"5crhr\"><a href=\"/how-to-use-the-flexpage-editor\">how to use the FlexPage editor</a></p>",
+          "value": "<h2 data-block-key=\"npzc6\">They&#x27;re flexible!</h2><p data-block-key=\"f5993\">FlexPages can be used to create pages on openstax.org without a developer. There is one editing interface that is used for any page, and no special code is necessary for your new page or content edits to be published.</p><p data-block-key=\"5crhr\"><a href=\"https://staging.openstax.org/how-to-use-the-flexpage-editor\">how to use the FlexPage editor</a></p>",
           "id": "b42543b4-0671-42bc-8850-0c896fa69ef8"
         }
       ],
