@@ -1,5 +1,5 @@
 import React from 'react';
-import { scrollTo } from 'utils';
+import { scrollTo } from '../utils';
 
 export interface LinkFields {
   text: string;
