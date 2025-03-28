@@ -25,8 +25,7 @@
     ],
     "noFallthroughCasesInSwitch": true,
     "outDir": "dist",
-    "declaration": true,
-    "baseUrl": "src"
+    "declaration": true
   },
   "include": [
     "src"
