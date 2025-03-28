@@ -1,0 +1,52 @@
+import { CTABlock, CTABlockConfig } from './CTABlock';
+import { CardsBlock, CardsBlockConfig } from './CardsBlock';
+import { DividerBlock, DividerBlockConfig } from './DividerBlock';
+import { HTMLBlock, HTMLBlockConfig } from './HTMLBlock';
+import { HeroBlock, HeroBlockConfig } from './HeroBlock';
+import { LinksBlock, LinksBlockConfig } from './LinksBlock';
+import { QuoteBlock, QuoteBlockConfig } from './QuoteBlock';
+import { RichTextBlock, RichTextBlockConfig } from './RichTextBlock';
+import { SectionBlock, SectionBlockConfig } from './SectionBlock';
+
+export type ContentBlockConfig =
+    LinksBlockConfig |
+    CTABlockConfig |
+    HeroBlockConfig |
+    HTMLBlockConfig |
+    DividerBlockConfig |
+    SectionBlockConfig |
+    RichTextBlockConfig |
+    QuoteBlockConfig |
+    CardsBlockConfig;
+
+export function ContentBlocks({data}: {data: ContentBlockConfig[]}) {
+    return <>
+        {data.map((block) => <ContentBlock key={block.id} data={block} />)}
+    </>;
+}
+
+// eslint-disable-next-line complexity
+export function ContentBlock({data}: {data: ContentBlockConfig}) {
+    switch (data.type) {
+        case 'hero':
+            return <HeroBlock data={data} />;
+        case 'html':
+            return <HTMLBlock data={data} />;
+        case 'cta_block':
+            return <CTABlock data={data} />;
+        case 'divider':
+            return <DividerBlock data={data} />;
+        case 'text':
+            return <RichTextBlock data={data} />;
+        case 'section':
+            return <SectionBlock data={data} />;
+        case 'cards_block':
+           return <CardsBlock data={data} />;
+        case 'links_group':
+           return <LinksBlock data={data} />;
+        case 'quote':
+           return <QuoteBlock data={data} />;
+        default:
+            return <pre>{JSON.stringify(data, null, 2)}</pre>;
+    }
+}
