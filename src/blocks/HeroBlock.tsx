@@ -4,7 +4,7 @@ import React from 'react';
 import { Image, ImageFields } from '../components/Image';
 import { findByType } from '../utils';
 import { ContentBlockConfig, ContentBlocks } from './ContentBlock';
-import './HeroBlock.scss';
+import './HeroBlock.css';
 
 export type HeroConfigOptions = {
     type: 'text_alignment';

@@ -1,6 +1,6 @@
 import { Image, ImageFields } from '../components/Image';
 import { RichTextContent } from './RichTextBlock';
-import './QuoteBlock.scss';
+import './QuoteBlock.css';
 
 export interface QuoteBlockConfig {
     id: string;

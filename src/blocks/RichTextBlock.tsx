@@ -1,5 +1,5 @@
 import { Html } from '../components/Html';
-import './RichTextBlock.scss';
+import './RichTextBlock.css';
 
 export interface RichTextBlockConfig {
     id: string;
