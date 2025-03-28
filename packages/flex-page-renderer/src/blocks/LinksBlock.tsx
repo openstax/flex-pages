@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { Link, LinkFields } from '../components/Link';
 import { findByType } from '../utils';
-import './LinksBlock.scss';
+import './LinksBlock.css';
 
 type LinksConfig = {
   type: 'color';

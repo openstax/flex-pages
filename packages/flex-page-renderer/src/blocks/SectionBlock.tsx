@@ -3,7 +3,7 @@ import Color from 'color';
 import React from 'react';
 import { findByType } from '../utils';
 import { ContentBlockConfig, ContentBlocks } from './ContentBlock';
-import './SectionBlock.scss';
+import './SectionBlock.css';
 
 export type SectionConfigOptions = {
     type: 'text_alignment';

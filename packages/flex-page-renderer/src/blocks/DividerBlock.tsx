@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { Image, ImageFields } from '../components/Image';
 import { findByType } from '../utils';
-import './DividerBlock.scss';
+import './DividerBlock.css';
 
 export type DividerConfigOptions = {
     type: 'width';

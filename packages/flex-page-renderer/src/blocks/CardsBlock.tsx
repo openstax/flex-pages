@@ -3,7 +3,7 @@ import React from 'react';
 import { findByType } from '../utils';
 import { CTALink, CTALinkFields } from './CTABlock';
 import { RichTextContent } from './RichTextBlock';
-import './CardsBlock.scss';
+import './CardsBlock.css';
 
 type CardConfig = {
     type: 'card_style';
