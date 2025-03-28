@@ -1,5 +1,6 @@
 {
   "name": "@project/frontend",
+  "homepage": "https://openstax.github.io/flex-pages/",
   "version": "0.1.0",
   "browserslist": {
     "production": [

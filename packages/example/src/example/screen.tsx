@@ -13,6 +13,7 @@ export const homeScreen = createRoute({name: 'HomeScreen', path: '/',
   handler: makeScreen(Home)
 });
 
+/* eslint-disable max-len */
 const sampleConent = [
   {
     "type": "section",
@@ -452,4 +453,4 @@ const sampleConent = [
     },
     "id": "e58396d7-ea4c-4b51-a1a6-084606d1d58e"
   }
-]
+];
