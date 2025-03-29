@@ -9,8 +9,11 @@ export const Home = () => {
   </FlexPage>;
 };
 
+const pathPrefix = process.env.NODE_ENV === 'development' ?
+  '/' : process.env.PUBLIC_URL;
+
 export const homeScreen = createRoute({name: 'HomeScreen',
-  path: `${process.env.PUBLIC_URL ?? '/'}`,
+  path: pathPrefix + '',
   handler: makeScreen(Home)
 });
 
