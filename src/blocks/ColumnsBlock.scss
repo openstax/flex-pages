@@ -15,7 +15,7 @@
     margin-top: calc( #{$normal-margin} * var(--padding-top-multiplier, var(--padding-multiplier, 0)));
     margin-bottom: calc( #{$normal-margin} * var(--padding-bottom-multiplier, var(--padding-multiplier, 0)));
     padding: 0 $normal-margin;
-  
+
     display: flex;
     flex-direction: row;
 
