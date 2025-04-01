@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoute, makeScreen } from "../core/services";
 import { FlexPage } from '@openstax/flex-page-renderer/wrappers/FlexPage';
 import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
-import { ContentBlockRoot } from '@openstax/flex-page-renderer/blocks/ContentBlock';
+import { ContentBlockRoot } from '@openstax/flex-page-renderer/ContentBlockRoot';
 
 export const Home = () => {
   return <FlexPage>
