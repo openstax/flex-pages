@@ -2,13 +2,17 @@ import React from 'react';
 import { ContentBlockConfig, ContentBlocks } from './ContentBlocks';
 
 /*
- * these types are annoying, and do not work perfectly. i'm sort of 
+ * these types are annoying, and do not work perfectly. i'm sort of
  * ok with that because we're anticipating that the data is being
  * retrieved from a db anyway
  */
 type BlockData<D> = Array<ContentBlockConfig & {type: keyof D} & Record<string, unknown>>;
+type ConfigMetadata<T> = {
+  type: T;
+  categories: string[];
+};
 type BlockComponents<D> = {
-  [key in keyof D]: React.ComponentType<{data: {type: key} & ContentBlockConfig & any}>;
+  [key in keyof D]: React.ComponentType<{data: any}> & {blockConfig: ConfigMetadata<key>};
 };
 
 type BlockComponent = React.ComponentType<{data: ContentBlockConfig}>

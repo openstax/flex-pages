@@ -44,6 +44,30 @@ export interface ColumnsBlockConfig {
   };
 }
 
+ColumnsBlock.blockConfig = {
+  type: 'columns',
+  categories: ['structure'],
+  fields: [
+    {name: 'leftContent', type: 'blocks', categories: ['content']},
+    {name: 'rightContent', type: 'blocks', categories: ['content']},
+    {name: 'config', type: 'configs', configs: [
+      {name: 'background_color', type: 'text', pattern: '#[a-f0-9]{6}'},
+      {name: 'padding', type: 'number'},
+      {name: 'padding_top', type: 'number'},
+      {name: 'padding_bottom', type: 'number'},
+      {name: 'analytics_label', type: 'text'},
+      {name: 'id', type: 'text'},
+      {name: 'gap', type: 'text'},
+      {name: 'right_size', type: 'text',
+        disabledWhen: (data: any) => !!data?.config?.find((c: any) => c.name === 'left_size')
+      },
+      {name: 'left_size', type: 'text',
+        disabledWhen: (data: any) => !!data?.config?.find((c: any) => c.name === 'right_size')
+      },
+    ]},
+  ],
+};
+
 // eslint-disable-next-line complexity
 export function ColumnsBlock({data}: {data: ColumnsBlockConfig}) {
   const id = findByType(data.value.config, 'id')?.value;

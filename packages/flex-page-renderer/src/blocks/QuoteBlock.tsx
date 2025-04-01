@@ -1,4 +1,4 @@
-import { Image, ImageFields } from '../components/Image';
+import { Image, ImageFields, imageFieldsConfig } from '../components/Image';
 import { RichTextContent } from './RichTextBlock';
 import './QuoteBlock.css';
 
@@ -12,6 +12,17 @@ export interface QuoteBlockConfig {
         title?: string;
     };
 }
+
+QuoteBlock.blockConfig = {
+  type: 'quote',
+  categories: ['content'],
+  fields: [
+    {name: 'content', type: 'text', required: true},
+    {name: 'title', type: 'text'},
+    {name: 'name', type: 'text', required: true},
+    {name: 'image', type: 'namespace', fields: imageFieldsConfig},
+  ],
+};
 
 export function QuoteBlock({data}: {data: QuoteBlockConfig}) {
     return <div className="content-block-quote">
