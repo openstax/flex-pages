@@ -1,9 +1,9 @@
-export { CTABlock } from './CTABlock';
-export { CardsBlock } from './CardsBlock';
-export { DividerBlock } from './DividerBlock';
-export { HTMLBlock } from './HTMLBlock';
-export { HeroBlock } from './HeroBlock';
-export { LinksBlock } from './LinksBlock';
-export { QuoteBlock } from './QuoteBlock';
-export { RichTextBlock } from './RichTextBlock';
-export { SectionBlock } from './SectionBlock';
+export { CTABlock as cta_block } from './CTABlock';
+export { CardsBlock as cards_block } from './CardsBlock';
+export { DividerBlock as divider } from './DividerBlock';
+export { HTMLBlock as html } from './HTMLBlock';
+export { HeroBlock as hero } from './HeroBlock';
+export { LinksBlock as links_group } from './LinksBlock';
+export { QuoteBlock as quote } from './QuoteBlock';
+export { RichTextBlock as text } from './RichTextBlock';
+export { SectionBlock as section } from './SectionBlock';
