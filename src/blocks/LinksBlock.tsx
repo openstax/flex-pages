@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { Link, LinkFields } from '../components/Link';
+import { Link, LinkFields, linkFieldConfig } from '../components/Link';
 import { findByType } from '../utils';
 import './LinksBlock.css';
 
@@ -12,12 +12,28 @@ type LinksConfig = {
 };
 
 export interface LinksBlockConfig {
-    id: string;
-    type: 'links_group';
-    value: {
-        links: LinkFields[];
-        config: LinksConfig[];
-    };
+  id: string;
+  type: 'links_group';
+  value: {
+    links: LinkFields[];
+    config: LinksConfig[];
+  };
+}
+
+LinksBlock.blockConfig = {
+  type: 'cta_block',
+  categories: ['content'],
+  fields: [
+    {name: 'links', type: 'list', fields: linkFieldConfig},
+    {name: 'config', type: 'configs', configs: [
+      {name: 'analytics_label', type: 'text'},
+      {name: 'color', type: 'select', options: [
+        {value: 'white', label: 'White'},
+        {value: 'blue', label: 'Blue'},
+        {value: 'deep-green', label: 'Deep Green'},
+      ]},
+    ]},
+  ],
 }
 
 export function LinksBlock({data}: {data: LinksBlockConfig}) {

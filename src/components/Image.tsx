@@ -1,11 +1,17 @@
 import React from 'react';
 
 export interface ImageFields {
-    id: string;
+    id?: string;
     file: string;
     height: number;
     width: number;
 }
+
+export const imageFieldsConfig = [
+  {name: 'file', type: 'text'},
+  {name: 'height', type: 'number'},
+  {name: 'width', type: 'number'},
+];
 
 type ImageProps = {
     image: ImageFields;

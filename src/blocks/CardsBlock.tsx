@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 import { findByType } from '../utils';
-import { CTALink, CTALinkFields } from './CTABlock';
+import { CTALink, CTALinkFields, ctaLinkFieldConfig } from './CTABlock';
 import { RichTextContent } from './RichTextBlock';
 import './CardsBlock.css';
 
@@ -28,6 +28,25 @@ export type CardsBlockConfig = {
         config: CardConfig[];
     };
 };
+
+CardsBlock.blockConfig = {
+  type: 'cards_block',
+  categories: ['content'],
+  fields: [
+    {name: 'cards', type: 'list', fields: [
+      {name: 'text', type: 'text'},
+      {name: 'ctaBlock', type: 'list', fields: ctaLinkFieldConfig, max: 1},
+    ]},
+    {name: 'config', type: 'configs', configs: [
+      {name: 'card_style', type: 'select', options: [
+        {label: 'Rounded', value: 'rounded'},
+        {label: 'Square', value: 'square'},
+      ]},
+      {name: 'card_size', type: 'number'},
+    ]},
+  ],
+};
+
 
 export function CardsBlock({data}: {data: CardsBlockConfig}) {
     const cardStyle = findByType(data.value.config, 'card_style')?.value;

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import Color from 'color';
 import React from 'react';
-import { Image, ImageFields } from '../components/Image';
+import { Image, ImageFields, imageFieldsConfig } from '../components/Image';
 import { findByType } from '../utils';
 import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
 import './HeroBlock.css';
@@ -42,6 +42,37 @@ export interface HeroBlockConfig {
       config: HeroConfigOptions[];
     };
 }
+
+HeroBlock.blockConfig = {
+  type: 'hero',
+  categories: ['structure'],
+  fields: [
+    {name: 'content', type: 'blocks', categories: ['content']},
+    {name: 'imageAlt', type: 'text'},
+    {name: 'image', type: 'namespace', fields: imageFieldsConfig},
+    {name: 'config', type: 'configs', configs: [
+      {name: 'image_alignment', type: 'select', options: [
+        {label: 'Left', value: 'left'},
+        {label: 'Top Left', value: 'top_left'},
+        {label: 'Bottom Left', value: 'bottom_left'},
+        {label: 'Right', value: 'right'},
+        {label: 'Top Right', value: 'top_right'},
+        {label: 'Bottom Right', value: 'bottom_right'},
+      ]},
+      {name: 'text_alignment', type: 'select', options: [
+        {label: 'Left', value: 'left'},
+        {label: 'Right', value: 'right'},
+        {label: 'Center', value: 'center'},
+      ]},
+      {name: 'background_color', type: 'text', pattern: '#[a-f0-9]{6}'},
+      {name: 'padding', type: 'number'},
+      {name: 'padding_top', type: 'number'},
+      {name: 'padding_bottom', type: 'number'},
+      {name: 'analytics_label', type: 'text'},
+      {name: 'id', type: 'text'},
+    ]},
+  ],
+};
 
 const parseAlignment = (alignment: string) => {
     if (alignment.includes('top')) {return 'flex-start';}

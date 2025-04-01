@@ -10,6 +10,19 @@ export interface LinkFields {
   };
 }
 
+export const linkFieldConfig = [
+  {name: 'text', type: 'text', required: true},
+  {name: 'ariaLabel', type: 'text'},
+  {name: 'target', type: 'namespace', fields: [
+    {name: 'type', type: 'select', options: [
+      {label: 'External', value: 'external'},
+      {label: 'Internal', value: 'internal'},
+      {label: 'Anchor', value: 'anchor'},
+    ]},
+    {name: 'value', type: 'text'},
+  ]},
+];
+
 type LinkProps = {
   link: LinkFields;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>;

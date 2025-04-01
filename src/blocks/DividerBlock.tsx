@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import { Image, ImageFields } from '../components/Image';
 import { findByType } from '../utils';
+import { ctaLinkFieldConfig } from './CTABlock';
 import './DividerBlock.css';
 
 export type DividerConfigOptions = {
@@ -28,6 +29,30 @@ export interface DividerBlockConfig {
         config: DividerConfigOptions[];
     };
 }
+
+DividerBlock.blockConfig = {
+  type: 'divider',
+  categories: ['structure'],
+  fields: [
+    {name: 'cards', type: 'list', fields: [
+      {name: 'text', type: 'text'},
+      {name: 'ctaBlock', type: 'list', fields: ctaLinkFieldConfig, max: 1},
+    ]},
+    {name: 'config', type: 'configs', configs: [
+      {name: 'width', type: 'text'},
+      {name: 'height', type: 'text'},
+      {name: 'alignment', type: 'select', options: [
+        {label: 'Left side of Content', value: 'content_left'},
+        {label: 'Right side of Content', value: 'content_right'},
+        {label: 'Left side of Page', value: 'body_left'},
+        {label: 'Right side of Page', value: 'body_right'},
+        {label: 'Center', value: 'center'},
+      ]},
+      {name: 'offset_vertical', type: 'text'},
+      {name: 'offset_horizontal', type: 'text'},
+    ]},
+  ],
+};
 
 function getTransform(config: DividerConfigOptions[]) {
     const offsetVertical = findByType(config, 'offset_vertical')?.value ?? '-50%';

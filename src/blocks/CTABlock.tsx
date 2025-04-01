@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { Link, LinkFields } from '../components/Link';
+import { Link, LinkFields, linkFieldConfig } from '../components/Link';
 import { findByType } from '../utils';
 import './CTABlock.css';
 
@@ -11,6 +11,18 @@ type CTALinkConfig = {
 export interface CTALinkFields extends LinkFields {
     config: CTALinkConfig[];
 }
+
+export const ctaLinkFieldConfig = [
+  ...linkFieldConfig,
+  {name: 'config', type: 'configs', configs: [
+    {name: 'style', type: 'select', options: [
+      {label: 'Orange', value: 'orange'},
+      {label: 'White', value: 'white'},
+      {label: 'Blue Outline', value: 'blue_outline'},
+      {label: 'Deep Green Outline', value: 'deep_green_outline'},
+    ]},
+  ]},
+];
 
 export function CTALink({link}: {link: CTALinkFields}) {
     const style = findByType(link.config, 'style')?.value;
@@ -34,6 +46,17 @@ export interface CTABlockConfig {
         actions: CTALinkFields[];
         config: CTAConfig[];
     };
+}
+
+CTABlock.blockConfig = {
+  type: 'cta_block',
+  categories: ['content'],
+  fields: [
+    {name: 'actions', type: 'list', fields: ctaLinkFieldConfig},
+    {name: 'config', type: 'configs', configs: [
+      {name: 'analytics_label', type: 'text'},
+    ]},
+  ],
 }
 
 export function CTABlock({data}: {data: CTABlockConfig}) {

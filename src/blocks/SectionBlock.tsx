@@ -35,7 +35,28 @@ export interface SectionBlockConfig {
     content: ContentBlockConfig[];
     config: SectionConfigOptions[];
   };
-}
+};
+
+SectionBlock.blockConfig = {
+  type: 'section',
+  categories: ['structure'],
+  fields: [
+    {name: 'content', type: 'blocks', categories: ['content']},
+    {name: 'config', type: 'configs', configs: [
+      {name: 'text_alignment', type: 'select', options: [
+        {label: 'Left', value: 'left'},
+        {label: 'Right', value: 'right'},
+        {label: 'Center', value: 'center'},
+      ]},
+      {name: 'background_color', type: 'text', pattern: '#[a-f0-9]{6}'},
+      {name: 'padding', type: 'number'},
+      {name: 'padding_top', type: 'number'},
+      {name: 'padding_bottom', type: 'number'},
+      {name: 'analytics_label', type: 'text'},
+      {name: 'id', type: 'text'},
+    ]},
+  ],
+};
 
 // eslint-disable-next-line complexity
 export function SectionBlock({data}: {data: SectionBlockConfig}) {
