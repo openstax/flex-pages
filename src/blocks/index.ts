@@ -7,3 +7,4 @@ export { LinksBlock as links_group } from './LinksBlock';
 export { QuoteBlock as quote } from './QuoteBlock';
 export { RichTextBlock as text } from './RichTextBlock';
 export { SectionBlock as section } from './SectionBlock';
+export { ColumnsBlock as columns } from './ColumnsBlock';
