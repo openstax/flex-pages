@@ -1,11 +1,12 @@
 import React from 'react';
 import { createRoute, makeScreen } from "../core/services";
 import { FlexPage } from '@openstax/flex-page-renderer/wrappers/FlexPage';
-import { ContentBlocks } from '@openstax/flex-page-renderer/blocks/ContentBlock';
+import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
+import { ContentBlockRoot } from '@openstax/flex-page-renderer/blocks/ContentBlock';
 
 export const Home = () => {
   return <FlexPage>
-    <ContentBlocks data={sampleConent as any} />
+    <ContentBlockRoot blocks={allBlocks} data={sampleConent as any} />
   </FlexPage>;
 };
 
