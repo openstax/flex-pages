@@ -93,6 +93,38 @@ const sampleConent = [
     "id": "fc64d035-34fb-49c6-a3ec-74fe8dbc4c17"
   },
   {
+    "type": "columns",
+    "value": {
+      "leftContent": [
+        {
+          "type": "text",
+          "value": "<h2 data-block-key=\"0344r\">Meet the components</h2><p data-block-key=\"cnqgr\">FlexPages are a little bit more limited than a drag-and-drop page builder product. FlexPages use a discrete set of content and design components that accept specific data and are implemented explicitly on the website.</p><p data-block-key=\"3m756\">The components are flexible to use, but with specific structure and design to guarantee accessibility, functionality, and responsive design.</p>",
+          "id": "b658b242-d49a-48b5-9668-76654bdd57fd"
+        }
+      ],
+      "rightContent": [
+        {
+          "type": "text",
+          "value": "<h2 data-block-key=\"0344r\">Meet the components</h2><p data-block-key=\"cnqgr\">FlexPages are a little bit more limited than a drag-and-drop page builder product. FlexPages use a discrete set of content and design components that accept specific data and are implemented explicitly on the website.</p><p data-block-key=\"3m756\">The components are flexible to use, but with specific structure and design to guarantee accessibility, functionality, and responsive design.</p>",
+          "id": "b658b242-d49a-48b5-9668-76654bdd57fd"
+        }
+      ],
+      "config": [
+        {
+          "type": "gap",
+          "value": "1rem",
+          "id": "d8b713ec-0744-4f3d-9443-4e4e38f3d993"
+        },
+        {
+          "type": "left_size",
+          "value": "20rem",
+          "id": "d8b713ec-0744-4f3d-9443-4e4e38f3d993"
+        }
+      ]
+    },
+    "id": "7dd11353-b405-4b4b-92fb-e5948d1a5a1g"
+  },
+  {
     "type": "section",
     "value": {
       "content": [

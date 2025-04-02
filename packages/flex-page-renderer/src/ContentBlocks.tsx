@@ -1,7 +1,7 @@
 import React from 'react';
-import { BlockContext } from './ContentBlockRoot';
+import { BlockContext, ContentBlockConfig } from './ContentBlockContext';
 
-export type ContentBlockConfig = {type: string; id: string;};
+export type { ContentBlockConfig } from './ContentBlockContext';
 
 export function ContentBlocks({data}: {data: ContentBlockConfig[]}) {
   return <>
