@@ -1,14 +1,11 @@
 import React from 'react';
-import { fetchSuccess } from '@openstax/ts-utils/fetch';
-import { ContentBlockRootHoc, BlockData } from '@openstax/flex-page-renderer/ContentBlockRoot';
+import { BlockContext, BlockComponents } from '@openstax/flex-page-renderer/ContentBlockRoot';
 import { EditorFieldTypeContext } from './EditorFields';
 
-export const EditorDisplay = ({data}: {data: BlockData<any>}) => {
-  const { form: Form, blocks: Blocks } = React.useContext(EditorFieldTypeContext);
+export const EditorFormFields = ({name, blocks}: {name: string; blocks: BlockComponents<any>}) => {
+  const { blocks: Blocks } = React.useContext(EditorFieldTypeContext);
 
-  return <Form state={fetchSuccess(data)}>
-    <Blocks name="blocks" categories={['structure']} />
-  </Form>;
+  return <BlockContext.Provider value={blocks}>
+    <Blocks name={name} categories={['structure']} />
+  </BlockContext.Provider>
 };
-
-export const Editor = ContentBlockRootHoc(EditorDisplay);

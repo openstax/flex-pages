@@ -6,7 +6,6 @@ import { CollapsibleFieldset } from './CollapsibleFieldset';
 
 const defaultFieldTypes = {
   ...fieldTypes,
-  form: UI.Forms.Controlled.Form,
   text: UI.Forms.Controlled.TextInput,
   ['rich-text']: UI.Forms.Controlled.TextArea,
   ['long-text']: UI.Forms.Controlled.TextArea,
