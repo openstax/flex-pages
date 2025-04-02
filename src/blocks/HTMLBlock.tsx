@@ -9,10 +9,11 @@ export interface HTMLBlockConfig {
 HTMLBlock.blockConfig = {
   type: 'html',
   categories: ['structure'],
-  field: {name: 'html', type: 'long-text'} ,
+  label: 'HTML',
+  field: {name: 'html', label: 'HTML', help: 'Raw html to be embedded in the page', type: 'long-text'},
 };
 
 
 export function HTMLBlock({data}: {data: HTMLBlockConfig}) {
-    return <Html sanitize={false} block html={data.value} />;
+  return <Html sanitize={false} block html={data.value} />;
 }

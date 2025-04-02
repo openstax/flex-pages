@@ -11,15 +11,15 @@ export interface LinkFields {
 }
 
 export const linkFieldConfig = [
-  {name: 'text', type: 'text', required: true},
-  {name: 'ariaLabel', type: 'text'},
-  {name: 'target', type: 'namespace', fields: [
-    {name: 'type', type: 'select', options: [
+  {name: 'text', label: 'Link Text', type: 'text', required: true},
+  {name: 'ariaLabel', label: 'Aria Label', type: 'text'},
+  {name: 'target', label: 'Link Target', type: 'namespace', fields: [
+    {name: 'type', label: 'Link Type', type: 'select', options: [
       {label: 'External', value: 'external'},
       {label: 'Internal', value: 'internal'},
       {label: 'Anchor', value: 'anchor'},
     ]},
-    {name: 'value', type: 'text'},
+    {name: 'value', label: 'Target Value', type: 'text'},
   ]},
 ];
 

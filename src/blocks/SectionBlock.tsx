@@ -40,20 +40,21 @@ export interface SectionBlockConfig {
 SectionBlock.blockConfig = {
   type: 'section',
   categories: ['structure'],
+  label: 'Section',
   fields: [
-    {name: 'content', type: 'blocks', categories: ['content']},
-    {name: 'config', type: 'configs', configs: [
-      {name: 'text_alignment', type: 'select', options: [
+    {name: 'content', label: 'Section Content', type: 'blocks', categories: ['content']},
+    {name: 'config', label: 'Config', type: 'configs', configs: [
+      {name: 'text_alignment', label: 'Text Alignment', type: 'select', options: [
         {label: 'Left', value: 'left'},
         {label: 'Right', value: 'right'},
         {label: 'Center', value: 'center'},
       ]},
-      {name: 'background_color', type: 'text', pattern: '#[a-f0-9]{6}'},
-      {name: 'padding', type: 'number'},
-      {name: 'padding_top', type: 'number'},
-      {name: 'padding_bottom', type: 'number'},
-      {name: 'analytics_label', type: 'text'},
-      {name: 'id', type: 'text'},
+      {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-f0-9]{6}'},
+      {name: 'padding', label: 'Padding', help: 'Top and Bottom padding, in 10px increments', type: 'number'},
+      {name: 'padding_top', label: 'Padding Top', help: 'Top padding, in 10px increments', type: 'number'},
+      {name: 'padding_bottom', label: 'Padding Bottom', help: 'Bottom padding, in 10px increments', type: 'number'},
+      {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text'},
+      {name: 'id', label: 'ID', help: 'The HTML id of the section (can be referenced by anchor links).', type: 'text'},
     ]},
   ],
 };

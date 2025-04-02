@@ -8,9 +8,9 @@ export interface ImageFields {
 }
 
 export const imageFieldsConfig = [
-  {name: 'file', type: 'text'},
-  {name: 'height', type: 'number'},
-  {name: 'width', type: 'number'},
+  {name: 'file', label: 'File Path', help: 'URL to the image file.', type: 'text'},
+  {name: 'height', label: 'Height', help: 'The raw pixel height of the image.', type: 'number'},
+  {name: 'width', label: 'Width', help: 'The raw pixel width of the image.', type: 'number'},
 ];
 
 type ImageProps = {

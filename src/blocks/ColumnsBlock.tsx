@@ -46,22 +46,23 @@ export interface ColumnsBlockConfig {
 
 ColumnsBlock.blockConfig = {
   type: 'columns',
+  label: 'Columns',
   categories: ['structure'],
   fields: [
-    {name: 'leftContent', type: 'blocks', categories: ['content']},
-    {name: 'rightContent', type: 'blocks', categories: ['content']},
-    {name: 'config', type: 'configs', configs: [
-      {name: 'background_color', type: 'text', pattern: '#[a-f0-9]{6}'},
-      {name: 'padding', type: 'number'},
-      {name: 'padding_top', type: 'number'},
-      {name: 'padding_bottom', type: 'number'},
-      {name: 'analytics_label', type: 'text'},
-      {name: 'id', type: 'text'},
-      {name: 'gap', type: 'text'},
-      {name: 'right_size', type: 'text',
+    {name: 'leftContent', label: 'Left Column Content', type: 'blocks', categories: ['content']},
+    {name: 'rightContent', label: 'Right Column Content', type: 'blocks', categories: ['content']},
+    {name: 'config', label: 'Config', type: 'configs', configs: [
+      {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-f0-9]{6}'},
+      {name: 'padding', label: 'Padding', help: 'Top and Bottom padding, in 10px increments', type: 'number'},
+      {name: 'padding_top', label: 'Padding Top', help: 'Top padding, in 10px increments', type: 'number'},
+      {name: 'padding_bottom', label: 'Padding Bottom', help: 'Bottom padding, in 10px increments', type: 'number'},
+      {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text'},
+      {name: 'id', label: 'ID', help: 'The HTML id of the section (can be referenced by anchor links).', type: 'text'},
+      {name: 'gap', label: 'Column Gap', help: 'The space between the columns, in 10px increments', type: 'number'},
+      {name: 'right_size', label: 'Right Column Size', help: 'CSS text for the right column eg (20rem, 30%)', type: 'text',
         disabledWhen: (data: any) => !!data?.config?.find((c: any) => c.name === 'left_size')
       },
-      {name: 'left_size', type: 'text',
+      {name: 'left_size', label: 'Left Column Size', help: 'CSS text for the left column eg (20rem, 30%)', type: 'text',
         disabledWhen: (data: any) => !!data?.config?.find((c: any) => c.name === 'right_size')
       },
     ]},
@@ -71,7 +72,7 @@ ColumnsBlock.blockConfig = {
 // eslint-disable-next-line complexity
 export function ColumnsBlock({data}: {data: ColumnsBlockConfig}) {
   const id = findByType(data.value.config, 'id')?.value;
-  const gap = findByType(data.value.config, 'gap')?.value;
+  const gap = findByType(data.value.config, 'gap')?.value ?? 0;
   const leftSize = findByType(data.value.config, 'left_size')?.value;
   const rightSize = leftSize ? undefined : findByType(data.value.config, 'left_size')?.value;
   const backgroundColor = findByType(data.value.config, 'background_color')?.value;
@@ -81,7 +82,8 @@ export function ColumnsBlock({data}: {data: ColumnsBlockConfig}) {
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
   const isDark = backgroundColor && Color(backgroundColor).isDark(); // eslint-disable-line new-cap
 
-  const leftStyle = leftSize ? {'--col-width': leftSize, marginRight: gap} : {flex: 1, marginRight: gap};
+  const marginRight = `calc(${gap} * 1rem)`
+  const leftStyle = leftSize ? {'--col-width': leftSize, marginRight} : {flex: 1, marginRight};
   const rightStyle = rightSize ? {'--col-width': rightSize} : {flex: 1};
 
   return <section

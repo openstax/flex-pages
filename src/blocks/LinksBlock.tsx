@@ -23,11 +23,12 @@ export interface LinksBlockConfig {
 LinksBlock.blockConfig = {
   type: 'cta_block',
   categories: ['content'],
+  label: 'Links',
   fields: [
-    {name: 'links', type: 'list', fields: linkFieldConfig},
-    {name: 'config', type: 'configs', configs: [
-      {name: 'analytics_label', type: 'text'},
-      {name: 'color', type: 'select', options: [
+    {name: 'links', label: 'Links', type: 'list', fields: linkFieldConfig},
+    {name: 'config', label: 'Config', type: 'configs', configs: [
+      {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text'},
+      {name: 'color', label: 'Color', type: 'select', options: [
         {value: 'white', label: 'White'},
         {value: 'blue', label: 'Blue'},
         {value: 'deep-green', label: 'Deep Green'},
@@ -37,14 +38,14 @@ LinksBlock.blockConfig = {
 }
 
 export function LinksBlock({data}: {data: LinksBlockConfig}) {
-    const analytics = findByType(data.value.config, 'analytics_label')?.value;
-    const color = findByType(data.value.config, 'color')?.value ?? 'white';
-    const colorClass = `color-${color}`;
+  const analytics = findByType(data.value.config, 'analytics_label')?.value;
+  const color = findByType(data.value.config, 'color')?.value ?? 'white';
+  const colorClass = `color-${color}`;
 
-    return <div
-        className={cn('content-block-links', colorClass)}
-        data-analytics-nav={analytics}
-    >
-        {data.value.links.map((action, i) => <Link key={i} link={action} />)}
-    </div>;
+  return <div
+    className={cn('content-block-links', colorClass)}
+    data-analytics-nav={analytics}
+  >
+    {data.value.links.map((action, i) => <Link key={i} link={action} />)}
+  </div>;
 }
