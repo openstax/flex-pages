@@ -46,12 +46,13 @@ export interface HeroBlockConfig {
 HeroBlock.blockConfig = {
   type: 'hero',
   categories: ['structure'],
+  label: 'Hero',
   fields: [
-    {name: 'content', type: 'blocks', categories: ['content']},
-    {name: 'imageAlt', type: 'text'},
-    {name: 'image', type: 'namespace', fields: imageFieldsConfig},
-    {name: 'config', type: 'configs', configs: [
-      {name: 'image_alignment', type: 'select', options: [
+    {name: 'content', label: 'Content', type: 'blocks', categories: ['content']},
+    {name: 'imageAlt', label: 'Image Alt', type: 'text'},
+    {name: 'image', label: 'Hero Image', type: 'namespace', fields: imageFieldsConfig},
+    {name: 'config', label: 'Config', type: 'configs', configs: [
+      {name: 'image_alignment', label: 'Image Alignment', type: 'select', options: [
         {label: 'Left', value: 'left'},
         {label: 'Top Left', value: 'top_left'},
         {label: 'Bottom Left', value: 'bottom_left'},
@@ -59,17 +60,17 @@ HeroBlock.blockConfig = {
         {label: 'Top Right', value: 'top_right'},
         {label: 'Bottom Right', value: 'bottom_right'},
       ]},
-      {name: 'text_alignment', type: 'select', options: [
+      {name: 'text_alignment', label: 'Text Alignment', type: 'select', options: [
         {label: 'Left', value: 'left'},
         {label: 'Right', value: 'right'},
         {label: 'Center', value: 'center'},
       ]},
-      {name: 'background_color', type: 'text', pattern: '#[a-f0-9]{6}'},
-      {name: 'padding', type: 'number'},
-      {name: 'padding_top', type: 'number'},
-      {name: 'padding_bottom', type: 'number'},
-      {name: 'analytics_label', type: 'text'},
-      {name: 'id', type: 'text'},
+      {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-f0-9]{6}'},
+      {name: 'padding', label: 'Padding', help: 'Top and Bottom padding, in 10px increments', type: 'number'},
+      {name: 'padding_top', label: 'Padding Top', help: 'Top padding, in 10px increments', type: 'number'},
+      {name: 'padding_bottom', label: 'Padding Bottom', help: 'Bottom padding, in 10px increments', type: 'number'},
+      {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text'},
+      {name: 'id', label: 'ID', help: 'The HTML id of the section (can be referenced by anchor links).', type: 'text'},
     ]},
   ],
 };

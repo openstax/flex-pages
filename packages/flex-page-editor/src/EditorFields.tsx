@@ -2,18 +2,23 @@ import React from 'react';
 import * as UI from '@openstax/ui-components';
 import type { ConfigField } from '@openstax/flex-page-renderer';
 import * as fieldTypes from './FieldTypes';
+import { CollapsibleFieldset } from './CollapsibleFieldset';
 
 const defaultFieldTypes = {
   ...fieldTypes,
   form: UI.Forms.Controlled.Form,
-  formSection: UI.Forms.Controlled.FormSection,
-  list: UI.Forms.Controlled.List,
-  listItems: UI.Forms.Controlled.ListItems,
   text: UI.Forms.Controlled.TextInput,
-  namespace: ({name, fields}: {name: string; fields: ConfigField[]}) =>
-    <UI.Forms.Controlled.NameSpace name={name}>
-      <EditorFields fields={fields} />
-    </UI.Forms.Controlled.NameSpace>,
+  ['rich-text']: UI.Forms.Controlled.TextArea,
+  ['long-text']: UI.Forms.Controlled.TextArea,
+  select: UI.Forms.Controlled.Select,
+  namespace: ({name, label, fields, children}: React.PropsWithChildren<ConfigField & {fields: ConfigField[]}>) => 
+    <CollapsibleFieldset legend={label}>
+      <UI.Forms.Controlled.NameSpace name={name}>
+        <EditorFields fields={fields} />
+      </UI.Forms.Controlled.NameSpace>
+      {children}
+    </CollapsibleFieldset>
+  ,
 }
 
 export const EditorFieldTypeContext = React.createContext<Record<string, React.ComponentType<any>>>(
@@ -22,12 +27,12 @@ export const EditorFieldTypeContext = React.createContext<Record<string, React.C
 
 export function EditorFields({fields}: {fields: ConfigField[]}) {
   return <>
-      {fields.map(field => <EditorField key={field.name} {...field} />)}
+    {fields.map(field => <EditorField key={field.name} {...field} />)}
   </>;
 }
 
-export function EditorField({type, ...field}: ConfigField) {
+export function EditorField({type, ...field}: React.PropsWithChildren<ConfigField>) {
   const Field = React.useContext(EditorFieldTypeContext)[type];
-  if (!Field) return <pre>{JSON.stringify(field, null, 2)}</pre>;
+  if (!Field) return <pre>{JSON.stringify({type, field}, null, 2)}</pre>;
   return <Field {...field} />;
 }

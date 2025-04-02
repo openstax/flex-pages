@@ -10,7 +10,8 @@ export interface RichTextBlockConfig {
 RichTextBlock.blockConfig = {
   type: 'text',
   categories: ['content'],
-  field: {name: 'text', type: 'rich-text'},
+  label: 'Text',
+  field: {name: 'text', label: 'Text', type: 'rich-text'},
 };
 
 export function RichTextContent({html}: {html: string}) {

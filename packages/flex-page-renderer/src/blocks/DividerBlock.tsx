@@ -1,7 +1,6 @@
 import cn from 'classnames';
-import { Image, ImageFields } from '../components/Image';
+import { Image, ImageFields, imageFieldsConfig } from '../components/Image';
 import { findByType } from '../utils';
-import { ctaLinkFieldConfig } from './CTABlock';
 import './DividerBlock.css';
 
 export type DividerConfigOptions = {
@@ -33,23 +32,21 @@ export interface DividerBlockConfig {
 DividerBlock.blockConfig = {
   type: 'divider',
   categories: ['structure'],
+  label: 'Divider',
   fields: [
-    {name: 'cards', type: 'list', fields: [
-      {name: 'text', type: 'text'},
-      {name: 'ctaBlock', type: 'list', fields: ctaLinkFieldConfig, max: 1},
-    ]},
-    {name: 'config', type: 'configs', configs: [
-      {name: 'width', type: 'text'},
-      {name: 'height', type: 'text'},
-      {name: 'alignment', type: 'select', options: [
+    {name: 'image', label: 'Image', type: 'namespace', fields: imageFieldsConfig},
+    {name: 'config', label: 'Config', type: 'configs', configs: [
+      {name: 'width', label: 'Image Display Width', help: 'CSS text for the width to display the image', type: 'text'},
+      {name: 'height', label: 'Image Display Height', help: 'CSS text for the height to display the image', type: 'text'},
+      {name: 'alignment', label: 'Image Alignment', type: 'select', options: [
         {label: 'Left side of Content', value: 'content_left'},
         {label: 'Right side of Content', value: 'content_right'},
         {label: 'Left side of Page', value: 'body_left'},
         {label: 'Right side of Page', value: 'body_right'},
         {label: 'Center', value: 'center'},
       ]},
-      {name: 'offset_vertical', type: 'text'},
-      {name: 'offset_horizontal', type: 'text'},
+      {name: 'offset_vertical', label: 'Offset Vertical', help: 'CSS text for vertical offset eg `-50%` to center the image vertically', type: 'text'},
+      {name: 'offset_horizontal', label: 'Offset Horizontal', help: 'CSS text for horizontal offset eg `-50%` to center the image horizontally', type: 'text'},
     ]},
   ],
 };

@@ -31,18 +31,19 @@ export type CardsBlockConfig = {
 
 CardsBlock.blockConfig = {
   type: 'cards_block',
+  label: 'Cards Block',
   categories: ['content'],
   fields: [
-    {name: 'cards', type: 'list', fields: [
-      {name: 'text', type: 'text'},
-      {name: 'ctaBlock', type: 'list', fields: ctaLinkFieldConfig, max: 1},
+    {name: 'cards', label: 'Cards', type: 'list', fields: [
+      {name: 'text', label: 'Card Text', type: 'text', required: true},
+      {name: 'ctaBlock', label: 'Call To Action', type: 'list', fields: ctaLinkFieldConfig, max: 1},
     ]},
-    {name: 'config', type: 'configs', configs: [
-      {name: 'card_style', type: 'select', options: [
+    {name: 'config', label: 'Config', type: 'configs', configs: [
+      {name: 'card_style', label: 'Style', type: 'select', options: [
         {label: 'Rounded', value: 'rounded'},
         {label: 'Square', value: 'square'},
       ]},
-      {name: 'card_size', type: 'number'},
+      {name: 'card_size', label: 'Size', help: 'A single number representing 10px increments', type: 'number'},
     ]},
   ],
 };

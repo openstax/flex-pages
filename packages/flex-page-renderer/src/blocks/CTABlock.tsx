@@ -14,8 +14,8 @@ export interface CTALinkFields extends LinkFields {
 
 export const ctaLinkFieldConfig = [
   ...linkFieldConfig,
-  {name: 'config', type: 'configs', configs: [
-    {name: 'style', type: 'select', options: [
+  {name: 'config', label: 'Config', type: 'configs', configs: [
+    {name: 'style', label: 'Style', type: 'select', options: [
       {label: 'Orange', value: 'orange'},
       {label: 'White', value: 'white'},
       {label: 'Blue Outline', value: 'blue_outline'},
@@ -51,10 +51,11 @@ export interface CTABlockConfig {
 CTABlock.blockConfig = {
   type: 'cta_block',
   categories: ['content'],
+  label: 'Call to Action',
   fields: [
-    {name: 'actions', type: 'list', fields: ctaLinkFieldConfig},
-    {name: 'config', type: 'configs', configs: [
-      {name: 'analytics_label', type: 'text'},
+    {name: 'actions', label: 'Actions', type: 'list', fields: ctaLinkFieldConfig},
+    {name: 'config', label: 'Config', type: 'configs', configs: [
+      {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text'},
     ]},
   ],
 }

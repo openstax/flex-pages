@@ -5,6 +5,7 @@ export type ContentBlockConfig = {type: string; id: string;};
 
 export type ConfigMetadata<T> = {
   type: T;
+  label: string;
   categories: string[];
   field?: ConfigField;
   fields?: ConfigField[];
