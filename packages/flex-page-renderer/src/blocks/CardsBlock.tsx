@@ -64,7 +64,7 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
 }
 
 export function CardBlock({data}: {data: CardBlockConfig}) {
-    const [cta] = data.ctaBlock;
+    const [cta] = data.ctaBlock ?? [];
 
     return <div className="content-block-card">
         <RichTextContent html={data.text} />

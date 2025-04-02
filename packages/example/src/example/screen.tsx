@@ -3,10 +3,16 @@ import { createRoute, makeScreen } from "../core/services";
 import { FlexPage } from '@openstax/flex-page-renderer/wrappers/FlexPage';
 import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
 import { ContentBlockRoot } from '@openstax/flex-page-renderer/ContentBlockRoot';
+import { useQuery } from '../routing/useQuery';
 
 export const Home = () => {
+  const query = useQuery();
+  const page = React.useMemo(() =>
+    typeof query.page === 'string' ? JSON.parse(query.page) : undefined
+  , [query.page]);
+
   return <FlexPage>
-    <ContentBlockRoot blocks={allBlocks} data={sampleConent as any} />
+    <ContentBlockRoot blocks={allBlocks} data={(page ? page.blocks : sampleContent) as any} />
   </FlexPage>;
 };
 
@@ -16,7 +22,7 @@ export const homeScreen = createRoute({name: 'HomeScreen',
 });
 
 /* eslint-disable max-len */
-const sampleConent = [
+const sampleContent = [
   {
     "type": "section",
     "value": {
