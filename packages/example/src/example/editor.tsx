@@ -14,10 +14,7 @@ export const EditorScreen = () => {
   </>;
 };
 
-const pathPrefix = process.env.NODE_ENV === 'development' ?
-  '/' : process.env.PUBLIC_URL;
-
 export const editorScreen = createRoute({name: 'EditorScreen',
-  path: pathPrefix + 'edit',
+  path: '/edit',
   handler: makeScreen(EditorScreen)
 });

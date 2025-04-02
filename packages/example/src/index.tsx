@@ -1,5 +1,5 @@
 import { ErrorBoundary } from "@openstax/ui-components";
-import { createBrowserHistory, Location } from "history";
+import { createHashHistory, Location } from "history";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { getRequestResponder } from "./core";
@@ -14,7 +14,7 @@ import './index.css';
  * that you wanted to use a fake driver for in dev (or something like that)
  */
 const services = {
-  history: createBrowserHistory(),
+  history: createHashHistory(),
 };
 
 export type BrowserServices = typeof services;
