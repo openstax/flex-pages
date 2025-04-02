@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "sideEffects": false,
   "dependencies": {
-    "@openstax/flex-page-renderer": "1.0.0",
+    "@openstax/flex-page-renderer": "https://github.com/openstax/flex-pages#renderer-1.0.0",
     "classnames": "^2.5.1"
   },
   "devDependencies": {

@@ -3299,6 +3299,14 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@openstax/flex-page-renderer@https://github.com/openstax/flex-pages#renderer-1.0.0":
+  version "1.0.0"
+  resolved "https://github.com/openstax/flex-pages#49746d9ccebb174ef3b1d10ccff25a81a6c202a6"
+  dependencies:
+    classnames "^2.5.1"
+    color "^5.0.0"
+    dompurify "^3.2.4"
+
 "@openstax/ts-utils@1.21.9":
   version "1.21.9"
   resolved "https://registry.yarnpkg.com/@openstax/ts-utils/-/ts-utils-1.21.9.tgz#5a0396f803865d4b5948bd5e67c435ad32efe6c0"
