@@ -47,7 +47,6 @@ CardsBlock.blockConfig = {
   ],
 };
 
-
 export function CardsBlock({data}: {data: CardsBlockConfig}) {
     const cardStyle = findByType(data.value.config, 'card_style')?.value;
     const styleClass = cardStyle ? `card_style_${cardStyle}` : undefined;
