@@ -34,8 +34,10 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: yarn
+      - run: rm -rf packages/flex-*
       - run: yarn install --immutable
       - run: yarn build
+        working-directory: packages/example
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
