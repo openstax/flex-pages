@@ -4,6 +4,26 @@
   width: 100%;
   margin: 0;
 
+  &.content-block-flex-grow { flex: 1 0 }
+  &.content-block-flex { flex: 1 }
+  &.content-block-flex-shrink { flex: 0 1 }
+
+  &.content-block-flex,
+  &.content-block-flex-shrink {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    > div.columns-content {
+      overflow-y: hidden;
+
+      .content-block-columns-left,
+      .content-block-columns-right {
+        overflow-y: auto;
+      }
+    }
+  }
+
   > div.columns-content {
     /* to show above divider images */
     position: relative;
@@ -24,7 +44,7 @@
     }
 
     .content-block-columns-left,
-    .content-block-columns-rigth {
+    .content-block-columns-right {
       max-width: var(--col-width, unset);
 
       @include width-up-to($tablet-max) {

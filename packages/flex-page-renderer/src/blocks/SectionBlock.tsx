@@ -26,6 +26,9 @@ export type SectionConfigOptions = {
 } | {
   type: 'id';
   value: string;
+} | {
+  type: 'flex';
+  value: 'flex' | 'flex-grow' | 'flex-shrink';
 };
 
 export interface SectionBlockConfig {
@@ -49,7 +52,12 @@ SectionBlock.blockConfig = {
         {label: 'Right', value: 'right'},
         {label: 'Center', value: 'center'},
       ]},
-      {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-f0-9]{6}'},
+      {name: 'flex', label: 'Height', type: 'select', options: [
+        {label: 'Grow to fill available page space', value: 'flex-grow'},
+        {label: 'Shrink to fit available page space', value: 'flex-shrink'},
+        {label: 'Fit to available page space', value: 'flex'},
+      ]},
+      {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}'},
       {name: 'padding', label: 'Padding', help: 'Top and Bottom padding, in 10px increments', type: 'number'},
       {name: 'padding_top', label: 'Padding Top', help: 'Top padding, in 10px increments', type: 'number'},
       {name: 'padding_bottom', label: 'Padding Bottom', help: 'Bottom padding, in 10px increments', type: 'number'},
@@ -63,6 +71,7 @@ SectionBlock.blockConfig = {
 export function SectionBlock({data}: {data: SectionBlockConfig}) {
   const id = findByType(data.value.config, 'id')?.value;
   const textAlign = findByType(data.value.config, 'text_alignment')?.value;
+  const flex = findByType(data.value.config, 'flex')?.value;
   const backgroundColor = findByType(data.value.config, 'background_color')?.value;
   const padding = findByType(data.value.config, 'padding')?.value ?? 0;
   const paddingTop = findByType(data.value.config, 'padding_top')?.value;
@@ -72,7 +81,7 @@ export function SectionBlock({data}: {data: SectionBlockConfig}) {
 
   return <section
     id={id}
-    className={cn('content-block-section', {'dark-background': isDark})}
+    className={cn('content-block-section', {'dark-background': isDark, [`content-block-${flex}`]: flex})}
     data-analytics-nav={analytics}
     style={{backgroundColor,
       '--padding-multiplier': padding,

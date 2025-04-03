@@ -15,15 +15,19 @@ import { EditorFieldTypeContext } from './EditorFields';
  * if the issue is related to symlinks, its possible that it would work correctly
  * sometimes, but i haven't seen it work yet after trying several configurations.
  */
-export const EditorFormFields = ({name, blocks, FormContext}: {
+export const FlexBlockEditor = ({name, label, blocks, type, FormContext}: {
   name: string;
+  label?: string;
+  type?: string;
   blocks: BlockComponents<any>;
+  categories?: string[];
   FormContext?: typeof UI.Forms.Controlled.FormStateContext;
 }) => {
-  const { blocks: Blocks } = React.useContext(EditorFieldTypeContext);
+  const editorType = type ?? 'flex_page';
+  const { block: Block } = React.useContext(EditorFieldTypeContext);
   
   const inner = <BlockContext.Provider value={blocks}>
-    <Blocks name={name} categories={['structure']} />
+    <Block label={label} name={name} types={[editorType]} />
   </BlockContext.Provider>
 
   if (FormContext && FormContext !== UI.Forms.Controlled.FormStateContext) {

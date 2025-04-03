@@ -5,7 +5,7 @@ import { CollapsibleFieldset } from './CollapsibleFieldset';
 import { BlockContext } from '@openstax/flex-page-renderer/ContentBlockRoot';
 import * as UI from '@openstax/ui-components';
 
-const DisplayBlockForm = ({children}: React.PropsWithChildren<{}>) => {
+const DisplayBlockForm = ({children, label}: React.PropsWithChildren<{label?: string}>) => {
   const formState = UI.Forms.Controlled.useFormHelpers();
   const data = formState.data;
 
@@ -13,8 +13,8 @@ const DisplayBlockForm = ({children}: React.PropsWithChildren<{}>) => {
   if (!config) return <pre>{JSON.stringify(data, null, 2)}</pre>;
 
   return config.field
-    ? <><EditorField {...config.field} name="value" />{children}</>
-    : <EditorField label={config.label} children={children} name="value" type="namespace" fields={config.fields || []} />
+    ? <><EditorField {...config.field} label={label ?? config.label} name="value" />{children}</>
+    : <EditorField label={label ?? config.label} children={children} name="value" type="namespace" fields={config.fields || []} />
   ;
 }
 
@@ -27,6 +27,36 @@ const AddBlock = ({categories}: {categories: string[]}) => {
     <ul>{blocks.map(([key, {blockConfig}]) =>
       <li key={key}><button type="button" onClick={
         () => listHelpers.addRecord({type: key})
+      }>{blockConfig.label}</button></li>
+    )}</ul>
+  </div>;
+};
+
+export const block = ({name, label, types, categories}: {name: string; label: string; types?: string[]; categories?: string[]}) => {
+  const formState = UI.Forms.Controlled.useFormHelpers();
+  const value = formState.data[name];
+  const setValue = formState.setInput.field(name);
+  const blocks = Object.entries(React.useContext(BlockContext)).filter(
+    ([, definition]) => (!categories || definition.blockConfig.categories.find(s => categories.includes(s)))
+      && (!types || types.includes(definition.blockConfig.type))
+  );
+
+  if (value) {
+    return <UI.Forms.Controlled.NameSpace name={name}>
+      <DisplayBlockForm label={label} />
+    </UI.Forms.Controlled.NameSpace>;
+  }
+
+  if (blocks.length === 1) {
+    return <button type="button" onClick={
+      () => setValue({type: blocks[0][1].blockConfig.type})
+    }>Add {blocks[0][1].blockConfig.label}</button>;
+  }
+
+  return <div>add a:
+    <ul>{blocks.map(([key, {blockConfig}]) =>
+      <li key={key}><button type="button" onClick={
+        () => setValue({type: key})
       }>{blockConfig.label}</button></li>
     )}</ul>
   </div>;

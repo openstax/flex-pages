@@ -32,6 +32,9 @@ export type SectionConfigOptions = {
 } | {
   type: 'gap';
   value: string;
+} | {
+  type: 'flex';
+  value: 'flex' | 'flex-grow' | 'flex-shrink';
 };
 
 export interface ColumnsBlockConfig {
@@ -52,10 +55,15 @@ ColumnsBlock.blockConfig = {
     {name: 'leftContent', label: 'Left Column Content', type: 'blocks', categories: ['content']},
     {name: 'rightContent', label: 'Right Column Content', type: 'blocks', categories: ['content']},
     {name: 'config', label: 'Config', type: 'configs', configs: [
-      {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-f0-9]{6}'},
+      {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}'},
       {name: 'padding', label: 'Padding', help: 'Top and Bottom padding, in 10px increments', type: 'number'},
       {name: 'padding_top', label: 'Padding Top', help: 'Top padding, in 10px increments', type: 'number'},
       {name: 'padding_bottom', label: 'Padding Bottom', help: 'Bottom padding, in 10px increments', type: 'number'},
+      {name: 'flex', label: 'Height', type: 'select', options: [
+        {label: 'Grow to fill available page space', value: 'flex-grow'},
+        {label: 'Shrink to fit available page space', value: 'flex-shrink'},
+        {label: 'Fit to available page space', value: 'flex'},
+      ]},
       {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text'},
       {name: 'id', label: 'ID', help: 'The HTML id of the section (can be referenced by anchor links).', type: 'text'},
       {name: 'gap', label: 'Column Gap', help: 'The space between the columns, in 10px increments', type: 'number'},
@@ -73,6 +81,7 @@ ColumnsBlock.blockConfig = {
 export function ColumnsBlock({data}: {data: ColumnsBlockConfig}) {
   const id = findByType(data.value.config, 'id')?.value;
   const gap = findByType(data.value.config, 'gap')?.value ?? 0;
+  const flex = findByType(data.value.config, 'flex')?.value;
   const leftSize = findByType(data.value.config, 'left_size')?.value;
   const rightSize = leftSize ? undefined : findByType(data.value.config, 'left_size')?.value;
   const backgroundColor = findByType(data.value.config, 'background_color')?.value;
@@ -88,7 +97,7 @@ export function ColumnsBlock({data}: {data: ColumnsBlockConfig}) {
 
   return <section
     id={id}
-    className={cn('content-block-columns', {'dark-background': isDark})}
+    className={cn('content-block-columns', {'dark-background': isDark, [`content-block-${flex}`]: flex})}
     data-analytics-nav={analytics}
     style={{backgroundColor,
       '--padding-multiplier': padding,

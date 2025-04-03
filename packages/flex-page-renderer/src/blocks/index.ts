@@ -8,3 +8,4 @@ export { QuoteBlock as quote } from './QuoteBlock';
 export { RichTextBlock as text } from './RichTextBlock';
 export { SectionBlock as section } from './SectionBlock';
 export { ColumnsBlock as columns } from './ColumnsBlock';
+export { FlexPage as flex_page } from './FlexPage';
