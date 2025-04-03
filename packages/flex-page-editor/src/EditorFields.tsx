@@ -2,11 +2,17 @@ import React from 'react';
 import * as UI from '@openstax/ui-components';
 import type { ConfigField } from '@openstax/flex-page-renderer';
 import * as fieldTypes from './FieldTypes';
+import { LinkTarget } from './Fields/LinkTarget';
 import { CollapsibleFieldset } from './CollapsibleFieldset';
 
 const defaultFieldTypes = {
   ...fieldTypes,
   text: UI.Forms.Controlled.TextInput,
+  url: (props: React.ComponentProps<typeof UI.Forms.Controlled.TextInput>) =>
+    <UI.Forms.Controlled.TextInput {...props} type="url" />,
+  number: (props: React.ComponentProps<typeof UI.Forms.Controlled.TextInput>) =>
+    <UI.Forms.Controlled.TextInput {...props} type="number" />,
+  ['link-target']: LinkTarget,
   ['rich-text']: UI.Forms.Controlled.TextArea,
   ['long-text']: UI.Forms.Controlled.TextArea,
   select: UI.Forms.Controlled.Select,

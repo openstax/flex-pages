@@ -10,6 +10,7 @@ import { useServices } from '../core/context/services';
 import { homeScreen } from './screen';
 import { quillExtensions } from '@openstax/flex-page-editor-quill-extension';
 import { selectExtensions } from '@openstax/flex-page-editor-select-extension';
+import { actions } from './actions';
 
 const fieldTypes = {
   ...quillExtensions,
@@ -32,6 +33,7 @@ export const EditorScreen = () => {
     <UI.Forms.Controlled.Form state={fetchSuccess({})} onSubmit={onSubmit}>
       <FlexBlockEditor
         blocks={allBlocks}
+        actions={actions}
         fields={fieldTypes}
         type="flex_page"
         name="page"

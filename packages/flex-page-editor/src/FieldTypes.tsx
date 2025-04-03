@@ -1,4 +1,4 @@
-import { EditorField, EditorFields, EditorFieldTypeContext } from './EditorFields';
+import { EditorField, EditorFields } from './EditorFields';
 import type { ConfigField } from '@openstax/flex-page-renderer';
 import React from 'react';
 import { CollapsibleFieldset } from './CollapsibleFieldset';
@@ -32,6 +32,9 @@ const AddBlock = ({categories}: {categories: string[]}) => {
   </div>;
 };
 
+// copied from ui-components/src/components/forms/controlled/hooks.ts
+const randomId = () => window.crypto.getRandomValues(new Uint32Array(1))[0].toString(16)
+
 export const block = ({name, label, types, categories}: {name: string; label: string; types?: string[]; categories?: string[]}) => {
   const formState = UI.Forms.Controlled.useFormHelpers();
   const value = formState.data[name];
@@ -49,14 +52,14 @@ export const block = ({name, label, types, categories}: {name: string; label: st
 
   if (blocks.length === 1) {
     return <button type="button" onClick={
-      () => setValue({type: blocks[0][1].blockConfig.type})
+      () => setValue({type: blocks[0][1].blockConfig.type, id: randomId()})
     }>Add {blocks[0][1].blockConfig.label}</button>;
   }
 
   return <div>add a:
     <ul>{blocks.map(([key, {blockConfig}]) =>
       <li key={key}><button type="button" onClick={
-        () => setValue({type: key})
+        () => setValue({type: key, id: randomId()})
       }>{blockConfig.label}</button></li>
     )}</ul>
   </div>;
@@ -137,9 +140,4 @@ export const list = ({name, label, max, fields}: ConfigField & {max?: number, fi
       <AddListItem name={name} max={max} />
     </UI.Forms.Controlled.List>
   </CollapsibleFieldset>;
-};
-
-export const number = (props: any) => {
-  const { text: Text } = React.useContext(EditorFieldTypeContext);
-  return <Text type="number" {...props} />
 };

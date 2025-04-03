@@ -5,6 +5,7 @@ import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
 import { ContentBlockRoot } from '@openstax/flex-page-renderer/ContentBlockRoot';
 import { useQuery } from '../routing/useQuery';
 import { Layout } from '../components/Layout';
+import { actions } from './actions';
 
 export const Home = () => {
   const query = useQuery();
@@ -14,7 +15,7 @@ export const Home = () => {
 
   return <Layout>
     <UI.NavBar logo />
-    <ContentBlockRoot blocks={allBlocks} data={(page ? [page] : sampleContent) as any} />
+    <ContentBlockRoot actions={actions} blocks={allBlocks} data={(page ? [page] : sampleContent) as any} />
   </Layout>;
 };
 
