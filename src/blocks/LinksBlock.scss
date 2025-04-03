@@ -8,7 +8,7 @@
   grid-template-columns: repeat(auto-fit, 30rem);
   justify-content: center;
 
-  > a {
+  > a, > button {
       @include button();
       @include body-font(2rem);
       white-space: break-spaces;
@@ -16,15 +16,15 @@
       height: auto;
   }
 
-  &.color-white > a {
+  &.color-white > a, &.color-white > button {
       background-color: ui-color(white);
       color: text-color(normal);
   }
-  &.color-deep-green > a {
+  &.color-deep-green > a, &.color-deep-green > button {
       background-color: os-color(deep-green);
       color: text-color(white);
   }
-  &.color-blue > a {
+  &.color-blue > a, &.color-blue > button {
       background-color: os-color(blue);
       color: text-color(white);
   }
