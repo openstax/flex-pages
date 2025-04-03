@@ -7,7 +7,12 @@ project_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null 2>&1 && pwd 
 cd "$project_dir"
 
 # packages that must be built before other ones (in this order)
-build_order=("@openstax/flex-page-renderer")
+build_order=( \
+  "@openstax/flex-page-renderer" \
+  "@openstax/flex-page-editor" \
+  "@openstax/flex-page-editor-quill-extension" \
+  "@openstax/flex-page-editor-select-extension" \
+)
 
 # all other packages
 all_packages=$(yarn --silent workspaces info | node -e "process.stdout.write(Object.keys(JSON.parse(require('fs').readFileSync('/dev/stdin').toString())).join(' '))")
