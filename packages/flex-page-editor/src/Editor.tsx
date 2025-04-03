@@ -1,7 +1,7 @@
 import React from 'react';
 import * as UI from '@openstax/ui-components';
 import { BlockContext, BlockComponents } from '@openstax/flex-page-renderer/ContentBlockRoot';
-import { EditorFieldTypeContext } from './EditorFields';
+import { ExtendEditorTypes, EditorFieldTypeContext } from './EditorFields';
 
 /*
  * there is some kind of bug (in webpack?) where ui-components is being bundled
@@ -15,19 +15,22 @@ import { EditorFieldTypeContext } from './EditorFields';
  * if the issue is related to symlinks, its possible that it would work correctly
  * sometimes, but i haven't seen it work yet after trying several configurations.
  */
-export const FlexBlockEditor = ({name, label, blocks, type, FormContext}: {
+export const FlexBlockEditor = ({name, label, blocks, fields, type, FormContext}: {
   name: string;
   label?: string;
   type?: string;
   blocks: BlockComponents<any>;
+  fields?: Record<string, React.ComponentType<any>>;
   categories?: string[];
   FormContext?: typeof UI.Forms.Controlled.FormStateContext;
 }) => {
   const editorType = type ?? 'flex_page';
   const { block: Block } = React.useContext(EditorFieldTypeContext);
-  
+
   const inner = <BlockContext.Provider value={blocks}>
-    <Block label={label} name={name} types={[editorType]} />
+    <ExtendEditorTypes fields={fields ?? {}}>
+      <Block label={label} name={name} types={[editorType]} />
+    </ExtendEditorTypes>
   </BlockContext.Provider>
 
   if (FormContext && FormContext !== UI.Forms.Controlled.FormStateContext) {

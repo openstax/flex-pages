@@ -1,0 +1,82 @@
+import React from 'react';
+import * as UI from '@openstax/ui-components';
+import Quill from 'quill';
+import 'quill/dist/quill.snow.css';
+import Toolbar from "quill/modules/toolbar";
+import Snow from "quill/themes/snow";
+
+import Bold from "quill/formats/bold";
+import Italic from "quill/formats/italic";
+import Header from "quill/formats/header";
+
+Quill.register({
+  "modules/toolbar": Toolbar,
+  "themes/snow": Snow,
+  "formats/bold": Bold,
+  "formats/italic": Italic,
+  "formats/header": Header,
+});
+
+// from https://quilljs.com/playground/react
+const RichEditor = React.forwardRef<Quill, {
+  defaultValue: string;
+  className?: string;
+  onChange?: (value: string) => void;
+}>(({defaultValue, className, onChange}, ref) => {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const quillRef = React.useRef<Quill>();
+  const defaultValueRef = React.useRef(defaultValue);
+
+  React.useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const editorContainer = container.appendChild(
+      container.ownerDocument.createElement('div'),
+    );
+    const quill = new Quill(editorContainer, {
+      theme: 'snow',
+    });
+
+    quillRef.current = quill;
+
+    if (defaultValueRef.current) {
+      quill.setContents(quill.clipboard.convert({html: defaultValueRef.current}));
+    }
+  }, []);
+
+  React.useImperativeHandle(ref, () => {
+    return quillRef.current!;
+  }, []);
+
+  React.useEffect(() => {
+    const quill = quillRef.current;
+    if (!onChange || !quill) return;
+
+    const handleChange = () => {
+      onChange(quill.getSemanticHTML());
+    };
+
+    quill.on('text-change', handleChange);
+
+    return () => { quill.off('text-change', handleChange) };
+  }, [onChange]);
+
+  return <div className={className} ref={containerRef} />;
+});
+
+export const RichTextInput = ({name, label, required, help}: {name: string; label: string, required?: boolean, help?: string}) => {
+  const formState = UI.Forms.Controlled.useFormHelpers();
+  const value = formState.data[name];
+  const setValue = formState.setInput.field(name);
+
+  return <UI.Forms.Controlled.FormInputWrapper style={{userSelect: 'auto'}}>
+    <UI.Forms.Controlled.FormLabelText><UI.Forms.Controlled.RequiredIndicator show={required} />{label}:</UI.Forms.Controlled.FormLabelText>
+    <RichEditor defaultValue={value} onChange={setValue} />
+    <UI.Forms.Controlled.HelpText value={help} />
+  </UI.Forms.Controlled.FormInputWrapper>;
+};
+
+export const quillExtensions = {
+  'rich-text': RichTextInput,
+}

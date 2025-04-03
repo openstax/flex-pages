@@ -10,7 +10,7 @@ const defaultFieldTypes = {
   ['rich-text']: UI.Forms.Controlled.TextArea,
   ['long-text']: UI.Forms.Controlled.TextArea,
   select: UI.Forms.Controlled.Select,
-  namespace: ({name, label, fields, children}: React.PropsWithChildren<ConfigField & {fields: ConfigField[]}>) => 
+  namespace: ({name, label, fields, children}: React.PropsWithChildren<ConfigField & {fields: ConfigField[]}>) =>
     <CollapsibleFieldset legend={label}>
       <UI.Forms.Controlled.NameSpace name={name}>
         <EditorFields fields={fields} />
@@ -23,6 +23,16 @@ const defaultFieldTypes = {
 export const EditorFieldTypeContext = React.createContext<Record<string, React.ComponentType<any>>>(
   defaultFieldTypes
 );
+
+export function ExtendEditorTypes({fields, children}: React.PropsWithChildren<{
+  fields: Record<string, React.ComponentType<any>>
+}>) {
+  const existing = React.useContext(EditorFieldTypeContext);
+
+  return <EditorFieldTypeContext.Provider value={{...existing, ...fields}}>
+    {children}
+  </EditorFieldTypeContext.Provider>;
+}
 
 export function EditorFields({fields}: {fields: ConfigField[]}) {
   return <>
