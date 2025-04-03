@@ -1,0 +1,52 @@
+@charset "UTF-8";
+.flex-page.page div.content-block-quote {
+  margin: 3rem 0;
+  overflow: auto hidden;
+}
+.flex-page.page div.content-block-quote > img {
+  float: left;
+  padding: 3rem;
+  border-radius: 50%;
+  width: 30rem;
+  max-width: 100%;
+  height: auto;
+}
+.flex-page.page div.content-block-quote > .content-block-rich-text {
+  margin-top: 5rem;
+  overflow: visible;
+}
+.flex-page.page div.content-block-quote > .content-block-rich-text:before {
+  color: #f36b32;
+  content: "“";
+  font-size: 6rem;
+  font-weight: bold;
+  position: relative;
+  top: 0.5rem;
+  left: -4rem;
+  display: block;
+  height: 0;
+  text-align: left;
+}
+.flex-page.page div.content-block-quote > .quotee .name {
+  font-weight: bold;
+}
+.flex-page.page div.content-block-quote > .quotee .title {
+  font-style: italic;
+}
+.flex-page.page div.content-block-quote > .quotee .title:before {
+  content: " ";
+}
+@media (max-width: 60em) {
+  .flex-page.page div.content-block-quote {
+    text-align: center;
+  }
+  .flex-page.page div.content-block-quote > img {
+    float: none;
+  }
+  .flex-page.page div.content-block-quote .content-block-rich-text {
+    margin-top: 0;
+    padding: 0 5rem;
+  }
+}
+
+/*# sourceMappingURL=QuoteBlock.css.map */
