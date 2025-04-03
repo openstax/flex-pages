@@ -26,7 +26,9 @@ export const CollapsibleFieldset = ({children, ...props}: React.PropsWithChildre
 
   return <Fieldset className={cn({collapsed})}>
     <legend>
-      <button onClick={() => setCollapsed(previous => !previous)}>{collapsed ? unFoldIcon : foldIcon}</button>
+      <button type="button"
+        onClick={() => setCollapsed(previous => !previous)}
+      >{collapsed ? unFoldIcon : foldIcon}</button>
       {props.legend}
     </legend>
     {children}
