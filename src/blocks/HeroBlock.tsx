@@ -65,7 +65,7 @@ HeroBlock.blockConfig = {
         {label: 'Right', value: 'right'},
         {label: 'Center', value: 'center'},
       ]},
-      {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-f0-9]{6}'},
+      {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}'},
       {name: 'padding', label: 'Padding', help: 'Top and Bottom padding, in 10px increments', type: 'number'},
       {name: 'padding_top', label: 'Padding Top', help: 'Top padding, in 10px increments', type: 'number'},
       {name: 'padding_bottom', label: 'Padding Bottom', help: 'Bottom padding, in 10px increments', type: 'number'},
