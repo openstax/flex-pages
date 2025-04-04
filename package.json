@@ -1,8 +1,6 @@
 {
   "name": "@project/root",
   "version": "1.0.0",
-  "dependencies": {
-  },
   "devDependencies": {
     "cspell": "^5.18.5",
     "syncpack": "^12.3.0"
