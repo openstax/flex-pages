@@ -32,20 +32,25 @@ for package in "${packages[@]}"; do
   cd "$package_dir";
   name=$(node -e "process.stdout.write(JSON.parse(require('fs').readFileSync('/dev/stdin').toString()).name)" < package.json)
   version=$(node -e "process.stdout.write(JSON.parse(require('fs').readFileSync('/dev/stdin').toString()).version)" < package.json)
-  echo "building $name@$version ..."
-  yarn build:clean
-  git add -f dist/
-  git commit -m "adding dist files"
-
-  cd "$project_dir";
   package_branch_name="$release_branch_name-$package"
   package_tag_name="$package-$version"
-  git subtree split -P $relative_package_dir -b "$package_branch_name"
-  git checkout "$package_branch_name"
-  git tag "$package_tag_name";
-  git push origin tag "$package_tag_name"
 
-  git checkout "$release_branch_name"
+  if [ $(git tag -l "$package_tag_name") ]; then
+    echo "package version $name@$version already exists, skipping."
+  else
+    echo "building $name@$version ..."
+    yarn build:clean
+    git add -f dist/
+    git commit -m "adding dist files"
+
+    cd "$project_dir";
+    git subtree split -P $relative_package_dir -b "$package_branch_name"
+    git checkout "$package_branch_name"
+    git tag "$package_tag_name";
+    git push origin tag "$package_tag_name"
+
+    git checkout "$release_branch_name"
+  fi
 done
 
 git checkout "$current_branch"
