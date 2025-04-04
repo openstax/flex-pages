@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@openstax/flex-page-renderer": "1.0.0",
-    "@openstax/flex-page-editor": "1.0.0",
+    "@openstax/flex-page-editor": "1.0.1",
     "@openstax/flex-page-editor-quill-extension": "1.0.0",
     "@openstax/flex-page-editor-select-extension": "1.0.0",
     "@openstax/ts-utils": "1.21.9",

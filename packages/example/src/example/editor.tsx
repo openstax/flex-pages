@@ -13,8 +13,8 @@ import { selectExtensions } from '@openstax/flex-page-editor-select-extension';
 import { actions } from './actions';
 
 const fieldTypes = {
-  ...quillExtensions,
-  ...selectExtensions,
+  ...quillExtensions({Forms:UI.Forms.Controlled}),
+  ...selectExtensions({Forms:UI.Forms.Controlled}),
 };
 
 export const EditorScreen = () => {
@@ -37,7 +37,7 @@ export const EditorScreen = () => {
         fields={fieldTypes}
         type="flex_page"
         name="page"
-        FormContext={UI.Forms.Controlled.FormStateContext}
+        Forms={UI.Forms.Controlled}
       />
       <UI.Forms.Controlled.Buttons />
     </UI.Forms.Controlled.Form>

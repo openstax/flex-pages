@@ -3,10 +3,10 @@ import type { ConfigField } from '@openstax/flex-page-renderer';
 import React from 'react';
 import { CollapsibleFieldset } from './CollapsibleFieldset';
 import { BlockContext } from '@openstax/flex-page-renderer/ContentBlockRoot';
-import * as UI from '@openstax/ui-components';
+import { useForms } from './FormsContext';
 
 const DisplayBlockForm = ({children, label}: React.PropsWithChildren<{label?: string}>) => {
-  const formState = UI.Forms.Controlled.useFormHelpers();
+  const formState = useForms().useFormHelpers();
   const data = formState.data;
 
   const config = React.useContext(BlockContext)[data.type]?.blockConfig;
@@ -19,7 +19,7 @@ const DisplayBlockForm = ({children, label}: React.PropsWithChildren<{label?: st
 }
 
 const AddBlock = ({categories}: {categories: string[]}) => {
-  const listHelpers = UI.Forms.Controlled.useFormListHelpers();
+  const listHelpers = useForms().useFormListHelpers();
   const blocks = Object.entries(React.useContext(BlockContext))
     .filter(([, definition]) => definition.blockConfig.categories.find(s => categories.includes(s)));
 
@@ -36,7 +36,8 @@ const AddBlock = ({categories}: {categories: string[]}) => {
 const randomId = () => window.crypto.getRandomValues(new Uint32Array(1))[0].toString(16)
 
 export const block = ({name, label, types, categories}: {name: string; label: string; types?: string[]; categories?: string[]}) => {
-  const formState = UI.Forms.Controlled.useFormHelpers();
+  const Forms = useForms();
+  const formState = Forms.useFormHelpers();
   const value = formState.data[name];
   const setValue = formState.setInput.field(name);
   const blocks = Object.entries(React.useContext(BlockContext)).filter(
@@ -45,9 +46,9 @@ export const block = ({name, label, types, categories}: {name: string; label: st
   );
 
   if (value) {
-    return <UI.Forms.Controlled.NameSpace name={name}>
+    return <Forms.NameSpace name={name}>
       <DisplayBlockForm label={label} />
-    </UI.Forms.Controlled.NameSpace>;
+    </Forms.NameSpace>;
   }
 
   if (blocks.length === 1) {
@@ -66,32 +67,35 @@ export const block = ({name, label, types, categories}: {name: string; label: st
 };
 
 export const blocks = ({name, label, categories}: {name: string; label?: string; categories: string[]}) => {
-  const inner = <UI.Forms.Controlled.List name={name}>
-    <UI.Forms.Controlled.ListItems>
+  const Forms = useForms();
+  const inner = <Forms.List name={name}>
+    <Forms.ListItems>
       <DisplayBlockForm>
-        <UI.Forms.Controlled.ListRecordRemoveButton>
+        <Forms.ListRecordRemoveButton>
           remove block
-        </UI.Forms.Controlled.ListRecordRemoveButton>
+        </Forms.ListRecordRemoveButton>
       </DisplayBlockForm>
-    </UI.Forms.Controlled.ListItems>
+    </Forms.ListItems>
     <AddBlock categories={categories} />
-  </UI.Forms.Controlled.List>;
+  </Forms.List>;
 
   return label ? <CollapsibleFieldset legend={label}>{inner}</CollapsibleFieldset> : inner;
 };
 
 const DisplayConfigForm = ({configs}: {configs: ConfigField[]}) => {
-  const formState = UI.Forms.Controlled.useFormHelpers();
+  const formState = useForms().useFormHelpers();
   const data = formState.data;
   const config = configs.find(c => c.name === data.type)
   if (!config) return <pre>{JSON.stringify(data, null, 2)}</pre>;
 
   return <EditorField {...config} name="value" />;
 };
+
 const AddConfig = ({name, configs}: {name: string, configs: ConfigField[]}) => {
-  const formState = UI.Forms.Controlled.useFormHelpers();
+  const Forms = useForms();
+  const formState = Forms.useFormHelpers();
+  const listHelpers = Forms.useFormListHelpers();
   const addedConfigs = formState.data[name] || [];
-  const listHelpers = UI.Forms.Controlled.useFormListHelpers();
   const availableConfigs = configs.filter(c => !addedConfigs.find((s: any) => s.type === c.name));
 
   if (availableConfigs.length < 1) return null;
@@ -104,23 +108,25 @@ const AddConfig = ({name, configs}: {name: string, configs: ConfigField[]}) => {
 };
 
 export const configs = ({name, label, configs}: ConfigField & {configs: ConfigField[]}) => {
+  const Forms = useForms();
   return <CollapsibleFieldset legend={label}>
-    <UI.Forms.Controlled.List name={name}>
-      <UI.Forms.Controlled.ListItems>
+    <Forms.List name={name}>
+      <Forms.ListItems>
         <DisplayConfigForm configs={configs} />
-        <UI.Forms.Controlled.ListRecordRemoveButton>
+        <Forms.ListRecordRemoveButton>
           remove config
-        </UI.Forms.Controlled.ListRecordRemoveButton>
-      </UI.Forms.Controlled.ListItems>
+        </Forms.ListRecordRemoveButton>
+      </Forms.ListItems>
       <AddConfig name={name} configs={configs} />
-    </UI.Forms.Controlled.List>
+    </Forms.List>
   </CollapsibleFieldset>;
 };
 
 const AddListItem = ({name, max}: {name: string, max?: number}) => {
-  const formState = UI.Forms.Controlled.useFormHelpers();
+  const Forms = useForms();
+  const formState = Forms.useFormHelpers();
+  const listHelpers = Forms.useFormListHelpers();
   const items = formState.data[name] || [];
-  const listHelpers = UI.Forms.Controlled.useFormListHelpers();
 
   if (max && items.length > max) return null;
 
@@ -129,15 +135,16 @@ const AddListItem = ({name, max}: {name: string, max?: number}) => {
   }>add item</button>;
 };
 export const list = ({name, label, max, fields}: ConfigField & {max?: number, fields: ConfigField[]}) => {
+  const Forms = useForms();
   return <CollapsibleFieldset legend={label}>
-    <UI.Forms.Controlled.List name={name}>
-      <UI.Forms.Controlled.ListItems>
+    <Forms.List name={name}>
+      <Forms.ListItems>
         <EditorFields fields={fields} />
-        <UI.Forms.Controlled.ListRecordRemoveButton>
+        <Forms.ListRecordRemoveButton>
           remove item
-        </UI.Forms.Controlled.ListRecordRemoveButton>
-      </UI.Forms.Controlled.ListItems>
+        </Forms.ListRecordRemoveButton>
+      </Forms.ListItems>
       <AddListItem name={name} max={max} />
-    </UI.Forms.Controlled.List>
+    </Forms.List>
   </CollapsibleFieldset>;
 };

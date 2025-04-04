@@ -1,5 +1,5 @@
 import React from 'react';
-import * as UI from '@openstax/ui-components';
+import type * as UI from '@openstax/ui-components';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 import Toolbar from "quill/modules/toolbar";
@@ -65,18 +65,19 @@ const RichEditor = React.forwardRef<Quill, {
   return <div className={className} ref={containerRef} />;
 });
 
-export const RichTextInput = ({name, label, required, help}: {name: string; label: string, required?: boolean, help?: string}) => {
-  const formState = UI.Forms.Controlled.useFormHelpers();
-  const value = formState.data[name];
-  const setValue = formState.setInput.field(name);
+export const RichTextInput = (Forms: typeof UI.Forms.Controlled) =>
+  ({name, label, required, help}: {name: string; label: string, required?: boolean, help?: string}) => {
+    const formState = Forms.useFormHelpers();
+    const value = formState.data[name];
+    const setValue = formState.setInput.field(name);
 
-  return <UI.Forms.Controlled.FormInputWrapper style={{userSelect: 'auto'}}>
-    <UI.Forms.Controlled.FormLabelText><UI.Forms.Controlled.RequiredIndicator show={required} />{label}:</UI.Forms.Controlled.FormLabelText>
-    <RichEditor defaultValue={value} onChange={setValue} />
-    <UI.Forms.Controlled.HelpText value={help} />
-  </UI.Forms.Controlled.FormInputWrapper>;
-};
+    return <Forms.FormInputWrapper style={{userSelect: 'auto'}}>
+      <Forms.FormLabelText><Forms.RequiredIndicator show={required} />{label}:</Forms.FormLabelText>
+      <RichEditor defaultValue={value} onChange={setValue} />
+      <Forms.HelpText value={help} />
+    </Forms.FormInputWrapper>;
+  };
 
-export const quillExtensions = {
-  'rich-text': RichTextInput,
-}
+export const quillExtensions = ({Forms}: {Forms: typeof UI.Forms.Controlled}) => ({
+  'rich-text': RichTextInput(Forms),
+});
