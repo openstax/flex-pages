@@ -1,15 +1,15 @@
 import React from 'react';
-import * as UI from '@openstax/ui-components';
+import type * as UI from '@openstax/ui-components';
 import Select from 'react-select';
 
 type OptionValue = {value: number; label: string}[] |
   {value: number; label: string} |
   null;
 
-export const FancySelect = (
-  props: Omit<React.ComponentProps<typeof UncontrolledFancySelect>, 'value'>
+export const FancySelect = (Forms: typeof UI.Forms.Controlled) => (
+  {label, help, ...props}: Omit<React.ComponentProps<Select>, 'value'>
 ) => {
-  const formState = UI.Forms.Controlled.useFormHelpers();
+  const formState = Forms.useFormHelpers();
   const value = formState.data[props.name] || undefined;
   const setValue = formState.setInput.field(props.name);
 
@@ -36,25 +36,13 @@ export const FancySelect = (
     }
   }, [formState, props.name, props.isMulti]);
 
-  return <UncontrolledFancySelect
-    isClearable={!props.required}
-    {...props}
-    value={selected}
-    onChange={onChange}
-  />;
+  return <Forms.FormInputWrapper>
+    <Forms.FormLabelText><Forms.RequiredIndicator show={props.required} />{label}:</Forms.FormLabelText>
+    <Select {...props} value={selected} onChange={onChange} />
+    <Forms.HelpText value={help} />
+  </Forms.FormInputWrapper>;
 };
 
-const UncontrolledFancySelect = ({label, help, ...props}: React.ComponentProps<Select> & {
-  label: string;
-  help?: string;
-}) => {
-  return <UI.Forms.Controlled.FormInputWrapper>
-    <UI.Forms.Controlled.FormLabelText><UI.Forms.Controlled.RequiredIndicator show={props.required} />{label}:</UI.Forms.Controlled.FormLabelText>
-    <Select {...props} />
-    <UI.Forms.Controlled.HelpText value={help} />
-  </UI.Forms.Controlled.FormInputWrapper>;
-};
-
-export const selectExtensions = {
-  'select': FancySelect,
-}
+export const selectExtensions = ({Forms}: {Forms: typeof UI.Forms.Controlled}) => ({
+  'select': FancySelect(Forms),
+});
