@@ -5,7 +5,7 @@
 
   display: grid;
   grid-gap: 3rem 5rem;
-  grid-template-columns: repeat(auto-fit, 30rem);
+  grid-template-columns: repeat(auto-fit, min(30rem, 100%));
   justify-content: center;
 
   > a, > button {
