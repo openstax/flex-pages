@@ -1,29 +1,47 @@
 import React from 'react';
-import * as UI from '@openstax/ui-components';
+import type * as UI from '@openstax/ui-components';
 import type { ConfigField } from '@openstax/flex-page-renderer';
 import * as fieldTypes from './FieldTypes';
 import { LinkTarget } from './Fields/LinkTarget';
 import { CollapsibleFieldset } from './CollapsibleFieldset';
+import { useForms } from './FormsContext';
 
 const defaultFieldTypes = {
   ...fieldTypes,
-  text: UI.Forms.Controlled.TextInput,
-  url: (props: React.ComponentProps<typeof UI.Forms.Controlled.TextInput>) =>
-    <UI.Forms.Controlled.TextInput {...props} type="url" />,
-  number: (props: React.ComponentProps<typeof UI.Forms.Controlled.TextInput>) =>
-    <UI.Forms.Controlled.TextInput {...props} type="number" />,
+  text: (props: React.ComponentProps<typeof UI.Forms.Controlled.TextInput>) => {
+    const {TextInput} = useForms();
+    return <TextInput {...props} />;
+  },
+  url: (props: React.ComponentProps<typeof UI.Forms.Controlled.TextInput>) => {
+    const {TextInput} = useForms();
+    return <TextInput {...props} type="url" />;
+  },
+  number: (props: React.ComponentProps<typeof UI.Forms.Controlled.TextInput>) => {
+    const {TextInput} = useForms();
+    return <TextInput {...props} type="number" />;
+  },
+  ['rich-text']: (props: React.ComponentProps<typeof UI.Forms.Controlled.TextArea>) => {
+    const {TextArea} = useForms();
+    return <TextArea {...props} />;
+  },
+  ['long-text']: (props: React.ComponentProps<typeof UI.Forms.Controlled.TextArea>) => {
+    const {TextArea} = useForms();
+    return <TextArea {...props} />;
+  },
+  ['select']: (props: React.ComponentProps<typeof UI.Forms.Controlled.Select>) => {
+    const {Select} = useForms();
+    return <Select {...props} />;
+  },
   ['link-target']: LinkTarget,
-  ['rich-text']: UI.Forms.Controlled.TextArea,
-  ['long-text']: UI.Forms.Controlled.TextArea,
-  select: UI.Forms.Controlled.Select,
-  namespace: ({name, label, fields, children}: React.PropsWithChildren<ConfigField & {fields: ConfigField[]}>) =>
-    <CollapsibleFieldset legend={label}>
-      <UI.Forms.Controlled.NameSpace name={name}>
+  namespace: ({name, label, fields, children}: React.PropsWithChildren<ConfigField & {fields: ConfigField[]}>) => {
+    const Forms = useForms();
+    return <CollapsibleFieldset legend={label}>
+      <Forms.NameSpace name={name}>
         <EditorFields fields={fields} />
-      </UI.Forms.Controlled.NameSpace>
+      </Forms.NameSpace>
       {children}
     </CollapsibleFieldset>
-  ,
+  },
 }
 
 export const EditorFieldTypeContext = React.createContext<Record<string, React.ComponentType<any>>>(

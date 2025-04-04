@@ -1,12 +1,13 @@
 import React from 'react';
-import * as UI from '@openstax/ui-components';
+import type * as UI from '@openstax/ui-components';
 import { BlockContext, ActionContext, ActionConfig, BlockComponents } from '@openstax/flex-page-renderer/ContentBlockRoot';
 import { ExtendEditorTypes, EditorFieldTypeContext } from './EditorFields';
+import { FormsContext } from './FormsContext';
 
 /*
  * there is some kind of bug (in webpack?) where ui-components is being bundled
- * multiple times, and if that happens it becomes necessary to pass the FormContext
- * through here or the FormStateContext variable will not be shared
+ * multiple times, and if that happens it becomes necessary to pass the Forms library
+ * through here or the Context variables will not be shared
  *
  * possibly related to:
  * - https://github.com/webpack/webpack/issues/8886
@@ -15,7 +16,7 @@ import { ExtendEditorTypes, EditorFieldTypeContext } from './EditorFields';
  * if the issue is related to symlinks, its possible that it would work correctly
  * sometimes, but i haven't seen it work yet after trying several configurations.
  */
-export const FlexBlockEditor = ({name, label, blocks, actions, fields, type, FormContext}: {
+export const FlexBlockEditor = ({name, label, blocks, actions, fields, type, Forms}: {
   name: string;
   label?: string;
   type?: string;
@@ -23,7 +24,7 @@ export const FlexBlockEditor = ({name, label, blocks, actions, fields, type, For
   actions?: ActionConfig;
   fields?: Record<string, React.ComponentType<any>>;
   categories?: string[];
-  FormContext?: typeof UI.Forms.Controlled.FormStateContext;
+  Forms?: typeof UI.Forms.Controlled;
 }) => {
   const editorType = type ?? 'flex_page';
   const { block: Block } = React.useContext(EditorFieldTypeContext);
@@ -36,10 +37,10 @@ export const FlexBlockEditor = ({name, label, blocks, actions, fields, type, For
     </ActionContext.Provider>
   </BlockContext.Provider>
 
-  if (FormContext && FormContext !== UI.Forms.Controlled.FormStateContext) {
-    return <FormContext.Consumer>{value => <UI.Forms.Controlled.FormStateContext.Provider value={value}>
+  if (Forms) {
+    return <FormsContext.Provider value={Forms}>
       {inner}
-    </UI.Forms.Controlled.FormStateContext.Provider>}</FormContext.Consumer>;
+    </FormsContext.Provider>;
   }
 
   return inner;

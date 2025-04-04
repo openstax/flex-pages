@@ -2,12 +2,12 @@ import React from 'react';
 import { EditorField } from '../EditorFields';
 import type { ConfigField } from '@openstax/flex-page-renderer';
 import { CollapsibleFieldset } from '../CollapsibleFieldset';
-import * as UI from '@openstax/ui-components';
 import { ActionContext } from '@openstax/flex-page-renderer/ContentBlockRoot';
+import { useForms } from '../FormsContext';
 
 const LinkTargetFields = () => {
   const actions = Object.entries(React.useContext(ActionContext));
-  const formState = UI.Forms.Controlled.useFormHelpers();
+  const formState = useForms().useFormHelpers();
   const value = formState.data;
   const type = value?.type;
 
@@ -36,9 +36,10 @@ const LinkTargetFields = () => {
 };
 
 export const LinkTarget = ({name, label}: ConfigField) => {
-  return <UI.Forms.Controlled.NameSpace name={name}>
+  const Forms = useForms();
+  return <Forms.NameSpace name={name}>
     <CollapsibleFieldset legend={label}>
       <LinkTargetFields />
     </CollapsibleFieldset>
-  </UI.Forms.Controlled.NameSpace>
+  </Forms.NameSpace>
 };
