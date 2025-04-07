@@ -54,7 +54,10 @@ const RichEditor = React.forwardRef<Quill, {
     if (!onChange || !quill) return;
 
     const handleChange = () => {
-      onChange(quill.getSemanticHTML());
+      onChange(quill.getSemanticHTML()
+        .replace(/&nbsp;/g, ' ')
+        .replace(/ +/g, ' ')
+      );
     };
 
     quill.on('text-change', handleChange);
