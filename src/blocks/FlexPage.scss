@@ -4,6 +4,7 @@
   display: flex;
   flex-flow: column nowrap;
   overflow: hidden;
+  color: text-color(normal);
 
   &.width-fixed {
     @include wider-than($media-content-max) {
