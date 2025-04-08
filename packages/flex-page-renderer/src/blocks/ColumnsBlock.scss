@@ -24,6 +24,16 @@
     }
   }
 
+  &.content-block-flex-grow > div.columns-content {
+    min-height: 100%;
+  }
+  &.content-block-flex > div.columns-content {
+    height: 100%;
+  }
+  &.content-block-flex-shrink > div.columns-content {
+    max-height: 100%;
+  }
+
   > div.columns-content {
     /* to show above divider images */
     position: relative;
@@ -51,7 +61,6 @@
         max-width: unset;
       }
     }
-
   }
 
   &.dark-background > div.columns-content {
