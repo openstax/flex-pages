@@ -70,7 +70,7 @@ const ListItemControls = () => {
   const Forms = useForms();
   const formState = Forms.useFormHelpers();
   const listHelpers = Forms.useFormListHelpers();
-  const index = listHelpers.data.indexOf(formState data);
+  const index = listHelpers.data.indexOf(formState.data);
   
   const moveUp = React.useCallback(() => {
     const newList = [...listHelpers.data];
