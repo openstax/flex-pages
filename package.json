@@ -1,6 +1,6 @@
 {
   "name": "@openstax/flex-page-editor-quill-extension",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "sideEffects": false,
   "dependencies": {
     "quill": "^2.0.3"
