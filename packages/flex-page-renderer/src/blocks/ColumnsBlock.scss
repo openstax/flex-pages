@@ -21,6 +21,10 @@
       .content-block-columns-right {
         overflow-y: auto;
       }
+
+      @include width-up-to($tablet-max) {
+        overflow-y: auto;
+      }
     }
   }
 
@@ -32,6 +36,18 @@
   }
   &.content-block-flex-shrink > div.columns-content {
     max-height: 100%;
+  }
+
+  @include width-up-to($tablet-max) {
+    flex-shrink: 0;
+    display: block;
+
+    &.content-block-flex > div.columns-content {
+      height: unset;
+    }
+    &.content-block-flex-shrink > div.columns-content {
+      max-height: unset;
+    }
   }
 
   > div.columns-content {
@@ -54,11 +70,11 @@
     }
 
     @include width-up-to($tablet-max) {
-      flex-direction: column;
+      display: block;
+      overflow: auto;
 
       .content-block-columns-left {
         margin-right: unset;
-        margin-bottom: calc( #{$normal-margin} * var(--col-gap, 0));
       }
     }
 

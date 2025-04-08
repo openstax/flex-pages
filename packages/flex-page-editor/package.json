@@ -19,7 +19,7 @@
   },
   "peerDependencies": {
     "react": "^17.0.2",
-    "@openstax/flex-page-renderer": "1.0.5",
+    "@openstax/flex-page-renderer": "1.0.6",
     "@openstax/ui-components": "https://github.com/openstax/ui-components#1.15.2",
     "react-dom": "^17.0.2",
     "styled-components": "^5.3.5"
