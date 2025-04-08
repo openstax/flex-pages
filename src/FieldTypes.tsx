@@ -69,7 +69,7 @@ export const block = ({name, label, types, categories}: {name: string; label: st
 const ListItemControls = () => {
   const Forms = useForms();
   const formState = Forms.useFormHelpers();
-  const listHelpers = Forms.useFormListHelpers():
+  const listHelpers = Forms.useFormListHelpers();
   const index = listHelpers.data.indexOf(formState data);
   
   const moveUp = React.useCallback(() => {
