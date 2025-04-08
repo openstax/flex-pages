@@ -91,15 +91,15 @@ export function ColumnsBlock({data}: {data: ColumnsBlockConfig}) {
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
   const isDark = backgroundColor && Color(backgroundColor).isDark(); // eslint-disable-line new-cap
 
-  const marginRight = `calc(${gap} * 1rem)`
-  const leftStyle = leftSize ? {'--col-width': leftSize, marginRight} : {flex: 1, marginRight};
-  const rightStyle = rightSize ? {'--col-width': rightSize} : {flex: 1};
+  const leftStyle = leftSize ? {'--col-width': leftSize} : {'--col-flex': 1};
+  const rightStyle = rightSize ? {'--col-width': rightSize} : {'--col-flex': 1};
 
   return <section
     id={id}
     className={cn('content-block-columns', {'dark-background': isDark, [`content-block-${flex}`]: flex})}
     data-analytics-nav={analytics}
     style={{backgroundColor,
+      '--col-gap': gap,
       '--padding-multiplier': padding,
       '--padding-top-multiplier': paddingTop,
       '--padding-bottom-multiplier': paddingBottom

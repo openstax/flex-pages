@@ -49,15 +49,26 @@
     display: flex;
     flex-direction: row;
 
+    .content-block-columns-left {
+      margin-right: calc( #{$normal-margin} * var(--col-gap, 0));
+    }
+
     @include width-up-to($tablet-max) {
-      display: block;
+      flex-direction: column;
+
+      .content-block-columns-left {
+        margin-right: unset;
+        margin-bottom: calc( #{$normal-margin} * var(--col-gap, 0));
+      }
     }
 
     .content-block-columns-left,
     .content-block-columns-right {
       max-width: var(--col-width, unset);
+      flex: var(--col-flex, unset);
 
       @include width-up-to($tablet-max) {
+        flex: unset;
         max-width: unset;
       }
     }
