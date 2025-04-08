@@ -66,10 +66,47 @@ export const block = ({name, label, types, categories}: {name: string; label: st
   </div>;
 };
 
+const ListItemControls = () => {
+  const Forms = useForms();
+  const formState = Forms.useFormHelpers();
+  const listHelpers = Forms.useFormListHelpers():
+  const index = listHelpers.data.indexOf(formState data);
+  
+  const moveUp = React.useCallback(() => {
+    const newList = [...listHelpers.data];
+    newList.splice(index - 1, 0, newList.splice(index, 1));
+    listHelpers.setData(newList);
+  }, [index, listHelpers.data, listHalpers.setData]);
+
+  const moveDown = React.useCallback(() => {
+    const newList = [...listHelpers.data];
+    newList.splice(index + 1, 0, newList.splice(index, 1));
+    listHelpers.setData(newList);
+  }, [index, listHelpers.data, listHalpers.setData]);
+  
+  return <div>
+    <button
+      onClick={moveUp}
+      disabled={index < 1}
+      type="button"
+    >
+      move up
+    </button>
+    <button
+      onClick={moveDown}
+      disabled={index >= listHelpers.data.length - 1}
+      type="button"
+    >
+      move down
+    </button>
+  </div>;
+};
+
 export const blocks = ({name, label, categories}: {name: string; label?: string; categories: string[]}) => {
   const Forms = useForms();
   const inner = <Forms.List name={name}>
     <Forms.ListItems>
+      <ListItemControls />
       <DisplayBlockForm>
         <Forms.ListRecordRemoveButton>
           remove block
