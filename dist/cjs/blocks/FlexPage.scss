@@ -1,0 +1,16 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page {
+  display: flex;
+  flex-flow: column nowrap;
+  overflow: hidden;
+  color: text-color(normal);
+
+  &.width-fixed {
+    @include wider-than($media-content-max) {
+      --max-content-width: #{$content-max};
+    }
+  }
+
+  @import 'pattern-library/core/pattern-library/elements/typography';
+}
