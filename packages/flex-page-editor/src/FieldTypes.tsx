@@ -70,20 +70,20 @@ const ListItemControls = () => {
   const Forms = useForms();
   const formState = Forms.useFormHelpers();
   const listHelpers = Forms.useFormListHelpers();
-  const index = listHelpers.data.indexOf(formState.data);
-  
+  const index = listHelpers.data.indexOf(formState.data as any);
+
   const moveUp = React.useCallback(() => {
     const newList = [...listHelpers.data];
-    newList.splice(index - 1, 0, newList.splice(index, 1));
+    newList.splice(index - 1, 0, newList.splice(index, 1)[0]);
     listHelpers.setData(newList);
-  }, [index, listHelpers.data, listHalpers.setData]);
+  }, [index, listHelpers.data, listHelpers.setData]);
 
   const moveDown = React.useCallback(() => {
     const newList = [...listHelpers.data];
-    newList.splice(index + 1, 0, newList.splice(index, 1));
+    newList.splice(index + 1, 0, newList.splice(index, 1)[0]);
     listHelpers.setData(newList);
-  }, [index, listHelpers.data, listHalpers.setData]);
-  
+  }, [index, listHelpers.data, listHelpers.setData]);
+
   return <div>
     <button
       onClick={moveUp}
@@ -106,11 +106,11 @@ export const blocks = ({name, label, categories}: {name: string; label?: string;
   const Forms = useForms();
   const inner = <Forms.List name={name}>
     <Forms.ListItems>
-      <ListItemControls />
       <DisplayBlockForm>
         <Forms.ListRecordRemoveButton>
           remove block
         </Forms.ListRecordRemoveButton>
+        <ListItemControls />
       </DisplayBlockForm>
     </Forms.ListItems>
     <AddBlock categories={categories} />

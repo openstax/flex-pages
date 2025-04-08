@@ -22,7 +22,8 @@ const RichEditor = React.forwardRef<Quill, {
   defaultValue: string;
   className?: string;
   onChange?: (value: string) => void;
-}>(({defaultValue, className, onChange}, ref) => {
+  id?: string;
+}>(({defaultValue, className, onChange, id}, ref) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const quillRef = React.useRef<Quill>();
   const defaultValueRef = React.useRef(defaultValue);
@@ -62,7 +63,7 @@ const RichEditor = React.forwardRef<Quill, {
     return () => { quill.off('text-change', handleChange) };
   }, [onChange]);
 
-  return <div className={className} ref={containerRef} />;
+  return <div id={id} className={className} ref={containerRef} />;
 });
 
 export const RichTextInput = (Forms: typeof UI.Forms.Controlled) =>
@@ -70,10 +71,13 @@ export const RichTextInput = (Forms: typeof UI.Forms.Controlled) =>
     const formState = Forms.useFormHelpers();
     const value = formState.data[name];
     const setValue = formState.setInput.field(name);
+    const id = formState.namespace + '.' + name;
 
-    return <Forms.FormInputWrapper style={{userSelect: 'auto'}}>
-      <Forms.FormLabelText><Forms.RequiredIndicator show={required} />{label}:</Forms.FormLabelText>
-      <RichEditor defaultValue={value} onChange={setValue} />
+    return <Forms.FormInputWrapper as="div">
+      <Forms.FormInputWrapper htmlFor={id}>
+        <Forms.FormLabelText><Forms.RequiredIndicator show={required} />{label}:</Forms.FormLabelText>
+      </Forms.FormInputWrapper>
+      <RichEditor id={id} defaultValue={value} onChange={setValue} />
       <Forms.HelpText value={help} />
     </Forms.FormInputWrapper>;
   };
