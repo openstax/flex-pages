@@ -35,7 +35,7 @@ CardsBlock.blockConfig = {
   categories: ['content'],
   fields: [
     {name: 'cards', label: 'Cards', type: 'list', fields: [
-      {name: 'rich-text', label: 'Card Text', type: 'text', required: true},
+      {name: 'text', label: 'Card Text', type: 'rich-text', required: true},
       {name: 'ctaBlock', label: 'Call To Action', type: 'list', fields: ctaLinkFieldConfig, max: 1},
     ]},
     {name: 'config', label: 'Config', type: 'configs', configs: [
