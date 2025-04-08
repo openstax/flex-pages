@@ -20,7 +20,7 @@
     "@openstax/flex-page-editor-quill-extension": "1.0.1",
     "@openstax/flex-page-editor-select-extension": "1.0.1",
     "@openstax/ts-utils": "1.21.9",
-    "@openstax/ui-components": "https://github.com/openstax/ui-components#1.12.0",
+    "@openstax/ui-components": "https://github.com/openstax/ui-components#1.15.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
