@@ -1,0 +1,80 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page > section.content-block-columns {
+  width: 100%;
+  margin: 0;
+
+  &.content-block-flex-grow { flex: 1 0 }
+  &.content-block-flex { flex: 1 }
+  &.content-block-flex-shrink { flex: 0 1 }
+
+  &.content-block-flex,
+  &.content-block-flex-shrink {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    > div.columns-content {
+      overflow-y: hidden;
+
+      .content-block-columns-left,
+      .content-block-columns-right {
+        overflow-y: auto;
+      }
+    }
+  }
+
+  &.content-block-flex-grow > div.columns-content {
+    min-height: 100%;
+  }
+  &.content-block-flex > div.columns-content {
+    height: 100%;
+  }
+  &.content-block-flex-shrink > div.columns-content {
+    max-height: 100%;
+  }
+
+  > div.columns-content {
+    /* to show above divider images */
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    margin-top: calc( #{$normal-margin} * var(--padding-top-multiplier, var(--padding-multiplier, 0)));
+    margin-bottom: calc( #{$normal-margin} * var(--padding-bottom-multiplier, var(--padding-multiplier, 0)));
+    padding: 0 $normal-margin;
+
+    display: flex;
+    flex-direction: row;
+
+    .content-block-columns-left {
+      margin-right: calc( #{$normal-margin} * var(--col-gap, 0));
+    }
+
+    @include width-up-to($tablet-max) {
+      flex-direction: column;
+
+      .content-block-columns-left {
+        margin-right: unset;
+        margin-bottom: calc( #{$normal-margin} * var(--col-gap, 0));
+      }
+    }
+
+    .content-block-columns-left,
+    .content-block-columns-right {
+      max-width: var(--col-width, unset);
+      flex: var(--col-flex, unset);
+
+      @include width-up-to($tablet-max) {
+        flex: unset;
+        max-width: unset;
+      }
+    }
+  }
+
+  &.dark-background > div.columns-content {
+    color: text-color(white);
+  }
+}
