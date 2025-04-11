@@ -44,7 +44,7 @@ const LinkTargetFields = () => {
     {type === 'action' && actionFields ?
       <Forms.NameSpace name="params">
         <EditorFields fields={actionFields} />
-      </Forms.NameSpace>;
+      </Forms.NameSpace>
     : null}
 
     {type === 'route' ?
@@ -55,7 +55,7 @@ const LinkTargetFields = () => {
     {type === 'route' && routeFields ?
       <Forms.NameSpace name="params">
         <EditorFields fields={routeFields} />
-      </Forms.NameSpace>;
+      </Forms.NameSpace>
     : null}
   </>
 };
