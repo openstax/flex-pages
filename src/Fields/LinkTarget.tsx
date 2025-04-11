@@ -8,7 +8,8 @@ import { useForms } from '../FormsContext';
 const LinkTargetFields = () => {
   const actions = React.useContext(ActionContext);
   const routes = React.useContext(RouteContext);
-  const formState = useForms().useFormHelpers();
+  const Forms = useForms();
+  const formState = Forms.useFormHelpers();
   const value = formState.data;
   const type = value?.type;
 
@@ -41,7 +42,9 @@ const LinkTargetFields = () => {
       } />
     : null}
     {type === 'action' && actionFields ?
-      <EditorFields fields={actionFields} />
+      <Forms.NameSpace name="params">
+        <EditorFields fields={actionFields} />
+      </Forms.NameSpace>;
     : null}
 
     {type === 'route' ?
@@ -50,7 +53,9 @@ const LinkTargetFields = () => {
       } />
     : null}
     {type === 'route' && routeFields ?
-      <EditorFields fields={routeFields} />
+      <Forms.NameSpace name="params">
+        <EditorFields fields={routeFields} />
+      </Forms.NameSpace>;
     : null}
   </>
 };
