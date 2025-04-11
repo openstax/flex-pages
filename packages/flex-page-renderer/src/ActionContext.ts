@@ -1,11 +1,11 @@
 import React from 'react';
+import { ConfigField } from '.';
 
 export type ActionConfig = Record<string, {
   id: string,
   label: string,
-  handler?: () => void;
+  handler?: (params?: Record<string, any>) => void;
+  fields?: ConfigField[];
 }>;
 
-// actions could probably have a payload, which would be configured in the editor
-// on a per button basis, but i'm not bothering yet.
 export const ActionContext = React.createContext<ActionConfig>({});

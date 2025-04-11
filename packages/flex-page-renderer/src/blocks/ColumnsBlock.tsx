@@ -91,8 +91,21 @@ export function ColumnsBlock({data}: {data: ColumnsBlockConfig}) {
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
   const isDark = backgroundColor && Color(backgroundColor).isDark(); // eslint-disable-line new-cap
 
-  const leftStyle = leftSize ? {'--col-width': leftSize} : {'--col-flex': 1};
-  const rightStyle = rightSize ? {'--col-width': rightSize} : {'--col-flex': 1};
+  const leftDisplay = data.value.leftContent.some(d => d.value.config?.some(c => c.name === 'flex'))
+    ? 'flex' : 'block';
+  const rightDisplay = data.value.rightContent.some(d => d.value.config?.some(c => c.name === 'flex'))
+    ? 'flex' : 'block';
+
+  const leftStyle = {
+    display: leftDisplay,
+    flexDirection: 'column',
+    ...(leftSize ? {'--col-width': leftSize} : {'--col-flex': 1}),
+  };
+  const rightStyle = {
+    display: rightDisplay,
+    flexDirection: 'column',
+    ...(rightSize ? {'--col-width': rightSize} : {'--col-flex': 1}),
+  };
 
   return <section
     id={id}

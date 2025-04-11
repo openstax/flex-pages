@@ -1,7 +1,13 @@
 import { ConfigField } from '.';
 import React from 'react';
 
-export type ContentBlockConfig = {type: string; id: string;};
+export type ContentBlockConfig = {
+  type: string;
+  id: string;
+  value: {
+    config?: Array<{name: string; value: string}>;
+  };
+};
 
 export type ConfigMetadata<T> = {
   type: T;

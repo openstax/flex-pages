@@ -1,22 +1,30 @@
 import React from 'react';
-import { EditorField } from '../EditorFields';
+import { EditorField, EditorFields } from '../EditorFields';
 import type { ConfigField } from '@openstax/flex-page-renderer';
 import { CollapsibleFieldset } from '../CollapsibleFieldset';
-import { ActionContext } from '@openstax/flex-page-renderer/ContentBlockRoot';
+import { ActionContext, RouteContext } from '@openstax/flex-page-renderer/ContentBlockRoot';
 import { useForms } from '../FormsContext';
 
 const LinkTargetFields = () => {
-  const actions = Object.entries(React.useContext(ActionContext));
+  const actions = React.useContext(ActionContext);
+  const routes = React.useContext(RouteContext);
   const formState = useForms().useFormHelpers();
   const value = formState.data;
   const type = value?.type;
 
+  const actionsEntries = Object.entries(actions);
+  const routesEntries = Object.entries(routes);
+
+  const actionFields = actions[value?.value]?.fields;
+  const routeFields = routes[value?.value]?.fields;
+
   return <>
     <EditorField required name="type" label="Link Type" type="select" options={[
-      {label: 'External', value: 'external'},
-      {label: 'Internal', value: 'internal'},
+      {label: 'External URL', value: 'external'},
+      {label: 'Internal URL', value: 'internal'},
       {label: 'Anchor', value: 'anchor'},
-      ...(actions.length > 0 ? [{label: 'Action', value: 'action'}] : [])
+      ...(actionsEntries.length > 0 ? [{label: 'Action', value: 'action'}] : []),
+      ...(routesEntries.length > 0 ? [{label: 'Route', value: 'route'}] : []),
     ]} />
     {type === 'external' ?
       <EditorField required name="value" label="Link Target" type="url" />
@@ -29,8 +37,20 @@ const LinkTargetFields = () => {
     : null}
     {type === 'action' ?
       <EditorField required name="value" label="Action" type="select" options={
-        actions.map(([value, {label}]) => ({value, label}))
+        actionsEntries.map(([value, {label}]) => ({value, label}))
       } />
+    : null}
+    {type === 'action' && actionFields ?
+      <EditorFields fields={actionFields} />
+    : null}
+
+    {type === 'route' ?
+      <EditorField required name="value" label="Route" type="select" options={
+        routesEntries.map(([value, {label}]) => ({value, label}))
+      } />
+    : null}
+    {type === 'route' && routeFields ?
+      <EditorFields fields={routeFields} />
     : null}
   </>
 };
