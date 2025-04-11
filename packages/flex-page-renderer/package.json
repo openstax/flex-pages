@@ -1,6 +1,6 @@
 {
   "name": "@openstax/flex-page-renderer",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "sideEffects": false,
   "dependencies": {
     "classnames": "^2.5.1",
