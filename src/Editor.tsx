@@ -20,7 +20,7 @@ import { FormsContext } from './FormsContext';
  * if the issue is related to symlinks, its possible that it would work correctly
  * sometimes, but i haven't seen it work yet after trying several configurations.
  */
-export const FlexBlockEditor = ({name, label, blocks, actions, fields, type, Forms}: {
+export const FlexBlockEditor = ({name, label, blocks, actions, routes, fields, type, Forms}: {
   name: string;
   label?: string;
   type?: string;
