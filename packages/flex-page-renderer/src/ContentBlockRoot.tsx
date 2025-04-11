@@ -10,7 +10,7 @@ export * from './RouteContext';
 
 export const ContentBlockRootHoc = <D extends BlockComponents<any>>(
   ContentComponent: React.ComponentType<{data: BlockData<D>}>
-) => ({data, actions, blocks}: {
+) => ({data, actions, routes, blocks}: {
   data: BlockData<D>;
   actions?: ActionConfig;
   routes?: RouteConfig;
