@@ -1,6 +1,6 @@
 {
   "name": "@openstax/flex-page-editor",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "sideEffects": false,
   "dependencies": {
     "classnames": "^2.5.1"
