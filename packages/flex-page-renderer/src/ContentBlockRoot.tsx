@@ -1,7 +1,7 @@
 import React from 'react';
 import { ContentBlocks } from './ContentBlocks';
 import { ActionConfig, ActionContext } from './ActionContext';
-import { RouteConfig, RouteContext } from './ActionContext';
+import { RouteConfig, RouteContext } from './RouteContext';
 import { BlockContext, BlockComponents, BlockData } from './ContentBlockContext';
 
 export * from './ContentBlockContext';
