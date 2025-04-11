@@ -1,6 +1,10 @@
 import React from 'react';
 import type * as UI from '@openstax/ui-components';
-import { BlockContext, ActionContext, ActionConfig, BlockComponents } from '@openstax/flex-page-renderer/ContentBlockRoot';
+import {
+  BlockContext, BlockComponents,
+  ActionContext, ActionConfig,
+  RouteContext, RouteConfig,
+} from '@openstax/flex-page-renderer/ContentBlockRoot';
 import { ExtendEditorTypes, EditorFieldTypeContext } from './EditorFields';
 import { FormsContext } from './FormsContext';
 
@@ -22,6 +26,7 @@ export const FlexBlockEditor = ({name, label, blocks, actions, fields, type, For
   type?: string;
   blocks: BlockComponents<any>;
   actions?: ActionConfig;
+  routes?: RoutesConfig;
   fields?: Record<string, React.ComponentType<any>>;
   categories?: string[];
   Forms?: typeof UI.Forms.Controlled;
@@ -31,9 +36,11 @@ export const FlexBlockEditor = ({name, label, blocks, actions, fields, type, For
 
   const inner = <BlockContext.Provider value={blocks}>
     <ActionContext.Provider value={actions ?? {}}>
-      <ExtendEditorTypes fields={fields ?? {}}>
-        <Block label={label} name={name} types={[editorType]} />
-      </ExtendEditorTypes>
+      <RouteContext.Provider value={routes ?? {}}>
+        <ExtendEditorTypes fields={fields ?? {}}>
+          <Block label={label} name={name} types={[editorType]} />
+        </ExtendEditorTypes>
+      </RouteContext.Provider>
     </ActionContext.Provider>
   </BlockContext.Provider>
 
