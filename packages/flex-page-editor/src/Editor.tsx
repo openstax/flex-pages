@@ -26,7 +26,7 @@ export const FlexBlockEditor = ({name, label, blocks, actions, routes, fields, t
   type?: string;
   blocks: BlockComponents<any>;
   actions?: ActionConfig;
-  routes?: RoutesConfig;
+  routes?: RouteConfig;
   fields?: Record<string, React.ComponentType<any>>;
   categories?: string[];
   Forms?: typeof UI.Forms.Controlled;
