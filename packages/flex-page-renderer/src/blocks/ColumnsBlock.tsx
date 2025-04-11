@@ -83,7 +83,7 @@ export function ColumnsBlock({data}: {data: ColumnsBlockConfig}) {
   const gap = findByType(data.value.config, 'gap')?.value ?? 0;
   const flex = findByType(data.value.config, 'flex')?.value;
   const leftSize = findByType(data.value.config, 'left_size')?.value;
-  const rightSize = leftSize ? undefined : findByType(data.value.config, 'left_size')?.value;
+  const rightSize = leftSize ? undefined : findByType(data.value.config, 'right_size')?.value;
   const backgroundColor = findByType(data.value.config, 'background_color')?.value;
   const padding = findByType(data.value.config, 'padding')?.value ?? 0;
   const paddingTop = findByType(data.value.config, 'padding_top')?.value;
