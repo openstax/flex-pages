@@ -79,6 +79,9 @@ export function SectionBlock({data}: {data: SectionBlockConfig}) {
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
   const isDark = backgroundColor && Color(backgroundColor).isDark(); // eslint-disable-line new-cap
 
+  const display = data.value.content.some(d => d.value.config?.some(c => c.name === 'flex'))
+    ? 'flex' : 'block';
+
   return <section
     id={id}
     className={cn('content-block-section', {'dark-background': isDark, [`content-block-${flex}`]: flex})}
@@ -89,7 +92,7 @@ export function SectionBlock({data}: {data: SectionBlockConfig}) {
       '--padding-bottom-multiplier': paddingBottom
     } as React.CSSProperties}
   >
-    <div className="section-content" style={{textAlign}}>
+    <div className="section-content" style={{textAlign, display, flexDirection: 'column'}}>
       <ContentBlocks data={data.value.content} />
     </div>
   </section>;

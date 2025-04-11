@@ -5,6 +5,7 @@ import { BlockContext, BlockComponents, BlockData } from './ContentBlockContext'
 
 export * from './ContentBlockContext';
 export * from './ActionContext';
+export * from './RouteContext';
 
 export const ContentBlockRootHoc = <D extends BlockComponents<any>>(
   ContentComponent: React.ComponentType<{data: BlockData<D>}>
