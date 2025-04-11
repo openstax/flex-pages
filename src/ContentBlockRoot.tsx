@@ -1,6 +1,7 @@
 import React from 'react';
 import { ContentBlocks } from './ContentBlocks';
 import { ActionConfig, ActionContext } from './ActionContext';
+import { RouteConfig, RouteContext } from './ActionContext';
 import { BlockContext, BlockComponents, BlockData } from './ContentBlockContext';
 
 export * from './ContentBlockContext';
@@ -12,11 +13,14 @@ export const ContentBlockRootHoc = <D extends BlockComponents<any>>(
 ) => ({data, actions, blocks}: {
   data: BlockData<D>;
   actions?: ActionConfig;
+  routes?: RouteConfig;
   blocks: D;
 }) => {
   return <BlockContext.Provider value={blocks}>
     <ActionContext.Provider value={actions ?? {}}>
-      <ContentComponent data={data} />
+      <RouteContext.Provider value={routes ?? {}}>
+        <ContentComponent data={data} />
+      </RouteContext.Provider>
     </ActionContext.Provider>
   </BlockContext.Provider>
 };
