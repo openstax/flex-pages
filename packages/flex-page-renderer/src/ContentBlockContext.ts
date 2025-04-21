@@ -5,7 +5,7 @@ export type ContentBlockConfig = {
   type: string;
   id: string;
   value: {
-    config?: Array<{name: string; value: string}>;
+    config?: Array<{type: string; value: string}>;
   };
 };
 
