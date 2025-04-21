@@ -91,9 +91,9 @@ export function ColumnsBlock({data}: {data: ColumnsBlockConfig}) {
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
   const isDark = backgroundColor && Color(backgroundColor).isDark(); // eslint-disable-line new-cap
 
-  const leftDisplay = data.value.leftContent.some(d => d.value.config?.some(c => c.name === 'flex'))
+  const leftDisplay = data.value.leftContent.some(d => findByType(d.value.config, 'flex'))
     ? 'flex' : 'block';
-  const rightDisplay = data.value.rightContent.some(d => d.value.config?.some(c => c.name === 'flex'))
+  const rightDisplay = data.value.rightContent.some(d => findByType(d.value.config, 'flex'))
     ? 'flex' : 'block';
 
   const leftStyle = {

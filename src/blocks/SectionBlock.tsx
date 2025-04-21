@@ -79,7 +79,7 @@ export function SectionBlock({data}: {data: SectionBlockConfig}) {
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
   const isDark = backgroundColor && Color(backgroundColor).isDark(); // eslint-disable-line new-cap
 
-  const display = data.value.content.some(d => d.value.config?.some(c => c.name === 'flex'))
+  const display = data.value.content.some(d => findByType(d.value.config, 'flex'))
     ? 'flex' : 'block';
 
   return <section
