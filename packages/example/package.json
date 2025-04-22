@@ -17,7 +17,7 @@
   "dependencies": {
     "@openstax/flex-page-renderer": "1.0.10",
     "@openstax/flex-page-editor": "1.0.5",
-    "@openstax/flex-page-editor-quill-extension": "1.0.2",
+    "@openstax/flex-page-editor-quill-extension": "1.0.3",
     "@openstax/flex-page-editor-select-extension": "1.0.1",
     "@openstax/ts-utils": "1.21.9",
     "@openstax/ui-components": "https://github.com/openstax/ui-components#1.15.2",
