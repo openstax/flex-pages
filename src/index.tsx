@@ -15,7 +15,7 @@ Quill.register({
   "formats/bold": Bold,
   "formats/italic": Italic,
   "formats/header": Header,
-});
+}, true);
 
 // from https://quilljs.com/playground/react
 const RichEditor = React.forwardRef<Quill, {
