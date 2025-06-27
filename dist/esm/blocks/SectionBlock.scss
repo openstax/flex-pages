@@ -1,0 +1,38 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page > section.content-block-section {
+  width: 100%;
+  margin: 0;
+
+  &.content-block-flex-grow { flex: 1 0 }
+  &.content-block-flex { flex: 1 }
+  &.content-block-flex-shrink { flex: 0 1 }
+
+  &.content-block-flex,
+  &.content-block-flex-shrink {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    > div.section-content {
+      flex: 1;
+      overflow-y: auto;
+    }
+  }
+
+  > div.section-content {
+    /* to show above divider images */
+    position: relative;
+    z-index: 1;
+
+    width: calc(100% - $normal-margin);
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    margin-top: calc( #{$normal-margin} * var(--padding-top-multiplier, var(--padding-multiplier, 0)));
+    margin-bottom: calc( #{$normal-margin} * var(--padding-bottom-multiplier, var(--padding-multiplier, 0)));
+  }
+
+  &.dark-background > div.section-content {
+    color: text-color(white);
+  }
+}

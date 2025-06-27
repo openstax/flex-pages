@@ -1,0 +1,50 @@
+import { jsx as _jsx } from "react/jsx-runtime";
+import cn from 'classnames';
+import Color from 'color';
+import { ContentBlocks } from '../ContentBlocks';
+import { findByType } from '../utils';
+import './WellBlock.css';
+WellBlock.blockConfig = {
+    type: 'well',
+    categories: ['content'],
+    label: 'Well',
+    fields: [
+        { name: 'content', label: 'Well Content', type: 'blocks', categories: ['content'] },
+        { name: 'config', label: 'Config', type: 'configs', configs: [
+                { name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}' },
+                { name: 'border_radius', label: 'Border Radius', help: 'Border radius in pixels', type: 'number' },
+                { name: 'padding', label: 'Padding', help: 'Inner padding, in 10px increments', type: 'number' },
+                { name: 'margin', label: 'Margin', help: 'Outer margin, in 10px increments', type: 'number' },
+                { name: 'width', label: 'Width', help: 'Maximum width of the well content (e.g., 600px, 50%, auto)', type: 'text' },
+                { name: 'text_alignment', label: 'Text Alignment', type: 'select', options: [
+                        { label: 'Left', value: 'left' },
+                        { label: 'Right', value: 'right' },
+                        { label: 'Center', value: 'center' },
+                    ] },
+                { name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this well will include this label', type: 'text' },
+                { name: 'id', label: 'ID', help: 'The HTML id of the well (can be referenced by anchor links).', type: 'text' },
+            ] },
+    ],
+};
+export function WellBlock({ data }) {
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+    const id = (_a = findByType(data.value.config, 'id')) === null || _a === void 0 ? void 0 : _a.value;
+    const backgroundColor = (_b = findByType(data.value.config, 'background_color')) === null || _b === void 0 ? void 0 : _b.value;
+    const borderRadius = (_d = (_c = findByType(data.value.config, 'border_radius')) === null || _c === void 0 ? void 0 : _c.value) !== null && _d !== void 0 ? _d : 8;
+    const padding = (_f = (_e = findByType(data.value.config, 'padding')) === null || _e === void 0 ? void 0 : _e.value) !== null && _f !== void 0 ? _f : 2;
+    const margin = (_h = (_g = findByType(data.value.config, 'margin')) === null || _g === void 0 ? void 0 : _g.value) !== null && _h !== void 0 ? _h : 0;
+    const width = (_j = findByType(data.value.config, 'width')) === null || _j === void 0 ? void 0 : _j.value;
+    const textAlign = (_k = findByType(data.value.config, 'text_alignment')) === null || _k === void 0 ? void 0 : _k.value;
+    const analytics = (_l = findByType(data.value.config, 'analytics_label')) === null || _l === void 0 ? void 0 : _l.value;
+    const isDark = backgroundColor && Color(backgroundColor).isDark(); // eslint-disable-line new-cap
+    const isLight = backgroundColor && !isDark;
+    return _jsx("div", { id: id, className: cn('content-block-well', { 'dark-background': isDark, 'light-background': isLight }), "data-analytics-nav": analytics, style: {
+            '--padding-multiplier': padding,
+            '--margin-multiplier': margin
+        }, children: _jsx("div", { className: "well-content", style: {
+                backgroundColor,
+                borderRadius: `${borderRadius}px`,
+                textAlign,
+                maxWidth: width
+            }, children: _jsx(ContentBlocks, { data: data.value.content }) }) });
+}

@@ -1,0 +1,90 @@
+.flex-page.page div.content-block-links {
+  margin: 3rem 0;
+}
+.flex-page.page div.content-block-links > a, .flex-page.page div.content-block-links > button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  line-height: 2.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  height: 5rem;
+  margin: 0;
+  padding: 0 3rem;
+  text-decoration: none;
+  user-select: none;
+  white-space: nowrap;
+  width: auto;
+  border: 0.1rem solid #d5d5d5;
+  color: #424242;
+  font-weight: normal;
+  background-color: #fff;
+  font-size: 2rem;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  white-space: break-spaces;
+  height: auto;
+}
+.flex-page.page div.content-block-links > a.small, .flex-page.page div.content-block-links > button.small {
+  font-size: 1.4rem;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  line-height: 2rem;
+  height: 3rem;
+  padding: 0 2rem;
+}
+.flex-page.page div.content-block-links > a.medium, .flex-page.page div.content-block-links > button.medium {
+  height: 4rem;
+}
+.flex-page.page div.content-block-links > a.wide, .flex-page.page div.content-block-links > button.wide {
+  padding: 0;
+  width: calc(100% - 0.5rem);
+}
+.flex-page.page div.content-block-links > a.disabled, .flex-page.page div.content-block-links > button.disabled {
+  opacity: 0.4;
+}
+.flex-page.page div.content-block-links > a:hover, .flex-page.page div.content-block-links > a:focus, .flex-page.page div.content-block-links > button:hover, .flex-page.page div.content-block-links > button:focus {
+  background-color: #f1f1f1;
+}
+.flex-page.page div.content-block-links > a:active, .flex-page.page div.content-block-links > button:active {
+  background-color: #e5e5e5;
+}
+.flex-page.page div.content-block-links.layout-grid {
+  display: grid;
+  grid-gap: 3rem 5rem;
+  grid-template-columns: repeat(auto-fit, min(30rem, 100%));
+  justify-content: center;
+}
+.flex-page.page div.content-block-links.layout-inline > a, .flex-page.page div.content-block-links.layout-inline > button {
+  margin: 1.5rem 1.5rem 0 0;
+}
+.flex-page.page div.content-block-links.size-large > a, .flex-page.page div.content-block-links.size-large > button {
+  padding: 1.5rem;
+}
+.flex-page.page div.content-block-links.size-large > a, .flex-page.page div.content-block-links.size-large > button {
+  padding: 0.5rem;
+}
+.flex-page.page div.content-block-links.color-white > a, .flex-page.page div.content-block-links.color-white > button {
+  background-color: #fff;
+  color: #424242;
+}
+.flex-page.page div.content-block-links.color-deep-green > a, .flex-page.page div.content-block-links.color-deep-green > button {
+  background-color: #0c9372;
+  color: #fff;
+}
+.flex-page.page div.content-block-links.color-blue > a, .flex-page.page div.content-block-links.color-blue > button {
+  background-color: #002469;
+  color: #fff;
+}
+
+/*# sourceMappingURL=LinksBlock.css.map */
