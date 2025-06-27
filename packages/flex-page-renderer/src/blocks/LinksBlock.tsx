@@ -7,6 +7,12 @@ type LinksConfig = {
   type: 'color';
   value: string;
 } | {
+  type: 'layout';
+  value: string;
+} | {
+  type: 'size';
+  value: string;
+} | {
   type: 'analytics_label';
   value: string;
 };
@@ -33,6 +39,14 @@ LinksBlock.blockConfig = {
         {value: 'blue', label: 'Blue'},
         {value: 'deep-green', label: 'Deep Green'},
       ]},
+      {name: 'size', label: 'Size', type: 'select', options: [
+        {value: 'small', label: 'Small'},
+        {value: 'large', label: 'Large'},
+      ]},
+      {name: 'layout', label: 'Layout', type: 'select', options: [
+        {value: 'grid', label: 'Grid'},
+        {value: 'inline', label: 'Inline'},
+      ]},
     ]},
   ],
 }
@@ -40,10 +54,11 @@ LinksBlock.blockConfig = {
 export function LinksBlock({data}: {data: LinksBlockConfig}) {
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
   const color = findByType(data.value.config, 'color')?.value ?? 'white';
-  const colorClass = `color-${color}`;
+  const size = findByType(data.value.config, 'size')?.value ?? 'large';
+  const layout = findByType(data.value.config, 'layout')?.value ?? 'grid';
 
   return <div
-    className={cn('content-block-links', colorClass)}
+    className={cn('content-block-links', `color-${color}`, `size-${size}`, `layout-${layout}`)}
     data-analytics-nav={analytics}
   >
     {data.value.links.map((action, i) => <Link key={i} link={action} />)}

@@ -3,17 +3,34 @@
 .flex-page.page div.content-block-links {
   margin: ($normal-margin * 2) 0;
 
-  display: grid;
-  grid-gap: 3rem 5rem;
-  grid-template-columns: repeat(auto-fit, min(30rem, 100%));
-  justify-content: center;
-
   > a, > button {
       @include button();
       @include body-font(2rem);
       white-space: break-spaces;
-      padding: 1.5rem;
       height: auto;
+  }
+
+  &.layout-grid {
+    display: grid;
+    grid-gap: 3rem 5rem;
+    grid-template-columns: repeat(auto-fit, min(30rem, 100%));
+    justify-content: center;
+  }
+  &.layout-inline {
+    > a, > button {
+      margin: $normal-margin $normal-margin 0 0;
+    }
+  }
+
+  &.size-large {
+    > a, > button {
+      padding: 1.5rem;
+    }
+  }
+  &.size-large {
+    > a, > button {
+      padding: 0.5rem;
+    }
   }
 
   &.color-white > a, &.color-white > button {
