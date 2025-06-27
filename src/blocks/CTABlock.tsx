@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { Link, LinkFields, linkFieldConfig } from '../components/Link';
+import { Link, linkFieldConfig, LinkFields } from '../components/Link';
 import { findByType } from '../utils';
 import './CTABlock.css';
 
@@ -58,7 +58,7 @@ CTABlock.blockConfig = {
       {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text'},
     ]},
   ],
-}
+};
 
 export function CTABlock({data}: {data: CTABlockConfig}) {
     const analytics = findByType(data.value.config, 'analytics_label')?.value;

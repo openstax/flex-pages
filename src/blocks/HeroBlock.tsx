@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import Color from 'color';
 import React from 'react';
+import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
 import { Image, ImageFields, imageFieldsConfig } from '../components/Image';
 import { findByType } from '../utils';
-import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
 import './HeroBlock.css';
 
 export type HeroConfigOptions = {

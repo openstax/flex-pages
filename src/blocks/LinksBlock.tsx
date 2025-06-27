@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { Link, LinkFields, linkFieldConfig } from '../components/Link';
+import { Link, linkFieldConfig, LinkFields } from '../components/Link';
 import { findByType } from '../utils';
 import './LinksBlock.css';
 
@@ -49,7 +49,7 @@ LinksBlock.blockConfig = {
       ]},
     ]},
   ],
-}
+};
 
 export function LinksBlock({data}: {data: LinksBlockConfig}) {
   const analytics = findByType(data.value.config, 'analytics_label')?.value;

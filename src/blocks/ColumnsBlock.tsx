@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import Color from 'color';
 import React from 'react';
-import { findByType } from '../utils';
 import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
+import { findByType } from '../utils';
 import './ColumnsBlock.css';
 
 export type SectionConfigOptions = {

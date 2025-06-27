@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import Color from 'color';
 import React from 'react';
-import { findByType } from '../utils';
 import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
+import { findByType } from '../utils';
 import './SectionBlock.css';
 
 export type SectionConfigOptions = {
@@ -38,7 +38,7 @@ export interface SectionBlockConfig {
     content: ContentBlockConfig[];
     config: SectionConfigOptions[];
   };
-};
+}
 
 SectionBlock.blockConfig = {
   type: 'section',
