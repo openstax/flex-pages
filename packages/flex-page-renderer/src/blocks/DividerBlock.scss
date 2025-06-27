@@ -9,8 +9,7 @@
 
     &.align_content_left, &.align_content_right {
         margin: auto;
-        width: 100%;
-        padding: 0 $normal-margin;
+        width: calc(100% - $normal-margin);
         max-width: var(--max-content-width);
     }
 
