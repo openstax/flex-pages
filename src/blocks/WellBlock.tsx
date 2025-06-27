@@ -18,6 +18,9 @@ export type WellConfigOptions = {
   type: 'margin';
   value: string;
 } | {
+  type: 'width';
+  value: string;
+} | {
   type: 'text_alignment';
   value: 'left' | 'right' | 'center';
 } | {
@@ -48,6 +51,7 @@ WellBlock.blockConfig = {
       {name: 'border_radius', label: 'Border Radius', help: 'Border radius in pixels', type: 'number'},
       {name: 'padding', label: 'Padding', help: 'Inner padding, in 10px increments', type: 'number'},
       {name: 'margin', label: 'Margin', help: 'Outer margin, in 10px increments', type: 'number'},
+      {name: 'width', label: 'Width', help: 'Maximum width of the well content (e.g., 600px, 50%, auto)', type: 'text'},
       {name: 'text_alignment', label: 'Text Alignment', type: 'select', options: [
         {label: 'Left', value: 'left'},
         {label: 'Right', value: 'right'},
@@ -65,6 +69,7 @@ export function WellBlock({data}: {data: WellBlockConfig}) {
   const borderRadius = findByType(data.value.config, 'border_radius')?.value ?? 8;
   const padding = findByType(data.value.config, 'padding')?.value ?? 2;
   const margin = findByType(data.value.config, 'margin')?.value ?? 0;
+  const width = findByType(data.value.config, 'width')?.value;
   const textAlign = findByType(data.value.config, 'text_alignment')?.value;
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
   const isDark = backgroundColor && Color(backgroundColor).isDark(); // eslint-disable-line new-cap
@@ -82,7 +87,8 @@ export function WellBlock({data}: {data: WellBlockConfig}) {
     <div className="well-content" style={{
       backgroundColor,
       borderRadius: `${borderRadius}px`,
-      textAlign
+      textAlign,
+      maxWidth: width
     }}>
       <ContentBlocks data={data.value.content} />
     </div>
