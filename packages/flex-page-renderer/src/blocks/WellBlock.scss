@@ -8,6 +8,8 @@
   > .well-content {
     padding: calc( #{$normal-margin} * var(--padding-multiplier, 2));
     width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 
   &.dark-background > .well-content {
