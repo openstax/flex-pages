@@ -1,8 +1,8 @@
 import React from 'react';
-import { ContentBlocks } from './ContentBlocks';
 import { ActionConfig, ActionContext } from './ActionContext';
+import { BlockComponents, BlockContext, BlockData } from './ContentBlockContext';
+import { ContentBlocks } from './ContentBlocks';
 import { RouteConfig, RouteContext } from './RouteContext';
-import { BlockContext, BlockComponents, BlockData } from './ContentBlockContext';
 
 export * from './ContentBlockContext';
 export * from './ActionContext';
@@ -22,7 +22,7 @@ export const ContentBlockRootHoc = <D extends BlockComponents<any>>(
         <ContentComponent data={data} />
       </RouteContext.Provider>
     </ActionContext.Provider>
-  </BlockContext.Provider>
+  </BlockContext.Provider>;
 };
 
 export const ContentBlockRoot = ContentBlockRootHoc(ContentBlocks);

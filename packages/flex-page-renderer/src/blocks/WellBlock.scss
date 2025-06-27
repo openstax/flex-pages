@@ -1,0 +1,19 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page div.content-block-well {
+  width: 100%;
+  margin: ($normal-margin * 2) 0;
+  padding: calc( #{$normal-margin} * var(--margin-multiplier, 0)) 0;
+
+  > .well-content {
+    padding: calc( #{$normal-margin} * var(--padding-multiplier, 2));
+    width: 100%;
+  }
+
+  &.dark-background > .well-content {
+    color: text-color(white);
+  }
+  &.light-background > .well-content {
+    color: text-color(normal);
+  }
+}

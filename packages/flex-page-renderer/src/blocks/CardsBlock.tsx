@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 import { findByType } from '../utils';
-import { CTALink, CTALinkFields, ctaLinkFieldConfig } from './CTABlock';
+import { CTALink, ctaLinkFieldConfig, CTALinkFields } from './CTABlock';
 import { RichTextContent } from './RichTextBlock';
 import './CardsBlock.css';
 

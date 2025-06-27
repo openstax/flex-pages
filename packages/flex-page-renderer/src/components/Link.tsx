@@ -1,7 +1,7 @@
 import React from 'react';
-import { scrollTo } from '../utils';
 import { ActionContext } from '../ActionContext';
 import { RouteContext } from '../RouteContext';
+import { scrollTo } from '../utils';
 
 export interface LinkFields {
   text: string;
@@ -24,7 +24,7 @@ type LinkProps = {
 } & React.AnchorHTMLAttributes<HTMLAnchorElement> & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function Link({link, ...props}: LinkProps) {
-  const type = link.target.type
+  const type = link.target.type;
   const actions = React.useContext(ActionContext);
   const routes = React.useContext(RouteContext);
   const route = type === 'route' ? routes[link.target.value] : undefined;

@@ -1,8 +1,8 @@
-import React from 'react';
-import "./FlexPage.css";
-import { findByType } from '../utils';
 import cn from 'classnames';
+import React from 'react';
+import './FlexPage.css';
 import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
+import { findByType } from '../utils';
 
 export type FlexPageConfigOptions = {
   type: 'height';
@@ -19,7 +19,7 @@ export interface FlexPageConfig {
     content: ContentBlockConfig[];
     config: FlexPageConfigOptions[];
   };
-};
+}
 
 FlexPage.blockConfig = {
   type: 'flex_page',
@@ -68,7 +68,7 @@ export function FlexPage({data}: {data: FlexPageConfig}) {
       if (height === 'fill-to-screen') { element.style.minHeight = availableHeight; }
       if (height === 'contain-to-screen') { element.style.maxHeight = availableHeight; }
       if (height === 'fit-to-screen') { element.style.height = availableHeight; }
-    }
+    };
 
     doResize();
 
@@ -78,5 +78,5 @@ export function FlexPage({data}: {data: FlexPageConfig}) {
 
   return <div ref={ref} className={cn('flex-page', 'page', `width-${width}`)}>
     <ContentBlocks data={data.value.content} />
-  </div>
-};
+  </div>;
+}
