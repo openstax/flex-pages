@@ -1,0 +1,17 @@
+.flex-page.page div.content-block-well {
+  width: 100%;
+  margin: 3rem 0;
+  padding: calc(1.5rem * var(--margin-multiplier, 0)) 0;
+}
+.flex-page.page div.content-block-well > .well-content {
+  padding: calc(1.5rem * var(--padding-multiplier, 2));
+  width: 100%;
+}
+.flex-page.page div.content-block-well.dark-background > .well-content {
+  color: #fff;
+}
+.flex-page.page div.content-block-well.light-background > .well-content {
+  color: #424242;
+}
+
+/*# sourceMappingURL=WellBlock.css.map */
