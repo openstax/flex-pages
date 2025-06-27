@@ -17,8 +17,10 @@
     justify-content: center;
   }
   &.layout-inline {
+    margin: ($normal-margin * 1.5) 0;
+
     > a, > button {
-      margin: $normal-margin $normal-margin 0 0;
+      margin: ($normal-margin / 2) ($normal-margin / 2) 0 0;
     }
   }
 
