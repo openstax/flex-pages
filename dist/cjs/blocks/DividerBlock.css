@@ -1,0 +1,23 @@
+.flex-page.page > div.content-block-divider {
+  height: 0;
+  overflow: visible;
+  width: 100%;
+  margin: 0;
+}
+.flex-page.page > div.content-block-divider.align_content_left, .flex-page.page > div.content-block-divider.align_content_right {
+  margin: auto;
+  width: calc(100% - 1.5rem);
+  max-width: var(--max-content-width);
+}
+.flex-page.page > div.content-block-divider.align_content_right, .flex-page.page > div.content-block-divider.align_body_right {
+  text-align: right;
+}
+.flex-page.page > div.content-block-divider.align_center {
+  text-align: center;
+}
+.flex-page.page > div.content-block-divider img {
+  height: auto;
+  width: auto;
+}
+
+/*# sourceMappingURL=DividerBlock.css.map */

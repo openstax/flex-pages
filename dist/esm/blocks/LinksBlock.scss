@@ -1,0 +1,50 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page div.content-block-links {
+  margin: ($normal-margin * 2) 0;
+
+  > a, > button {
+      @include button();
+      @include body-font(2rem);
+      white-space: break-spaces;
+      height: auto;
+  }
+
+  &.layout-grid {
+    display: grid;
+    grid-gap: 3rem 5rem;
+    grid-template-columns: repeat(auto-fit, min(30rem, 100%));
+    justify-content: center;
+  }
+  &.layout-inline {
+    margin: ($normal-margin * 1.5) 0;
+
+    > a, > button {
+      margin: ($normal-margin / 2) ($normal-margin / 2) 0 0;
+    }
+  }
+
+  &.size-large {
+    > a, > button {
+      padding: 1.5rem;
+    }
+  }
+  &.size-small {
+    > a, > button {
+      padding: 0.5rem;
+    }
+  }
+
+  &.color-white > a, &.color-white > button {
+      background-color: ui-color(white);
+      color: text-color(normal);
+  }
+  &.color-deep-green > a, &.color-deep-green > button {
+      background-color: os-color(deep-green);
+      color: text-color(white);
+  }
+  &.color-blue > a, &.color-blue > button {
+      background-color: os-color(blue);
+      color: text-color(white);
+  }
+}
