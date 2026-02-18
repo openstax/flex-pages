@@ -1,0 +1,284 @@
+import React from 'react';
+import * as UI from '@openstax/ui-components';
+import { createRoute, makeScreen } from "../../core/services";
+import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
+import { ContentBlockRoot } from '@openstax/flex-page-renderer/ContentBlockRoot';
+import { Layout } from '../../components/Layout';
+import { actions } from '../actions';
+
+export const SectionComponent = () => {
+  return <Layout>
+    <UI.NavBar logo />
+    <ContentBlockRoot actions={actions} blocks={allBlocks} data={sampleContent as any} />
+  </Layout>;
+};
+
+export const sectionScreen = createRoute({name: 'SectionComponent',
+  path: '/section',
+  handler: makeScreen(SectionComponent)
+});
+
+/* eslint-disable max-len */
+const sampleContent = [
+  {
+    "type": "flex_page",
+    "value": {
+      "content": [
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"t6nx6\"><b>Page Structure:</b></p>",
+                "id": "7bc4169a-b0ad-4e52-8e1e-92e39acf90e4"
+              },
+              {
+                "type": "text",
+                "value": "<h1 data-block-key=\"t6nx6\">Section Component</h1>",
+                "id": "a5a003db-6fd0-4091-b812-869d8ec7903e"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 7,
+                "id": "e5f57252-5f8f-4ee0-a688-059f344c10ae"
+              },
+              {
+                "type": "background_color",
+                "value": "#0dc0dc",
+                "id": "e008d57c-5114-451f-aeb1-3960df40945d"
+              }
+            ]
+          },
+          "id": "2d7d1acc-5ba9-48f9-bfa6-4796b18a8750"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"n041h\"><a href=\"#/\">documentation home</a></p>",
+                "id": "cdb0e0be-7a33-4ef7-a3e7-99b95d337f60"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_top",
+                "value": 1,
+                "id": "4ddf8ebc-82fc-4489-bba6-ab5fca337244"
+              }
+            ]
+          },
+          "id": "0af271d5-f7dd-4e65-b3cc-4fed835ecf92"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"t6nx6\">Overview</h2><p data-block-key=\"2ehkg\">The section component creates a fixed-width container to add content to. It supports a large variety of content types, and is the primary content container for flex pages.</p><p data-block-key=\"euftb\">This is a section with text in it.</p>",
+                "id": "c1957c05-f6ba-4ebc-8ee7-921c7cbd11e8"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "f3040c3e-fdb2-448c-a827-6651d554b75a"
+              }
+            ]
+          },
+          "id": "c67f858c-5fd6-4347-b79f-e4400be900ef"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Sections have a config section with a number of options. The most commonly used options are \"padding\", \"padding top\", and \"padding bottom\" which are all used to control the content spacing on the page.</p><p data-block-key=\"bt1e2\">This section, and the one before, have padding set to 5. The first section on this page has padding set to 7 and a background color.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"8ih75\"><b>Id</b>: sets the HTML id of the section. To be used in anchor links to scroll to certain parts of the page</p><p data-block-key=\"42t6v\"><b>Background color</b>: sets the background color of the section</p><p data-block-key=\"8d7hf\"><b>Padding</b>: Adds padding to the top and bottom of the section</p><p data-block-key=\"ds68a\"><b>Padding Top</b>: adds padding to the top only</p><p data-block-key=\"8hv0d\"><b>Padding Bottom</b>: adds padding to the bottom only</p><p data-block-key=\"2k4u0\"><b>Text alignment</b>: alignment of text in the section (left, right, or center)</p><p data-block-key=\"2gcvi\"><b>Analytics label</b>: will be set as the \"Link Nav\" option for links clicked within this section in Google Analytics.</p>",
+                "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "a5e84fb7-a67a-4107-b656-9d804674339b"
+              }
+            ]
+          },
+          "id": "bbd61408-d955-4a79-93bd-a101edd41979"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"6mfaa\">Examples</h2>",
+                "id": "3e65261a-0c11-4d51-bb5d-3406ce7a5538"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "4eb5606b-6a05-4a74-a4d5-e6ee13f08dd2"
+              }
+            ]
+          },
+          "id": "f021a421-7e7f-4778-94a7-b8892801ab38"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"6mfaa\">this is a basic section with no options</p>",
+                "id": "e611da7b-c12e-444d-a205-06588d999bcd"
+              }
+            ],
+            "config": []
+          },
+          "id": "383f2faf-3c58-44d6-b299-52850fdce354"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"6mfaa\">this one has padding set to 5</p>",
+                "id": "e6c3b3c9-f21a-46bb-95f7-c52da8f0cd74"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "2729c8ad-7a98-42e7-9e75-ba94102f7535"
+              }
+            ]
+          },
+          "id": "1c2f1d86-b6ef-4b4b-b246-2885ddccd7d3"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"6mfaa\">this one has \"padding bottom\" set to 5. the ending padding of one section stacks with the beginning padding of the next section. depending on how your background colors and dividers are set up, you may want to normally only use padding on one end of the sections so they are evenly spaced.</p>",
+                "id": "fbdd04ce-6f5d-4908-a0b1-dcd3e366be94"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_bottom",
+                "value": 5,
+                "id": "c1399b28-dae8-49df-a716-7623b2eb0069"
+              }
+            ]
+          },
+          "id": "7fa2a5a1-0447-45c5-be11-0ccbb615ad8a"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"6mfaa\">this one has \"padding top\" set to 5. see the bigger gap between the sections.</p>",
+                "id": "d8161be5-d15d-4c6e-ab27-3e9b139be5b5"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_top",
+                "value": 5,
+                "id": "78ccf1a8-1e1f-42a1-a0a4-d2d319dfb46d"
+              }
+            ]
+          },
+          "id": "417c4922-280c-4a29-bc2e-66c4a2b53efb"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"6mfaa\">text align center</p>",
+                "id": "e4c05398-eb2e-454f-9d5e-033af910beaa"
+              }
+            ],
+            "config": [
+              {
+                "type": "text_alignment",
+                "value": "center",
+                "id": "97d46f46-58fe-4bc3-9b7c-b72fd19d1384"
+              },
+              {
+                "type": "padding_top",
+                "value": 5,
+                "id": "34b069ba-1d0a-49a6-9787-a466025d9e1d"
+              }
+            ]
+          },
+          "id": "0d8bd861-630d-4613-801a-55ad168d06ea"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"6mfaa\">text align right</p>",
+                "id": "d530fde9-249b-45c9-8402-5d90e4b0ccd5"
+              }
+            ],
+            "config": [
+              {
+                "type": "text_alignment",
+                "value": "right",
+                "id": "83146430-bfc1-432c-9f33-2c03248cbac5"
+              },
+              {
+                "type": "padding_top",
+                "value": 5,
+                "id": "aeca9e59-1d20-4942-b315-088d7d042d63"
+              }
+            ]
+          },
+          "id": "857dfb92-36f8-436c-a6cb-43491dc88921"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"6mfaa\">previous few sections used \"padding top\", using \"padding\" on this one to add some breathing room above the footer.</p>",
+                "id": "3db659bf-0d92-4ddf-8e3e-cefdf1dba745"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "811062be-5c6a-48d6-9190-5adf5c6ab01c"
+              }
+            ]
+          },
+          "id": "43db5586-f50c-4369-a6c7-b1e9f64505f7"
+        }
+      ]
+    }
+  }
+];

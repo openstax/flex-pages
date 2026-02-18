@@ -1,0 +1,483 @@
+import React from 'react';
+import * as UI from '@openstax/ui-components';
+import { createRoute, makeScreen } from "../../core/services";
+import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
+import { ContentBlockRoot } from '@openstax/flex-page-renderer/ContentBlockRoot';
+import { Layout } from '../../components/Layout';
+import { actions } from '../actions';
+
+export const CardsBlockComponent = () => {
+  return <Layout>
+    <UI.NavBar logo />
+    <ContentBlockRoot actions={actions} blocks={allBlocks} data={sampleContent as any} />
+  </Layout>;
+};
+
+export const cardsBlockScreen = createRoute({name: 'CardsBlockComponent',
+  path: '/cards-block',
+  handler: makeScreen(CardsBlockComponent)
+});
+
+/* eslint-disable max-len */
+const sampleContent = [
+  {
+    "type": "flex_page",
+    "value": {
+      "content": [
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"t6nx6\"><b>Page Content:</b></p>",
+                "id": "7bc4169a-b0ad-4e52-8e1e-92e39acf90e4"
+              },
+              {
+                "type": "text",
+                "value": "<h1 data-block-key=\"t6nx6\">Cards Block Component</h1>",
+                "id": "cb3102c6-abe5-4d91-bb0e-746ef737ac9b"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 7,
+                "id": "e5f57252-5f8f-4ee0-a688-059f344c10ae"
+              },
+              {
+                "type": "background_color",
+                "value": "#0dc0dc",
+                "id": "e008d57c-5114-451f-aeb1-3960df40945d"
+              }
+            ]
+          },
+          "id": "2d7d1acc-5ba9-48f9-bfa6-4796b18a8750"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"upbck\"><a href=\"#/\">documentation home</a></p>",
+                "id": "5d52a043-7657-431c-9be8-c27b8c967eb6"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_top",
+                "value": 1,
+                "id": "9d5a4856-a18e-4693-887d-16cc1569a821"
+              }
+            ]
+          },
+          "id": "e7396d38-15ad-40af-a9ba-1090392b71ed"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"dah2k\">Overview</h2><p data-block-key=\"f40kk\">The Cards Block component is like a series of squareish post-it notes on the page. if there are too many cards to fit in one row, they start wrapping onto the next row. on mobile they all show in one column.</p>",
+                "id": "07978954-2c37-43cc-a351-669b3988bca3"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "636cef4e-f352-4290-a559-abe6e9a900e4"
+              }
+            ]
+          },
+          "id": "c463fe2d-631f-481c-94f9-db852fbe9a7e"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\"><b>card style</b>: the style of the cards. unset is plain.</p><p data-block-key=\"buhkq\"><b>card size</b>: set the width of the cards. default is 27</p>",
+                "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_bottom",
+                "value": 5,
+                "id": "c021ece9-d22a-43c3-93cd-a3590df09497"
+              }
+            ]
+          },
+          "id": "bbd61408-d955-4a79-93bd-a101edd41979"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"dah2k\">Styles</h2><p data-block-key=\"qnff\"></p>",
+                "id": "59c2655d-10b8-4bed-acea-97fddf42bb90"
+              },
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<p data-block-key=\"dxu69\">these</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"isfhz\">are</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"isfhz\">rounded</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "card_style",
+                      "value": "rounded",
+                      "id": "1c2c3461-9da6-431c-9435-a6e882cd3812"
+                    }
+                  ]
+                },
+                "id": "0e45cc49-a892-4de0-8c71-9994e246da66"
+              },
+              {
+                "type": "html",
+                "value": "&nbsp;",
+                "id": "ae439c10-eb66-48b2-b7e6-23a821860cdf"
+              },
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<p data-block-key=\"dxu69\">these</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"isfhz\">are</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"isfhz\">square</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "card_style",
+                      "value": "square",
+                      "id": "80883f6a-1729-4ea6-945b-f42d612fadec"
+                    }
+                  ]
+                },
+                "id": "d6a1ecea-9718-4587-8826-784f015bf571"
+              },
+              {
+                "type": "html",
+                "value": "&nbsp;",
+                "id": "25327bc6-8d45-4c26-a1a8-098e9ff1b365"
+              },
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<p data-block-key=\"dxu69\">these</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"isfhz\">are</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"isfhz\">plain</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": []
+                },
+                "id": "1116c4af-dbb6-4748-aa7d-c340c641cc4e"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "978a64f2-8f56-42ce-839e-68ed65fa2f24"
+              }
+            ]
+          },
+          "id": "1b8d6667-f8ff-41ff-84e2-141c0b33b3dd"
+        },
+        {
+          "type": "hero",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"i8rw9\">In a hero</h2><p data-block-key=\"ch49k\">Card blocks can go in a hero too</p>",
+                "id": "c1e1db8a-99fd-40e2-b4d1-8992ecb305b1"
+              },
+              {
+                "type": "html",
+                "value": "&nbsp;",
+                "id": "ce9e25f5-6cc8-4283-bf73-bb21ae814a66"
+              },
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<p data-block-key=\"d7xex\">i</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"isfhz\">need</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"isfhz\">a</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"isfhz\">hero!</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "card_style",
+                      "value": "square",
+                      "id": "5e0947c9-6217-4dcc-b106-5fe07092e2d1"
+                    },
+                    {
+                      "type": "card_size",
+                      "value": 10,
+                      "id": "690b13bb-1e64-4342-bde2-2dbcff3cbfd9"
+                    }
+                  ]
+                },
+                "id": "325af3bd-56e4-40b6-b3aa-39e47068844f"
+              }
+            ],
+            "image": {
+              "id": 1044,
+              "file": "https://assets.openstax.org/oscms-prod/media/original_images/OpenStax_AM.gif",
+              "title": "OpenStax_AM",
+              "height": 1365,
+              "width": 2048,
+              "created_at": "2024-07-12T14:33:51.592227-05:00"
+            },
+            "image_alt": "",
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "ec31be1e-f261-4958-a87d-0381af492f72"
+              }
+            ]
+          },
+          "id": "5b87dd99-079b-4b13-841d-35aec8835a61"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<p data-block-key=\"s7kjj\"></p><img alt=\"\" class=\"richtext-image full-width\" height=\"80\" src=\"https://assets.openstax.org/oscms-prod/media/images/ed_tech.width-800.svg\" width=\"80\"><p data-block-key=\"1lvm4\">the plain style looks cool with full-width images and some text</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"s7kjj\"></p><img alt=\"\" class=\"richtext-image full-width\" height=\"80\" src=\"https://assets.openstax.org/oscms-prod/media/images/ed_tech.width-800.svg\" width=\"80\"><p data-block-key=\"1lvm4\">the plain style looks cool with full-width images and some text</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"s7kjj\"></p><img alt=\"\" class=\"richtext-image full-width\" height=\"80\" src=\"https://assets.openstax.org/oscms-prod/media/images/ed_tech.width-800.svg\" width=\"80\"><p data-block-key=\"1lvm4\">the plain style looks cool with full-width images and some text</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": []
+                },
+                "id": "ae090f96-3d12-4175-9852-3f70cd986d6e"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_bottom",
+                "value": 5,
+                "id": "be6cd0fc-676c-41de-b6b3-d94f8788d8ed"
+              }
+            ]
+          },
+          "id": "6ac1466d-7802-4f5b-8234-42a0b7697e2d"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"nwsij\">this section has text align set to \"center\", it affects the text of the cards too.</p>",
+                "id": "19a1aecf-fc1e-4f93-90fd-028912260c1d"
+              },
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<h2 data-block-key=\"s7kjj\">some heading</h2><hr/><p data-block-key=\"3almm\">the plain style also has support for using a \"horizontal line\" in the text editor, which looks cool with headings and some text</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<h2 data-block-key=\"s7kjj\">some heading</h2><hr/><p data-block-key=\"3almm\">the plain style also has support for using a \"horizontal line\" in the text editor, which looks cool with headings and some text</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<h2 data-block-key=\"s7kjj\">some heading</h2><hr/><p data-block-key=\"3almm\">the plain style also has support for using a \"horizontal line\" in the text editor, which looks cool with headings and some text</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": []
+                },
+                "id": "749524f8-9e13-41d5-8215-e48ba1c39224"
+              }
+            ],
+            "config": [
+              {
+                "type": "text_alignment",
+                "value": "center",
+                "id": "53329bfc-b2f5-4fc8-9722-2e2add346767"
+              },
+              {
+                "type": "padding_bottom",
+                "value": 5,
+                "id": "09ea3722-8015-4a06-873c-b7b5d78cb3e9"
+              }
+            ]
+          },
+          "id": "09ed6fb7-7a2d-4bc9-98cd-e6d7a6cefd90"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<h2 data-block-key=\"ogxop\">short text</h2><p data-block-key=\"eo2ln\">If you have a short block of text, that would look weird in the full content width, you can use a cards block with one card and a card-size defined to make a smaller content width for that text.</p><p data-block-key=\"5um72\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquet faucibus quam, sed mollis quam imperdiet nec.</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "card_size",
+                      "value": 60,
+                      "id": "da08c41c-5710-4cc7-9c97-b985144a2251"
+                    }
+                  ]
+                },
+                "id": "b29089eb-afbe-4d38-91ab-d89e29df9d9d"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "cdecfe62-1bb2-43f4-a54f-cee81f940eb3"
+              }
+            ]
+          },
+          "id": "267b4fc9-3d3e-4da9-a22e-67d8df2e3d17"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<p data-block-key=\"z58fs\">cards can have calls to action configured</p>",
+                      "cta_block": [
+                        {
+                          "text": "this is a cta",
+                          "aria_label": "",
+                          "target": {
+                            "value": "https://openstax.org",
+                            "type": "external"
+                          },
+                          "config": []
+                        }
+                      ]
+                    },
+                    {
+                      "text": "<p data-block-key=\"z58fs\">you can also put <a href=\"/\">links in the text</a>, but the configured cta will always make sure the links line up at the bottom of the card area, which looks a little cleaner. is this text long enough yet?</p>",
+                      "cta_block": [
+                        {
+                          "text": "this is a cta",
+                          "aria_label": "",
+                          "target": {
+                            "value": "https://openstax.org",
+                            "type": "external"
+                          },
+                          "config": []
+                        }
+                      ]
+                    },
+                    {
+                      "text": "<p data-block-key=\"z58fs\">the cta can also be a button, if you're into that kind of thing.</p>",
+                      "cta_block": [
+                        {
+                          "text": "this is a cta",
+                          "aria_label": "",
+                          "target": {
+                            "value": "https://openstax.org",
+                            "type": "external"
+                          },
+                          "config": [
+                            {
+                              "type": "style",
+                              "value": "white",
+                              "id": "d3a59fa3-f084-4928-934c-32fd88760de0"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "config": []
+                },
+                "id": "1e1be6ca-1444-487a-9bd4-622c7f291f82"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "89b8846d-23ba-4c37-bba6-c98db71236a8"
+              }
+            ]
+          },
+          "id": "d7ff9c68-61ba-4297-a4d1-bec2a3c19558"
+        }
+      ]
+    }
+  }
+];

@@ -1,0 +1,317 @@
+import React from 'react';
+import * as UI from '@openstax/ui-components';
+import { createRoute, makeScreen } from "../../core/services";
+import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
+import { ContentBlockRoot } from '@openstax/flex-page-renderer/ContentBlockRoot';
+import { Layout } from '../../components/Layout';
+import { actions } from '../actions';
+
+export const CtasComponent = () => {
+  return <Layout>
+    <UI.NavBar logo />
+    <ContentBlockRoot actions={actions} blocks={allBlocks} data={sampleContent as any} />
+  </Layout>;
+};
+
+export const ctasScreen = createRoute({name: 'CtasComponent',
+  path: '/ctas',
+  handler: makeScreen(CtasComponent)
+});
+
+/* eslint-disable max-len */
+const sampleContent = [
+  {
+    "type": "flex_page",
+    "value": {
+      "content": [
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"t6nx6\"><b>Page Content:</b></p>",
+                "id": "7bc4169a-b0ad-4e52-8e1e-92e39acf90e4"
+              },
+              {
+                "type": "text",
+                "value": "<h1 data-block-key=\"h2r6q\">Calls to Action Component</h1>",
+                "id": "aef2bc78-dc8a-4527-8d4b-4ec82aa2ac76"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 7,
+                "id": "e5f57252-5f8f-4ee0-a688-059f344c10ae"
+              },
+              {
+                "type": "background_color",
+                "value": "#0dc0dc",
+                "id": "e008d57c-5114-451f-aeb1-3960df40945d"
+              }
+            ]
+          },
+          "id": "2d7d1acc-5ba9-48f9-bfa6-4796b18a8750"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"5h01s\"><a href=\"#/\">documentation home</a></p>",
+                "id": "c3015bc5-d554-4ba6-8c4d-9afdde6e4318"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_top",
+                "value": 1,
+                "id": "7192b622-44a9-4042-8a9d-c0503e8807d2"
+              }
+            ]
+          },
+          "id": "ab3c03c3-0f56-438a-a1a9-7e8dd4ad1253"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"dah2k\">Overview</h2><p data-block-key=\"f40kk\">The Calls to Action component adds eye-catching buttons to the page.</p><p data-block-key=\"b3opo\">Each button has text, aria-label, and a target url/page. each button can also override its style.</p>",
+                "id": "07978954-2c37-43cc-a351-669b3988bca3"
+              },
+              {
+                "type": "cta_block",
+                "value": {
+                  "actions": [
+                    {
+                      "text": "I'm a button",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": []
+                    },
+                    {
+                      "text": "Yep, definitely a button",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": []
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "analytics_label",
+                      "value": "",
+                      "id": "feb8e7a1-3ce8-41e2-b584-5711c4c95bbb"
+                    }
+                  ]
+                },
+                "id": "f9be123a-6377-49a0-b3e0-2c452202c42d"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "636cef4e-f352-4290-a559-abe6e9a900e4"
+              }
+            ]
+          },
+          "id": "c463fe2d-631f-481c-94f9-db852fbe9a7e"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\">on the block</p><p data-block-key=\"dui9o\"><b>analytics label</b>: sets the analytics nav field in google analytics clicks.</p><p data-block-key=\"7876c\"></p><p data-block-key=\"3vj2v\">on the button</p><p data-block-key=\"buhkq\"><b>style</b>: overrides the style of the button, defaults to primary, secondary</p>",
+                "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_bottom",
+                "value": 5,
+                "id": "c021ece9-d22a-43c3-93cd-a3590df09497"
+              }
+            ]
+          },
+          "id": "bbd61408-d955-4a79-93bd-a101edd41979"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"h1p8f\">Examples</h2>",
+                "id": "dd8d966a-bec6-4640-8208-2eda4d6a3f01"
+              },
+              {
+                "type": "cta_block",
+                "value": {
+                  "actions": [
+                    {
+                      "text": "primary only",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": []
+                    }
+                  ],
+                  "config": []
+                },
+                "id": "7b2b4620-42f0-455c-851b-064b7c9da40f"
+              },
+              {
+                "type": "cta_block",
+                "value": {
+                  "actions": [
+                    {
+                      "text": "primary",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": []
+                    },
+                    {
+                      "text": "secondary",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": []
+                    }
+                  ],
+                  "config": []
+                },
+                "id": "0fd33a20-d2d1-4d64-8169-2e730e2788ad"
+              },
+              {
+                "type": "cta_block",
+                "value": {
+                  "actions": [
+                    {
+                      "text": "primary",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": []
+                    },
+                    {
+                      "text": "styled",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": [
+                        {
+                          "type": "style",
+                          "value": "blue_outline",
+                          "id": "50f4af1c-398c-4200-94d0-967a0867c165"
+                        }
+                      ]
+                    }
+                  ],
+                  "config": []
+                },
+                "id": "58f007f9-d8c6-49f6-8f3a-693d55d4c56c"
+              },
+              {
+                "type": "cta_block",
+                "value": {
+                  "actions": [
+                    {
+                      "text": "styled",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": [
+                        {
+                          "type": "style",
+                          "value": "deep_green_outline",
+                          "id": "dd69097b-ce83-4bcb-b2c7-a90e17ac6de2"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "secondary",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": []
+                    }
+                  ],
+                  "config": []
+                },
+                "id": "b942458e-2af5-44f2-ba96-cbf8cdc7e98c"
+              },
+              {
+                "type": "cta_block",
+                "value": {
+                  "actions": [
+                    {
+                      "text": "both",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": [
+                        {
+                          "type": "style",
+                          "value": "deep_green_outline",
+                          "id": "1a9bfba9-0101-45e8-b9f5-30e207e14a85"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "styled",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": [
+                        {
+                          "type": "style",
+                          "value": "blue_outline",
+                          "id": "6377501a-3f93-4b83-bad8-4a6d1a68bdd1"
+                        }
+                      ]
+                    }
+                  ],
+                  "config": []
+                },
+                "id": "2314516f-daf2-4efd-b541-28f1f1e4886e"
+              }
+            ],
+            "config": []
+          },
+          "id": "428aa789-8f9a-4d4b-a5ca-58b2ffa4e108"
+        }
+      ]
+    }
+  }
+];

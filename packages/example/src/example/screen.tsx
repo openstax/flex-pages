@@ -131,75 +131,6 @@ const sampleContent = [
                 "value": {
                   "cards": [
                     {
-                      "text": "<h3 data-block-key=\"q184j\">Layouts</h3><p data-block-key=\"crdkf\">Layouts define the overall structure of a page, including the top nav, header, footer, default content width, and other base styles.</p>",
-                      "ctaBlock": []
-                    }
-                  ],
-                  "config": [
-                    {
-                      "type": "card_size",
-                      "value": 63,
-                      "id": "d99d08ff-7143-435d-a7a4-fffba3229de1"
-                    }
-                  ]
-                },
-                "id": "a2c0fa28-8a3a-43ad-b590-4cb984cf693d"
-              },
-              {
-                "type": "links_group",
-                "value": {
-                  "links": [
-                    {
-                      "text": "Default",
-                      "ariaLabel": "",
-                      "target": {
-                        "value": "https://staging.openstax.org/flexpage-default-layout",
-                        "type": "external"
-                      }
-                    },
-                    {
-                      "text": "Landing Page",
-                      "ariaLabel": "",
-                      "target": {
-                        "value": "https://staging.openstax.org/flexpage-landing-page-layout",
-                        "type": "external"
-                      }
-                    }
-                  ],
-                  "config": []
-                },
-                "id": "3c71c06c-ba95-488e-8c72-b120f166ca45"
-              }
-            ],
-            "config": [
-              {
-                "type": "text_alignment",
-                "value": "center",
-                "id": "d1173e86-8b81-4b52-8d1c-b64efc630950"
-              },
-              {
-                "type": "padding",
-                "value": 4,
-                "id": "b5324de5-f516-4a79-9244-78f8d979bcfa"
-              },
-              {
-                "type": "id",
-                "value": "layouts",
-                "id": "215ba275-a727-4b9e-b371-8c42a776e73f"
-              }
-            ]
-          },
-          "id": "b70123ce-3c85-4b5c-8ae2-bdd8a0c630ab"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
                       "text": "<h3 data-block-key=\"re4k8\">Page Structure</h3><p data-block-key=\"71esi\">These components are used to organize the overall page structure and non-content visual effects.</p>",
                       "ctaBlock": []
                     }
@@ -222,7 +153,7 @@ const sampleContent = [
                       "text": "Section",
                       "ariaLabel": "Section Component",
                       "target": {
-                        "value": "https://staging.openstax.org/flexpage-section-component",
+                        "value": "#/section",
                         "type": "external"
                       }
                     },
@@ -230,7 +161,7 @@ const sampleContent = [
                       "text": "Hero",
                       "ariaLabel": "",
                       "target": {
-                        "value": "https://staging.openstax.org/flexpage-hero-component",
+                        "value": "#/hero",
                         "type": "external"
                       }
                     },
@@ -238,7 +169,15 @@ const sampleContent = [
                       "text": "Divider",
                       "ariaLabel": "Divider Component",
                       "target": {
-                        "value": "https://staging.openstax.org/flexpage-divider-component",
+                        "value": "#/divider",
+                        "type": "external"
+                      }
+                    },
+                    {
+                      "text": "Columns",
+                      "ariaLabel": "Columns Component",
+                      "target": {
+                        "value": "#/columns",
                         "type": "external"
                       }
                     }
@@ -305,7 +244,7 @@ const sampleContent = [
                       "text": "Text",
                       "ariaLabel": "Text Component",
                       "target": {
-                        "value": "https://staging.openstax.org/flexpage-text-component",
+                        "value": "#/text",
                         "type": "external"
                       }
                     },
@@ -313,7 +252,7 @@ const sampleContent = [
                       "text": "Cards Block",
                       "ariaLabel": "Cards Block Component",
                       "target": {
-                        "value": "https://staging.openstax.org/flexpage-cards-block-component",
+                        "value": "#/cards-block",
                         "type": "external"
                       }
                     },
@@ -321,7 +260,7 @@ const sampleContent = [
                       "text": "Calls to Action",
                       "ariaLabel": "Calls to Action Component",
                       "target": {
-                        "value": "https://staging.openstax.org/flexpage-ctas-component",
+                        "value": "#/ctas",
                         "type": "external"
                       }
                     },
@@ -329,7 +268,7 @@ const sampleContent = [
                       "text": "Links Group",
                       "ariaLabel": "Links Group Component",
                       "target": {
-                        "value": "https://staging.openstax.org/flexpage-links-component",
+                        "value": "#/links",
                         "type": "external"
                       }
                     },
@@ -337,18 +276,18 @@ const sampleContent = [
                       "text": "Quote",
                       "ariaLabel": "Quote Component",
                       "target": {
-                        "value": "https://staging.openstax.org/flexpage-quote-component",
+                        "value": "#/quote",
                         "type": "external"
                       }
                     },
                     {
-                      "text": "Frequently Asked Questions",
-                      "ariaLabel": "Frequently Asked Questions Component",
+                      "text": "Well",
+                      "ariaLabel": "Well Component",
                       "target": {
-                        "value": "https://staging.openstax.org/flexpage-faq-component",
+                        "value": "#/well",
                         "type": "external"
                       }
-                    }
+                    },
                   ],
                   "config": [
                     {
@@ -387,7 +326,7 @@ const sampleContent = [
             "content": [
               {
                 "type": "text",
-                "value": "<h2 data-block-key=\"fcyvo\">Escape Hatch</h2><p data-block-key=\"3lc8u\">There are HTML components available under the page body and section contents for when an escape hatch is really needed. There have been situations where we&#x27;ve written entire pages in HTML components. Less drastically, its useful for an embedded item like a video.</p><p data-block-key=\"ecbgv\"><a href=\"/flexpage-html-blocks\">html block examples</a></p>",
+                "value": "<h2 data-block-key=\"fcyvo\">Escape Hatch</h2><p data-block-key=\"3lc8u\">There are HTML components available under the page body and section contents for when an escape hatch is really needed. There have been situations where we&#x27;ve written entire pages in HTML components. Less drastically, its useful for an embedded item like a video.</p><p data-block-key=\"ecbgv\"><a href=\"#/html-blocks\">html block examples</a></p>",
                 "id": "6b34e72a-cb09-449f-b82f-8366ac52b8b6"
               }
             ],
