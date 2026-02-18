@@ -140,6 +140,41 @@ const sampleContent = [
             "content": [
               {
                 "type": "text",
+                "value": "<h3 data-block-key=\"grad1\">Gradient Example</h3><p data-block-key=\"grad2\">This section uses a gradient background from teal to purple, going left to right.</p>",
+                "id": "a1b2c3d4-grad-demo-text"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "a1b2c3d4-grad-padding"
+              },
+              {
+                "type": "background_color",
+                "value": "#0dc0dc",
+                "id": "a1b2c3d4-grad-bg"
+              },
+              {
+                "type": "gradient_color",
+                "value": "#6b21a8",
+                "id": "a1b2c3d4-grad-to"
+              },
+              {
+                "type": "gradient_direction",
+                "value": "to right",
+                "id": "a1b2c3d4-grad-dir"
+              }
+            ]
+          },
+          "id": "a1b2c3d4-gradient-section"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
                 "value": "<p data-block-key=\"6mfaa\">this is a basic section with no options</p>",
                 "id": "e611da7b-c12e-444d-a205-06588d999bcd"
               }

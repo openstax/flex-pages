@@ -100,7 +100,7 @@ const sampleContent = [
             "content": [
               {
                 "type": "text",
-                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\"><b>card style</b>: the style of the cards. unset is plain.</p><p data-block-key=\"buhkq\"><b>card size</b>: set the width of the cards. default is 27</p>",
+                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\"><b>card style</b>: the style of the cards. unset is plain.</p><p data-block-key=\"buhkq\"><b>card size</b>: set the width of the cards. default is 27</p><p data-block-key=\"c0lmn\"><b>card columns</b>: set a fixed number of columns. cards show in exactly N columns when there is space, then collapse directly to 1 column. works with card size.</p>",
                 "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
               }
             ],
@@ -218,6 +218,58 @@ const sampleContent = [
             ]
           },
           "id": "1b8d6667-f8ff-41ff-84e2-141c0b33b3dd"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"c0l01\">Fixed Columns</h2><p data-block-key=\"c0l02\">Using <b>card_columns: 3</b> with rounded style. These cards show in exactly 3 columns when there is space, then collapse directly to 1 column with no intermediate sizes.</p>",
+                "id": "c0l-text-01"
+              },
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<h3 data-block-key=\"c0l03\">Column 1</h3><p data-block-key=\"c0l04\">This layout uses card_columns to fix the column count.</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<h3 data-block-key=\"c0l05\">Column 2</h3><p data-block-key=\"c0l06\">It skips intermediate breakpoints like 2 columns.</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<h3 data-block-key=\"c0l07\">Column 3</h3><p data-block-key=\"c0l08\">Resize the browser to see 3 columns collapse directly to 1.</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "card_style",
+                      "value": "rounded",
+                      "id": "c0l-style-01"
+                    },
+                    {
+                      "type": "card_columns",
+                      "value": 3,
+                      "id": "c0l-columns-01"
+                    }
+                  ]
+                },
+                "id": "c0l-cards-01"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "c0l-padding-01"
+              }
+            ]
+          },
+          "id": "c0l-section-01"
         },
         {
           "type": "hero",

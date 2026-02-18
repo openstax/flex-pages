@@ -13,6 +13,10 @@ type CardConfig = {
   type: 'card_size';
   id: string;
   value: string;
+} | {
+  type: 'card_columns';
+  id: string;
+  value: string;
 };
 
 export type CardBlockConfig = {
@@ -44,6 +48,7 @@ CardsBlock.blockConfig = {
         {label: 'Square', value: 'square'},
       ]},
       {name: 'card_size', label: 'Size', help: 'A single number representing 10px increments', type: 'number'},
+      {name: 'card_columns', label: 'Columns', help: 'Number of columns (works with Size)', type: 'number'},
     ]},
   ],
 };
@@ -52,11 +57,12 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
   const cardStyle = findByType(data.value.config, 'card_style')?.value;
   const styleClass = cardStyle ? `card_style_${cardStyle}` : undefined;
   const cardSize = findByType(data.value.config, 'card_size')?.value;
+  const cardColumns = findByType(data.value.config, 'card_columns')?.value;
 
   return (
     <div
-      className={cn('content-block-cards', styleClass)}
-      style={{'--card-size': cardSize} as React.CSSProperties}
+      className={cn('content-block-cards', styleClass, cardColumns && 'has-columns')}
+      style={{'--card-size': cardSize, '--card-columns': cardColumns} as React.CSSProperties}
     >
       {data.value.cards.map((card, i) => <CardBlock key={i} data={card} />)}
     </div>
