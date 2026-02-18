@@ -1,12 +1,17 @@
 import cn from 'classnames';
-import Color from 'color';
 import React from 'react';
 import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
-import { findByType } from '../utils';
+import { findByType, resolveBackground } from '../utils';
 import './WellBlock.css';
 
 export type WellConfigOptions = {
   type: 'background_color';
+  value: string;
+} | {
+  type: 'gradient_color';
+  value: string;
+} | {
+  type: 'gradient_direction';
   value: string;
 } | {
   type: 'border_radius';
@@ -48,6 +53,18 @@ WellBlock.blockConfig = {
     {name: 'content', label: 'Well Content', type: 'blocks', categories: ['content']},
     {name: 'config', label: 'Config', type: 'configs', configs: [
       {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}'},
+      {name: 'gradient_color', label: 'Gradient To Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}',
+        help: 'Second color for gradient effect. Background Color is the starting color.'},
+      {name: 'gradient_direction', label: 'Gradient Direction', type: 'select', options: [
+        {label: 'Top to Bottom', value: 'to bottom'},
+        {label: 'Bottom to Top', value: 'to top'},
+        {label: 'Left to Right', value: 'to right'},
+        {label: 'Right to Left', value: 'to left'},
+        {label: 'Top-Left to Bottom-Right', value: 'to bottom right'},
+        {label: 'Top-Right to Bottom-Left', value: 'to bottom left'},
+        {label: 'Bottom-Left to Top-Right', value: 'to top right'},
+        {label: 'Bottom-Right to Top-Left', value: 'to top left'},
+      ]},
       {name: 'border_radius', label: 'Border Radius', help: 'Border radius in pixels', type: 'number'},
       {name: 'padding', label: 'Padding', help: 'Inner padding, in 10px increments', type: 'number'},
       {name: 'margin', label: 'Margin', help: 'Outer margin, in 10px increments', type: 'number'},
@@ -66,18 +83,20 @@ WellBlock.blockConfig = {
 export function WellBlock({data}: {data: WellBlockConfig}) {
   const id = findByType(data.value.config, 'id')?.value;
   const backgroundColor = findByType(data.value.config, 'background_color')?.value;
+  const gradientColor = findByType(data.value.config, 'gradient_color')?.value;
+  const gradientDirection = findByType(data.value.config, 'gradient_direction')?.value;
   const borderRadius = findByType(data.value.config, 'border_radius')?.value ?? 8;
   const padding = findByType(data.value.config, 'padding')?.value ?? 2;
   const margin = findByType(data.value.config, 'margin')?.value ?? 0;
   const width = findByType(data.value.config, 'width')?.value;
   const textAlign = findByType(data.value.config, 'text_alignment')?.value;
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
-  const isDark = backgroundColor && Color(backgroundColor).isDark(); // eslint-disable-line new-cap
-  const isLight = backgroundColor && !isDark;
+  const bg = resolveBackground(backgroundColor, gradientColor, gradientDirection);
+  const isLight = (backgroundColor || gradientColor) && !bg.isDark;
 
   return <div
     id={id}
-    className={cn('content-block-well', {'dark-background': isDark, 'light-background': isLight})}
+    className={cn('content-block-well', {'dark-background': bg.isDark, 'light-background': isLight})}
     data-analytics-nav={analytics}
     style={{
       '--padding-multiplier': padding,
@@ -85,7 +104,8 @@ export function WellBlock({data}: {data: WellBlockConfig}) {
     } as React.CSSProperties}
   >
     <div className="well-content" style={{
-      backgroundColor,
+      background: bg.background,
+      backgroundColor: bg.backgroundColor,
       borderRadius: `${borderRadius}px`,
       textAlign,
       maxWidth: width

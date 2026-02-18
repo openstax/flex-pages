@@ -8,6 +8,23 @@
     grid-gap: ($normal-margin * 2);
     justify-content: center;
 
+    // Fixed column count with dynamic responsive breakpoint.
+    // Uses a CSS clamp toggle: shows exactly N columns when there's space,
+    // jumps directly to 1 column when there isn't — no intermediate sizes.
+    &.has-columns {
+        --container-min: calc(
+            var(--card-columns) * var(--card-size, 27) * 1rem +
+            (var(--card-columns) - 1) * #{$normal-margin * 2}
+        );
+        --col-toggle: calc((var(--container-min) - 100%) * 9999);
+
+        max-width: var(--container-min);
+        margin-inline: auto;
+        grid-template-columns: repeat(auto-fit,
+            minmax(clamp(calc(var(--card-size, 27) * 1rem), var(--col-toggle), 100%), 1fr)
+        );
+    }
+
     > .content-block-card {
       /* to show above divider images */
       position: relative;
