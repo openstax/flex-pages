@@ -1,0 +1,452 @@
+import React from 'react';
+import * as UI from '@openstax/ui-components';
+import { createRoute, makeScreen } from "../../core/services";
+import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
+import { ContentBlockRoot } from '@openstax/flex-page-renderer/ContentBlockRoot';
+import { Layout } from '../../components/Layout';
+import { actions } from '../actions';
+
+export const TabbedContentComponent = () => {
+  return <Layout>
+    <UI.NavBar logo />
+    <ContentBlockRoot actions={actions} blocks={allBlocks} data={sampleContent as any} />
+  </Layout>;
+};
+
+export const tabbedContentScreen = createRoute({name: 'TabbedContentComponent',
+  path: '/tabbed-content',
+  handler: makeScreen(TabbedContentComponent)
+});
+
+/* eslint-disable max-len */
+const sampleContent = [
+  {
+    "type": "flex_page",
+    "id": "b1b2c3d4-3333-0000-0000-000000000000",
+    "value": {
+      "content": [
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"t6nx6\"><b>Page Structure:</b></p>",
+                "id": "b1b2c3d4-3333-1111-1111-000000000001"
+              },
+              {
+                "type": "text",
+                "value": "<h1 data-block-key=\"t6nx6\">Tabbed Content Component</h1>",
+                "id": "b1b2c3d4-3333-1111-1111-000000000002"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 7,
+                "id": "b1b2c3d4-3333-1111-1111-000000000003"
+              },
+              {
+                "type": "background_color",
+                "value": "#0dc0dc",
+                "id": "b1b2c3d4-3333-1111-1111-000000000004"
+              }
+            ]
+          },
+          "id": "b1b2c3d4-3333-1111-1111-000000000005"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"pvocz\"><a href=\"#/\">documentation home</a></p>",
+                "id": "b1b2c3d4-3333-1111-1111-000000000006"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_top",
+                "value": 1,
+                "id": "b1b2c3d4-3333-1111-1111-000000000007"
+              }
+            ]
+          },
+          "id": "b1b2c3d4-3333-1111-1111-000000000008"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"36jpq\">Overview</h2><p data-block-key=\"cs4gd\">The Tabbed Content block organizes content into switchable panels. Each tab can hold structural blocks (Section, Columns, Hero) giving authors full layout control within each tab.</p><p data-block-key=\"cs4ge\">Tabs follow WAI-ARIA best practices: arrow keys cycle between tabs, Home/End jump to first/last, and screen readers announce proper roles.</p>",
+                "id": "b1b2c3d4-3333-1111-1111-000000000009"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "b1b2c3d4-3333-1111-1111-000000000010"
+              }
+            ]
+          },
+          "id": "b1b2c3d4-3333-1111-1111-000000000011"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\"><b>tab_alignment</b>: align tabs left (default), center, or right.</p><p data-block-key=\"8vle4\"><b>active_color</b>: hex color for the active tab underline and text.</p><p data-block-key=\"buhkq\"><b>default_tab</b>: zero-based index of which tab to show initially.</p><p data-block-key=\"c0lmn\"><b>analytics_label</b>: label for analytics events within this block.</p><p data-block-key=\"c0acc\"><b>id</b>: HTML id for anchor link targeting.</p>",
+                "id": "b1b2c3d4-3333-1111-1111-000000000012"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "b1b2c3d4-3333-1111-1111-000000000013"
+              }
+            ]
+          },
+          "id": "b1b2c3d4-3333-1111-1111-000000000014"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"36jpq\">Examples</h2><h3 data-block-key=\"cs4gd\">Basic three-tab setup</h3>",
+                "id": "b1b2c3d4-3333-1111-1111-000000000015"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "b1b2c3d4-3333-1111-1111-000000000016"
+              }
+            ]
+          },
+          "id": "b1b2c3d4-3333-1111-1111-000000000017"
+        },
+        {
+          "type": "tabbed_content",
+          "value": {
+            "tabs": [
+              {
+                "label": "About",
+                "content": [
+                  {
+                    "type": "hero",
+                    "value": {
+                      "content": [
+                        {
+                          "type": "text",
+                          "value": "<h3 data-block-key=\"a01\">About Us</h3><p data-block-key=\"a02\">OpenStax is a nonprofit educational initiative based at Rice University. Our mission is to improve student access to education.</p>",
+                          "id": "b1b2c3d4-3333-2222-1111-000000000001"
+                        }
+                      ],
+                      "image": {
+                        "id": 1081,
+                        "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
+                        "title": "pillar-1",
+                        "height": 240,
+                        "width": 480,
+                        "created_at": "2024-08-13T17:36:07.930857-05:00"
+                      },
+                      "imageAlt": "About OpenStax",
+                      "config": [
+                        {
+                          "type": "padding",
+                          "value": 3,
+                          "id": "b1b2c3d4-3333-2222-1111-000000000002"
+                        }
+                      ]
+                    },
+                    "id": "b1b2c3d4-3333-2222-1111-000000000003"
+                  }
+                ]
+              },
+              {
+                "label": "Features",
+                "content": [
+                  {
+                    "type": "section",
+                    "value": {
+                      "content": [
+                        {
+                          "type": "text",
+                          "value": "<h3 data-block-key=\"f01\">Key Features</h3><p data-block-key=\"f02\">Free, peer-reviewed, openly licensed textbooks. Available in multiple formats. Customizable and remixable.</p>",
+                          "id": "b1b2c3d4-3333-2222-1111-000000000004"
+                        }
+                      ],
+                      "config": [
+                        {
+                          "type": "padding",
+                          "value": 3,
+                          "id": "b1b2c3d4-3333-2222-1111-000000000005"
+                        }
+                      ]
+                    },
+                    "id": "b1b2c3d4-3333-2222-1111-000000000006"
+                  }
+                ]
+              },
+              {
+                "label": "Contact",
+                "content": [
+                  {
+                    "type": "section",
+                    "value": {
+                      "content": [
+                        {
+                          "type": "text",
+                          "value": "<h3 data-block-key=\"c01\">Get in Touch</h3><p data-block-key=\"c02\">Have questions? Reach out to us at openstax.org/contact for more information about our resources.</p>",
+                          "id": "b1b2c3d4-3333-2222-1111-000000000007"
+                        }
+                      ],
+                      "config": [
+                        {
+                          "type": "padding",
+                          "value": 3,
+                          "id": "b1b2c3d4-3333-2222-1111-000000000008"
+                        }
+                      ]
+                    },
+                    "id": "b1b2c3d4-3333-2222-1111-000000000009"
+                  }
+                ]
+              }
+            ],
+            "config": []
+          },
+          "id": "b1b2c3d4-3333-2222-1111-000000000010"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h3 data-block-key=\"36jpq\">Tabs with Columns inside</h3>",
+                "id": "b1b2c3d4-3333-1111-1111-000000000018"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "b1b2c3d4-3333-1111-1111-000000000019"
+              }
+            ]
+          },
+          "id": "b1b2c3d4-3333-1111-1111-000000000020"
+        },
+        {
+          "type": "tabbed_content",
+          "value": {
+            "tabs": [
+              {
+                "label": "Instructors",
+                "content": [
+                  {
+                    "type": "columns",
+                    "value": {
+                      "leftContent": [
+                        {
+                          "type": "text",
+                          "value": "<h3 data-block-key=\"i01\">For Instructors</h3><p data-block-key=\"i02\">Access free textbooks, ancillary resources, and LMS integration tools designed to make teaching easier.</p>",
+                          "id": "b1b2c3d4-3333-3333-1111-000000000001"
+                        }
+                      ],
+                      "rightContent": [
+                        {
+                          "type": "text",
+                          "value": "<h3 data-block-key=\"i03\">Resources</h3><p data-block-key=\"i04\">Test banks, PowerPoint slides, instructor solutions manuals, and more.</p>",
+                          "id": "b1b2c3d4-3333-3333-1111-000000000002"
+                        }
+                      ],
+                      "config": [
+                        {
+                          "type": "padding",
+                          "value": 3,
+                          "id": "b1b2c3d4-3333-3333-1111-000000000003"
+                        },
+                        {
+                          "type": "gap",
+                          "value": "3",
+                          "id": "b1b2c3d4-3333-3333-1111-000000000004"
+                        }
+                      ]
+                    },
+                    "id": "b1b2c3d4-3333-3333-1111-000000000005"
+                  }
+                ]
+              },
+              {
+                "label": "Students",
+                "content": [
+                  {
+                    "type": "columns",
+                    "value": {
+                      "leftContent": [
+                        {
+                          "type": "text",
+                          "value": "<h3 data-block-key=\"s01\">For Students</h3><p data-block-key=\"s02\">All textbooks are free to read online, download as a PDF, or order a low-cost print copy.</p>",
+                          "id": "b1b2c3d4-3333-3333-1111-000000000006"
+                        }
+                      ],
+                      "rightContent": [
+                        {
+                          "type": "text",
+                          "value": "<h3 data-block-key=\"s03\">Study Tools</h3><p data-block-key=\"s04\">Highlights, notes, and study guides to help you succeed in your courses.</p>",
+                          "id": "b1b2c3d4-3333-3333-1111-000000000007"
+                        }
+                      ],
+                      "config": [
+                        {
+                          "type": "padding",
+                          "value": 3,
+                          "id": "b1b2c3d4-3333-3333-1111-000000000008"
+                        },
+                        {
+                          "type": "gap",
+                          "value": "3",
+                          "id": "b1b2c3d4-3333-3333-1111-000000000009"
+                        }
+                      ]
+                    },
+                    "id": "b1b2c3d4-3333-3333-1111-000000000010"
+                  }
+                ]
+              }
+            ],
+            "config": []
+          },
+          "id": "b1b2c3d4-3333-3333-1111-000000000011"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h3 data-block-key=\"36jpq\">Center-aligned with custom color</h3>",
+                "id": "b1b2c3d4-3333-1111-1111-000000000021"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "b1b2c3d4-3333-1111-1111-000000000022"
+              }
+            ]
+          },
+          "id": "b1b2c3d4-3333-1111-1111-000000000023"
+        },
+        {
+          "type": "tabbed_content",
+          "value": {
+            "tabs": [
+              {
+                "label": "Pricing",
+                "content": [
+                  {
+                    "type": "section",
+                    "value": {
+                      "content": [
+                        {
+                          "type": "text",
+                          "value": "<h3 data-block-key=\"p01\">Free Forever</h3><p data-block-key=\"p02\">All OpenStax textbooks are free online. Print copies are available at low cost.</p>",
+                          "id": "b1b2c3d4-3333-4444-1111-000000000001"
+                        }
+                      ],
+                      "config": [
+                        {
+                          "type": "padding",
+                          "value": 3,
+                          "id": "b1b2c3d4-3333-4444-1111-000000000002"
+                        }
+                      ]
+                    },
+                    "id": "b1b2c3d4-3333-4444-1111-000000000003"
+                  }
+                ]
+              },
+              {
+                "label": "Partnerships",
+                "content": [
+                  {
+                    "type": "section",
+                    "value": {
+                      "content": [
+                        {
+                          "type": "text",
+                          "value": "<h3 data-block-key=\"pa01\">Our Partners</h3><p data-block-key=\"pa02\">We partner with leading technology companies to deliver enhanced learning experiences at no extra cost to students.</p>",
+                          "id": "b1b2c3d4-3333-4444-1111-000000000004"
+                        }
+                      ],
+                      "config": [
+                        {
+                          "type": "padding",
+                          "value": 3,
+                          "id": "b1b2c3d4-3333-4444-1111-000000000005"
+                        }
+                      ]
+                    },
+                    "id": "b1b2c3d4-3333-4444-1111-000000000006"
+                  }
+                ]
+              },
+              {
+                "label": "Impact",
+                "content": [
+                  {
+                    "type": "section",
+                    "value": {
+                      "content": [
+                        {
+                          "type": "text",
+                          "value": "<h3 data-block-key=\"im01\">Our Impact</h3><p data-block-key=\"im02\">OpenStax has saved students over $2 billion since 2012, reaching millions of learners worldwide.</p>",
+                          "id": "b1b2c3d4-3333-4444-1111-000000000007"
+                        }
+                      ],
+                      "config": [
+                        {
+                          "type": "padding",
+                          "value": 3,
+                          "id": "b1b2c3d4-3333-4444-1111-000000000008"
+                        }
+                      ]
+                    },
+                    "id": "b1b2c3d4-3333-4444-1111-000000000009"
+                  }
+                ]
+              }
+            ],
+            "config": [
+              {
+                "type": "tab_alignment",
+                "value": "center",
+                "id": "b1b2c3d4-3333-4444-1111-000000000010"
+              },
+              {
+                "type": "active_color",
+                "value": "#d4006a",
+                "id": "b1b2c3d4-3333-4444-1111-000000000011"
+              }
+            ]
+          },
+          "id": "b1b2c3d4-3333-4444-1111-000000000012"
+        }
+      ]
+    }
+  }
+];

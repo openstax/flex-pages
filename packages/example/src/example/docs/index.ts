@@ -9,3 +9,4 @@ export { quoteScreen } from './quote';
 export { htmlBlocksScreen } from './html-blocks';
 export { wellScreen } from './well';
 export { columnsScreen } from './columns';
+export { tabbedContentScreen } from './tabbed-content';

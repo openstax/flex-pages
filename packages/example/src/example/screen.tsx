@@ -180,6 +180,14 @@ const sampleContent = [
                         "value": "#/columns",
                         "type": "external"
                       }
+                    },
+                    {
+                      "text": "Tabbed Content",
+                      "ariaLabel": "Tabbed Content Component",
+                      "target": {
+                        "value": "#/tabbed-content",
+                        "type": "external"
+                      }
                     }
                   ],
                   "config": [
