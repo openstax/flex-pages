@@ -40,6 +40,9 @@ export type WellConfigOptions = {
 } | {
   type: 'border_size';
   value: string;
+} | {
+  type: 'pull_up';
+  value: string;
 };
 
 export interface WellBlockConfig {
@@ -76,6 +79,7 @@ WellBlock.blockConfig = {
       {name: 'border_size', label: 'Border Size', type: 'text', help: 'Border width (e.g. 1px, 2px, thin). Only applies when border color is set.'},
       {name: 'padding', label: 'Padding', help: 'Inner padding, in 10px increments', type: 'number'},
       {name: 'margin', label: 'Margin', help: 'Outer margin, in 10px increments', type: 'number'},
+      {name: 'pull_up', label: 'Pull Up', type: 'text', help: 'Pulls the well upward by this amount (e.g. 3rem, 40px). Use with extra padding on the section above to create an overlap effect.'},
       {name: 'width', label: 'Width', help: 'Maximum width of the well content (e.g., 600px, 50%, auto)', type: 'text'},
       {name: 'text_alignment', label: 'Text Alignment', type: 'select', options: [
         {label: 'Left', value: 'left'},
@@ -98,6 +102,7 @@ export function WellBlock({data}: {data: WellBlockConfig}) {
   const margin = findByType(data.value.config, 'margin')?.value ?? 0;
   const width = findByType(data.value.config, 'width')?.value;
   const textAlign = findByType(data.value.config, 'text_alignment')?.value;
+  const pullUp = findByType(data.value.config, 'pull_up')?.value;
   const borderColor = findByType(data.value.config, 'border_color')?.value;
   const borderSize = findByType(data.value.config, 'border_size')?.value;
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
@@ -110,7 +115,8 @@ export function WellBlock({data}: {data: WellBlockConfig}) {
     data-analytics-nav={analytics}
     style={{
       '--padding-multiplier': padding,
-      '--margin-multiplier': margin
+      '--margin-multiplier': margin,
+      ...(pullUp ? {marginTop: `-${pullUp}`} : {})
     } as React.CSSProperties}
   >
     <div className="well-content" style={{
