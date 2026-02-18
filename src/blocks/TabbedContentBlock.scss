@@ -1,0 +1,99 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-structure-container > div.content-block-tabbed-content {
+  --tab-active-color: #{os-color(blue)};
+  width: 100%;
+
+  > .tab-list-container {
+    border-bottom: 1px solid ui-color(form-border);
+
+    > .tab-list {
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+
+      width: calc(100% - $normal-margin);
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: ui-color(form-border);
+        border-radius: 2px;
+      }
+    }
+  }
+
+  &.tab-align-center > .tab-list-container > .tab-list { justify-content: center; }
+  &.tab-align-right > .tab-list-container > .tab-list { justify-content: flex-end; }
+
+  .tab-list > .tab-button {
+    appearance: none;
+    background: none;
+    border: none;
+    padding: 1.2rem 2rem;
+    font-size: 1.6rem;
+    font-family: inherit;
+    color: text-color(normal);
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+
+    &::before {
+      content: attr(data-label);
+      font-weight: bold;
+      display: block;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--tab-active-color);
+      outline-offset: -2px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: transparent;
+      transition: background 0.15s ease;
+    }
+
+    &.active {
+      font-weight: bold;
+
+      &::after {
+        background: var(--tab-active-color);
+      }
+    }
+  }
+
+  &.dark-background > .tab-list-container .tab-button {
+    color: text-color(white);
+  }
+
+  > .tab-panels {
+    display: grid;
+
+    > .tab-panel {
+      grid-area: 1 / 1;
+      visibility: hidden;
+
+      &.active {
+        visibility: visible;
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--tab-active-color);
+        outline-offset: 2px;
+      }
+    }
+  }
+}

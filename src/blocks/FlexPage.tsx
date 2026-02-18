@@ -76,7 +76,7 @@ export function FlexPage({data}: {data: FlexPageConfig}) {
     return () => window.removeEventListener('resize', doResize);
   }, [height]);
 
-  return <div ref={ref} className={cn('flex-page', 'page', `width-${width}`)}>
+  return <div ref={ref} className={cn('flex-page', 'page', 'flex-structure-container', `width-${width}`)}>
     <ContentBlocks data={data.value.content} />
   </div>;
 }
