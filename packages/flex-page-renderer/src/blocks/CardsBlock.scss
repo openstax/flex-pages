@@ -46,6 +46,7 @@
       border-style: solid;
       padding: $normal-margin;
       background-color: ui-color(white);
+      color: text-color(normal);
 
       &:nth-child(4n+1) {
         border-color: os-color(yellow);
@@ -67,6 +68,7 @@
       border-top: none;
       padding: $normal-margin;
       background-color: ui-color(white);
+      color: text-color(normal);
 
       &:nth-child(4n+1) {
         box-shadow: 0 -1rem 0 os-color(blue);
