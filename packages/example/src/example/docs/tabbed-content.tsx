@@ -445,6 +445,103 @@ const sampleContent = [
             ]
           },
           "id": "b1b2c3d4-3333-4444-1111-000000000012"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h3 data-block-key=\"36jpq\">Tabs with embedded video (two-column layout)</h3>",
+                "id": "b1b2c3d4-3333-5555-1111-000000000001"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "b1b2c3d4-3333-5555-1111-000000000002"
+              }
+            ]
+          },
+          "id": "b1b2c3d4-3333-5555-1111-000000000003"
+        },
+        {
+          "type": "tabbed_content",
+          "value": {
+            "tabs": [
+              {
+                "label": "Watch",
+                "content": [
+                  {
+                    "type": "columns",
+                    "value": {
+                      "leftContent": [
+                        {
+                          "type": "html",
+                          "value": "<div style=\"position:relative;padding-bottom:56.34%;height:0;\"><iframe style=\"position:absolute;top:0;left:0;width:100%;height:100%;\" src=\"https://fast.wistia.net/embed/iframe/5ukumgaj0g?seo=true&amp;videoFoam=false&amp;wmode=opaque\" title=\"The future of learning is OpenStax Video\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe></div>",
+                          "id": "b1b2c3d4-3333-5555-1111-000000000004"
+                        }
+                      ],
+                      "rightContent": [
+                        {
+                          "type": "text",
+                          "value": "<h3 data-block-key=\"v01\">Big Buck Bunny</h3><p data-block-key=\"v02\">This tab demonstrates an embedded video alongside descriptive text using a two-column layout inside tabbed content.</p><p data-block-key=\"v03\">The video on the left uses an HTML block with a responsive iframe wrapper, while this column uses a standard text block.</p>",
+                          "id": "b1b2c3d4-3333-5555-1111-000000000005"
+                        }
+                      ],
+                      "config": [
+                        {
+                          "type": "padding",
+                          "value": 3,
+                          "id": "b1b2c3d4-3333-5555-1111-000000000006"
+                        },
+                        {
+                          "type": "gap",
+                          "value": "3",
+                          "id": "b1b2c3d4-3333-5555-1111-000000000007"
+                        }
+                      ]
+                    },
+                    "id": "b1b2c3d4-3333-5555-1111-000000000008"
+                  }
+                ]
+              },
+              {
+                "label": "Transcript",
+                "content": [
+                  {
+                    "type": "section",
+                    "value": {
+                      "content": [
+                        {
+                          "type": "text",
+                          "value": "<h3 data-block-key=\"tr01\">Video Transcript</h3><p data-block-key=\"tr02\">Big Buck Bunny is a short animated film created using free and open-source software. The film follows a large bunny who is harassed by three bullying rodents. After they destroy a butterfly he befriends, he plots his revenge.</p><p data-block-key=\"tr03\">The film was produced by the Blender Institute as a showcase for the open-source 3D modeling program Blender.</p>",
+                          "id": "b1b2c3d4-3333-5555-1111-000000000009"
+                        }
+                      ],
+                      "config": [
+                        {
+                          "type": "padding",
+                          "value": 3,
+                          "id": "b1b2c3d4-3333-5555-1111-000000000010"
+                        }
+                      ]
+                    },
+                    "id": "b1b2c3d4-3333-5555-1111-000000000011"
+                  }
+                ]
+              }
+            ],
+            "config": [
+              {
+                "type": "active_color",
+                "value": "#6c5ce7",
+                "id": "b1b2c3d4-3333-5555-1111-000000000012"
+              }
+            ]
+          },
+          "id": "b1b2c3d4-3333-5555-1111-000000000013"
         }
       ]
     }

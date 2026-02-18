@@ -423,9 +423,9 @@ const sampleContent = [
                 "value": {
                   "content": [
                     {
-                      "type": "text",
-                      "value": "<p data-block-key=\"pu003\">This well is pulled up by 4rem, overlapping into the dark section above. It uses <code>pull_up</code> to create the effect.</p>",
-                      "id": "a1b2c3d4-3333-1111-1111-000000000005"
+                      "type": "html",
+                      "value": "<div style=\"position:relative;padding-bottom:56.25%;height:0;\"><iframe style=\"position:absolute;top:0;left:0;width:100%;height:100%;\" src=\"https://www.youtube.com/embed/aqz-KE-bpKQ\" title=\"Big Buck Bunny\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe></div>",
+                      "id": "a1b2c3d4-3333-1111-1111-000000000020"
                     }
                   ],
                   "config": [
@@ -440,9 +440,14 @@ const sampleContent = [
                       "id": "a1b2c3d4-3333-1111-1111-000000000007"
                     },
                     {
+                      "type": "padding",
+                      "value": "0",
+                      "id": "a1b2c3d4-3333-1111-1111-000000000008"
+                    },
+                    {
                       "type": "border_radius",
                       "value": "12",
-                      "id": "a1b2c3d4-3333-1111-1111-000000000008"
+                      "id": "a1b2c3d4-3333-1111-1111-000000000025"
                     },
                     {
                       "type": "border_color",
