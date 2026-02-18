@@ -18,7 +18,7 @@
         overflow: visible;
 
         &:before {
-            color: os-color(orange);
+            color: var(--quote-accent-color, os-color(orange));
             content: '“';
             line-height: 2.5rem;
             font-size: 6rem;

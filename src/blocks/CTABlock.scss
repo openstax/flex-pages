@@ -51,4 +51,34 @@
       border-color: os-color(deep-green);
       @include body-font(2rem);
   }
+
+  &.style-custom-dark {
+      @include button();
+      background-color: var(--cta-custom-color);
+      border-color: var(--cta-custom-color);
+      color: text-color(white);
+      @include body-font(2rem);
+
+      &:hover, &:focus {
+          background-color: color-mix(in srgb, var(--cta-custom-color), black 15%);
+      }
+      &:active {
+          background-color: color-mix(in srgb, var(--cta-custom-color), black 25%);
+      }
+  }
+
+  &.style-custom-light {
+      @include button();
+      background-color: var(--cta-custom-color);
+      border-color: var(--cta-custom-color);
+      color: text-color(normal);
+      @include body-font(2rem);
+
+      &:hover, &:focus {
+          background-color: color-mix(in srgb, var(--cta-custom-color), white 15%);
+      }
+      &:active {
+          background-color: color-mix(in srgb, var(--cta-custom-color), white 25%);
+      }
+  }
 }

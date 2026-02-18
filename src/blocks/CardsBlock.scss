@@ -62,7 +62,7 @@
       border-width: thin;
       border-style: solid;
       padding: $normal-margin;
-      background-color: ui-color(white);
+      background-color: var(--card-bg-color, ui-color(white));
       color: text-color(normal);
 
       &:nth-child(4n+1) {
@@ -84,7 +84,7 @@
       border: thin solid ui-color(form-border);
       border-top: none;
       padding: $normal-margin;
-      background-color: ui-color(white);
+      background-color: var(--card-bg-color, ui-color(white));
       color: text-color(normal);
 
       &:nth-child(4n+1) {
@@ -99,6 +99,19 @@
       &:nth-child(4n+4) {
         box-shadow: 0 -1rem 0 os-color(red);
       }
+    }
+
+    &.has-custom-divider > .content-block-card hr {
+      background-color: var(--card-divider);
+    }
+    &.has-custom-accent.card_style_rounded > .content-block-card {
+      border-color: var(--card-accent);
+    }
+    &.has-custom-accent.card_style_square > .content-block-card {
+      box-shadow: 0 -1rem 0 var(--card-accent);
+    }
+    &.dark-card-background > .content-block-card {
+      color: text-color(white);
     }
 
     h2, h3 {

@@ -1,4 +1,6 @@
 import cn from 'classnames';
+import Color from 'color';
+import React from 'react';
 import { Link, linkFieldConfig, LinkFields } from '../components/Link';
 import { findByType } from '../utils';
 import './CTABlock.css';
@@ -6,6 +8,9 @@ import './CTABlock.css';
 type CTALinkConfig = {
   type: 'style';
   value: 'string';
+} | {
+  type: 'custom_color';
+  value: string;
 };
 
 export interface CTALinkFields extends LinkFields {
@@ -21,16 +26,27 @@ export const ctaLinkFieldConfig = [
       {label: 'Blue Outline', value: 'blue_outline'},
       {label: 'Deep Green Outline', value: 'deep_green_outline'},
     ]},
+    {name: 'custom_color', label: 'Custom Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex color override. Overrides Style preset.'},
   ]},
 ];
 
 export function CTALink({link}: {link: CTALinkFields}) {
-    const style = findByType(link.config, 'style')?.value;
-    const styleClass = style ? `style-${style}` : style;
+    const stylePreset = findByType(link.config, 'style')?.value;
+    const customColor = findByType(link.config, 'custom_color')?.value;
+
+    const useCustom = Boolean(customColor);
+    const customColorClass = useCustom
+        ? Color(customColor).isDark() ? 'style-custom-dark' : 'style-custom-light' // eslint-disable-line new-cap
+        : undefined;
+    const styleClass = !useCustom && stylePreset ? `style-${stylePreset}` : undefined;
+    const style = useCustom
+        ? {'--cta-custom-color': customColor} as React.CSSProperties
+        : undefined;
 
     return <Link
         link={link}
-        className={cn('cta-link', styleClass, styleClass ? 'styled-button' : undefined)}
+        className={cn('cta-link', styleClass, customColorClass, (styleClass || customColorClass) ? 'styled-button' : undefined)}
+        style={style}
     />;
 }
 

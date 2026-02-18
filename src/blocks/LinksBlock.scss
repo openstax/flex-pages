@@ -47,4 +47,26 @@
       background-color: os-color(blue);
       color: text-color(white);
   }
+  &.custom-color-dark > a, &.custom-color-dark > button {
+      background-color: var(--link-bg-color);
+      color: text-color(white);
+
+      &:hover, &:focus {
+          background-color: color-mix(in srgb, var(--link-bg-color), black 15%);
+      }
+      &:active {
+          background-color: color-mix(in srgb, var(--link-bg-color), black 25%);
+      }
+  }
+  &.custom-color-light > a, &.custom-color-light > button {
+      background-color: var(--link-bg-color);
+      color: text-color(normal);
+
+      &:hover, &:focus {
+          background-color: color-mix(in srgb, var(--link-bg-color), white 15%);
+      }
+      &:active {
+          background-color: color-mix(in srgb, var(--link-bg-color), white 25%);
+      }
+  }
 }
