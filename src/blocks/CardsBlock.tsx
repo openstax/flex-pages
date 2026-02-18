@@ -30,6 +30,10 @@ type CardConfig = {
   type: 'background_color';
   id: string;
   value: string;
+} | {
+  type: 'border_size';
+  id: string;
+  value: string;
 };
 
 export type CardBlockConfig = {
@@ -65,6 +69,7 @@ CardsBlock.blockConfig = {
       {name: 'accent_colors', label: 'Accent Colors', type: 'text', help: 'Comma-separated hex colors for card borders/shadows, e.g. #ff0000,#00ff00,#0000ff'},
       {name: 'divider_colors', label: 'Divider Colors', type: 'text', help: 'Comma-separated hex colors for card divider lines, e.g. #ff0000,#00ff00'},
       {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex background color for cards'},
+      {name: 'border_size', label: 'Border Size', type: 'text', help: 'Border thickness (e.g. 2px, 0.3rem). Rounded: border width (default: thin). Square: top accent height (default: 1rem).'},
     ]},
   ],
 };
@@ -84,6 +89,7 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
     : undefined;
   const backgroundColor = findByType(data.value.config, 'background_color')?.value;
   const isDarkBg = backgroundColor ? Color(backgroundColor).isDark() : false; // eslint-disable-line new-cap
+  const borderSize = findByType(data.value.config, 'border_size')?.value;
 
   return (
     <div
@@ -99,6 +105,7 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
         '--card-size': cardSize,
         '--card-columns': cardColumns,
         ...(backgroundColor ? {'--card-bg-color': backgroundColor} : {}),
+        ...(borderSize ? {'--card-border-size': borderSize} : {}),
       } as React.CSSProperties}
     >
       {data.value.cards.map((card, i) => <CardBlock
