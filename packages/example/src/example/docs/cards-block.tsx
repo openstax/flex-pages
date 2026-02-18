@@ -100,7 +100,7 @@ const sampleContent = [
             "content": [
               {
                 "type": "text",
-                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\"><b>card style</b>: the style of the cards. unset is plain.</p><p data-block-key=\"buhkq\"><b>card size</b>: set the width of the cards. default is 27</p><p data-block-key=\"c0lmn\"><b>card columns</b>: set a fixed number of columns. cards show in exactly N columns when there is space, then collapse directly to 1 column. works with card size.</p><p data-block-key=\"c0acc\"><b>accent colors</b>: comma-separated hex colors for card borders (rounded) or top shadows (square). cycles through the colors.</p><p data-block-key=\"c0div\"><b>divider colors</b>: comma-separated hex colors for card divider (hr) lines. independent from accent colors.</p><p data-block-key=\"c0bgc\"><b>background color</b>: hex background color for cards. text color auto-adjusts for contrast.</p>",
+                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\"><b>card style</b>: the style of the cards. unset is plain.</p><p data-block-key=\"buhkq\"><b>card size</b>: set the width of the cards. default is 27</p><p data-block-key=\"c0lmn\"><b>card columns</b>: set a fixed number of columns. cards show in exactly N columns when there is space, then collapse directly to 1 column. works with card size.</p><p data-block-key=\"c0acc\"><b>accent colors</b>: comma-separated hex colors for card borders (rounded) or top shadows (square). cycles through the colors.</p><p data-block-key=\"c0div\"><b>divider colors</b>: comma-separated hex colors for card divider (hr) lines. independent from accent colors.</p><p data-block-key=\"c0bgc\"><b>background color</b>: hex background color for cards. text color auto-adjusts for contrast.</p><p data-block-key=\"c0bdr\"><b>border size</b>: border thickness (e.g. 2px, 0.3rem). for rounded cards this controls the border width (default: thin). for square cards this controls the top accent bar height (default: 1rem).</p>",
                 "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
               }
             ],
@@ -487,6 +487,100 @@ const sampleContent = [
             ]
           },
           "id": "cbg-section-01"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"cbs01\">Custom Border Size</h2><p data-block-key=\"cbs02\">Rounded cards with <b>border_size: \"3px\"</b> for a thicker border.</p>",
+                "id": "cbs-text-01"
+              },
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<h3 data-block-key=\"cbs03\">Thick border</h3><p data-block-key=\"cbs04\">This rounded card has a 3px border instead of the default thin.</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<h3 data-block-key=\"cbs05\">Thick border</h3><p data-block-key=\"cbs06\">The border size applies to all cards in the block.</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<h3 data-block-key=\"cbs07\">Thick border</h3><p data-block-key=\"cbs08\">Works with accent colors too.</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "card_style",
+                      "value": "rounded",
+                      "id": "cbs-style-01"
+                    },
+                    {
+                      "type": "border_size",
+                      "value": "3px",
+                      "id": "cbs-border-01"
+                    }
+                  ]
+                },
+                "id": "cbs-cards-01"
+              },
+              {
+                "type": "html",
+                "value": "&nbsp;",
+                "id": "cbs-spacer-01"
+              },
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"cbs09\">Square cards with <b>border_size: \"0.5rem\"</b> for a shorter accent bar.</p>",
+                "id": "cbs-text-02"
+              },
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<p data-block-key=\"cbs0a\">shorter</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"cbs0b\">accent</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"cbs0c\">bar</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "card_style",
+                      "value": "square",
+                      "id": "cbs-style-02"
+                    },
+                    {
+                      "type": "border_size",
+                      "value": "0.5rem",
+                      "id": "cbs-border-02"
+                    }
+                  ]
+                },
+                "id": "cbs-cards-02"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "cbs-padding-01"
+              }
+            ]
+          },
+          "id": "cbs-section-01"
         },
         {
           "type": "hero",

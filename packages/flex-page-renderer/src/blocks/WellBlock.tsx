@@ -34,6 +34,12 @@ export type WellConfigOptions = {
 } | {
   type: 'id';
   value: string;
+} | {
+  type: 'border_color';
+  value: string;
+} | {
+  type: 'border_size';
+  value: string;
 };
 
 export interface WellBlockConfig {
@@ -66,6 +72,8 @@ WellBlock.blockConfig = {
         {label: 'Bottom-Right to Top-Left', value: 'to top left'},
       ]},
       {name: 'border_radius', label: 'Border Radius', help: 'Border radius in pixels', type: 'number'},
+      {name: 'border_color', label: 'Border Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex border color'},
+      {name: 'border_size', label: 'Border Size', type: 'text', help: 'Border width (e.g. 1px, 2px, thin). Only applies when border color is set.'},
       {name: 'padding', label: 'Padding', help: 'Inner padding, in 10px increments', type: 'number'},
       {name: 'margin', label: 'Margin', help: 'Outer margin, in 10px increments', type: 'number'},
       {name: 'width', label: 'Width', help: 'Maximum width of the well content (e.g., 600px, 50%, auto)', type: 'text'},
@@ -90,6 +98,8 @@ export function WellBlock({data}: {data: WellBlockConfig}) {
   const margin = findByType(data.value.config, 'margin')?.value ?? 0;
   const width = findByType(data.value.config, 'width')?.value;
   const textAlign = findByType(data.value.config, 'text_alignment')?.value;
+  const borderColor = findByType(data.value.config, 'border_color')?.value;
+  const borderSize = findByType(data.value.config, 'border_size')?.value;
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
   const bg = resolveBackground(backgroundColor, gradientColor, gradientDirection);
   const isLight = (backgroundColor || gradientColor) && !bg.isDark;
@@ -108,7 +118,8 @@ export function WellBlock({data}: {data: WellBlockConfig}) {
       backgroundColor: bg.backgroundColor,
       borderRadius: `${borderRadius}px`,
       textAlign,
-      maxWidth: width
+      maxWidth: width,
+      ...(borderColor ? {border: `${borderSize || '1px'} solid ${borderColor}`} : {})
     }}>
       <ContentBlocks data={data.value.content} />
     </div>

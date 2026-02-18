@@ -100,7 +100,7 @@ const sampleContent = [
             "content": [
               {
                 "type": "text",
-                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Wells have a config section with a number of options for controlling their appearance.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"8ih75\"><b>Background Color</b>: Sets the background color of the well (hex format, e.g. #f0f0f0). Dark colors automatically switch text to white.</p><p data-block-key=\"42t6v\"><b>Border Radius</b>: Border radius in pixels (default: 8)</p><p data-block-key=\"8d7hf\"><b>Padding</b>: Inner padding, in 10px increments (default: 2)</p><p data-block-key=\"ds68a\"><b>Margin</b>: Vertical (top and bottom) outer margin, in 10px increments (default: 0)</p><p data-block-key=\"8hv0d\"><b>Width</b>: Maximum width of the well content (e.g., 600px, 50%, auto)</p><p data-block-key=\"2k4u0\"><b>Text Alignment</b>: Alignment of text in the well (left, right, or center)</p><p data-block-key=\"2gcvi\"><b>Analytics Label</b>: Analytics events from within this well will include this label</p><p data-block-key=\"3gcvi\"><b>ID</b>: The HTML id of the well, can be referenced by anchor links</p>",
+                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Wells have a config section with a number of options for controlling their appearance.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"8ih75\"><b>Background Color</b>: Sets the background color of the well (hex format, e.g. #f0f0f0). Dark colors automatically switch text to white.</p><p data-block-key=\"42t6v\"><b>Border Radius</b>: Border radius in pixels (default: 8)</p><p data-block-key=\"42brc\"><b>Border Color</b>: Hex border color (e.g. #cccccc). No border by default.</p><p data-block-key=\"42brs\"><b>Border Size</b>: Border width (e.g. 1px, 2px, thin). Only applies when border color is set. Defaults to 1px.</p><p data-block-key=\"8d7hf\"><b>Padding</b>: Inner padding, in 10px increments (default: 2)</p><p data-block-key=\"ds68a\"><b>Margin</b>: Vertical (top and bottom) outer margin, in 10px increments (default: 0)</p><p data-block-key=\"8hv0d\"><b>Width</b>: Maximum width of the well content (e.g., 600px, 50%, auto)</p><p data-block-key=\"2k4u0\"><b>Text Alignment</b>: Alignment of text in the well (left, right, or center)</p><p data-block-key=\"2gcvi\"><b>Analytics Label</b>: Analytics events from within this well will include this label</p><p data-block-key=\"3gcvi\"><b>ID</b>: The HTML id of the well, can be referenced by anchor links</p>",
                 "id": "a1b2c3d4-1111-1111-1111-000000000012"
               }
             ],
@@ -272,6 +272,111 @@ const sampleContent = [
                   ]
                 },
                 "id": "a1b2c3d4-2222-1111-1111-000000000024"
+              },
+              {
+                "type": "text",
+                "value": "<h3 data-block-key=\"36jpq\">Border color only (default 1px)</h3>",
+                "id": "a1b2c3d4-2222-1111-1111-000000000030"
+              },
+              {
+                "type": "well",
+                "value": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "value": "<p data-block-key=\"well6\">This well has a border color set without a border size, so it defaults to a 1px solid border.</p>",
+                      "id": "a1b2c3d4-2222-1111-1111-000000000031"
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "background_color",
+                      "value": "#f0f0f0",
+                      "id": "a1b2c3d4-2222-1111-1111-000000000032"
+                    },
+                    {
+                      "type": "border_color",
+                      "value": "#333333",
+                      "id": "a1b2c3d4-2222-1111-1111-000000000033"
+                    }
+                  ]
+                },
+                "id": "a1b2c3d4-2222-1111-1111-000000000034"
+              },
+              {
+                "type": "text",
+                "value": "<h3 data-block-key=\"36jpq\">Border color + size + radius</h3>",
+                "id": "a1b2c3d4-2222-1111-1111-000000000035"
+              },
+              {
+                "type": "well",
+                "value": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "value": "<p data-block-key=\"well7\">This well has a 3px border with a custom color and 16px border radius.</p>",
+                      "id": "a1b2c3d4-2222-1111-1111-000000000036"
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "background_color",
+                      "value": "#e8f5e9",
+                      "id": "a1b2c3d4-2222-1111-1111-000000000037"
+                    },
+                    {
+                      "type": "border_color",
+                      "value": "#2e7d32",
+                      "id": "a1b2c3d4-2222-1111-1111-000000000038"
+                    },
+                    {
+                      "type": "border_size",
+                      "value": "3px",
+                      "id": "a1b2c3d4-2222-1111-1111-000000000039"
+                    },
+                    {
+                      "type": "border_radius",
+                      "value": "16",
+                      "id": "a1b2c3d4-2222-1111-1111-000000000040"
+                    }
+                  ]
+                },
+                "id": "a1b2c3d4-2222-1111-1111-000000000041"
+              },
+              {
+                "type": "text",
+                "value": "<h3 data-block-key=\"36jpq\">Border with dark background</h3>",
+                "id": "a1b2c3d4-2222-1111-1111-000000000042"
+              },
+              {
+                "type": "well",
+                "value": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "value": "<p data-block-key=\"well8\">This well combines a dark background with a contrasting border color.</p>",
+                      "id": "a1b2c3d4-2222-1111-1111-000000000043"
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "background_color",
+                      "value": "#1a1a2e",
+                      "id": "a1b2c3d4-2222-1111-1111-000000000044"
+                    },
+                    {
+                      "type": "border_color",
+                      "value": "#e94560",
+                      "id": "a1b2c3d4-2222-1111-1111-000000000045"
+                    },
+                    {
+                      "type": "border_size",
+                      "value": "2px",
+                      "id": "a1b2c3d4-2222-1111-1111-000000000046"
+                    }
+                  ]
+                },
+                "id": "a1b2c3d4-2222-1111-1111-000000000047"
               }
             ],
             "config": [
