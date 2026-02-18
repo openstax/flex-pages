@@ -1,6 +1,9 @@
 @import 'pattern-library/core/pattern-library/headers';
 
 .flex-page.page div.content-block-cta-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $normal-margin;
   margin: ($normal-margin * 2) 0;
 
   > a, > button {
@@ -14,11 +17,17 @@
         background-color: ui-color(white);
         @include body-font(2rem);
     }
+    &:nth-child(n):not(.styled-button) {
+        white-space: normal;
+        height: auto;
+        min-height: 5rem;
+        max-width: 100%;
+    }
 
     /* nth-child hack to raise specificity */
     & + a, & + button {
       &:nth-child(n):nth-child(n) {
-        margin-left: $normal-margin;
+        margin-left: 0;
       }
     }
   }
@@ -80,5 +89,17 @@
       &:active {
           background-color: color-mix(in srgb, var(--cta-custom-color), white 25%);
       }
+  }
+
+  &.style-orange,
+  &.style-white,
+  &.style-blue_outline,
+  &.style-deep_green_outline,
+  &.style-custom-dark,
+  &.style-custom-light {
+    white-space: normal;
+    height: auto;
+    min-height: 5rem;
+    max-width: 100%;
   }
 }
