@@ -100,7 +100,7 @@ const sampleContent = [
             "content": [
               {
                 "type": "text",
-                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\"><b>card style</b>: the style of the cards. unset is plain.</p><p data-block-key=\"buhkq\"><b>card size</b>: set the width of the cards. default is 27</p><p data-block-key=\"c0lmn\"><b>card columns</b>: set a fixed number of columns. cards show in exactly N columns when there is space, then collapse directly to 1 column. works with card size.</p>",
+                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\"><b>card style</b>: the style of the cards. unset is plain.</p><p data-block-key=\"buhkq\"><b>card size</b>: set the width of the cards. default is 27</p><p data-block-key=\"c0lmn\"><b>card columns</b>: set a fixed number of columns. cards show in exactly N columns when there is space, then collapse directly to 1 column. works with card size.</p><p data-block-key=\"c0acc\"><b>accent colors</b>: comma-separated hex colors for card borders (rounded) or top shadows (square). cycles through the colors.</p><p data-block-key=\"c0div\"><b>divider colors</b>: comma-separated hex colors for card divider (hr) lines. independent from accent colors.</p><p data-block-key=\"c0bgc\"><b>background color</b>: hex background color for cards. text color auto-adjusts for contrast.</p>",
                 "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
               }
             ],
@@ -270,6 +270,223 @@ const sampleContent = [
             ]
           },
           "id": "c0l-section-01"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"cacc1\">Custom Accent and Divider Colors</h2><p data-block-key=\"cacc2\">Rounded cards with custom border colors (#d4006a, #2b73c1, #009688) and a separate divider color (#ffa000). Each cycles independently.</p>",
+                "id": "cacc-text-01"
+              },
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<h3 data-block-key=\"cacc3\">Pink accent</h3><hr/><p data-block-key=\"cacc4\">This card gets the first custom accent color.</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<h3 data-block-key=\"cacc5\">Blue accent</h3><hr/><p data-block-key=\"cacc6\">This card gets the second custom accent color.</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<h3 data-block-key=\"cacc7\">Teal accent</h3><hr/><p data-block-key=\"cacc8\">This card gets the third custom accent color.</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<h3 data-block-key=\"cacc9\">Pink again</h3><hr/><p data-block-key=\"cacca\">The colors cycle, so this card is back to the first color.</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "card_style",
+                      "value": "rounded",
+                      "id": "cacc-style-01"
+                    },
+                    {
+                      "type": "accent_colors",
+                      "value": "#d4006a,#2b73c1,#009688",
+                      "id": "cacc-colors-01"
+                    },
+                    {
+                      "type": "divider_colors",
+                      "value": "#ffa000",
+                      "id": "cacc-divider-01"
+                    }
+                  ]
+                },
+                "id": "cacc-cards-01"
+              },
+              {
+                "type": "html",
+                "value": "&nbsp;",
+                "id": "cacc-spacer-01"
+              },
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"caccb\">Square cards with a single custom accent (#d4006a).</p>",
+                "id": "cacc-text-02"
+              },
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<p data-block-key=\"caccc\">one</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"caccd\">two</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<p data-block-key=\"cacce\">three</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "card_style",
+                      "value": "square",
+                      "id": "cacc-style-02"
+                    },
+                    {
+                      "type": "accent_colors",
+                      "value": "#d4006a",
+                      "id": "cacc-colors-02"
+                    }
+                  ]
+                },
+                "id": "cacc-cards-02"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "cacc-padding-01"
+              }
+            ]
+          },
+          "id": "cacc-section-01"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"cbg01\">Custom Background Color</h2><p data-block-key=\"cbg02\">Rounded cards with a dark background (#1a1a2e). Text color auto-adjusts to white for contrast.</p>",
+                "id": "cbg-text-01"
+              },
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<h3 data-block-key=\"cbg03\">Dark card</h3><hr/><p data-block-key=\"cbg04\">This card has a dark background with light text.</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<h3 data-block-key=\"cbg05\">Dark card</h3><hr/><p data-block-key=\"cbg06\">Text color is automatically derived.</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<h3 data-block-key=\"cbg07\">Dark card</h3><hr/><p data-block-key=\"cbg08\">No need to set text color manually.</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "card_style",
+                      "value": "rounded",
+                      "id": "cbg-style-01"
+                    },
+                    {
+                      "type": "background_color",
+                      "value": "#1a1a2e",
+                      "id": "cbg-bg-01"
+                    },
+                    {
+                      "type": "accent_colors",
+                      "value": "#e94560",
+                      "id": "cbg-accent-01"
+                    },
+                    {
+                      "type": "divider_colors",
+                      "value": "#e94560",
+                      "id": "cbg-divider-01"
+                    }
+                  ]
+                },
+                "id": "cbg-cards-01"
+              },
+              {
+                "type": "html",
+                "value": "&nbsp;",
+                "id": "cbg-spacer-01"
+              },
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"cbg09\">Light custom background (#e8f5e9) with default dark text.</p>",
+                "id": "cbg-text-02"
+              },
+              {
+                "type": "cards_block",
+                "value": {
+                  "cards": [
+                    {
+                      "text": "<h3 data-block-key=\"cbg0a\">Light green card</h3><hr/><p data-block-key=\"cbg0b\">Light backgrounds keep dark text.</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<h3 data-block-key=\"cbg0c\">Light green card</h3><hr/><p data-block-key=\"cbg0d\">Accent colors work with custom backgrounds too.</p>",
+                      "cta_block": []
+                    },
+                    {
+                      "text": "<h3 data-block-key=\"cbg0e\">Light green card</h3><hr/><p data-block-key=\"cbg0f\">Everything composes together.</p>",
+                      "cta_block": []
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "card_style",
+                      "value": "square",
+                      "id": "cbg-style-02"
+                    },
+                    {
+                      "type": "background_color",
+                      "value": "#e8f5e9",
+                      "id": "cbg-bg-02"
+                    },
+                    {
+                      "type": "accent_colors",
+                      "value": "#2e7d32,#1b5e20",
+                      "id": "cbg-accent-02"
+                    },
+                    {
+                      "type": "divider_colors",
+                      "value": "#4caf50",
+                      "id": "cbg-divider-02"
+                    }
+                  ]
+                },
+                "id": "cbg-cards-02"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "cbg-padding-01"
+              }
+            ]
+          },
+          "id": "cbg-section-01"
         },
         {
           "type": "hero",

@@ -100,7 +100,7 @@ const sampleContent = [
             "content": [
               {
                 "type": "text",
-                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"4sc9\"><b>analytics label</b>: sets the link nav field in google analytics clicks</p><p data-block-key=\"u5na\"><b>color</b>: the color of the link buttons</p><p data-block-key=\"buhkq\"></p>",
+                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"4sc9\"><b>analytics label</b>: sets the link nav field in google analytics clicks</p><p data-block-key=\"u5na\"><b>color</b>: the color of the link buttons</p><p data-block-key=\"u5nb\"><b>custom_color</b>: hex color override, e.g. #ff0000. overrides the color preset. text color is auto-derived from the background brightness.</p><p data-block-key=\"buhkq\"></p>",
                 "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
               }
             ],
@@ -257,6 +257,94 @@ const sampleContent = [
                   ]
                 },
                 "id": "599aa824-3481-4c8f-8dc5-64faeb140365"
+              },
+              {
+                "type": "text",
+                "value": "<h3 data-block-key=\"lcc01\">Custom color (dark bg: #7b2d8e, light text auto)</h3>",
+                "id": "lcc-text-01"
+              },
+              {
+                "type": "links_group",
+                "value": {
+                  "links": [
+                    {
+                      "text": "custom purple",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      }
+                    },
+                    {
+                      "text": "custom purple",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      }
+                    },
+                    {
+                      "text": "custom purple",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      }
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "custom_color",
+                      "value": "#7b2d8e",
+                      "id": "lcc-config-01"
+                    }
+                  ]
+                },
+                "id": "lcc-links-01"
+              },
+              {
+                "type": "text",
+                "value": "<h3 data-block-key=\"lcc02\">Custom color (light bg: #ffd54f, dark text auto)</h3>",
+                "id": "lcc-text-02"
+              },
+              {
+                "type": "links_group",
+                "value": {
+                  "links": [
+                    {
+                      "text": "custom yellow",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      }
+                    },
+                    {
+                      "text": "custom yellow",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      }
+                    },
+                    {
+                      "text": "custom yellow",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      }
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "custom_color",
+                      "value": "#ffd54f",
+                      "id": "lcc-config-02"
+                    }
+                  ]
+                },
+                "id": "lcc-links-02"
               }
             ],
             "config": []

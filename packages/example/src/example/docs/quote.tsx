@@ -100,6 +100,26 @@ const sampleContent = [
             "content": [
               {
                 "type": "text",
+                "value": "<h2 data-block-key=\"qcfg1\">Config</h2><p data-block-key=\"qcfg2\"><b>accent_color</b>: hex color for the quote mark. defaults to orange.</p>",
+                "id": "qcfg-text-01"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "36f23849-a92a-48ab-8eef-6e312689ce3f"
+              }
+            ]
+          },
+          "id": "51b27f0a-30af-496c-8d6b-2155fa006a20"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
                 "value": "<h1 data-block-key=\"36jpq\">Examples</h1>",
                 "id": "f411eaea-b9b8-4574-8c72-8fde5fe7c5f1"
               },
@@ -119,6 +139,64 @@ const sampleContent = [
                   "title": "Cool Guy"
                 },
                 "id": "280d6cfc-1870-4f62-b8cb-66c9c07ecafe"
+              },
+              {
+                "type": "text",
+                "value": "<h3 data-block-key=\"qacc1\">Custom accent color (#d4006a)</h3>",
+                "id": "qacc-text-01"
+              },
+              {
+                "type": "quote",
+                "value": {
+                  "image": {
+                    "id": 1080,
+                    "file": "https://assets.openstax.org/oscms-prod/media/original_images/tomwoodward.jpeg",
+                    "title": "tomwoodward",
+                    "height": 460,
+                    "width": 460,
+                    "created_at": "2024-08-07T10:47:07.129169-05:00"
+                  },
+                  "content": "<p data-block-key=\"qacc2\">This quote uses a custom accent color instead of the default orange. The quote mark should be pink.</p>",
+                  "name": "Tom Woodward",
+                  "title": "Still A Cool Guy",
+                  "config": [
+                    {
+                      "type": "accent_color",
+                      "value": "#d4006a",
+                      "id": "qacc-config-01"
+                    }
+                  ]
+                },
+                "id": "qacc-quote-01"
+              },
+              {
+                "type": "text",
+                "value": "<h3 data-block-key=\"qacc3\">Custom accent color (#2b73c1)</h3>",
+                "id": "qacc-text-02"
+              },
+              {
+                "type": "quote",
+                "value": {
+                  "image": {
+                    "id": 1080,
+                    "file": "https://assets.openstax.org/oscms-prod/media/original_images/tomwoodward.jpeg",
+                    "title": "tomwoodward",
+                    "height": 460,
+                    "width": 460,
+                    "created_at": "2024-08-07T10:47:07.129169-05:00"
+                  },
+                  "content": "<p data-block-key=\"qacc4\">This quote uses a blue accent color. The quote mark should be blue.</p>",
+                  "name": "Tom Woodward",
+                  "title": "Coolest Guy",
+                  "config": [
+                    {
+                      "type": "accent_color",
+                      "value": "#2b73c1",
+                      "id": "qacc-config-02"
+                    }
+                  ]
+                },
+                "id": "qacc-quote-02"
               }
             ],
             "config": [

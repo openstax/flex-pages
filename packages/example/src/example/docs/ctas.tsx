@@ -133,7 +133,7 @@ const sampleContent = [
             "content": [
               {
                 "type": "text",
-                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\">on the block</p><p data-block-key=\"dui9o\"><b>analytics label</b>: sets the analytics nav field in google analytics clicks.</p><p data-block-key=\"7876c\"></p><p data-block-key=\"3vj2v\">on the button</p><p data-block-key=\"buhkq\"><b>style</b>: overrides the style of the button, defaults to primary, secondary</p>",
+                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\">on the block</p><p data-block-key=\"dui9o\"><b>analytics label</b>: sets the analytics nav field in google analytics clicks.</p><p data-block-key=\"7876c\"></p><p data-block-key=\"3vj2v\">on the button</p><p data-block-key=\"buhkq\"><b>style</b>: overrides the style of the button, defaults to primary, secondary</p><p data-block-key=\"buhkr\"><b>custom_color</b>: hex color override, e.g. #ff0000. overrides the style preset. text color is auto-derived from the background brightness.</p>",
                 "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
               }
             ],
@@ -305,6 +305,89 @@ const sampleContent = [
                   "config": []
                 },
                 "id": "2314516f-daf2-4efd-b541-28f1f1e4886e"
+              },
+              {
+                "type": "text",
+                "value": "<h3 data-block-key=\"ccc01\">Custom colors</h3>",
+                "id": "ccc-text-01"
+              },
+              {
+                "type": "cta_block",
+                "value": {
+                  "actions": [
+                    {
+                      "text": "custom dark (#7b2d8e)",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": [
+                        {
+                          "type": "custom_color",
+                          "value": "#7b2d8e",
+                          "id": "ccc-config-01"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "custom light (#ffd54f)",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": [
+                        {
+                          "type": "custom_color",
+                          "value": "#ffd54f",
+                          "id": "ccc-config-02"
+                        }
+                      ]
+                    }
+                  ],
+                  "config": []
+                },
+                "id": "ccc-cta-01"
+              },
+              {
+                "type": "cta_block",
+                "value": {
+                  "actions": [
+                    {
+                      "text": "custom teal (#009688)",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": [
+                        {
+                          "type": "custom_color",
+                          "value": "#009688",
+                          "id": "ccc-config-03"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "preset blue outline",
+                      "aria_label": "",
+                      "target": {
+                        "value": "https://openstax.org",
+                        "type": "external"
+                      },
+                      "config": [
+                        {
+                          "type": "style",
+                          "value": "blue_outline",
+                          "id": "ccc-config-04"
+                        }
+                      ]
+                    }
+                  ],
+                  "config": []
+                },
+                "id": "ccc-cta-02"
               }
             ],
             "config": []

@@ -1,6 +1,13 @@
+import React from 'react';
 import { Image, ImageFields, imageFieldsConfig } from '../components/Image';
+import { findByType } from '../utils';
 import { RichTextContent } from './RichTextBlock';
 import './QuoteBlock.css';
+
+type QuoteConfig = {
+  type: 'accent_color';
+  value: string;
+};
 
 export interface QuoteBlockConfig {
   id: string;
@@ -10,6 +17,7 @@ export interface QuoteBlockConfig {
     content: string;
     name: string;
     title?: string;
+    config: QuoteConfig[];
   };
 }
 
@@ -22,11 +30,19 @@ QuoteBlock.blockConfig = {
     {name: 'title', label: 'Quotee\'s title', type: 'text'},
     {name: 'name', label: 'Quotee\'s name', type: 'text', required: true},
     {name: 'image', label: 'Image', type: 'namespace', fields: imageFieldsConfig},
+    {name: 'config', label: 'Config', type: 'configs', configs: [
+      {name: 'accent_color', label: 'Accent Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex color for the quote mark'},
+    ]},
   ],
 };
 
 export function QuoteBlock({data}: {data: QuoteBlockConfig}) {
-  return <div className="content-block-quote">
+  const accentColor = findByType(data.value.config, 'accent_color')?.value;
+  const style = accentColor
+    ? {'--quote-accent-color': accentColor} as React.CSSProperties
+    : undefined;
+
+  return <div className="content-block-quote" style={style}>
     <Image alt="" image={data.value.image} />
     <RichTextContent html={data.value.content} />
     <div className="quotee">
