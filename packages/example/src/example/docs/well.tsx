@@ -100,7 +100,7 @@ const sampleContent = [
             "content": [
               {
                 "type": "text",
-                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Wells have a config section with a number of options for controlling their appearance.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"8ih75\"><b>Background Color</b>: Sets the background color of the well (hex format, e.g. #f0f0f0). Dark colors automatically switch text to white.</p><p data-block-key=\"42t6v\"><b>Border Radius</b>: Border radius in pixels (default: 8)</p><p data-block-key=\"42brc\"><b>Border Color</b>: Hex border color (e.g. #cccccc). No border by default.</p><p data-block-key=\"42brs\"><b>Border Size</b>: Border width (e.g. 1px, 2px, thin). Only applies when border color is set. Defaults to 1px.</p><p data-block-key=\"8d7hf\"><b>Padding</b>: Inner padding, in 10px increments (default: 2)</p><p data-block-key=\"ds68a\"><b>Margin</b>: Vertical (top and bottom) outer margin, in 10px increments (default: 0)</p><p data-block-key=\"8hv0d\"><b>Width</b>: Maximum width of the well content (e.g., 600px, 50%, auto)</p><p data-block-key=\"2k4u0\"><b>Text Alignment</b>: Alignment of text in the well (left, right, or center)</p><p data-block-key=\"2gcvi\"><b>Analytics Label</b>: Analytics events from within this well will include this label</p><p data-block-key=\"3gcvi\"><b>ID</b>: The HTML id of the well, can be referenced by anchor links</p>",
+                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Wells have a config section with a number of options for controlling their appearance.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"8ih75\"><b>Background Color</b>: Sets the background color of the well (hex format, e.g. #f0f0f0). Dark colors automatically switch text to white.</p><p data-block-key=\"42t6v\"><b>Border Radius</b>: Border radius in pixels (default: 8)</p><p data-block-key=\"42brc\"><b>Border Color</b>: Hex border color (e.g. #cccccc). No border by default.</p><p data-block-key=\"42brs\"><b>Border Size</b>: Border width (e.g. 1px, 2px, thin). Only applies when border color is set. Defaults to 1px.</p><p data-block-key=\"8d7hf\"><b>Padding</b>: Inner padding, in 10px increments (default: 2)</p><p data-block-key=\"ds68a\"><b>Margin</b>: Vertical (top and bottom) outer margin, in 10px increments (default: 0)</p><p data-block-key=\"8hv0d\"><b>Width</b>: Maximum width of the well content (e.g., 600px, 50%, auto)</p><p data-block-key=\"2k4u0\"><b>Text Alignment</b>: Alignment of text in the well (left, right, or center)</p><p data-block-key=\"2gcvi\"><b>Analytics Label</b>: Analytics events from within this well will include this label</p><p data-block-key=\"3gcvi\"><b>ID</b>: The HTML id of the well, can be referenced by anchor links</p><p data-block-key=\"4gcvi\"><b>Pull Up</b>: Pulls the well upward by the specified amount (e.g. 3rem, 40px). Use with extra padding on the section above to create an overlap effect.</p>",
                 "id": "a1b2c3d4-1111-1111-1111-000000000012"
               }
             ],
@@ -388,6 +388,86 @@ const sampleContent = [
             ]
           },
           "id": "a1b2c3d4-1111-1111-1111-000000000018"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h3 data-block-key=\"pu001\">Pull Up (overlap into previous section)</h3><p data-block-key=\"pu002\">The section below contains a well with <code>pull_up: 4rem</code>. Combined with extra bottom padding on this section, the well visually overlaps upward.</p>",
+                "id": "a1b2c3d4-3333-1111-1111-000000000001"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_bottom",
+                "value": 8,
+                "id": "a1b2c3d4-3333-1111-1111-000000000002"
+              },
+              {
+                "type": "background_color",
+                "value": "#2d3436",
+                "id": "a1b2c3d4-3333-1111-1111-000000000003"
+              }
+            ]
+          },
+          "id": "a1b2c3d4-3333-1111-1111-000000000004"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "well",
+                "value": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "value": "<p data-block-key=\"pu003\">This well is pulled up by 4rem, overlapping into the dark section above. It uses <code>pull_up</code> to create the effect.</p>",
+                      "id": "a1b2c3d4-3333-1111-1111-000000000005"
+                    }
+                  ],
+                  "config": [
+                    {
+                      "type": "pull_up",
+                      "value": "4rem",
+                      "id": "a1b2c3d4-3333-1111-1111-000000000006"
+                    },
+                    {
+                      "type": "background_color",
+                      "value": "#ffffff",
+                      "id": "a1b2c3d4-3333-1111-1111-000000000007"
+                    },
+                    {
+                      "type": "border_radius",
+                      "value": "12",
+                      "id": "a1b2c3d4-3333-1111-1111-000000000008"
+                    },
+                    {
+                      "type": "border_color",
+                      "value": "#0984e3",
+                      "id": "a1b2c3d4-3333-1111-1111-000000000009"
+                    },
+                    {
+                      "type": "border_size",
+                      "value": "2px",
+                      "id": "a1b2c3d4-3333-1111-1111-000000000010"
+                    }
+                  ]
+                },
+                "id": "a1b2c3d4-3333-1111-1111-000000000011"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_top",
+                "value": 0,
+                "id": "a1b2c3d4-3333-1111-1111-000000000012"
+              }
+            ]
+          },
+          "id": "a1b2c3d4-3333-1111-1111-000000000013"
         }
       ]
     }
