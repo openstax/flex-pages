@@ -3,6 +3,7 @@ import Color from 'color';
 import React from 'react';
 import { Link, linkFieldConfig, LinkFields } from '../components/Link';
 import { findByType } from '../utils';
+import { RichTextContent } from './RichTextBlock';
 import './CTABlock.css';
 
 type CTALinkConfig = {
@@ -53,12 +54,16 @@ export function CTALink({link}: {link: CTALinkFields}) {
 type CTAConfig = {
   type: 'analytics_label';
   value: string;
+} | {
+  type: 'layout';
+  value: 'inline';
 };
 
 export interface CTABlockConfig {
     id: string;
     type: 'cta_block';
     value: {
+        description?: string;
         actions: CTALinkFields[];
         config: CTAConfig[];
     };
@@ -69,17 +74,25 @@ CTABlock.blockConfig = {
   categories: ['content'],
   label: 'Call to Action',
   fields: [
+    {name: 'description', label: 'Description', type: 'rich-text'},
     {name: 'actions', label: 'Actions', type: 'list', fields: ctaLinkFieldConfig},
     {name: 'config', label: 'Config', type: 'configs', configs: [
       {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text'},
+      {name: 'layout', label: 'Layout', type: 'select', options: [
+        {label: 'Inline', value: 'inline'},
+      ]},
     ]},
   ],
 };
 
 export function CTABlock({data}: {data: CTABlockConfig}) {
     const analytics = findByType(data.value.config, 'analytics_label')?.value;
+    const layout = findByType(data.value.config, 'layout')?.value;
 
-    return <div className="content-block-cta-block" data-analytics-nav={analytics}>
-        {data.value.actions.map((action, i) => <CTALink key={i} link={action} />)}
+    return <div className={cn('content-block-cta-block', layout === 'inline' ? 'layout-inline' : undefined)} data-analytics-nav={analytics}>
+        {data.value.description ? <div className="cta-description"><RichTextContent html={data.value.description} /></div> : null}
+        <div className="cta-actions">
+            {data.value.actions.map((action, i) => <CTALink key={i} link={action} />)}
+        </div>
     </div>;
 }
