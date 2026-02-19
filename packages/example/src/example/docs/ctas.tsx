@@ -22,6 +22,7 @@ export const ctasScreen = createRoute({name: 'CtasComponent',
 const sampleContent = [
   {
     "type": "flex_page",
+    "id": "ctas-demo-page",
     "value": {
       "content": [
         {
@@ -119,8 +120,8 @@ const sampleContent = [
             ],
             "config": [
               {
-                "type": "padding",
-                "value": 5,
+                "type": "padding_bottom",
+                "value": 1,
                 "id": "636cef4e-f352-4290-a559-abe6e9a900e4"
               }
             ]
@@ -139,8 +140,8 @@ const sampleContent = [
             ],
             "config": [
               {
-                "type": "padding_bottom",
-                "value": 5,
+                "type": "padding",
+                "value": 1,
                 "id": "c021ece9-d22a-43c3-93cd-a3590df09497"
               }
             ]
@@ -390,9 +391,139 @@ const sampleContent = [
                 "id": "ccc-cta-02"
               }
             ],
-            "config": []
+            "config": [
+              {
+                "type": "padding",
+                "value": 1,
+                "id": "c021ece9-d22a-43c3-93cd-a3590df09497"
+              }
+            ]
           },
           "id": "428aa789-8f9a-4d4b-a5ca-58b2ffa4e108"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"desc01\">Descriptions</h2><p data-block-key=\"desc02\">CTA blocks can include a description that appears above the buttons.</p>",
+                "id": "desc-heading"
+              },
+              {
+                "type": "cta_block",
+                "value": {
+                  "description": "<p>Sign up for our newsletter to get the latest updates on new features and releases.</p>",
+                  "actions": [
+                    {
+                      "text": "Subscribe",
+                      "aria_label": "",
+                      "target": {"value": "https://openstax.org", "type": "external"},
+                      "config": [{"type": "style", "value": "orange"}]
+                    },
+                    {
+                      "text": "Learn more",
+                      "aria_label": "",
+                      "target": {"value": "https://openstax.org", "type": "external"},
+                      "config": [{"type": "style", "value": "white"}]
+                    }
+                  ],
+                  "config": []
+                },
+                "id": "desc-cta-01"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 1,
+                "id": "8db4d6df-cd50-4168-a8ad-5b41c7dab789"
+              }
+            ]
+          },
+          "id": "desc-section"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"banner01\">Inline Layout / Banners</h2><p data-block-key=\"banner02\">Use <b>layout: inline</b> inside a <b>well</b> to create banner-style CTAs. The description and buttons sit side-by-side, and the well provides the background styling.</p>",
+                "id": "banner-heading"
+              },
+              {
+                "type": "well",
+                "value": {
+                  "content": [
+                    {
+                      "type": "cta_block",
+                      "value": {
+                        "description": "<p>We're hosting a live Assignable demo on [DATE] at [TIME] CDT.</p>",
+                        "actions": [
+                          {
+                            "text": "Register now",
+                            "aria_label": "",
+                            "target": {"value": "https://openstax.org", "type": "external"},
+                            "config": [{"type": "style", "value": "white"}]
+                          }
+                        ],
+                        "config": [{"type": "layout", "value": "inline"}]
+                      },
+                      "id": "banner-cta-01"
+                    }
+                  ],
+                  "config": [
+                    {"type": "background_color", "value": "#4a1942"},
+                    {"type": "gradient_color", "value": "#1a237e"},
+                    {"type": "gradient_direction", "value": "to right"},
+                    {"type": "border_radius", "value": "20"},
+                    {"type": "padding", "value": "2"}
+                  ]
+                },
+                "id": "banner-well-01"
+              },
+              {
+                "type": "well",
+                "value": {
+                  "content": [
+                    {
+                      "type": "cta_block",
+                      "value": {
+                        "description": "<p>Can't make it? Watch an on-demand demo of Assignable anytime, anywhere.</p>",
+                        "actions": [
+                          {
+                            "text": "Watch now",
+                            "aria_label": "",
+                            "target": {"value": "https://openstax.org", "type": "external"},
+                            "config": [{"type": "style", "value": "orange"}]
+                          }
+                        ],
+                        "config": [{"type": "layout", "value": "inline"}]
+                      },
+                      "id": "banner-cta-02"
+                    }
+                  ],
+                  "config": [
+                    {"type": "background_color", "value": "#ffffff"},
+                    {"type": "border_color", "value": "#7b2d8e"},
+                    {"type": "border_size", "value": "2px"},
+                    {"type": "border_radius", "value": "20"},
+                    {"type": "padding", "value": "2"}
+                  ]
+                },
+                "id": "banner-well-02"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 1,
+                "id": "7f1514e7-5deb-42ad-b4fe-ca285ef72b89"
+              }
+            ]
+          },
+          "id": "banner-section"
         }
       ]
     }

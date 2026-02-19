@@ -19,4 +19,9 @@
   &.light-background > .well-content {
     color: text-color(normal);
   }
+
+  div.content-block-rich-text,
+  div.content-block-rich-text > :last-child {
+    margin-bottom: 0;
+  }
 }

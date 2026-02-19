@@ -1,12 +1,42 @@
 @import 'pattern-library/core/pattern-library/headers';
 
 .flex-page.page div.content-block-cta-block {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $normal-margin;
   margin: ($normal-margin * 2) 0;
 
-  > a, > button {
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+
+  > .cta-description {
+    margin-bottom: $normal-margin;
+  }
+
+  > .cta-actions {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: $normal-margin;
+  }
+
+  &.layout-inline {
+    display: flex;
+    gap: $normal-margin;
+    align-items: center;
+
+    > .cta-description {
+      flex: 1;
+      min-width: 0;
+      margin-bottom: 0;
+    }
+
+    > .cta-actions {
+      display: flex;
+    }
+  }
+
+  .cta-actions > a, .cta-actions > button {
     &:nth-child(1):not(.styled-button) {
         @include button();
         @extend %primary;
