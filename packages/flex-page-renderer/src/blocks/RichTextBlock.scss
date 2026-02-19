@@ -1,9 +1,7 @@
 @import 'pattern-library/core/pattern-library/headers';
 
 .flex-page.page div.content-block-rich-text {
-  overflow: hidden;
   width: 100%;
-  margin-bottom: 1rem;
 
   img.richtext-image.full-width {
     width: 100%;
@@ -20,19 +18,19 @@
     margin-left: $normal-margin;
   }
 
-  > *:first-child {
-    margin-top: 0;
-  }
-  > *:last-child {
-    margin-bottom: 0;
-  }
-
   h5, h6 {
     @extend %text-h4;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 
   p {
-    @include set-font(body-regular)
+    @include set-font(body-regular);
+    margin: $normal-margin 0;
   }
 }
 
