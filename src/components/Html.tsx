@@ -1,4 +1,4 @@
-import DOMPurify from 'dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 import React from 'react';
 
 export const Html = (props: React.PropsWithChildren<{
