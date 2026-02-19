@@ -1,13 +1,19 @@
 import React from 'react';
 import type * as UI from '@openstax/ui-components';
-import Select from 'react-select';
+import Select, { type SingleValue } from 'react-select';
 
-type OptionValue = {value: number; label: string}[] |
-  {value: number; label: string} |
-  null;
+type OptionType = {value: number; label: string};
+
+type OptionValue = OptionType[] | OptionType | null;
+
+type FancySelectProps = Omit<React.ComponentProps<typeof Select>, 'value'> & {
+  label?: string;
+  help?: string;
+  name: string;
+};
 
 export const FancySelect = (Forms: typeof UI.Forms.Controlled) => (
-  {label, help, ...props}: Omit<React.ComponentProps<Select>, 'value'>
+  {label, help, ...props}: FancySelectProps
 ) => {
   const formState = Forms.useFormHelpers();
   const value = formState.data[props.name] || undefined;
@@ -27,10 +33,11 @@ export const FancySelect = (Forms: typeof UI.Forms.Controlled) => (
   }, [getSelected, selected]);
 
   const onChange = React.useCallback((
-    newValue: {value: number; label: string} | null
+    newValue: SingleValue<unknown>
   ) => {
-    if (newValue) {
-      setValue(newValue.value);
+    const option = newValue as OptionType | null;
+    if (option) {
+      setValue(option.value);
     } else {
       setValue(undefined);
     }
