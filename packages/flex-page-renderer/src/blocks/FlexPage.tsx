@@ -4,6 +4,9 @@ import './FlexPage.css';
 import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
 import { findByType } from '../utils';
 
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
+
 export type FlexPageConfigOptions = {
   type: 'height';
   value: string;
@@ -56,7 +59,7 @@ export function FlexPage({data}: {data: FlexPageConfig}) {
    * has the advantage of being able to have a site footer
    * that gets pushed down by the page content (like rex)
    */
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const doResize = () => {
       const element = ref.current;
       if (!element) return;

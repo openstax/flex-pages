@@ -1,0 +1,125 @@
+[
+  {
+    "id": "text-page",
+    "type": "flex_page",
+    "value": {
+      "content": [
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"t6nx6\"><b>Page Content:</b></p>",
+                "id": "7bc4169a-b0ad-4e52-8e1e-92e39acf90e4"
+              },
+              {
+                "type": "text",
+                "value": "<h1 data-block-key=\"t6nx6\">Text Component</h1>",
+                "id": "f6a2982e-3a3d-4945-9aa4-61bef264ac42"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 7,
+                "id": "e5f57252-5f8f-4ee0-a688-059f344c10ae"
+              },
+              {
+                "type": "background_color",
+                "value": "#0dc0dc",
+                "id": "e008d57c-5114-451f-aeb1-3960df40945d"
+              }
+            ]
+          },
+          "id": "2d7d1acc-5ba9-48f9-bfa6-4796b18a8750"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"rgh0r\"><a href=\"/flex-pages/\">documentation home</a></p>",
+                "id": "8a3cc0f3-854e-423f-b7be-832a8f1f5396"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_top",
+                "value": 1,
+                "id": "7392d0d1-35bd-4374-9032-f6711f5508f9"
+              }
+            ]
+          },
+          "id": "2ddc9b4d-987a-4e58-9052-133b1202b1ea"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"vsc2b\">Overview</h2><p data-block-key=\"3297f\">The text component allows writing blocks of text with formatting options. There are a lot of formatting options, go look in the editor. some options will come up when you highlight some text, and some will show up if you type a \"/\" or press the \"+\" icon next to the text box.</p><p data-block-key=\"flim7\">This is some text.</p>",
+                "id": "7576fd06-032b-4d85-b2a1-ce6ec3692ec0"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding",
+                "value": 5,
+                "id": "4905a4a7-6da5-4088-9d30-f7ebf3a19e06"
+              }
+            ]
+          },
+          "id": "1c51bda7-5738-467e-988f-f536f1397b4e"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"vsc2b\">Links &amp; Images</h2><p data-block-key=\"3297f\">Links and images in text areas will allow you to choose from resources within the cms. for links, its generally better to use an \"internal\" link because this will gracefully handle moving the target page later. Its ok to use an \"external\" link if the internal one isn't working. it happens sometimes if the target page has special routing configured in the website frontend.</p><img alt=\"\" class=\"richtext-image left\" height=\"240\" src=\"https://assets.openstax.org/oscms-prod/media/images/pillar-3.width-500.webp\" width=\"480\"><p data-block-key=\"5cp39\">images can be left aligned, which shows them on the left side of the content. text will flow around the image.</p><p data-block-key=\"2bqes\">even if the text is multiple paragraphs.</p><p data-block-key=\"a1fp\">just make sure that you have enough text to fill the space on the page until the next image, or it'll look weird. if you don't have enough text to put on the side of the image and you want your following content to be on a new line, then use a new Text component.</p><p data-block-key=\"18ot6\">we're really just writing some extra words here to fill the space next to the image.</p><p data-block-key=\"b3un8\">are we there yet? ah excellent.</p><img alt=\"\" class=\"richtext-image right\" height=\"240\" src=\"https://assets.openstax.org/oscms-prod/media/images/pillar-3.width-500.webp\" width=\"480\"><p data-block-key=\"c5nvl\">then can also be right aligned, which shows them on the right side of the content.</p>",
+                "id": "9dbd3b93-28be-4701-9ce0-a82b259b6a0b"
+              },
+              {
+                "type": "text",
+                "value": "<p data-block-key=\"qgdr8\">again, its possible to skip filling in the space by using a new Text component. here is a full width image:</p><p data-block-key=\"3pl86\"></p><img alt=\"\" class=\"richtext-image full-width\" height=\"240\" src=\"https://assets.openstax.org/oscms-prod/media/images/pillar-3.width-800.webp\" width=\"480\"><p data-block-key=\"5os82\"></p>",
+                "id": "2f80157c-5b8b-4e7b-899a-db4dcc5c2eae"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_bottom",
+                "value": 5,
+                "id": "97b6c1bc-f8d1-4e86-8c0e-c30cd0d2fc6c"
+              }
+            ]
+          },
+          "id": "f113c1cd-98b9-4206-b7f5-429e1cc90265"
+        },
+        {
+          "type": "section",
+          "value": {
+            "content": [
+              {
+                "type": "text",
+                "value": "<h2 data-block-key=\"vsc2b\">Headings</h2><p data-block-key=\"3297f\">All headings in FlexPages are just part of text areas, no components have built in heading constructs. this is intentional, because there is no way for the FlexPage implementation to figure out what the correct heading structure is. Its <b>very important</b> that as a content author you use the correct heading levels to indicate the structure of the content.</p><p data-block-key=\"75ifq\">there should be ONE H1 on the page, probably right at the top. if there is more than one H1 that is <b>REALLY BAD</b></p><p data-block-key=\"462ud\">secondary headings are H2, and any subheadings are H3, and so on for all nested content. you can tell you've gotten to some content that <i>isn't</i> related to that H2 heading anymore when you get to another H2.</p><p data-block-key=\"8tji7\"></p>",
+                "id": "602b22b4-fd6a-4e0c-994a-18d0a0be94c9"
+              }
+            ],
+            "config": [
+              {
+                "type": "padding_bottom",
+                "value": 5,
+                "id": "edcf537b-93af-40ed-aeef-71d161db3bf4"
+              }
+            ]
+          },
+          "id": "82647d6c-eaef-4e48-bc8d-9d25e5e5ff53"
+        }
+      ]
+    }
+  }
+]
