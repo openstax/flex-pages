@@ -40,14 +40,15 @@ const EditorPage = () => {
   }, [slug, token, state]);
 
   const onSubmit = React.useCallback((data: UI.Forms.Controlled.AbstractFormData) => {
-    const page = JSON.stringify(data.page);
-    window.open(`${basePath}/?page=${encodeURIComponent(page)}`);
-
     if (slug && token && stateHasData(state)) {
       setState(previous => fetchLoading(previous));
       savePage(slug, data.page, state.data.sha, token)
         .then(({sha}) => setState(fetchSuccess({page: data.page, sha})))
         .catch((err: Error) => setState(previous => fetchError(err.message, previous)));
+    } else {
+      // local only preview
+      const page = JSON.stringify(data.page);
+      window.open(`${basePath}/?page=${encodeURIComponent(page)}`);
     }
   }, [basePath, slug, token, state]);
 
