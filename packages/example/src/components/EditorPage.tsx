@@ -1,7 +1,6 @@
 import React from 'react';
 import * as UI from '@openstax/ui-components';
 import { fetchSuccess } from '@openstax/ts-utils/fetch';
-import { useRouter } from 'next/router';
 import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
 import { FlexBlockEditor } from '@openstax/flex-page-editor/Editor';
 import { quillExtensions } from '@openstax/flex-page-editor-quill-extension';
@@ -15,12 +14,12 @@ const fieldTypes = {
 };
 
 const EditorPage = () => {
-  const router = useRouter();
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   const onSubmit = React.useCallback((data: UI.Forms.Controlled.AbstractFormData) => {
     const page = JSON.stringify(data.page);
-    window.open(`${router.basePath}/?page=${encodeURIComponent(page)}`);
-  }, [router.basePath]);
+    window.open(`${basePath}/?page=${encodeURIComponent(page)}`);
+  }, [basePath]);
 
   return <Layout>
     <UI.NavBar logo />

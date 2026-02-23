@@ -69,7 +69,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 4,
+                "value": 1,
                 "id": "62126071-427f-4306-9ac6-ade1d12ec32e"
               }
             ]
@@ -183,7 +183,7 @@
               },
               {
                 "type": "padding",
-                "value": 4,
+                "value": 1,
                 "id": "a4122776-3b22-4ca7-a531-59195ac08241"
               },
               {
@@ -290,7 +290,7 @@
               },
               {
                 "type": "padding",
-                "value": 4,
+                "value": 1,
                 "id": "bba6cbb1-71ea-4e88-9a31-08b3dac9e2fb"
               },
               {
@@ -377,7 +377,7 @@
             "config": [
               {
                 "type": "padding_bottom",
-                "value": 5,
+                "value": 1,
                 "id": "fd8551ce-3ee1-4283-8c86-5061a725bd72"
               },
               {

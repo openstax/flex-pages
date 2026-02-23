@@ -44,13 +44,7 @@
                 "id": "1d01474d-8b55-4127-bff2-437ef5a9f84b"
               }
             ],
-            "config": [
-              {
-                "type": "padding_top",
-                "value": 1,
-                "id": "6d80acf3-eef0-4c87-aea1-e70409c936b1"
-              }
-            ]
+            "config": []
           },
           "id": "1fdec09a-9294-4ea1-9316-0b35f9d087ff"
         },
@@ -66,8 +60,8 @@
             ],
             "config": [
               {
-                "type": "padding",
-                "value": 5,
+                "type": "padding_bottom",
+                "value": 1,
                 "id": "a5e84fb7-a67a-4107-b656-9d804674339b"
               }
             ]
@@ -118,7 +112,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 5,
+                "value": 1,
                 "id": "bed22890-38f2-46e9-be31-79a8826f92db"
               }
             ]
@@ -138,7 +132,7 @@
             "config": [
               {
                 "type": "padding_bottom",
-                "value": 5,
+                "value": 1,
                 "id": "e77d61d6-8808-4033-9fea-a69999d6ea29"
               }
             ]
@@ -189,7 +183,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 5,
+                "value": 1,
                 "id": "822c79cd-bfd4-4ed1-8357-1d3b4eac88d6"
               }
             ]
@@ -240,7 +234,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 5,
+                "value": 1,
                 "id": "ae6120f1-858f-43b6-9582-7316ac088b06"
               }
             ]
@@ -286,7 +280,7 @@
             "config": [
               {
                 "type": "padding_bottom",
-                "value": 5,
+                "value": 1,
                 "id": "870bf6db-b74a-4678-a8a5-5d6787c88107"
               }
             ]
@@ -332,7 +326,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 2,
+                "value": 1,
                 "id": "ad1e3772-8c64-4d5a-90a2-f129730ec665"
               }
             ]
@@ -378,7 +372,7 @@
             "config": [
               {
                 "type": "padding_bottom",
-                "value": 5,
+                "value": 1,
                 "id": "aaee55ae-a1e6-4952-8bd7-386881ffcc0a"
               }
             ]

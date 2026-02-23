@@ -1,8 +1,13 @@
 @import 'pattern-library/core/pattern-library/headers';
 
 .flex-page.page div.content-block-rich-text {
-  display: flow-root;
   width: 100%;
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 
   img.richtext-image.full-width {
     width: 100%;

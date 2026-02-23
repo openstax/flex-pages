@@ -44,13 +44,7 @@
                 "id": "5d52a043-7657-431c-9be8-c27b8c967eb6"
               }
             ],
-            "config": [
-              {
-                "type": "padding_top",
-                "value": 1,
-                "id": "9d5a4856-a18e-4693-887d-16cc1569a821"
-              }
-            ]
+            "config": []
           },
           "id": "e7396d38-15ad-40af-a9ba-1090392b71ed"
         },
@@ -66,8 +60,8 @@
             ],
             "config": [
               {
-                "type": "padding",
-                "value": 5,
+                "type": "padding_bottom",
+                "value": 1,
                 "id": "636cef4e-f352-4290-a559-abe6e9a900e4"
               }
             ]
@@ -87,7 +81,7 @@
             "config": [
               {
                 "type": "padding_bottom",
-                "value": 5,
+                "value": 1,
                 "id": "c021ece9-d22a-43c3-93cd-a3590df09497"
               }
             ]
@@ -192,7 +186,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 5,
+                "value": 1,
                 "id": "978a64f2-8f56-42ce-839e-68ed65fa2f24"
               }
             ]
@@ -244,7 +238,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 5,
+                "value": 1,
                 "id": "c0l-padding-01"
               }
             ]
@@ -347,7 +341,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 5,
+                "value": 1,
                 "id": "cacc-padding-01"
               }
             ]
@@ -461,7 +455,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 5,
+                "value": 1,
                 "id": "cbg-padding-01"
               }
             ]
@@ -555,7 +549,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 5,
+                "value": 1,
                 "id": "cbs-padding-01"
               }
             ]
@@ -661,7 +655,7 @@
             "config": [
               {
                 "type": "padding_bottom",
-                "value": 5,
+                "value": 1,
                 "id": "be6cd0fc-676c-41de-b6b3-d94f8788d8ed"
               }
             ]
@@ -707,7 +701,7 @@
               },
               {
                 "type": "padding_bottom",
-                "value": 5,
+                "value": 1,
                 "id": "09ea3722-8015-4a06-873c-b7b5d78cb3e9"
               }
             ]
@@ -741,7 +735,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 5,
+                "value": 1,
                 "id": "cdecfe62-1bb2-43f4-a54f-cee81f940eb3"
               }
             ]
@@ -813,7 +807,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 5,
+                "value": 1,
                 "id": "89b8846d-23ba-4c37-bba6-c98db71236a8"
               }
             ]

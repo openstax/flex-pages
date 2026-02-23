@@ -44,13 +44,7 @@
                 "id": "a6b73cb4-4606-4d6d-82ef-a7b4a97250f6"
               }
             ],
-            "config": [
-              {
-                "type": "padding_top",
-                "value": 1,
-                "id": "d03b8774-96b9-48a8-841a-d1d69f0d5bb3"
-              }
-            ]
+            "config": []
           },
           "id": "e5c9987b-09e1-4daa-8f3d-56d37f801435"
         },
@@ -66,8 +60,8 @@
             ],
             "config": [
               {
-                "type": "padding",
-                "value": 5,
+                "type": "padding_bottom",
+                "value": 1,
                 "id": "36f23849-a92a-48ab-8eef-6e312689ce3f"
               }
             ]
@@ -87,7 +81,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 5,
+                "value": 1,
                 "id": "a5e84fb7-a67a-4107-b656-9d804674339b"
               }
             ]
@@ -327,7 +321,13 @@
                 "id": "lcc-links-02"
               }
             ],
-            "config": []
+            "config": [
+              {
+                "type": "padding",
+                "value": 1,
+                "id": "58dd062b-1738-495f-9865-8bc7e1475c21"
+              }
+            ]
           },
           "id": "d9538f8f-fe2a-4c07-b676-d3f4d7ef65a6"
         },

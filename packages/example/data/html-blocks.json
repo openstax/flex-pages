@@ -39,13 +39,7 @@
                 "id": "32c940c4-cd98-4fdc-9a85-61939edbe7d1"
               }
             ],
-            "config": [
-              {
-                "type": "padding_top",
-                "value": 1,
-                "id": "d75eec14-0b1c-4e92-bfeb-ed7c9988eff4"
-              }
-            ]
+            "config": []
           },
           "id": "daed5405-1bf8-446a-81ae-a73689022cba"
         },
@@ -61,8 +55,8 @@
             ],
             "config": [
               {
-                "type": "padding",
-                "value": 5,
+                "type": "padding_bottom",
+                "value": 1,
                 "id": "36f23849-a92a-48ab-8eef-6e312689ce3f"
               }
             ]
@@ -82,7 +76,7 @@
             "config": [
               {
                 "type": "padding_bottom",
-                "value": 5,
+                "value": 1,
                 "id": "c5ccdc05-c38d-4273-88c6-0ba10bbbc9c1"
               },
               {
@@ -116,7 +110,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 5,
+                "value": 1,
                 "id": "a3a4bddc-ad8b-4584-b920-8de83f56382f"
               }
             ]
@@ -136,7 +130,7 @@
             "config": [
               {
                 "type": "padding",
-                "value": 5,
+                "value": 1,
                 "id": "7c572d5e-c412-493e-bfe7-98e4d86180be"
               }
             ]

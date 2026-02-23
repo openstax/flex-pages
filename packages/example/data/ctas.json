@@ -44,13 +44,7 @@
                 "id": "c3015bc5-d554-4ba6-8c4d-9afdde6e4318"
               }
             ],
-            "config": [
-              {
-                "type": "padding_top",
-                "value": 1,
-                "id": "7192b622-44a9-4042-8a9d-c0503e8807d2"
-              }
-            ]
+            "config": [ ]
           },
           "id": "ab3c03c3-0f56-438a-a1a9-7e8dd4ad1253"
         },
