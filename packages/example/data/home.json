@@ -10,7 +10,7 @@
             "content": [
               {
                 "type": "text",
-                "value": "<h1 data-block-key=\"0344r\">FlexPage Documentation Portal</h1>",
+                "value": "<h1>FlexPage Documentation</h1>",
                 "id": "7e9d53b4-44a9-432e-a09e-d8eaaaedea8e"
               },
               {
@@ -24,7 +24,8 @@
                         "value": "#components",
                         "type": "anchor"
                       },
-                      "config": []
+                      "config": [],
+                      "id": "9a37d868"
                     }
                   ],
                   "config": []
@@ -106,7 +107,8 @@
                   "cards": [
                     {
                       "text": "<h3 data-block-key=\"re4k8\">Page Structure</h3><p data-block-key=\"71esi\">These components are used to organize the overall page structure and non-content visual effects.</p>",
-                      "ctaBlock": []
+                      "ctaBlock": [],
+                      "id": "1134e0d1"
                     }
                   ],
                   "config": [
@@ -128,40 +130,45 @@
                       "ariaLabel": "Section Component",
                       "target": {
                         "value": "/flex-pages/section",
-                        "type": "external"
-                      }
+                        "type": "internal"
+                      },
+                      "id": "6a53c420"
                     },
                     {
                       "text": "Hero",
                       "ariaLabel": "",
                       "target": {
                         "value": "/flex-pages/hero",
-                        "type": "external"
-                      }
+                        "type": "internal"
+                      },
+                      "id": "747c794a"
                     },
                     {
                       "text": "Divider",
                       "ariaLabel": "Divider Component",
                       "target": {
                         "value": "/flex-pages/divider",
-                        "type": "external"
-                      }
+                        "type": "internal"
+                      },
+                      "id": "82d95f4f"
                     },
                     {
                       "text": "Columns",
                       "ariaLabel": "Columns Component",
                       "target": {
                         "value": "/flex-pages/columns",
-                        "type": "external"
-                      }
+                        "type": "internal"
+                      },
+                      "id": "96c0b1c8"
                     },
                     {
                       "text": "Tabbed Content",
                       "ariaLabel": "Tabbed Content Component",
                       "target": {
                         "value": "/flex-pages/tabbed-content",
-                        "type": "external"
-                      }
+                        "type": "internal"
+                      },
+                      "id": "86ca9c7e"
                     }
                   ],
                   "config": [
@@ -205,7 +212,8 @@
                   "cards": [
                     {
                       "text": "<h3 data-block-key=\"uemmh\">Page Content</h3><p data-block-key=\"abfbv\">Heroes and Sections can contain content, these are the components that can be used in content areas.</p>",
-                      "ctaBlock": []
+                      "ctaBlock": [],
+                      "id": "d9dd481e"
                     }
                   ],
                   "config": [
@@ -227,48 +235,54 @@
                       "ariaLabel": "Text Component",
                       "target": {
                         "value": "/flex-pages/text",
-                        "type": "external"
-                      }
+                        "type": "internal"
+                      },
+                      "id": "700fc0ff"
                     },
                     {
                       "text": "Cards Block",
                       "ariaLabel": "Cards Block Component",
                       "target": {
                         "value": "/flex-pages/cards-block",
-                        "type": "external"
-                      }
+                        "type": "internal"
+                      },
+                      "id": "2c45e056"
                     },
                     {
                       "text": "Calls to Action",
                       "ariaLabel": "Calls to Action Component",
                       "target": {
                         "value": "/flex-pages/ctas",
-                        "type": "external"
-                      }
+                        "type": "internal"
+                      },
+                      "id": "87e66baf"
                     },
                     {
                       "text": "Links Group",
                       "ariaLabel": "Links Group Component",
                       "target": {
                         "value": "/flex-pages/links",
-                        "type": "external"
-                      }
+                        "type": "internal"
+                      },
+                      "id": "2723076e"
                     },
                     {
                       "text": "Quote",
                       "ariaLabel": "Quote Component",
                       "target": {
                         "value": "/flex-pages/quote",
-                        "type": "external"
-                      }
+                        "type": "internal"
+                      },
+                      "id": "aba15ccd"
                     },
                     {
                       "text": "Well",
                       "ariaLabel": "Well Component",
                       "target": {
                         "value": "/flex-pages/well",
-                        "type": "external"
-                      }
+                        "type": "internal"
+                      },
+                      "id": "ad77e9c"
                     }
                   ],
                   "config": [
@@ -351,7 +365,8 @@
                           "value": "blue_outline",
                           "id": "5a4a0877-c0c8-4202-9ad3-5f8b6adad2e1"
                         }
-                      ]
+                      ],
+                      "id": "d82eb23c"
                     },
                     {
                       "text": "Feature Request",
@@ -366,7 +381,8 @@
                           "value": "deep_green_outline",
                           "id": "a31ba6eb-c0be-42f4-900b-400214cd20d8"
                         }
-                      ]
+                      ],
+                      "id": "a0418417"
                     }
                   ],
                   "config": []
