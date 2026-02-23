@@ -1,0 +1,31 @@
+{
+  "version": "0.2",
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/master/cspell.schema.json",
+  "language": "en",
+  "words": [
+    "describedby",
+    "dompurify",
+    "labelledby",
+    "noopener",
+    "noreferrer",
+    "openstax",
+    "patternmask",
+    "postmessage",
+    "tabindex"
+  ],
+  "flagWords": [],
+  "ignorePaths": [
+    "*.svg",
+    "*.spec.ts.snap",
+    "coverage",
+    "LICENSE.txt",
+    "cspell.json",
+    "package.json",
+    "yarn.lock",
+    "node_modules/**",
+    "**/out/**",
+    "**/dist/**",
+    "**/*.css.map",
+    "**/*.tsbuildinfo"
+  ]
+}
