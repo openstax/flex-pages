@@ -1,17 +1,18 @@
-import React from 'react';
-import * as UI from '@openstax/ui-components';
-import {
-  FetchState, FetchStateType, stateHasData, stateHasError,
-  fetchSuccess, fetchLoading, fetchError, fetchIdle
-} from '@openstax/ts-utils/fetch';
-import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
-import { FlexBlockEditor } from '@openstax/flex-page-editor/Editor';
 import { quillExtensions } from '@openstax/flex-page-editor-quill-extension';
 import { selectExtensions } from '@openstax/flex-page-editor-select-extension';
-import { TokenInput } from './TokenInput';
+import { FlexBlockEditor } from '@openstax/flex-page-editor/Editor';
+import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
+import {
+  fetchError, fetchIdle, fetchLoading, FetchState,
+  FetchStateType, fetchSuccess, stateHasData, stateHasError
+} from '@openstax/ts-utils/fetch';
+import * as UI from '@openstax/ui-components';
+import { notFound, useSearchParams } from 'next/navigation';
+import React from 'react';
 import { actions } from '../lib/actions';
-import { getToken, fetchPage, savePage } from '../lib/github';
-import { useSearchParams, notFound } from 'next/navigation';
+import { fetchPage, getToken, savePage } from '../lib/github';
+import styles from './EditorPage.module.css';
+import { TokenInput } from './TokenInput';
 
 const fieldTypes = {
   ...quillExtensions({Forms: UI.Forms.Controlled}),
@@ -57,7 +58,7 @@ const EditorPage = () => {
         </>
       : <>
           <TokenInput onTokenChange={(t) => { setToken(t); setState(fetchIdle()); }} />
-          {stateHasError(state) && <p style={{color: 'red'}}>Error: {state.error}</p>}
+          {stateHasError(state) && <p className={styles.error}>Error: {state.error}</p>}
           {state.type === FetchStateType.LOADING && <p>Loading...</p>}
           {stateHasData(state) && <>
             {/* @ts-expect-error ui-components Form types don't resolve correctly with TS5 */}

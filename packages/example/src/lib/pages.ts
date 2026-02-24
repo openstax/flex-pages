@@ -11,5 +11,8 @@ export function getPageSlugs(): string[] {
 
 export function getPageData(slug: string) {
   const filePath = path.join(dataDir, `${slug}.json`);
+  if (!fs.existsSync(filePath)) {
+    return null;
+  }
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 }

@@ -1,5 +1,5 @@
-import { getPageData } from '../lib/pages';
 import { FlexPage } from '../components/FlexPage';
+import { getPageData } from '../lib/pages';
 
 export default function Page() {
   const pageData = getPageData('home');
