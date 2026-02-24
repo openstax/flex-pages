@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import React from 'react';
-import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
+import type { ContentBlockConfig } from '../ContentBlockContext';
 import { Image, ImageFields, imageFieldsConfig } from '../components/Image';
 import { findByType, resolveBackground } from '../utils';
 import './HeroBlock.css';
@@ -99,7 +99,7 @@ const parseAlignment = (alignment: string) => {
 };
 
 // eslint-disable-next-line complexity
-export function HeroBlock({data}: {data: HeroBlockConfig}) {
+export function HeroBlock({data, content}: {data: HeroBlockConfig; content?: React.ReactNode}) {
     const id = findByType(data.value.config, 'id')?.value;
     const textAlign = findByType(data.value.config, 'text_alignment')?.value;
     const backgroundColor = findByType(data.value.config, 'background_color')?.value;
@@ -129,7 +129,7 @@ export function HeroBlock({data}: {data: HeroBlockConfig}) {
         <div className="hero-inner-wrapper">
           {imageRight ? <>
             <div className="hero-content" style={{textAlign}}>
-                <ContentBlocks data={data.value.content} />
+                {content}
             </div>
             <div className="hero-image-container">
                 <Image
@@ -147,7 +147,7 @@ export function HeroBlock({data}: {data: HeroBlockConfig}) {
                 />
             </div>
             <div className="hero-content" style={{textAlign}}>
-                <ContentBlocks data={data.value.content} />
+                {content}
             </div>
           </>}
         </div>

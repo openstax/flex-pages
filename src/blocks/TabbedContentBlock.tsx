@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import React from 'react';
-import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
+import type { ContentBlockConfig } from '../ContentBlockContext';
 import { findByType, resolveBackground } from '../utils';
 import './TabbedContentBlock.css';
 
@@ -84,8 +84,8 @@ TabbedContentBlock.blockConfig = {
   ],
 };
 
-export function TabbedContentBlock({data}: {data: TabbedContentBlockConfig}) {
-  const tabs = data.value.tabs;
+export function TabbedContentBlock({data, tabs: resolvedTabs}: {data: TabbedContentBlockConfig; tabs?: Array<{label: string; content: React.ReactNode}>}) {
+  const tabs = resolvedTabs ?? data.value.tabs as unknown as Array<{label: string; content: React.ReactNode}>;
   const id = findByType(data.value.config, 'id')?.value;
   const alignment = findByType(data.value.config, 'tab_alignment')?.value;
   const activeColor = findByType(data.value.config, 'active_color')?.value;
@@ -167,7 +167,7 @@ export function TabbedContentBlock({data}: {data: TabbedContentBlockConfig}) {
         tabIndex={i === activeIndex ? 0 : -1}
         className={cn('tab-panel', 'flex-structure-container', {active: i === activeIndex})}
       >
-        <ContentBlocks data={tab.content} />
+        {tab.content}
       </div>)}
     </div>
   </div>;

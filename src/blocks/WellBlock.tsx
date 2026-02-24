@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import React from 'react';
-import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
+import type { ContentBlockConfig } from '../ContentBlockContext';
 import { findByType, resolveBackground } from '../utils';
 import './WellBlock.css';
 
@@ -92,7 +92,7 @@ WellBlock.blockConfig = {
   ],
 };
 
-export function WellBlock({data}: {data: WellBlockConfig}) {
+export function WellBlock({data, content}: {data: WellBlockConfig; content?: React.ReactNode}) {
   const id = findByType(data.value.config, 'id')?.value;
   const backgroundColor = findByType(data.value.config, 'background_color')?.value;
   const gradientColor = findByType(data.value.config, 'gradient_color')?.value;
@@ -127,7 +127,7 @@ export function WellBlock({data}: {data: WellBlockConfig}) {
       maxWidth: width,
       ...(borderColor ? {border: `${borderSize || '1px'} solid ${borderColor}`} : {})
     }}>
-      <ContentBlocks data={data.value.content} />
+      {content}
     </div>
   </div>;
 }

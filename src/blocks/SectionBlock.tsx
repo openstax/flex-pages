@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import React from 'react';
-import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
+import type { ContentBlockConfig } from '../ContentBlockContext';
 import { findByType, resolveBackground } from '../utils';
 import './SectionBlock.css';
 
@@ -85,7 +85,7 @@ SectionBlock.blockConfig = {
 };
 
 // eslint-disable-next-line complexity
-export function SectionBlock({data}: {data: SectionBlockConfig}) {
+export function SectionBlock({data, content}: {data: SectionBlockConfig; content?: React.ReactNode}) {
   const id = findByType(data.value.config, 'id')?.value;
   const textAlign = findByType(data.value.config, 'text_alignment')?.value;
   const flex = findByType(data.value.config, 'flex')?.value;
@@ -112,7 +112,7 @@ export function SectionBlock({data}: {data: SectionBlockConfig}) {
     } as React.CSSProperties}
   >
     <div className="section-content" style={{textAlign, display, flexDirection: 'column'}}>
-      <ContentBlocks data={data.value.content} />
+      {content}
     </div>
   </section>;
 }

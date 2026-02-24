@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 import './FlexPage.css';
-import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
+import type { ContentBlockConfig } from '../ContentBlockContext';
 import { findByType } from '../utils';
 
 const useIsomorphicLayoutEffect =
@@ -47,7 +47,7 @@ FlexPage.blockConfig = {
   ],
 };
 
-export function FlexPage({data}: {data: FlexPageConfig}) {
+export function FlexPage({data, content}: {data: FlexPageConfig; content?: React.ReactNode}) {
   const height = findByType(data.value.config, 'height')?.value;
   const width = findByType(data.value.config, 'width')?.value ?? 'fixed';
   const ref = React.useRef<HTMLDivElement>(null);
@@ -80,6 +80,6 @@ export function FlexPage({data}: {data: FlexPageConfig}) {
   }, [height]);
 
   return <div ref={ref} className={cn('flex-page', 'page', 'flex-structure-container', `width-${width}`)}>
-    <ContentBlocks data={data.value.content} />
+    {content}
   </div>;
 }

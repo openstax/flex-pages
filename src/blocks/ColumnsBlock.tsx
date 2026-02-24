@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import React from 'react';
-import { ContentBlockConfig, ContentBlocks } from '../ContentBlocks';
+import type { ContentBlockConfig } from '../ContentBlockContext';
 import { findByType, resolveBackground } from '../utils';
 import './ColumnsBlock.css';
 
@@ -95,7 +95,7 @@ ColumnsBlock.blockConfig = {
 };
 
 // eslint-disable-next-line complexity
-export function ColumnsBlock({data}: {data: ColumnsBlockConfig}) {
+export function ColumnsBlock({data, leftContent, rightContent}: {data: ColumnsBlockConfig; leftContent?: React.ReactNode; rightContent?: React.ReactNode}) {
   const id = findByType(data.value.config, 'id')?.value;
   const gap = findByType(data.value.config, 'gap')?.value ?? 0;
   const flex = findByType(data.value.config, 'flex')?.value;
@@ -139,10 +139,10 @@ export function ColumnsBlock({data}: {data: ColumnsBlockConfig}) {
   >
     <div className="columns-content">
       <div className="content-block-columns-left" style={leftStyle as React.CSSProperties}>
-        <ContentBlocks data={data.value.leftContent} />
+        {leftContent}
       </div>
       <div className="content-block-columns-right" style={rightStyle as React.CSSProperties}>
-        <ContentBlocks data={data.value.rightContent} />
+        {rightContent}
       </div>
     </div>
   </section>;
