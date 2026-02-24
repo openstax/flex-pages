@@ -1,5 +1,5 @@
-import React from 'react';
 import type * as UI from '@openstax/ui-components';
+import React from 'react';
 import Select, { type SingleValue } from 'react-select';
 
 type OptionType = {value: number; label: string};
@@ -51,5 +51,5 @@ export const FancySelect = (Forms: typeof UI.Forms.Controlled) => (
 };
 
 export const selectExtensions = ({Forms}: {Forms: typeof UI.Forms.Controlled}) => ({
-  'select': FancySelect(Forms),
+  select: FancySelect(Forms),
 });
