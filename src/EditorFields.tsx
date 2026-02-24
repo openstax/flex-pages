@@ -1,9 +1,9 @@
-import React from 'react';
-import type * as UI from '@openstax/ui-components';
 import type { ConfigField } from '@openstax/flex-page-renderer';
+import type * as UI from '@openstax/ui-components';
+import React from 'react';
+import { CollapsibleFieldset } from './CollapsibleFieldset';
 import * as fieldTypes from './FieldTypes';
 import { LinkTarget } from './Fields/LinkTarget';
-import { CollapsibleFieldset } from './CollapsibleFieldset';
 import { useForms } from './FormsContext';
 
 const defaultFieldTypes = {
@@ -40,16 +40,16 @@ const defaultFieldTypes = {
         <EditorFields fields={fields} />
       </Forms.NameSpace>
       {children}
-    </CollapsibleFieldset>
+    </CollapsibleFieldset>;
   },
-}
+};
 
 export const EditorFieldTypeContext = React.createContext<Record<string, React.ComponentType<any>>>(
   defaultFieldTypes
 );
 
 export function ExtendEditorTypes({fields, children}: React.PropsWithChildren<{
-  fields: Record<string, React.ComponentType<any>>
+  fields: Record<string, React.ComponentType<any>>;
 }>) {
   const existing = React.useContext(EditorFieldTypeContext);
 
