@@ -374,20 +374,25 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h3 data-block-key=\"pu001\">Pull Up (overlap into previous section)</h3><p data-block-key=\"pu002\">The section below contains a well with <code>pull_up: 4rem</code>. Combined with extra bottom padding on this section, the well visually overlaps upward.</p>",
+                  "value": "<h3>Pull Up (overlap into previous section)</h3><p>The section below contains a well with <code>pull_up</code>. Combined with extra bottom padding on this section, the well visually overlaps upward.</p>",
                   "id": "a1b2c3d4-3333-1111-1111-000000000001"
                 }
               ],
               "config": [
                 {
                   "type": "padding_bottom",
-                  "value": 8,
+                  "value": "10",
                   "id": "a1b2c3d4-3333-1111-1111-000000000002"
                 },
                 {
                   "type": "background_color",
                   "value": "#2d3436",
                   "id": "a1b2c3d4-3333-1111-1111-000000000003"
+                },
+                {
+                  "id": "1150f77c",
+                  "type": "padding_top",
+                  "value": "1"
                 }
               ]
             },
@@ -410,7 +415,7 @@
                     "config": [
                       {
                         "type": "pull_up",
-                        "value": "8rem",
+                        "value": "10rem",
                         "id": "a1b2c3d4-3333-1111-1111-000000000006"
                       },
                       {
