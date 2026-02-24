@@ -1,0 +1,16 @@
+.collapsible-fieldset.collapsed > *:not(legend) {
+  display: none;
+}
+
+.collapsible-fieldset > legend, .collapsible-fieldset > legend button {
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.collapsible-fieldset > legend button {
+  background: none;
+  border: none;
+}
