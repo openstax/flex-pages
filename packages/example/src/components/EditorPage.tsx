@@ -11,6 +11,7 @@ import { notFound, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { actions } from '../lib/actions';
 import { fetchPage, getToken, savePage } from '../lib/github';
+import type { PageMetadata } from '../lib/pages';
 import styles from './EditorPage.module.css';
 import { TokenInput } from './TokenInput';
 
@@ -20,7 +21,7 @@ const fieldTypes = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type PageData = {page: any; sha: string};
+type PageData = {page: any; metadata: PageMetadata; sha: string};
 
 const EditorPage = () => {
   const searchParams = useSearchParams();
@@ -36,15 +37,15 @@ const EditorPage = () => {
 
     setState(previous => fetchLoading(previous));
     fetchPage(slug, token)
-      .then(({page, sha}) => setState(fetchSuccess({page, sha})))
+      .then(({page, metadata, sha}) => setState(fetchSuccess({page, metadata, sha})))
       .catch((err: Error) => setState(previous => fetchError(err.message, previous)));
   }, [slug, token, state]);
 
   const onSubmit = React.useCallback((data: UI.Forms.Controlled.AbstractFormData) => {
     if (slug && token && stateHasData(state)) {
       setState(previous => fetchLoading(previous));
-      savePage(slug, data.page, state.data.sha, token)
-        .then(({sha}) => setState(fetchSuccess({page: data.page, sha})))
+      savePage(slug, data.page, data.metadata, state.data.sha, token)
+        .then(({sha}) => setState(fetchSuccess({page: data.page, metadata: data.metadata, sha})))
         .catch((err: Error) => setState(previous => fetchError(err.message, previous)));
     }
   }, [slug, token, state]);
@@ -61,11 +62,17 @@ const EditorPage = () => {
           {stateHasError(state) && <p className={styles.error}>Error: {state.error}</p>}
           {state.type === FetchStateType.LOADING && <p>Loading...</p>}
           {stateHasData(state) && <>
-            {/* @ts-expect-error ui-components Form types don't resolve correctly with TS5 */}
             <UI.Forms.Controlled.Form
-              state={state.data.page ? fetchSuccess({page: state.data.page}) : fetchSuccess({})}
+              state={state.data.page ? fetchSuccess({page: state.data.page, metadata: state.data.metadata}) : fetchSuccess({})}
               onSubmit={onSubmit}
             >
+              <fieldset className={styles.metadata}>
+                <legend>Page Metadata</legend>
+                <UI.Forms.Controlled.NameSpace name="metadata">
+                  <UI.Forms.Controlled.TextInput name="title" label="Title" />
+                  <UI.Forms.Controlled.TextArea name="description" label="Description" />
+                </UI.Forms.Controlled.NameSpace>
+              </fieldset>
               <FlexBlockEditor
                 blocks={allBlocks}
                 actions={actions}

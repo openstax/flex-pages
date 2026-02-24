@@ -1,3 +1,5 @@
+import type { PageMetadata } from './pages';
+
 const STORAGE_KEY = 'github-pat';
 const REPO = 'openstax/flex-pages';
 
@@ -18,7 +20,7 @@ function filePath(slug: string): string {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function fetchPage(slug: string, token: string): Promise<{page: any; sha: string}> {
+export async function fetchPage(slug: string, token: string): Promise<{page: any; metadata: PageMetadata; sha: string}> {
   const res = await fetch(
     `https://api.github.com/repos/${REPO}/contents/${filePath(slug)}`,
     {headers: {Authorization: `Bearer ${token}`, Accept: 'application/vnd.github.v3+json'}}
@@ -32,13 +34,14 @@ export async function fetchPage(slug: string, token: string): Promise<{page: any
   const decoded = new TextDecoder().decode(
     Uint8Array.from(atob(data.content.replace(/\n/g, '')), c => c.charCodeAt(0))
   );
-  const arr = JSON.parse(decoded);
-  return {page: arr[0], sha: data.sha};
+  const fileData = JSON.parse(decoded);
+  const metadata: PageMetadata = fileData.metadata ?? {title: '', description: ''};
+  return {page: fileData.page[0], metadata, sha: data.sha};
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function savePage(slug: string, page: any, sha: string, token: string): Promise<{sha: string}> {
-  const content = JSON.stringify([page], null, 2) + '\n';
+export async function savePage(slug: string, page: any, metadata: PageMetadata, sha: string, token: string): Promise<{sha: string}> {
+  const content = JSON.stringify({metadata, page: [page]}, null, 2) + '\n';
   const encoded = btoa(
     Array.from(new TextEncoder().encode(content), b => String.fromCharCode(b)).join('')
   );
