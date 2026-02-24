@@ -410,7 +410,7 @@
                     "config": [
                       {
                         "type": "pull_up",
-                        "value": "4rem",
+                        "value": "8rem",
                         "id": "a1b2c3d4-3333-1111-1111-000000000006"
                       },
                       {
@@ -435,7 +435,7 @@
                       },
                       {
                         "type": "border_size",
-                        "value": "2px",
+                        "value": "5px",
                         "id": "a1b2c3d4-3333-1111-1111-000000000010"
                       }
                     ]
