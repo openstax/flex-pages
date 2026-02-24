@@ -1,332 +1,338 @@
-[
-  {
-    "id": "hero-page",
-    "type": "flex_page",
-    "value": {
-      "content": [
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"t6nx6\"><b>Page Structure:</b></p>",
-                "id": "7bc4169a-b0ad-4e52-8e1e-92e39acf90e4"
-              },
-              {
-                "type": "text",
-                "value": "<h1 data-block-key=\"t6nx6\">Hero Component</h1>",
-                "id": "2541e4c5-c637-4b79-94f7-a8fa5c288452"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding",
-                "value": 7,
-                "id": "e5f57252-5f8f-4ee0-a688-059f344c10ae"
-              },
-              {
-                "type": "background_color",
-                "value": "#0dc0dc",
-                "id": "e008d57c-5114-451f-aeb1-3960df40945d"
-              }
-            ]
-          },
-          "id": "2d7d1acc-5ba9-48f9-bfa6-4796b18a8750"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"yzaue\"><a href=\"/flex-pages/\">documentation home</a></p>",
-                "id": "8b831394-f0a6-49b4-bb18-f5aa69cf7f71"
-              }
-            ],
-            "config": []
-          },
-          "id": "174ab315-5d66-46fc-9e46-dadfba628e9d"
-        },
-        {
-          "type": "hero",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<h2 data-block-key=\"i8rw9\">Overview</h2><p data-block-key=\"ch49k\">The hero component has a hero image on one side and content on the other. Hero components support all the same content as <a href=\"https://staging.openstax.org/flexpage-section-component\">sections</a>, in a more narrow content container. On a mobile device the image and content will move from side by side to one above the other.</p><p data-block-key=\"73jnl\">In the FlexEditor, heroes have a \"content\" section just like sections do. They also have image and \"image alt\" options. Its ok to leave the \"image alt\" empty if the image is considered decorative. If the image conveys information needed to understand the content of the page, you should add alt text describing the image.</p><p data-block-key=\"21r83\">This is a hero with some text.</p>",
-                "id": "c1e1db8a-99fd-40e2-b4d1-8992ecb305b1"
-              }
-            ],
-            "image": {
-              "id": 1044,
-              "file": "https://assets.openstax.org/oscms-prod/media/original_images/OpenStax_AM.gif",
-              "title": "OpenStax_AM",
-              "height": 1365,
-              "width": 2048,
-              "created_at": "2024-07-12T14:33:51.592227-05:00"
+{
+  "metadata": {
+    "title": "Hero",
+    "description": "Documentation and examples for the Hero component."
+  },
+  "page": [
+    {
+      "id": "hero-page",
+      "type": "flex_page",
+      "value": {
+        "content": [
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"t6nx6\"><b>Page Structure:</b></p>",
+                  "id": "7bc4169a-b0ad-4e52-8e1e-92e39acf90e4"
+                },
+                {
+                  "type": "text",
+                  "value": "<h1 data-block-key=\"t6nx6\">Hero Component</h1>",
+                  "id": "2541e4c5-c637-4b79-94f7-a8fa5c288452"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 7,
+                  "id": "e5f57252-5f8f-4ee0-a688-059f344c10ae"
+                },
+                {
+                  "type": "background_color",
+                  "value": "#0dc0dc",
+                  "id": "e008d57c-5114-451f-aeb1-3960df40945d"
+                }
+              ]
             },
-            "image_alt": "",
-            "config": [
-              {
-                "type": "padding",
-                "value": 1,
-                "id": "2ef1fd8b-0801-4c99-933e-f73e01e14658"
-              },
-              {
-                "type": "image_alignment",
-                "value": "bottom_right",
-                "id": "8a8a6c65-551e-46f5-a3b3-075d996dcb5e"
-              }
-            ]
+            "id": "2d7d1acc-5ba9-48f9-bfa6-4796b18a8750"
           },
-          "id": "5b87dd99-079b-4b13-841d-35aec8835a61"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Heroes have a config section with a number of options. All options from sections are (should be, but are not currently) supported on heroes as well.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"4sc9\">everything from <a href=\"https://staging.openstax.org/flexpage-section-component\">sections</a></p><p data-block-key=\"8ih75\"><b>Image alignment</b>: switches the image to be on the left side (with content on the right), or control the image's vertical alignment.</p><p data-block-key=\"buhkq\"></p>",
-                "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding",
-                "value": 1,
-                "id": "a5e84fb7-a67a-4107-b656-9d804674339b"
-              }
-            ]
-          },
-          "id": "bbd61408-d955-4a79-93bd-a101edd41979"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<h2 data-block-key=\"33auc\">Examples</h2>",
-                "id": "60abd24d-383d-4a1e-a757-55e09f711e33"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding",
-                "value": 1,
-                "id": "5e4e3a0e-bc94-4c8e-bd2d-88b879977675"
-              }
-            ]
-          },
-          "id": "41b699c0-d659-46ba-bc43-c9e61f682689"
-        },
-        {
-          "type": "hero",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"sal9m\">hero with image on the left</p>",
-                "id": "07ccf746-2fec-481e-ae9b-47404a4c998f"
-              }
-            ],
-            "image": {
-              "id": 1081,
-              "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
-              "title": "pillar-1",
-              "height": 240,
-              "width": 480,
-              "created_at": "2024-08-13T17:36:07.930857-05:00"
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"yzaue\"><a href=\"/flex-pages/\">documentation home</a></p>",
+                  "id": "8b831394-f0a6-49b4-bb18-f5aa69cf7f71"
+                }
+              ],
+              "config": []
             },
-            "image_alt": "",
-            "config": [
-              {
-                "type": "image_alignment",
-                "value": "left",
-                "id": "e44024b4-2a0e-4db6-aee3-2f5f379ed14d"
-              },
-              {
-                "type": "padding",
-                "value": 2,
-                "id": "c0ed9087-3c00-440b-b20a-a0013300a25c"
-              }
-            ]
+            "id": "174ab315-5d66-46fc-9e46-dadfba628e9d"
           },
-          "id": "22c46418-3ab9-418d-aff0-30f20b097e84"
-        },
-        {
-          "type": "hero",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"sal9m\">hero with image on the right. notice that if there is a lot of text the hero image is vertically centered. this applies to the \"left\" and \"right\" alignment options.</p><p data-block-key=\"5u2g5\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan libero eget viverra elementum. Fusce placerat ultrices pharetra. Etiam efficitur tempus volutpat. Sed fringilla, est a mollis placerat, lacus ante accumsan erat, in commodo sem eros et ante. Donec ut aliquet nunc. Nam condimentum, elit at sodales dictum, ex risus cursus eros, at dapibus dui urna at orci. Aenean ullamcorper elit at tellus scelerisque egestas. Proin non tincidunt odio, eget consequat elit. Maecenas rutrum mauris quis justo efficitur, ac elementum massa posuere. Maecenas venenatis nisl eget eleifend molestie. Fusce maximus id leo in rhoncus.</p><p data-block-key=\"9ieqi\">Integer sit amet ante placerat, elementum nibh laoreet, gravida ligula. Donec id tempus libero, at semper ligula. In ut purus non sem tristique iaculis quis non dui. Aliquam eleifend diam sit amet tincidunt interdum. Aliquam erat volutpat. Proin vitae ullamcorper mauris. Aenean cursus lorem turpis. Aenean finibus tincidunt ante, non molestie ex lacinia sed. Curabitur egestas varius massa, in scelerisque ex condimentum et. Duis mattis posuere nulla.</p><p data-block-key=\"39bbu\">Curabitur at rhoncus lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas scelerisque felis in lorem iaculis, non porta tellus aliquam. Sed tristique eget libero eu tempus. Nulla at convallis urna. Morbi suscipit nisl rhoncus mattis viverra. Donec scelerisque risus ac turpis tincidunt commodo. Aliquam eu nibh felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla tincidunt nisi ac tempor lobortis. Cras sit amet varius ligula, id tincidunt nunc.</p>",
-                "id": "8d53bf88-87d5-477a-9d6d-d6487a485f00"
-              }
-            ],
-            "image": {
-              "id": 1081,
-              "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
-              "title": "pillar-1",
-              "height": 240,
-              "width": 480,
-              "created_at": "2024-08-13T17:36:07.930857-05:00"
+          {
+            "type": "hero",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"i8rw9\">Overview</h2><p data-block-key=\"ch49k\">The hero component has a hero image on one side and content on the other. Hero components support all the same content as <a href=\"https://staging.openstax.org/flexpage-section-component\">sections</a>, in a more narrow content container. On a mobile device the image and content will move from side by side to one above the other.</p><p data-block-key=\"73jnl\">In the FlexEditor, heroes have a \"content\" section just like sections do. They also have image and \"image alt\" options. Its ok to leave the \"image alt\" empty if the image is considered decorative. If the image conveys information needed to understand the content of the page, you should add alt text describing the image.</p><p data-block-key=\"21r83\">This is a hero with some text.</p>",
+                  "id": "c1e1db8a-99fd-40e2-b4d1-8992ecb305b1"
+                }
+              ],
+              "image": {
+                "id": 1044,
+                "file": "https://assets.openstax.org/oscms-prod/media/original_images/OpenStax_AM.gif",
+                "title": "OpenStax_AM",
+                "height": 1365,
+                "width": 2048,
+                "created_at": "2024-07-12T14:33:51.592227-05:00"
+              },
+              "image_alt": "",
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "2ef1fd8b-0801-4c99-933e-f73e01e14658"
+                },
+                {
+                  "type": "image_alignment",
+                  "value": "bottom_right",
+                  "id": "8a8a6c65-551e-46f5-a3b3-075d996dcb5e"
+                }
+              ]
             },
-            "image_alt": "",
-            "config": [
-              {
-                "type": "image_alignment",
-                "value": "right",
-                "id": "17a2881c-8aab-4926-a88e-f42ec16a91eb"
-              },
-              {
-                "type": "padding",
-                "value": 2,
-                "id": "dfb11d2c-93c3-4091-a883-5b3cc3ad60d0"
-              }
-            ]
+            "id": "5b87dd99-079b-4b13-841d-35aec8835a61"
           },
-          "id": "a07aacb0-b312-40e0-b438-cc6491699b6e"
-        },
-        {
-          "type": "hero",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"sal9m\">you can alternatively specify the image prefer the \"top left\", \"bottom left\", \"top right\", or \"bottom right\"</p><p data-block-key=\"36nau\">this is top left</p><p data-block-key=\"5u2g5\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan libero eget viverra elementum. Fusce placerat ultrices pharetra. Etiam efficitur tempus volutpat. Sed fringilla, est a mollis placerat, lacus ante accumsan erat, in commodo sem eros et ante. Donec ut aliquet nunc. Nam condimentum, elit at sodales dictum, ex risus cursus eros, at dapibus dui urna at orci. Aenean ullamcorper elit at tellus scelerisque egestas. Proin non tincidunt odio, eget consequat elit. Maecenas rutrum mauris quis justo efficitur, ac elementum massa posuere. Maecenas venenatis nisl eget eleifend molestie. Fusce maximus id leo in rhoncus.</p><p data-block-key=\"9ieqi\">Integer sit amet ante placerat, elementum nibh laoreet, gravida ligula. Donec id tempus libero, at semper ligula. In ut purus non sem tristique iaculis quis non dui. Aliquam eleifend diam sit amet tincidunt interdum. Aliquam erat volutpat. Proin vitae ullamcorper mauris. Aenean cursus lorem turpis. Aenean finibus tincidunt ante, non molestie ex lacinia sed. Curabitur egestas varius massa, in scelerisque ex condimentum et. Duis mattis posuere nulla.</p><p data-block-key=\"39bbu\">Curabitur at rhoncus lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas scelerisque felis in lorem iaculis, non porta tellus aliquam. Sed tristique eget libero eu tempus. Nulla at convallis urna. Morbi suscipit nisl rhoncus mattis viverra. Donec scelerisque risus ac turpis tincidunt commodo. Aliquam eu nibh felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla tincidunt nisi ac tempor lobortis. Cras sit amet varius ligula, id tincidunt nunc.</p>",
-                "id": "6193eb07-efe6-4fe8-9b7e-55c75c59ae78"
-              }
-            ],
-            "image": {
-              "id": 1081,
-              "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
-              "title": "pillar-1",
-              "height": 240,
-              "width": 480,
-              "created_at": "2024-08-13T17:36:07.930857-05:00"
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Heroes have a config section with a number of options. All options from sections are (should be, but are not currently) supported on heroes as well.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"4sc9\">everything from <a href=\"https://staging.openstax.org/flexpage-section-component\">sections</a></p><p data-block-key=\"8ih75\"><b>Image alignment</b>: switches the image to be on the left side (with content on the right), or control the image's vertical alignment.</p><p data-block-key=\"buhkq\"></p>",
+                  "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "a5e84fb7-a67a-4107-b656-9d804674339b"
+                }
+              ]
             },
-            "image_alt": "",
-            "config": [
-              {
-                "type": "image_alignment",
-                "value": "top_left",
-                "id": "164fa797-3869-40e5-a7f5-4411ac3f259f"
-              },
-              {
-                "type": "padding",
-                "value": 2,
-                "id": "989bf33c-0d1a-4355-9d23-cf16a405c01c"
-              }
-            ]
+            "id": "bbd61408-d955-4a79-93bd-a101edd41979"
           },
-          "id": "e5c5a419-d064-40fa-9339-81f31adcc50c"
-        },
-        {
-          "type": "hero",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"sal9m\">you can alternatively specify the image prefer the \"top left\", \"bottom left\", \"top right\", or \"bottom right\"</p><p data-block-key=\"36nau\">this is bottom left</p><p data-block-key=\"5u2g5\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan libero eget viverra elementum. Fusce placerat ultrices pharetra. Etiam efficitur tempus volutpat. Sed fringilla, est a mollis placerat, lacus ante accumsan erat, in commodo sem eros et ante. Donec ut aliquet nunc. Nam condimentum, elit at sodales dictum, ex risus cursus eros, at dapibus dui urna at orci. Aenean ullamcorper elit at tellus scelerisque egestas. Proin non tincidunt odio, eget consequat elit. Maecenas rutrum mauris quis justo efficitur, ac elementum massa posuere. Maecenas venenatis nisl eget eleifend molestie. Fusce maximus id leo in rhoncus.</p><p data-block-key=\"9ieqi\">Integer sit amet ante placerat, elementum nibh laoreet, gravida ligula. Donec id tempus libero, at semper ligula. In ut purus non sem tristique iaculis quis non dui. Aliquam eleifend diam sit amet tincidunt interdum. Aliquam erat volutpat. Proin vitae ullamcorper mauris. Aenean cursus lorem turpis. Aenean finibus tincidunt ante, non molestie ex lacinia sed. Curabitur egestas varius massa, in scelerisque ex condimentum et. Duis mattis posuere nulla.</p><p data-block-key=\"39bbu\">Curabitur at rhoncus lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas scelerisque felis in lorem iaculis, non porta tellus aliquam. Sed tristique eget libero eu tempus. Nulla at convallis urna. Morbi suscipit nisl rhoncus mattis viverra. Donec scelerisque risus ac turpis tincidunt commodo. Aliquam eu nibh felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla tincidunt nisi ac tempor lobortis. Cras sit amet varius ligula, id tincidunt nunc.</p>",
-                "id": "900e92fc-655a-4502-acdf-311ab5ccad0c"
-              }
-            ],
-            "image": {
-              "id": 1081,
-              "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
-              "title": "pillar-1",
-              "height": 240,
-              "width": 480,
-              "created_at": "2024-08-13T17:36:07.930857-05:00"
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"33auc\">Examples</h2>",
+                  "id": "60abd24d-383d-4a1e-a757-55e09f711e33"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "5e4e3a0e-bc94-4c8e-bd2d-88b879977675"
+                }
+              ]
             },
-            "image_alt": "",
-            "config": [
-              {
-                "type": "image_alignment",
-                "value": "bottom_left",
-                "id": "b63570cd-3da5-4443-bda5-5e1c59eb7421"
-              },
-              {
-                "type": "padding",
-                "value": 2,
-                "id": "44b48800-6839-453f-b5a8-9e0271cdefaa"
-              }
-            ]
+            "id": "41b699c0-d659-46ba-bc43-c9e61f682689"
           },
-          "id": "72877bb9-2df9-4ede-8780-4517a8f01a9a"
-        },
-        {
-          "type": "hero",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"sal9m\">you can alternatively specify the image prefer the \"top left\", \"bottom left\", \"top right\", or \"bottom right\"</p><p data-block-key=\"36nau\">this is top right</p><p data-block-key=\"1ag23\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan libero eget viverra elementum. Fusce placerat ultrices pharetra. Etiam efficitur tempus volutpat. Sed fringilla, est a mollis placerat, lacus ante accumsan erat, in commodo sem eros et ante. Donec ut aliquet nunc. Nam condimentum, elit at sodales dictum, ex risus cursus eros, at dapibus dui urna at orci. Aenean ullamcorper elit at tellus scelerisque egestas. Proin non tincidunt odio, eget consequat elit. Maecenas rutrum mauris quis justo efficitur, ac elementum massa posuere. Maecenas venenatis nisl eget eleifend molestie. Fusce maximus id leo in rhoncus.</p><p data-block-key=\"9ieqi\">Integer sit amet ante placerat, elementum nibh laoreet, gravida ligula. Donec id tempus libero, at semper ligula. In ut purus non sem tristique iaculis quis non dui. Aliquam eleifend diam sit amet tincidunt interdum. Aliquam erat volutpat. Proin vitae ullamcorper mauris. Aenean cursus lorem turpis. Aenean finibus tincidunt ante, non molestie ex lacinia sed. Curabitur egestas varius massa, in scelerisque ex condimentum et. Duis mattis posuere nulla.</p><p data-block-key=\"39bbu\">Curabitur at rhoncus lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas scelerisque felis in lorem iaculis, non porta tellus aliquam. Sed tristique eget libero eu tempus. Nulla at convallis urna. Morbi suscipit nisl rhoncus mattis viverra. Donec scelerisque risus ac turpis tincidunt commodo. Aliquam eu nibh felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla tincidunt nisi ac tempor lobortis. Cras sit amet varius ligula, id tincidunt nunc.</p>",
-                "id": "a8c25ba0-4086-4411-b21c-f69548375fe1"
-              }
-            ],
-            "image": {
-              "id": 1081,
-              "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
-              "title": "pillar-1",
-              "height": 240,
-              "width": 480,
-              "created_at": "2024-08-13T17:36:07.930857-05:00"
+          {
+            "type": "hero",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"sal9m\">hero with image on the left</p>",
+                  "id": "07ccf746-2fec-481e-ae9b-47404a4c998f"
+                }
+              ],
+              "image": {
+                "id": 1081,
+                "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
+                "title": "pillar-1",
+                "height": 240,
+                "width": 480,
+                "created_at": "2024-08-13T17:36:07.930857-05:00"
+              },
+              "image_alt": "",
+              "config": [
+                {
+                  "type": "image_alignment",
+                  "value": "left",
+                  "id": "e44024b4-2a0e-4db6-aee3-2f5f379ed14d"
+                },
+                {
+                  "type": "padding",
+                  "value": 2,
+                  "id": "c0ed9087-3c00-440b-b20a-a0013300a25c"
+                }
+              ]
             },
-            "image_alt": "",
-            "config": [
-              {
-                "type": "image_alignment",
-                "value": "top_right",
-                "id": "2fd3c8ef-fa2b-4570-88f7-dc59172e78a2"
-              },
-              {
-                "type": "padding",
-                "value": 2,
-                "id": "6a866cd6-123e-44b8-bd70-dd0540532023"
-              }
-            ]
+            "id": "22c46418-3ab9-418d-aff0-30f20b097e84"
           },
-          "id": "2fb339a1-6321-48d0-9a8c-93d2247815b6"
-        },
-        {
-          "type": "hero",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"sal9m\">you can alternatively specify the image prefer the \"top left\", \"bottom left\", \"top right\", or \"bottom right\"</p><p data-block-key=\"36nau\">this is bottom right</p><p data-block-key=\"1ag23\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan libero eget viverra elementum. Fusce placerat ultrices pharetra. Etiam efficitur tempus volutpat. Sed fringilla, est a mollis placerat, lacus ante accumsan erat, in commodo sem eros et ante. Donec ut aliquet nunc. Nam condimentum, elit at sodales dictum, ex risus cursus eros, at dapibus dui urna at orci. Aenean ullamcorper elit at tellus scelerisque egestas. Proin non tincidunt odio, eget consequat elit. Maecenas rutrum mauris quis justo efficitur, ac elementum massa posuere. Maecenas venenatis nisl eget eleifend molestie. Fusce maximus id leo in rhoncus.</p><p data-block-key=\"9ieqi\">Integer sit amet ante placerat, elementum nibh laoreet, gravida ligula. Donec id tempus libero, at semper ligula. In ut purus non sem tristique iaculis quis non dui. Aliquam eleifend diam sit amet tincidunt interdum. Aliquam erat volutpat. Proin vitae ullamcorper mauris. Aenean cursus lorem turpis. Aenean finibus tincidunt ante, non molestie ex lacinia sed. Curabitur egestas varius massa, in scelerisque ex condimentum et. Duis mattis posuere nulla.</p><p data-block-key=\"39bbu\">Curabitur at rhoncus lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas scelerisque felis in lorem iaculis, non porta tellus aliquam. Sed tristique eget libero eu tempus. Nulla at convallis urna. Morbi suscipit nisl rhoncus mattis viverra. Donec scelerisque risus ac turpis tincidunt commodo. Aliquam eu nibh felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla tincidunt nisi ac tempor lobortis. Cras sit amet varius ligula, id tincidunt nunc.</p>",
-                "id": "034b808f-36bf-402c-a0d5-313523047234"
-              }
-            ],
-            "image": {
-              "id": 1081,
-              "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
-              "title": "pillar-1",
-              "height": 240,
-              "width": 480,
-              "created_at": "2024-08-13T17:36:07.930857-05:00"
+          {
+            "type": "hero",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"sal9m\">hero with image on the right. notice that if there is a lot of text the hero image is vertically centered. this applies to the \"left\" and \"right\" alignment options.</p><p data-block-key=\"5u2g5\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan libero eget viverra elementum. Fusce placerat ultrices pharetra. Etiam efficitur tempus volutpat. Sed fringilla, est a mollis placerat, lacus ante accumsan erat, in commodo sem eros et ante. Donec ut aliquet nunc. Nam condimentum, elit at sodales dictum, ex risus cursus eros, at dapibus dui urna at orci. Aenean ullamcorper elit at tellus scelerisque egestas. Proin non tincidunt odio, eget consequat elit. Maecenas rutrum mauris quis justo efficitur, ac elementum massa posuere. Maecenas venenatis nisl eget eleifend molestie. Fusce maximus id leo in rhoncus.</p><p data-block-key=\"9ieqi\">Integer sit amet ante placerat, elementum nibh laoreet, gravida ligula. Donec id tempus libero, at semper ligula. In ut purus non sem tristique iaculis quis non dui. Aliquam eleifend diam sit amet tincidunt interdum. Aliquam erat volutpat. Proin vitae ullamcorper mauris. Aenean cursus lorem turpis. Aenean finibus tincidunt ante, non molestie ex lacinia sed. Curabitur egestas varius massa, in scelerisque ex condimentum et. Duis mattis posuere nulla.</p><p data-block-key=\"39bbu\">Curabitur at rhoncus lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas scelerisque felis in lorem iaculis, non porta tellus aliquam. Sed tristique eget libero eu tempus. Nulla at convallis urna. Morbi suscipit nisl rhoncus mattis viverra. Donec scelerisque risus ac turpis tincidunt commodo. Aliquam eu nibh felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla tincidunt nisi ac tempor lobortis. Cras sit amet varius ligula, id tincidunt nunc.</p>",
+                  "id": "8d53bf88-87d5-477a-9d6d-d6487a485f00"
+                }
+              ],
+              "image": {
+                "id": 1081,
+                "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
+                "title": "pillar-1",
+                "height": 240,
+                "width": 480,
+                "created_at": "2024-08-13T17:36:07.930857-05:00"
+              },
+              "image_alt": "",
+              "config": [
+                {
+                  "type": "image_alignment",
+                  "value": "right",
+                  "id": "17a2881c-8aab-4926-a88e-f42ec16a91eb"
+                },
+                {
+                  "type": "padding",
+                  "value": 2,
+                  "id": "dfb11d2c-93c3-4091-a883-5b3cc3ad60d0"
+                }
+              ]
             },
-            "image_alt": "",
-            "config": [
-              {
-                "type": "image_alignment",
-                "value": "bottom_right",
-                "id": "7d839b69-a24a-4f29-be5c-a175f5f6eabb"
-              },
-              {
-                "type": "padding",
-                "value": 2,
-                "id": "6fa025cb-fa00-410a-bf6b-e8df62feaf55"
-              }
-            ]
+            "id": "a07aacb0-b312-40e0-b438-cc6491699b6e"
           },
-          "id": "47944af2-57df-4372-85ac-38f7dd422c35"
-        }
-      ]
+          {
+            "type": "hero",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"sal9m\">you can alternatively specify the image prefer the \"top left\", \"bottom left\", \"top right\", or \"bottom right\"</p><p data-block-key=\"36nau\">this is top left</p><p data-block-key=\"5u2g5\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan libero eget viverra elementum. Fusce placerat ultrices pharetra. Etiam efficitur tempus volutpat. Sed fringilla, est a mollis placerat, lacus ante accumsan erat, in commodo sem eros et ante. Donec ut aliquet nunc. Nam condimentum, elit at sodales dictum, ex risus cursus eros, at dapibus dui urna at orci. Aenean ullamcorper elit at tellus scelerisque egestas. Proin non tincidunt odio, eget consequat elit. Maecenas rutrum mauris quis justo efficitur, ac elementum massa posuere. Maecenas venenatis nisl eget eleifend molestie. Fusce maximus id leo in rhoncus.</p><p data-block-key=\"9ieqi\">Integer sit amet ante placerat, elementum nibh laoreet, gravida ligula. Donec id tempus libero, at semper ligula. In ut purus non sem tristique iaculis quis non dui. Aliquam eleifend diam sit amet tincidunt interdum. Aliquam erat volutpat. Proin vitae ullamcorper mauris. Aenean cursus lorem turpis. Aenean finibus tincidunt ante, non molestie ex lacinia sed. Curabitur egestas varius massa, in scelerisque ex condimentum et. Duis mattis posuere nulla.</p><p data-block-key=\"39bbu\">Curabitur at rhoncus lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas scelerisque felis in lorem iaculis, non porta tellus aliquam. Sed tristique eget libero eu tempus. Nulla at convallis urna. Morbi suscipit nisl rhoncus mattis viverra. Donec scelerisque risus ac turpis tincidunt commodo. Aliquam eu nibh felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla tincidunt nisi ac tempor lobortis. Cras sit amet varius ligula, id tincidunt nunc.</p>",
+                  "id": "6193eb07-efe6-4fe8-9b7e-55c75c59ae78"
+                }
+              ],
+              "image": {
+                "id": 1081,
+                "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
+                "title": "pillar-1",
+                "height": 240,
+                "width": 480,
+                "created_at": "2024-08-13T17:36:07.930857-05:00"
+              },
+              "image_alt": "",
+              "config": [
+                {
+                  "type": "image_alignment",
+                  "value": "top_left",
+                  "id": "164fa797-3869-40e5-a7f5-4411ac3f259f"
+                },
+                {
+                  "type": "padding",
+                  "value": 2,
+                  "id": "989bf33c-0d1a-4355-9d23-cf16a405c01c"
+                }
+              ]
+            },
+            "id": "e5c5a419-d064-40fa-9339-81f31adcc50c"
+          },
+          {
+            "type": "hero",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"sal9m\">you can alternatively specify the image prefer the \"top left\", \"bottom left\", \"top right\", or \"bottom right\"</p><p data-block-key=\"36nau\">this is bottom left</p><p data-block-key=\"5u2g5\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan libero eget viverra elementum. Fusce placerat ultrices pharetra. Etiam efficitur tempus volutpat. Sed fringilla, est a mollis placerat, lacus ante accumsan erat, in commodo sem eros et ante. Donec ut aliquet nunc. Nam condimentum, elit at sodales dictum, ex risus cursus eros, at dapibus dui urna at orci. Aenean ullamcorper elit at tellus scelerisque egestas. Proin non tincidunt odio, eget consequat elit. Maecenas rutrum mauris quis justo efficitur, ac elementum massa posuere. Maecenas venenatis nisl eget eleifend molestie. Fusce maximus id leo in rhoncus.</p><p data-block-key=\"9ieqi\">Integer sit amet ante placerat, elementum nibh laoreet, gravida ligula. Donec id tempus libero, at semper ligula. In ut purus non sem tristique iaculis quis non dui. Aliquam eleifend diam sit amet tincidunt interdum. Aliquam erat volutpat. Proin vitae ullamcorper mauris. Aenean cursus lorem turpis. Aenean finibus tincidunt ante, non molestie ex lacinia sed. Curabitur egestas varius massa, in scelerisque ex condimentum et. Duis mattis posuere nulla.</p><p data-block-key=\"39bbu\">Curabitur at rhoncus lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas scelerisque felis in lorem iaculis, non porta tellus aliquam. Sed tristique eget libero eu tempus. Nulla at convallis urna. Morbi suscipit nisl rhoncus mattis viverra. Donec scelerisque risus ac turpis tincidunt commodo. Aliquam eu nibh felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla tincidunt nisi ac tempor lobortis. Cras sit amet varius ligula, id tincidunt nunc.</p>",
+                  "id": "900e92fc-655a-4502-acdf-311ab5ccad0c"
+                }
+              ],
+              "image": {
+                "id": 1081,
+                "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
+                "title": "pillar-1",
+                "height": 240,
+                "width": 480,
+                "created_at": "2024-08-13T17:36:07.930857-05:00"
+              },
+              "image_alt": "",
+              "config": [
+                {
+                  "type": "image_alignment",
+                  "value": "bottom_left",
+                  "id": "b63570cd-3da5-4443-bda5-5e1c59eb7421"
+                },
+                {
+                  "type": "padding",
+                  "value": 2,
+                  "id": "44b48800-6839-453f-b5a8-9e0271cdefaa"
+                }
+              ]
+            },
+            "id": "72877bb9-2df9-4ede-8780-4517a8f01a9a"
+          },
+          {
+            "type": "hero",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"sal9m\">you can alternatively specify the image prefer the \"top left\", \"bottom left\", \"top right\", or \"bottom right\"</p><p data-block-key=\"36nau\">this is top right</p><p data-block-key=\"1ag23\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan libero eget viverra elementum. Fusce placerat ultrices pharetra. Etiam efficitur tempus volutpat. Sed fringilla, est a mollis placerat, lacus ante accumsan erat, in commodo sem eros et ante. Donec ut aliquet nunc. Nam condimentum, elit at sodales dictum, ex risus cursus eros, at dapibus dui urna at orci. Aenean ullamcorper elit at tellus scelerisque egestas. Proin non tincidunt odio, eget consequat elit. Maecenas rutrum mauris quis justo efficitur, ac elementum massa posuere. Maecenas venenatis nisl eget eleifend molestie. Fusce maximus id leo in rhoncus.</p><p data-block-key=\"9ieqi\">Integer sit amet ante placerat, elementum nibh laoreet, gravida ligula. Donec id tempus libero, at semper ligula. In ut purus non sem tristique iaculis quis non dui. Aliquam eleifend diam sit amet tincidunt interdum. Aliquam erat volutpat. Proin vitae ullamcorper mauris. Aenean cursus lorem turpis. Aenean finibus tincidunt ante, non molestie ex lacinia sed. Curabitur egestas varius massa, in scelerisque ex condimentum et. Duis mattis posuere nulla.</p><p data-block-key=\"39bbu\">Curabitur at rhoncus lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas scelerisque felis in lorem iaculis, non porta tellus aliquam. Sed tristique eget libero eu tempus. Nulla at convallis urna. Morbi suscipit nisl rhoncus mattis viverra. Donec scelerisque risus ac turpis tincidunt commodo. Aliquam eu nibh felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla tincidunt nisi ac tempor lobortis. Cras sit amet varius ligula, id tincidunt nunc.</p>",
+                  "id": "a8c25ba0-4086-4411-b21c-f69548375fe1"
+                }
+              ],
+              "image": {
+                "id": 1081,
+                "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
+                "title": "pillar-1",
+                "height": 240,
+                "width": 480,
+                "created_at": "2024-08-13T17:36:07.930857-05:00"
+              },
+              "image_alt": "",
+              "config": [
+                {
+                  "type": "image_alignment",
+                  "value": "top_right",
+                  "id": "2fd3c8ef-fa2b-4570-88f7-dc59172e78a2"
+                },
+                {
+                  "type": "padding",
+                  "value": 2,
+                  "id": "6a866cd6-123e-44b8-bd70-dd0540532023"
+                }
+              ]
+            },
+            "id": "2fb339a1-6321-48d0-9a8c-93d2247815b6"
+          },
+          {
+            "type": "hero",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"sal9m\">you can alternatively specify the image prefer the \"top left\", \"bottom left\", \"top right\", or \"bottom right\"</p><p data-block-key=\"36nau\">this is bottom right</p><p data-block-key=\"1ag23\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan libero eget viverra elementum. Fusce placerat ultrices pharetra. Etiam efficitur tempus volutpat. Sed fringilla, est a mollis placerat, lacus ante accumsan erat, in commodo sem eros et ante. Donec ut aliquet nunc. Nam condimentum, elit at sodales dictum, ex risus cursus eros, at dapibus dui urna at orci. Aenean ullamcorper elit at tellus scelerisque egestas. Proin non tincidunt odio, eget consequat elit. Maecenas rutrum mauris quis justo efficitur, ac elementum massa posuere. Maecenas venenatis nisl eget eleifend molestie. Fusce maximus id leo in rhoncus.</p><p data-block-key=\"9ieqi\">Integer sit amet ante placerat, elementum nibh laoreet, gravida ligula. Donec id tempus libero, at semper ligula. In ut purus non sem tristique iaculis quis non dui. Aliquam eleifend diam sit amet tincidunt interdum. Aliquam erat volutpat. Proin vitae ullamcorper mauris. Aenean cursus lorem turpis. Aenean finibus tincidunt ante, non molestie ex lacinia sed. Curabitur egestas varius massa, in scelerisque ex condimentum et. Duis mattis posuere nulla.</p><p data-block-key=\"39bbu\">Curabitur at rhoncus lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas scelerisque felis in lorem iaculis, non porta tellus aliquam. Sed tristique eget libero eu tempus. Nulla at convallis urna. Morbi suscipit nisl rhoncus mattis viverra. Donec scelerisque risus ac turpis tincidunt commodo. Aliquam eu nibh felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla tincidunt nisi ac tempor lobortis. Cras sit amet varius ligula, id tincidunt nunc.</p>",
+                  "id": "034b808f-36bf-402c-a0d5-313523047234"
+                }
+              ],
+              "image": {
+                "id": 1081,
+                "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
+                "title": "pillar-1",
+                "height": 240,
+                "width": 480,
+                "created_at": "2024-08-13T17:36:07.930857-05:00"
+              },
+              "image_alt": "",
+              "config": [
+                {
+                  "type": "image_alignment",
+                  "value": "bottom_right",
+                  "id": "7d839b69-a24a-4f29-be5c-a175f5f6eabb"
+                },
+                {
+                  "type": "padding",
+                  "value": 2,
+                  "id": "6fa025cb-fa00-410a-bf6b-e8df62feaf55"
+                }
+              ]
+            },
+            "id": "47944af2-57df-4372-85ac-38f7dd422c35"
+          }
+        ]
+      }
     }
-  }
-]
+  ]
+}

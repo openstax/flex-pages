@@ -1,820 +1,826 @@
-[
-  {
-    "id": "cards-block-page",
-    "type": "flex_page",
-    "value": {
-      "content": [
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"t6nx6\"><b>Page Content:</b></p>",
-                "id": "7bc4169a-b0ad-4e52-8e1e-92e39acf90e4"
-              },
-              {
-                "type": "text",
-                "value": "<h1 data-block-key=\"t6nx6\">Cards Block Component</h1>",
-                "id": "cb3102c6-abe5-4d91-bb0e-746ef737ac9b"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding",
-                "value": 7,
-                "id": "e5f57252-5f8f-4ee0-a688-059f344c10ae"
-              },
-              {
-                "type": "background_color",
-                "value": "#0dc0dc",
-                "id": "e008d57c-5114-451f-aeb1-3960df40945d"
-              }
-            ]
-          },
-          "id": "2d7d1acc-5ba9-48f9-bfa6-4796b18a8750"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"upbck\"><a href=\"/flex-pages/\">documentation home</a></p>",
-                "id": "5d52a043-7657-431c-9be8-c27b8c967eb6"
-              }
-            ],
-            "config": []
-          },
-          "id": "e7396d38-15ad-40af-a9ba-1090392b71ed"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<h2 data-block-key=\"dah2k\">Overview</h2><p data-block-key=\"f40kk\">The Cards Block component is like a series of squareish post-it notes on the page. if there are too many cards to fit in one row, they start wrapping onto the next row. on mobile they all show in one column.</p>",
-                "id": "07978954-2c37-43cc-a351-669b3988bca3"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding_bottom",
-                "value": 1,
-                "id": "636cef4e-f352-4290-a559-abe6e9a900e4"
-              }
-            ]
-          },
-          "id": "c463fe2d-631f-481c-94f9-db852fbe9a7e"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\"><b>card style</b>: the style of the cards. unset is plain.</p><p data-block-key=\"buhkq\"><b>card size</b>: set the width of the cards. default is 27</p><p data-block-key=\"c0lmn\"><b>card columns</b>: set a fixed number of columns. cards show in exactly N columns when there is space, then collapse directly to 1 column. works with card size.</p><p data-block-key=\"c0acc\"><b>accent colors</b>: comma-separated hex colors for card borders (rounded) or top shadows (square). cycles through the colors.</p><p data-block-key=\"c0div\"><b>divider colors</b>: comma-separated hex colors for card divider (hr) lines. independent from accent colors.</p><p data-block-key=\"c0bgc\"><b>background color</b>: hex background color for cards. text color auto-adjusts for contrast.</p><p data-block-key=\"c0bdr\"><b>border size</b>: border thickness (e.g. 2px, 0.3rem). for rounded cards this controls the border width (default: thin). for square cards this controls the top accent bar height (default: 1rem).</p>",
-                "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding_bottom",
-                "value": 1,
-                "id": "c021ece9-d22a-43c3-93cd-a3590df09497"
-              }
-            ]
-          },
-          "id": "bbd61408-d955-4a79-93bd-a101edd41979"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<h2 data-block-key=\"dah2k\">Styles</h2><p data-block-key=\"qnff\"></p>",
-                "id": "59c2655d-10b8-4bed-acea-97fddf42bb90"
-              },
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<p data-block-key=\"dxu69\">these</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"isfhz\">are</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"isfhz\">rounded</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": [
-                    {
-                      "type": "card_style",
-                      "value": "rounded",
-                      "id": "1c2c3461-9da6-431c-9435-a6e882cd3812"
-                    }
-                  ]
+{
+  "metadata": {
+    "title": "Cards Block",
+    "description": "Documentation and examples for the Cards Block component."
+  },
+  "page": [
+    {
+      "id": "cards-block-page",
+      "type": "flex_page",
+      "value": {
+        "content": [
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"t6nx6\"><b>Page Content:</b></p>",
+                  "id": "7bc4169a-b0ad-4e52-8e1e-92e39acf90e4"
                 },
-                "id": "0e45cc49-a892-4de0-8c71-9994e246da66"
-              },
-              {
-                "type": "html",
-                "value": "&nbsp;",
-                "id": "ae439c10-eb66-48b2-b7e6-23a821860cdf"
-              },
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<p data-block-key=\"dxu69\">these</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"isfhz\">are</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"isfhz\">square</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": [
-                    {
-                      "type": "card_style",
-                      "value": "square",
-                      "id": "80883f6a-1729-4ea6-945b-f42d612fadec"
-                    }
-                  ]
+                {
+                  "type": "text",
+                  "value": "<h1 data-block-key=\"t6nx6\">Cards Block Component</h1>",
+                  "id": "cb3102c6-abe5-4d91-bb0e-746ef737ac9b"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 7,
+                  "id": "e5f57252-5f8f-4ee0-a688-059f344c10ae"
                 },
-                "id": "d6a1ecea-9718-4587-8826-784f015bf571"
-              },
-              {
-                "type": "html",
-                "value": "&nbsp;",
-                "id": "25327bc6-8d45-4c26-a1a8-098e9ff1b365"
-              },
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<p data-block-key=\"dxu69\">these</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"isfhz\">are</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"isfhz\">plain</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": []
-                },
-                "id": "1116c4af-dbb6-4748-aa7d-c340c641cc4e"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding",
-                "value": 1,
-                "id": "978a64f2-8f56-42ce-839e-68ed65fa2f24"
-              }
-            ]
-          },
-          "id": "1b8d6667-f8ff-41ff-84e2-141c0b33b3dd"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<h2 data-block-key=\"c0l01\">Fixed Columns</h2><p data-block-key=\"c0l02\">Using <b>card_columns: 3</b> with rounded style. These cards show in exactly 3 columns when there is space, then collapse directly to 1 column with no intermediate sizes.</p>",
-                "id": "c0l-text-01"
-              },
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<h3 data-block-key=\"c0l03\">Column 1</h3><p data-block-key=\"c0l04\">This layout uses card_columns to fix the column count.</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<h3 data-block-key=\"c0l05\">Column 2</h3><p data-block-key=\"c0l06\">It skips intermediate breakpoints like 2 columns.</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<h3 data-block-key=\"c0l07\">Column 3</h3><p data-block-key=\"c0l08\">Resize the browser to see 3 columns collapse directly to 1.</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": [
-                    {
-                      "type": "card_style",
-                      "value": "rounded",
-                      "id": "c0l-style-01"
-                    },
-                    {
-                      "type": "card_columns",
-                      "value": 3,
-                      "id": "c0l-columns-01"
-                    }
-                  ]
-                },
-                "id": "c0l-cards-01"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding",
-                "value": 1,
-                "id": "c0l-padding-01"
-              }
-            ]
-          },
-          "id": "c0l-section-01"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<h2 data-block-key=\"cacc1\">Custom Accent and Divider Colors</h2><p data-block-key=\"cacc2\">Rounded cards with custom border colors (#d4006a, #2b73c1, #009688) and a separate divider color (#ffa000). Each cycles independently.</p>",
-                "id": "cacc-text-01"
-              },
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<h3 data-block-key=\"cacc3\">Pink accent</h3><hr/><p data-block-key=\"cacc4\">This card gets the first custom accent color.</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<h3 data-block-key=\"cacc5\">Blue accent</h3><hr/><p data-block-key=\"cacc6\">This card gets the second custom accent color.</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<h3 data-block-key=\"cacc7\">Teal accent</h3><hr/><p data-block-key=\"cacc8\">This card gets the third custom accent color.</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<h3 data-block-key=\"cacc9\">Pink again</h3><hr/><p data-block-key=\"cacca\">The colors cycle, so this card is back to the first color.</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": [
-                    {
-                      "type": "card_style",
-                      "value": "rounded",
-                      "id": "cacc-style-01"
-                    },
-                    {
-                      "type": "accent_colors",
-                      "value": "#d4006a,#2b73c1,#009688",
-                      "id": "cacc-colors-01"
-                    },
-                    {
-                      "type": "divider_colors",
-                      "value": "#ffa000",
-                      "id": "cacc-divider-01"
-                    }
-                  ]
-                },
-                "id": "cacc-cards-01"
-              },
-              {
-                "type": "html",
-                "value": "&nbsp;",
-                "id": "cacc-spacer-01"
-              },
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"caccb\">Square cards with a single custom accent (#d4006a).</p>",
-                "id": "cacc-text-02"
-              },
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<p data-block-key=\"caccc\">one</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"caccd\">two</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"cacce\">three</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": [
-                    {
-                      "type": "card_style",
-                      "value": "square",
-                      "id": "cacc-style-02"
-                    },
-                    {
-                      "type": "accent_colors",
-                      "value": "#d4006a",
-                      "id": "cacc-colors-02"
-                    }
-                  ]
-                },
-                "id": "cacc-cards-02"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding",
-                "value": 1,
-                "id": "cacc-padding-01"
-              }
-            ]
-          },
-          "id": "cacc-section-01"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<h2 data-block-key=\"cbg01\">Custom Background Color</h2><p data-block-key=\"cbg02\">Rounded cards with a dark background (#1a1a2e). Text color auto-adjusts to white for contrast.</p>",
-                "id": "cbg-text-01"
-              },
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<h3 data-block-key=\"cbg03\">Dark card</h3><hr/><p data-block-key=\"cbg04\">This card has a dark background with light text.</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<h3 data-block-key=\"cbg05\">Dark card</h3><hr/><p data-block-key=\"cbg06\">Text color is automatically derived.</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<h3 data-block-key=\"cbg07\">Dark card</h3><hr/><p data-block-key=\"cbg08\">No need to set text color manually.</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": [
-                    {
-                      "type": "card_style",
-                      "value": "rounded",
-                      "id": "cbg-style-01"
-                    },
-                    {
-                      "type": "background_color",
-                      "value": "#1a1a2e",
-                      "id": "cbg-bg-01"
-                    },
-                    {
-                      "type": "accent_colors",
-                      "value": "#e94560",
-                      "id": "cbg-accent-01"
-                    },
-                    {
-                      "type": "divider_colors",
-                      "value": "#e94560",
-                      "id": "cbg-divider-01"
-                    }
-                  ]
-                },
-                "id": "cbg-cards-01"
-              },
-              {
-                "type": "html",
-                "value": "&nbsp;",
-                "id": "cbg-spacer-01"
-              },
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"cbg09\">Light custom background (#e8f5e9) with default dark text.</p>",
-                "id": "cbg-text-02"
-              },
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<h3 data-block-key=\"cbg0a\">Light green card</h3><hr/><p data-block-key=\"cbg0b\">Light backgrounds keep dark text.</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<h3 data-block-key=\"cbg0c\">Light green card</h3><hr/><p data-block-key=\"cbg0d\">Accent colors work with custom backgrounds too.</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<h3 data-block-key=\"cbg0e\">Light green card</h3><hr/><p data-block-key=\"cbg0f\">Everything composes together.</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": [
-                    {
-                      "type": "card_style",
-                      "value": "square",
-                      "id": "cbg-style-02"
-                    },
-                    {
-                      "type": "background_color",
-                      "value": "#e8f5e9",
-                      "id": "cbg-bg-02"
-                    },
-                    {
-                      "type": "accent_colors",
-                      "value": "#2e7d32,#1b5e20",
-                      "id": "cbg-accent-02"
-                    },
-                    {
-                      "type": "divider_colors",
-                      "value": "#4caf50",
-                      "id": "cbg-divider-02"
-                    }
-                  ]
-                },
-                "id": "cbg-cards-02"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding",
-                "value": 1,
-                "id": "cbg-padding-01"
-              }
-            ]
-          },
-          "id": "cbg-section-01"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<h2 data-block-key=\"cbs01\">Custom Border Size</h2><p data-block-key=\"cbs02\">Rounded cards with <b>border_size: \"3px\"</b> for a thicker border.</p>",
-                "id": "cbs-text-01"
-              },
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<h3 data-block-key=\"cbs03\">Thick border</h3><p data-block-key=\"cbs04\">This rounded card has a 3px border instead of the default thin.</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<h3 data-block-key=\"cbs05\">Thick border</h3><p data-block-key=\"cbs06\">The border size applies to all cards in the block.</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<h3 data-block-key=\"cbs07\">Thick border</h3><p data-block-key=\"cbs08\">Works with accent colors too.</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": [
-                    {
-                      "type": "card_style",
-                      "value": "rounded",
-                      "id": "cbs-style-01"
-                    },
-                    {
-                      "type": "border_size",
-                      "value": "3px",
-                      "id": "cbs-border-01"
-                    }
-                  ]
-                },
-                "id": "cbs-cards-01"
-              },
-              {
-                "type": "html",
-                "value": "&nbsp;",
-                "id": "cbs-spacer-01"
-              },
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"cbs09\">Square cards with <b>border_size: \"0.5rem\"</b> for a shorter accent bar.</p>",
-                "id": "cbs-text-02"
-              },
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<p data-block-key=\"cbs0a\">shorter</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"cbs0b\">accent</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"cbs0c\">bar</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": [
-                    {
-                      "type": "card_style",
-                      "value": "square",
-                      "id": "cbs-style-02"
-                    },
-                    {
-                      "type": "border_size",
-                      "value": "0.5rem",
-                      "id": "cbs-border-02"
-                    }
-                  ]
-                },
-                "id": "cbs-cards-02"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding",
-                "value": 1,
-                "id": "cbs-padding-01"
-              }
-            ]
-          },
-          "id": "cbs-section-01"
-        },
-        {
-          "type": "hero",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<h2 data-block-key=\"i8rw9\">In a hero</h2><p data-block-key=\"ch49k\">Card blocks can go in a hero too</p>",
-                "id": "c1e1db8a-99fd-40e2-b4d1-8992ecb305b1"
-              },
-              {
-                "type": "html",
-                "value": "&nbsp;",
-                "id": "ce9e25f5-6cc8-4283-bf73-bb21ae814a66"
-              },
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<p data-block-key=\"d7xex\">i</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"isfhz\">need</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"isfhz\">a</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"isfhz\">hero!</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": [
-                    {
-                      "type": "card_style",
-                      "value": "square",
-                      "id": "5e0947c9-6217-4dcc-b106-5fe07092e2d1"
-                    },
-                    {
-                      "type": "card_size",
-                      "value": 10,
-                      "id": "690b13bb-1e64-4342-bde2-2dbcff3cbfd9"
-                    }
-                  ]
-                },
-                "id": "325af3bd-56e4-40b6-b3aa-39e47068844f"
-              }
-            ],
-            "image": {
-              "id": 1044,
-              "file": "https://assets.openstax.org/oscms-prod/media/original_images/OpenStax_AM.gif",
-              "title": "OpenStax_AM",
-              "height": 1365,
-              "width": 2048,
-              "created_at": "2024-07-12T14:33:51.592227-05:00"
+                {
+                  "type": "background_color",
+                  "value": "#0dc0dc",
+                  "id": "e008d57c-5114-451f-aeb1-3960df40945d"
+                }
+              ]
             },
-            "image_alt": "",
-            "config": [
-              {
-                "type": "padding",
-                "value": 5,
-                "id": "ec31be1e-f261-4958-a87d-0381af492f72"
-              }
-            ]
+            "id": "2d7d1acc-5ba9-48f9-bfa6-4796b18a8750"
           },
-          "id": "5b87dd99-079b-4b13-841d-35aec8835a61"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<p data-block-key=\"s7kjj\"></p><img alt=\"\" class=\"richtext-image full-width\" height=\"80\" src=\"https://assets.openstax.org/oscms-prod/media/images/ed_tech.width-800.svg\" width=\"80\"><p data-block-key=\"1lvm4\">the plain style looks cool with full-width images and some text</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"s7kjj\"></p><img alt=\"\" class=\"richtext-image full-width\" height=\"80\" src=\"https://assets.openstax.org/oscms-prod/media/images/ed_tech.width-800.svg\" width=\"80\"><p data-block-key=\"1lvm4\">the plain style looks cool with full-width images and some text</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<p data-block-key=\"s7kjj\"></p><img alt=\"\" class=\"richtext-image full-width\" height=\"80\" src=\"https://assets.openstax.org/oscms-prod/media/images/ed_tech.width-800.svg\" width=\"80\"><p data-block-key=\"1lvm4\">the plain style looks cool with full-width images and some text</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": []
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"upbck\"><a href=\"/flex-pages/\">documentation home</a></p>",
+                  "id": "5d52a043-7657-431c-9be8-c27b8c967eb6"
+                }
+              ],
+              "config": []
+            },
+            "id": "e7396d38-15ad-40af-a9ba-1090392b71ed"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"dah2k\">Overview</h2><p data-block-key=\"f40kk\">The Cards Block component is like a series of squareish post-it notes on the page. if there are too many cards to fit in one row, they start wrapping onto the next row. on mobile they all show in one column.</p>",
+                  "id": "07978954-2c37-43cc-a351-669b3988bca3"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "636cef4e-f352-4290-a559-abe6e9a900e4"
+                }
+              ]
+            },
+            "id": "c463fe2d-631f-481c-94f9-db852fbe9a7e"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\"><b>card style</b>: the style of the cards. unset is plain.</p><p data-block-key=\"buhkq\"><b>card size</b>: set the width of the cards. default is 27</p><p data-block-key=\"c0lmn\"><b>card columns</b>: set a fixed number of columns. cards show in exactly N columns when there is space, then collapse directly to 1 column. works with card size.</p><p data-block-key=\"c0acc\"><b>accent colors</b>: comma-separated hex colors for card borders (rounded) or top shadows (square). cycles through the colors.</p><p data-block-key=\"c0div\"><b>divider colors</b>: comma-separated hex colors for card divider (hr) lines. independent from accent colors.</p><p data-block-key=\"c0bgc\"><b>background color</b>: hex background color for cards. text color auto-adjusts for contrast.</p><p data-block-key=\"c0bdr\"><b>border size</b>: border thickness (e.g. 2px, 0.3rem). for rounded cards this controls the border width (default: thin). for square cards this controls the top accent bar height (default: 1rem).</p>",
+                  "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "c021ece9-d22a-43c3-93cd-a3590df09497"
+                }
+              ]
+            },
+            "id": "bbd61408-d955-4a79-93bd-a101edd41979"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"dah2k\">Styles</h2><p data-block-key=\"qnff\"></p>",
+                  "id": "59c2655d-10b8-4bed-acea-97fddf42bb90"
                 },
-                "id": "ae090f96-3d12-4175-9852-3f70cd986d6e"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding_bottom",
-                "value": 1,
-                "id": "be6cd0fc-676c-41de-b6b3-d94f8788d8ed"
-              }
-            ]
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<p data-block-key=\"dxu69\">these</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"isfhz\">are</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"isfhz\">rounded</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "card_style",
+                        "value": "rounded",
+                        "id": "1c2c3461-9da6-431c-9435-a6e882cd3812"
+                      }
+                    ]
+                  },
+                  "id": "0e45cc49-a892-4de0-8c71-9994e246da66"
+                },
+                {
+                  "type": "html",
+                  "value": "&nbsp;",
+                  "id": "ae439c10-eb66-48b2-b7e6-23a821860cdf"
+                },
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<p data-block-key=\"dxu69\">these</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"isfhz\">are</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"isfhz\">square</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "card_style",
+                        "value": "square",
+                        "id": "80883f6a-1729-4ea6-945b-f42d612fadec"
+                      }
+                    ]
+                  },
+                  "id": "d6a1ecea-9718-4587-8826-784f015bf571"
+                },
+                {
+                  "type": "html",
+                  "value": "&nbsp;",
+                  "id": "25327bc6-8d45-4c26-a1a8-098e9ff1b365"
+                },
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<p data-block-key=\"dxu69\">these</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"isfhz\">are</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"isfhz\">plain</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": []
+                  },
+                  "id": "1116c4af-dbb6-4748-aa7d-c340c641cc4e"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "978a64f2-8f56-42ce-839e-68ed65fa2f24"
+                }
+              ]
+            },
+            "id": "1b8d6667-f8ff-41ff-84e2-141c0b33b3dd"
           },
-          "id": "6ac1466d-7802-4f5b-8234-42a0b7697e2d"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "text",
-                "value": "<p data-block-key=\"nwsij\">this section has text align set to \"center\", it affects the text of the cards too.</p>",
-                "id": "19a1aecf-fc1e-4f93-90fd-028912260c1d"
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"c0l01\">Fixed Columns</h2><p data-block-key=\"c0l02\">Using <b>card_columns: 3</b> with rounded style. These cards show in exactly 3 columns when there is space, then collapse directly to 1 column with no intermediate sizes.</p>",
+                  "id": "c0l-text-01"
+                },
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<h3 data-block-key=\"c0l03\">Column 1</h3><p data-block-key=\"c0l04\">This layout uses card_columns to fix the column count.</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<h3 data-block-key=\"c0l05\">Column 2</h3><p data-block-key=\"c0l06\">It skips intermediate breakpoints like 2 columns.</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<h3 data-block-key=\"c0l07\">Column 3</h3><p data-block-key=\"c0l08\">Resize the browser to see 3 columns collapse directly to 1.</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "card_style",
+                        "value": "rounded",
+                        "id": "c0l-style-01"
+                      },
+                      {
+                        "type": "card_columns",
+                        "value": 3,
+                        "id": "c0l-columns-01"
+                      }
+                    ]
+                  },
+                  "id": "c0l-cards-01"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "c0l-padding-01"
+                }
+              ]
+            },
+            "id": "c0l-section-01"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"cacc1\">Custom Accent and Divider Colors</h2><p data-block-key=\"cacc2\">Rounded cards with custom border colors (#d4006a, #2b73c1, #009688) and a separate divider color (#ffa000). Each cycles independently.</p>",
+                  "id": "cacc-text-01"
+                },
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<h3 data-block-key=\"cacc3\">Pink accent</h3><hr/><p data-block-key=\"cacc4\">This card gets the first custom accent color.</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<h3 data-block-key=\"cacc5\">Blue accent</h3><hr/><p data-block-key=\"cacc6\">This card gets the second custom accent color.</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<h3 data-block-key=\"cacc7\">Teal accent</h3><hr/><p data-block-key=\"cacc8\">This card gets the third custom accent color.</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<h3 data-block-key=\"cacc9\">Pink again</h3><hr/><p data-block-key=\"cacca\">The colors cycle, so this card is back to the first color.</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "card_style",
+                        "value": "rounded",
+                        "id": "cacc-style-01"
+                      },
+                      {
+                        "type": "accent_colors",
+                        "value": "#d4006a,#2b73c1,#009688",
+                        "id": "cacc-colors-01"
+                      },
+                      {
+                        "type": "divider_colors",
+                        "value": "#ffa000",
+                        "id": "cacc-divider-01"
+                      }
+                    ]
+                  },
+                  "id": "cacc-cards-01"
+                },
+                {
+                  "type": "html",
+                  "value": "&nbsp;",
+                  "id": "cacc-spacer-01"
+                },
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"caccb\">Square cards with a single custom accent (#d4006a).</p>",
+                  "id": "cacc-text-02"
+                },
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<p data-block-key=\"caccc\">one</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"caccd\">two</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"cacce\">three</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "card_style",
+                        "value": "square",
+                        "id": "cacc-style-02"
+                      },
+                      {
+                        "type": "accent_colors",
+                        "value": "#d4006a",
+                        "id": "cacc-colors-02"
+                      }
+                    ]
+                  },
+                  "id": "cacc-cards-02"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "cacc-padding-01"
+                }
+              ]
+            },
+            "id": "cacc-section-01"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"cbg01\">Custom Background Color</h2><p data-block-key=\"cbg02\">Rounded cards with a dark background (#1a1a2e). Text color auto-adjusts to white for contrast.</p>",
+                  "id": "cbg-text-01"
+                },
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<h3 data-block-key=\"cbg03\">Dark card</h3><hr/><p data-block-key=\"cbg04\">This card has a dark background with light text.</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<h3 data-block-key=\"cbg05\">Dark card</h3><hr/><p data-block-key=\"cbg06\">Text color is automatically derived.</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<h3 data-block-key=\"cbg07\">Dark card</h3><hr/><p data-block-key=\"cbg08\">No need to set text color manually.</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "card_style",
+                        "value": "rounded",
+                        "id": "cbg-style-01"
+                      },
+                      {
+                        "type": "background_color",
+                        "value": "#1a1a2e",
+                        "id": "cbg-bg-01"
+                      },
+                      {
+                        "type": "accent_colors",
+                        "value": "#e94560",
+                        "id": "cbg-accent-01"
+                      },
+                      {
+                        "type": "divider_colors",
+                        "value": "#e94560",
+                        "id": "cbg-divider-01"
+                      }
+                    ]
+                  },
+                  "id": "cbg-cards-01"
+                },
+                {
+                  "type": "html",
+                  "value": "&nbsp;",
+                  "id": "cbg-spacer-01"
+                },
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"cbg09\">Light custom background (#e8f5e9) with default dark text.</p>",
+                  "id": "cbg-text-02"
+                },
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<h3 data-block-key=\"cbg0a\">Light green card</h3><hr/><p data-block-key=\"cbg0b\">Light backgrounds keep dark text.</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<h3 data-block-key=\"cbg0c\">Light green card</h3><hr/><p data-block-key=\"cbg0d\">Accent colors work with custom backgrounds too.</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<h3 data-block-key=\"cbg0e\">Light green card</h3><hr/><p data-block-key=\"cbg0f\">Everything composes together.</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "card_style",
+                        "value": "square",
+                        "id": "cbg-style-02"
+                      },
+                      {
+                        "type": "background_color",
+                        "value": "#e8f5e9",
+                        "id": "cbg-bg-02"
+                      },
+                      {
+                        "type": "accent_colors",
+                        "value": "#2e7d32,#1b5e20",
+                        "id": "cbg-accent-02"
+                      },
+                      {
+                        "type": "divider_colors",
+                        "value": "#4caf50",
+                        "id": "cbg-divider-02"
+                      }
+                    ]
+                  },
+                  "id": "cbg-cards-02"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "cbg-padding-01"
+                }
+              ]
+            },
+            "id": "cbg-section-01"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"cbs01\">Custom Border Size</h2><p data-block-key=\"cbs02\">Rounded cards with <b>border_size: \"3px\"</b> for a thicker border.</p>",
+                  "id": "cbs-text-01"
+                },
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<h3 data-block-key=\"cbs03\">Thick border</h3><p data-block-key=\"cbs04\">This rounded card has a 3px border instead of the default thin.</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<h3 data-block-key=\"cbs05\">Thick border</h3><p data-block-key=\"cbs06\">The border size applies to all cards in the block.</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<h3 data-block-key=\"cbs07\">Thick border</h3><p data-block-key=\"cbs08\">Works with accent colors too.</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "card_style",
+                        "value": "rounded",
+                        "id": "cbs-style-01"
+                      },
+                      {
+                        "type": "border_size",
+                        "value": "3px",
+                        "id": "cbs-border-01"
+                      }
+                    ]
+                  },
+                  "id": "cbs-cards-01"
+                },
+                {
+                  "type": "html",
+                  "value": "&nbsp;",
+                  "id": "cbs-spacer-01"
+                },
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"cbs09\">Square cards with <b>border_size: \"0.5rem\"</b> for a shorter accent bar.</p>",
+                  "id": "cbs-text-02"
+                },
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<p data-block-key=\"cbs0a\">shorter</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"cbs0b\">accent</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"cbs0c\">bar</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "card_style",
+                        "value": "square",
+                        "id": "cbs-style-02"
+                      },
+                      {
+                        "type": "border_size",
+                        "value": "0.5rem",
+                        "id": "cbs-border-02"
+                      }
+                    ]
+                  },
+                  "id": "cbs-cards-02"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "cbs-padding-01"
+                }
+              ]
+            },
+            "id": "cbs-section-01"
+          },
+          {
+            "type": "hero",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"i8rw9\">In a hero</h2><p data-block-key=\"ch49k\">Card blocks can go in a hero too</p>",
+                  "id": "c1e1db8a-99fd-40e2-b4d1-8992ecb305b1"
+                },
+                {
+                  "type": "html",
+                  "value": "&nbsp;",
+                  "id": "ce9e25f5-6cc8-4283-bf73-bb21ae814a66"
+                },
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<p data-block-key=\"d7xex\">i</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"isfhz\">need</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"isfhz\">a</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"isfhz\">hero!</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "card_style",
+                        "value": "square",
+                        "id": "5e0947c9-6217-4dcc-b106-5fe07092e2d1"
+                      },
+                      {
+                        "type": "card_size",
+                        "value": 10,
+                        "id": "690b13bb-1e64-4342-bde2-2dbcff3cbfd9"
+                      }
+                    ]
+                  },
+                  "id": "325af3bd-56e4-40b6-b3aa-39e47068844f"
+                }
+              ],
+              "image": {
+                "id": 1044,
+                "file": "https://assets.openstax.org/oscms-prod/media/original_images/OpenStax_AM.gif",
+                "title": "OpenStax_AM",
+                "height": 1365,
+                "width": 2048,
+                "created_at": "2024-07-12T14:33:51.592227-05:00"
               },
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<h2 data-block-key=\"s7kjj\">some heading</h2><hr/><p data-block-key=\"3almm\">the plain style also has support for using a \"horizontal line\" in the text editor, which looks cool with headings and some text</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<h2 data-block-key=\"s7kjj\">some heading</h2><hr/><p data-block-key=\"3almm\">the plain style also has support for using a \"horizontal line\" in the text editor, which looks cool with headings and some text</p>",
-                      "cta_block": []
-                    },
-                    {
-                      "text": "<h2 data-block-key=\"s7kjj\">some heading</h2><hr/><p data-block-key=\"3almm\">the plain style also has support for using a \"horizontal line\" in the text editor, which looks cool with headings and some text</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": []
-                },
-                "id": "749524f8-9e13-41d5-8215-e48ba1c39224"
-              }
-            ],
-            "config": [
-              {
-                "type": "text_alignment",
-                "value": "center",
-                "id": "53329bfc-b2f5-4fc8-9722-2e2add346767"
-              },
-              {
-                "type": "padding_bottom",
-                "value": 1,
-                "id": "09ea3722-8015-4a06-873c-b7b5d78cb3e9"
-              }
-            ]
+              "image_alt": "",
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 5,
+                  "id": "ec31be1e-f261-4958-a87d-0381af492f72"
+                }
+              ]
+            },
+            "id": "5b87dd99-079b-4b13-841d-35aec8835a61"
           },
-          "id": "09ed6fb7-7a2d-4bc9-98cd-e6d7a6cefd90"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<h2 data-block-key=\"ogxop\">short text</h2><p data-block-key=\"eo2ln\">If you have a short block of text, that would look weird in the full content width, you can use a cards block with one card and a card-size defined to make a smaller content width for that text.</p><p data-block-key=\"5um72\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquet faucibus quam, sed mollis quam imperdiet nec.</p>",
-                      "cta_block": []
-                    }
-                  ],
-                  "config": [
-                    {
-                      "type": "card_size",
-                      "value": 60,
-                      "id": "da08c41c-5710-4cc7-9c97-b985144a2251"
-                    }
-                  ]
-                },
-                "id": "b29089eb-afbe-4d38-91ab-d89e29df9d9d"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding",
-                "value": 1,
-                "id": "cdecfe62-1bb2-43f4-a54f-cee81f940eb3"
-              }
-            ]
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<p data-block-key=\"s7kjj\"></p><img alt=\"\" class=\"richtext-image full-width\" height=\"80\" src=\"https://assets.openstax.org/oscms-prod/media/images/ed_tech.width-800.svg\" width=\"80\"><p data-block-key=\"1lvm4\">the plain style looks cool with full-width images and some text</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"s7kjj\"></p><img alt=\"\" class=\"richtext-image full-width\" height=\"80\" src=\"https://assets.openstax.org/oscms-prod/media/images/ed_tech.width-800.svg\" width=\"80\"><p data-block-key=\"1lvm4\">the plain style looks cool with full-width images and some text</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<p data-block-key=\"s7kjj\"></p><img alt=\"\" class=\"richtext-image full-width\" height=\"80\" src=\"https://assets.openstax.org/oscms-prod/media/images/ed_tech.width-800.svg\" width=\"80\"><p data-block-key=\"1lvm4\">the plain style looks cool with full-width images and some text</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": []
+                  },
+                  "id": "ae090f96-3d12-4175-9852-3f70cd986d6e"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "be6cd0fc-676c-41de-b6b3-d94f8788d8ed"
+                }
+              ]
+            },
+            "id": "6ac1466d-7802-4f5b-8234-42a0b7697e2d"
           },
-          "id": "267b4fc9-3d3e-4da9-a22e-67d8df2e3d17"
-        },
-        {
-          "type": "section",
-          "value": {
-            "content": [
-              {
-                "type": "cards_block",
-                "value": {
-                  "cards": [
-                    {
-                      "text": "<p data-block-key=\"z58fs\">cards can have calls to action configured</p>",
-                      "cta_block": [
-                        {
-                          "text": "this is a cta",
-                          "aria_label": "",
-                          "target": {
-                            "value": "https://openstax.org",
-                            "type": "external"
-                          },
-                          "config": []
-                        }
-                      ]
-                    },
-                    {
-                      "text": "<p data-block-key=\"z58fs\">you can also put <a href=\"/\">links in the text</a>, but the configured cta will always make sure the links line up at the bottom of the card area, which looks a little cleaner. is this text long enough yet?</p>",
-                      "cta_block": [
-                        {
-                          "text": "this is a cta",
-                          "aria_label": "",
-                          "target": {
-                            "value": "https://openstax.org",
-                            "type": "external"
-                          },
-                          "config": []
-                        }
-                      ]
-                    },
-                    {
-                      "text": "<p data-block-key=\"z58fs\">the cta can also be a button, if you're into that kind of thing.</p>",
-                      "cta_block": [
-                        {
-                          "text": "this is a cta",
-                          "aria_label": "",
-                          "target": {
-                            "value": "https://openstax.org",
-                            "type": "external"
-                          },
-                          "config": [
-                            {
-                              "type": "style",
-                              "value": "white",
-                              "id": "d3a59fa3-f084-4928-934c-32fd88760de0"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ],
-                  "config": []
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"nwsij\">this section has text align set to \"center\", it affects the text of the cards too.</p>",
+                  "id": "19a1aecf-fc1e-4f93-90fd-028912260c1d"
                 },
-                "id": "1e1be6ca-1444-487a-9bd4-622c7f291f82"
-              }
-            ],
-            "config": [
-              {
-                "type": "padding",
-                "value": 1,
-                "id": "89b8846d-23ba-4c37-bba6-c98db71236a8"
-              }
-            ]
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<h2 data-block-key=\"s7kjj\">some heading</h2><hr/><p data-block-key=\"3almm\">the plain style also has support for using a \"horizontal line\" in the text editor, which looks cool with headings and some text</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<h2 data-block-key=\"s7kjj\">some heading</h2><hr/><p data-block-key=\"3almm\">the plain style also has support for using a \"horizontal line\" in the text editor, which looks cool with headings and some text</p>",
+                        "cta_block": []
+                      },
+                      {
+                        "text": "<h2 data-block-key=\"s7kjj\">some heading</h2><hr/><p data-block-key=\"3almm\">the plain style also has support for using a \"horizontal line\" in the text editor, which looks cool with headings and some text</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": []
+                  },
+                  "id": "749524f8-9e13-41d5-8215-e48ba1c39224"
+                }
+              ],
+              "config": [
+                {
+                  "type": "text_alignment",
+                  "value": "center",
+                  "id": "53329bfc-b2f5-4fc8-9722-2e2add346767"
+                },
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "09ea3722-8015-4a06-873c-b7b5d78cb3e9"
+                }
+              ]
+            },
+            "id": "09ed6fb7-7a2d-4bc9-98cd-e6d7a6cefd90"
           },
-          "id": "d7ff9c68-61ba-4297-a4d1-bec2a3c19558"
-        }
-      ]
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<h2 data-block-key=\"ogxop\">short text</h2><p data-block-key=\"eo2ln\">If you have a short block of text, that would look weird in the full content width, you can use a cards block with one card and a card-size defined to make a smaller content width for that text.</p><p data-block-key=\"5um72\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquet faucibus quam, sed mollis quam imperdiet nec.</p>",
+                        "cta_block": []
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "card_size",
+                        "value": 60,
+                        "id": "da08c41c-5710-4cc7-9c97-b985144a2251"
+                      }
+                    ]
+                  },
+                  "id": "b29089eb-afbe-4d38-91ab-d89e29df9d9d"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "cdecfe62-1bb2-43f4-a54f-cee81f940eb3"
+                }
+              ]
+            },
+            "id": "267b4fc9-3d3e-4da9-a22e-67d8df2e3d17"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<p data-block-key=\"z58fs\">cards can have calls to action configured</p>",
+                        "cta_block": [
+                          {
+                            "text": "this is a cta",
+                            "aria_label": "",
+                            "target": {
+                              "value": "https://openstax.org",
+                              "type": "external"
+                            },
+                            "config": []
+                          }
+                        ]
+                      },
+                      {
+                        "text": "<p data-block-key=\"z58fs\">you can also put <a href=\"/\">links in the text</a>, but the configured cta will always make sure the links line up at the bottom of the card area, which looks a little cleaner. is this text long enough yet?</p>",
+                        "cta_block": [
+                          {
+                            "text": "this is a cta",
+                            "aria_label": "",
+                            "target": {
+                              "value": "https://openstax.org",
+                              "type": "external"
+                            },
+                            "config": []
+                          }
+                        ]
+                      },
+                      {
+                        "text": "<p data-block-key=\"z58fs\">the cta can also be a button, if you're into that kind of thing.</p>",
+                        "cta_block": [
+                          {
+                            "text": "this is a cta",
+                            "aria_label": "",
+                            "target": {
+                              "value": "https://openstax.org",
+                              "type": "external"
+                            },
+                            "config": [
+                              {
+                                "type": "style",
+                                "value": "white",
+                                "id": "d3a59fa3-f084-4928-934c-32fd88760de0"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "config": []
+                  },
+                  "id": "1e1be6ca-1444-487a-9bd4-622c7f291f82"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "89b8846d-23ba-4c37-bba6-c98db71236a8"
+                }
+              ]
+            },
+            "id": "d7ff9c68-61ba-4297-a4d1-bec2a3c19558"
+          }
+        ]
+      }
     }
-  }
-]
+  ]
+}
