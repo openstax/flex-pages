@@ -442,6 +442,11 @@
                         "type": "border_size",
                         "value": "5px",
                         "id": "a1b2c3d4-3333-1111-1111-000000000010"
+                      },
+                      {
+                        "id": "4a4f9bf3",
+                        "type": "width",
+                        "value": "60rem"
                       }
                     ]
                   },
