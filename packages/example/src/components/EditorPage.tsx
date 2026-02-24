@@ -11,6 +11,7 @@ import { selectExtensions } from '@openstax/flex-page-editor-select-extension';
 import { TokenInput } from './TokenInput';
 import { actions } from '../lib/actions';
 import { getToken, fetchPage, savePage } from '../lib/github';
+import { useSearchParams, notFound } from 'next/navigation';
 
 const fieldTypes = {
   ...quillExtensions({Forms: UI.Forms.Controlled}),
@@ -20,7 +21,10 @@ const fieldTypes = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type PageData = {page: any; sha: string};
 
-const EditorPage = ({slug}: {slug: string}) => {
+const EditorPage = () => {
+  const searchParams = useSearchParams();
+  const slug = searchParams.get('slug');
+  if (!slug) notFound(); 
 
   const [token, setToken] = React.useState<string | null>(getToken);
   const [state, setState] = React.useState<FetchState<PageData, string>>(fetchIdle());
