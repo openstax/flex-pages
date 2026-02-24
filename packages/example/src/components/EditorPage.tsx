@@ -20,14 +20,10 @@ const fieldTypes = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type PageData = {page: any; sha: string};
 
-const EditorPage = () => {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-  const slug = new URLSearchParams(window.location.search).get('slug');
+const EditorPage = ({slug}: {slug: string}) => {
 
   const [token, setToken] = React.useState<string | null>(getToken);
-  const [state, setState] = React.useState<FetchState<PageData, string>>(
-    slug ? fetchIdle() : fetchSuccess({page: undefined, sha: ''})
-  );
+  const [state, setState] = React.useState<FetchState<PageData, string>>(fetchIdle());
 
   React.useEffect(() => {
     if (!slug || !token) return;
@@ -45,56 +41,39 @@ const EditorPage = () => {
       savePage(slug, data.page, state.data.sha, token)
         .then(({sha}) => setState(fetchSuccess({page: data.page, sha})))
         .catch((err: Error) => setState(previous => fetchError(err.message, previous)));
-    } else {
-      // local only preview
-      const page = JSON.stringify(data.page);
-      window.open(`${basePath}/?page=${encodeURIComponent(page)}`);
     }
-  }, [basePath, slug, token, state]);
-
-  if (slug && !token) {
-    return <>
-      <h1>Edit: {slug}</h1>
-      <p>A GitHub token with repo access is required to load and save pages.</p>
-      <TokenInput onTokenChange={setToken} />
-    </>;
-  }
-
-  if (slug && !stateHasData(state)) {
-    return <>
-      <h1>Edit: {slug}</h1>
-      {stateHasError(state)
-        ? <>
-            <p style={{color: 'red'}}>Error: {state.error}</p>
-            <TokenInput onTokenChange={(t) => { setToken(t); setState(fetchIdle()); }} />
-            <button type="button" onClick={() => setState(fetchIdle())}>Retry</button>
-          </>
-        : <p>Loading page data...</p>
-      }
-    </>;
-  }
-
-  const initialFormState = stateHasData(state) && state.data.page
-    ? fetchSuccess({page: state.data.page})
-    : fetchSuccess({});
+  }, [slug, token, state]);
 
   return <>
-    <h1>{slug ? `Edit: ${slug}` : 'Create Page'}</h1>
-    {slug && <TokenInput onTokenChange={setToken} />}
-    {state.type === FetchStateType.LOADING && <p>Saving to GitHub...</p>}
-    {stateHasError(state) && <p style={{color: 'red'}}>Save error: {state.error}</p>}
-    {/* @ts-expect-error ui-components Form types don't resolve correctly with TS5 */}
-    <UI.Forms.Controlled.Form state={initialFormState} onSubmit={onSubmit}>
-      <FlexBlockEditor
-        blocks={allBlocks}
-        actions={actions}
-        fields={fieldTypes}
-        type="flex_page"
-        name="page"
-        Forms={UI.Forms.Controlled}
-      />
-      <UI.Forms.Controlled.Buttons />
-    </UI.Forms.Controlled.Form>
+    <h1>Edit: {slug}</h1>
+    {!token
+      ? <>
+          <p>A GitHub token with repo access is required to load and save pages.</p>
+          <TokenInput onTokenChange={setToken} />
+        </>
+      : <>
+          <TokenInput onTokenChange={(t) => { setToken(t); setState(fetchIdle()); }} />
+          {stateHasError(state) && <p style={{color: 'red'}}>Error: {state.error}</p>}
+          {state.type === FetchStateType.LOADING && <p>Loading...</p>}
+          {stateHasData(state) && <>
+            {/* @ts-expect-error ui-components Form types don't resolve correctly with TS5 */}
+            <UI.Forms.Controlled.Form
+              state={state.data.page ? fetchSuccess({page: state.data.page}) : fetchSuccess({})}
+              onSubmit={onSubmit}
+            >
+              <FlexBlockEditor
+                blocks={allBlocks}
+                actions={actions}
+                fields={fieldTypes}
+                type="flex_page"
+                name="page"
+                Forms={UI.Forms.Controlled}
+              />
+              <UI.Forms.Controlled.Buttons />
+            </UI.Forms.Controlled.Form>
+          </>}
+        </>
+    }
   </>;
 };
 
