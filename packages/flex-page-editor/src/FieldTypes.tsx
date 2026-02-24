@@ -2,7 +2,7 @@ import { EditorField, EditorFields } from './EditorFields';
 import type { ConfigField } from '@openstax/flex-page-renderer';
 import React from 'react';
 import { CollapsibleFieldset } from './CollapsibleFieldset';
-import { BlockContext } from '@openstax/flex-page-renderer/ContentBlockRoot';
+import { BlockContext } from './BlockContext';
 import { useForms } from './FormsContext';
 
 const DisplayBlockForm = ({children, label}: React.PropsWithChildren<{label?: string}>) => {

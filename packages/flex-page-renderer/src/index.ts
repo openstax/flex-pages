@@ -6,3 +6,5 @@ export type ConfigField = {
   type: string;
   [key: string]: unknown;
 };
+
+export { resolveContentBlocks } from './resolveContentBlocks';

@@ -1,5 +1,5 @@
-import React from 'react';
-import { ConfigField } from '.';
+import type React from 'react';
+import type { ConfigField } from '.';
 
 export type ContentBlockConfig = {
   type: string;
@@ -28,6 +28,3 @@ export type BlockData<D> = BlockDataEntry<D>[];
 export type BlockComponents<D> = {
   [key in keyof D]: BlockComponent<key>;
 };
-
-export type BlockComponentMap = Record<string, BlockComponent>;
-export const BlockContext = React.createContext<BlockComponentMap>({});

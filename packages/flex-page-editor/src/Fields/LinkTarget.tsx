@@ -2,7 +2,7 @@ import React from 'react';
 import { EditorField, EditorFields } from '../EditorFields';
 import type { ConfigField } from '@openstax/flex-page-renderer';
 import { CollapsibleFieldset } from '../CollapsibleFieldset';
-import { ActionContext, RouteContext } from '@openstax/flex-page-renderer/ContentBlockRoot';
+import { ActionContext, RouteContext } from '@openstax/flex-page-renderer/FlexPageContextProvider';
 import { useForms } from '../FormsContext';
 
 const LinkTargetFields = () => {

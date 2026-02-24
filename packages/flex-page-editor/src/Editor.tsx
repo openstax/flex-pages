@@ -1,10 +1,9 @@
 import React from 'react';
 import type * as UI from '@openstax/ui-components';
-import {
-  BlockContext, BlockComponents,
-  ActionContext, ActionConfig,
-  RouteContext, RouteConfig,
-} from '@openstax/flex-page-renderer/ContentBlockRoot';
+import type { BlockComponents } from '@openstax/flex-page-renderer/ContentBlockRoot';
+import { ActionContext, RouteContext } from '@openstax/flex-page-renderer/FlexPageContextProvider';
+import type { ActionConfig, RouteConfig } from '@openstax/flex-page-renderer/FlexPageContextProvider';
+import { BlockContext } from './BlockContext';
 import { ExtendEditorTypes, EditorFieldTypeContext } from './EditorFields';
 import { FormsContext } from './FormsContext';
 
