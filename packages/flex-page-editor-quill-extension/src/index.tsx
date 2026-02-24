@@ -1,20 +1,19 @@
-import React from 'react';
 import type * as UI from '@openstax/ui-components';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
-import Toolbar from "quill/modules/toolbar";
-import Snow from "quill/themes/snow";
-
-import Bold from "quill/formats/bold";
-import Italic from "quill/formats/italic";
-import Header from "quill/formats/header";
+import Bold from 'quill/formats/bold';
+import Header from 'quill/formats/header';
+import Italic from 'quill/formats/italic';
+import Toolbar from 'quill/modules/toolbar';
+import Snow from 'quill/themes/snow';
+import React from 'react';
 
 Quill.register({
-  "modules/toolbar": Toolbar,
-  "themes/snow": Snow,
-  "formats/bold": Bold,
-  "formats/italic": Italic,
-  "formats/header": Header,
+  'modules/toolbar': Toolbar,
+  'themes/snow': Snow,
+  'formats/bold': Bold,
+  'formats/italic': Italic,
+  'formats/header': Header,
 });
 
 // from https://quilljs.com/playground/react
@@ -60,14 +59,14 @@ const RichEditor = React.forwardRef<Quill, {
 
     quill.on('text-change', handleChange);
 
-    return () => { quill.off('text-change', handleChange) };
+    return () => { quill.off('text-change', handleChange); };
   }, [onChange]);
 
   return <div id={id} className={className} ref={containerRef} />;
 });
 
 export const RichTextInput = (Forms: typeof UI.Forms.Controlled) =>
-  ({name, label, required, help}: {name: string; label: string, required?: boolean, help?: string}) => {
+  ({name, label, required, help}: {name: string; label: string; required?: boolean; help?: string}) => {
     const formState = Forms.useFormHelpers();
     const value = formState.data[name];
     const setValue = formState.setInput.field(name);

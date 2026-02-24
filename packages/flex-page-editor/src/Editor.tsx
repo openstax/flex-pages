@@ -1,10 +1,10 @@
-import React from 'react';
-import type * as UI from '@openstax/ui-components';
 import type { BlockComponents } from '@openstax/flex-page-renderer/ContentBlockRoot';
 import { ActionContext, RouteContext } from '@openstax/flex-page-renderer/FlexPageContextProvider';
 import type { ActionConfig, RouteConfig } from '@openstax/flex-page-renderer/FlexPageContextProvider';
+import type * as UI from '@openstax/ui-components';
+import React from 'react';
 import { BlockContext } from './BlockContext';
-import { ExtendEditorTypes, EditorFieldTypeContext } from './EditorFields';
+import { EditorFieldTypeContext, ExtendEditorTypes } from './EditorFields';
 import { FormsContext } from './FormsContext';
 
 /*
@@ -41,7 +41,7 @@ export const FlexBlockEditor = ({name, label, blocks, actions, routes, fields, t
         </ExtendEditorTypes>
       </RouteContext.Provider>
     </ActionContext.Provider>
-  </BlockContext.Provider>
+  </BlockContext.Provider>;
 
   if (Forms) {
     return <FormsContext.Provider value={Forms}>

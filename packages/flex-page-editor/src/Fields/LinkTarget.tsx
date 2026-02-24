@@ -1,8 +1,8 @@
-import React from 'react';
-import { EditorField, EditorFields } from '../EditorFields';
 import type { ConfigField } from '@openstax/flex-page-renderer';
-import { CollapsibleFieldset } from '../CollapsibleFieldset';
 import { ActionContext, RouteContext } from '@openstax/flex-page-renderer/FlexPageContextProvider';
+import React from 'react';
+import { CollapsibleFieldset } from '../CollapsibleFieldset';
+import { EditorField, EditorFields } from '../EditorFields';
 import { useForms } from '../FormsContext';
 
 const LinkTargetFields = () => {
@@ -57,7 +57,7 @@ const LinkTargetFields = () => {
         <EditorFields fields={routeFields} />
       </Forms.NameSpace>
     : null}
-  </>
+  </>;
 };
 
 export const LinkTarget = ({name, label}: ConfigField) => {
@@ -66,5 +66,5 @@ export const LinkTarget = ({name, label}: ConfigField) => {
     <CollapsibleFieldset legend={label}>
       <LinkTargetFields />
     </CollapsibleFieldset>
-  </Forms.NameSpace>
+  </Forms.NameSpace>;
 };

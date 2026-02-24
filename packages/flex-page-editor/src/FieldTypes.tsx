@@ -1,8 +1,8 @@
-import { EditorField, EditorFields } from './EditorFields';
 import type { ConfigField } from '@openstax/flex-page-renderer';
 import React from 'react';
-import { CollapsibleFieldset } from './CollapsibleFieldset';
 import { BlockContext } from './BlockContext';
+import { CollapsibleFieldset } from './CollapsibleFieldset';
+import { EditorField, EditorFields } from './EditorFields';
 import { useForms } from './FormsContext';
 
 const DisplayBlockForm = ({children, label}: React.PropsWithChildren<{label?: string}>) => {
@@ -16,7 +16,7 @@ const DisplayBlockForm = ({children, label}: React.PropsWithChildren<{label?: st
     ? <><EditorField {...config.field} label={label ?? config.label} name="value" />{children}</>
     : <EditorField label={label ?? config.label} children={children} name="value" type="namespace" fields={config.fields || []} />
   ;
-}
+};
 
 const AddBlock = ({categories}: {categories: string[]}) => {
   const listHelpers = useForms().useFormListHelpers();
@@ -33,7 +33,7 @@ const AddBlock = ({categories}: {categories: string[]}) => {
 };
 
 // copied from ui-components/src/components/forms/controlled/hooks.ts
-const randomId = () => window.crypto.getRandomValues(new Uint32Array(1))[0].toString(16)
+const randomId = () => window.crypto.getRandomValues(new Uint32Array(1))[0].toString(16);
 
 export const block = ({name, label, types, categories}: {name: string; label: string; types?: string[]; categories?: string[]}) => {
   const Forms = useForms();
@@ -122,13 +122,13 @@ export const blocks = ({name, label, categories}: {name: string; label?: string;
 const DisplayConfigForm = ({configs}: {configs: ConfigField[]}) => {
   const formState = useForms().useFormHelpers();
   const data = formState.data;
-  const config = configs.find(c => c.name === data.type)
+  const config = configs.find(c => c.name === data.type);
   if (!config) return <pre>{JSON.stringify(data, null, 2)}</pre>;
 
   return <EditorField {...config} name="value" />;
 };
 
-const AddConfig = ({name, configs}: {name: string, configs: ConfigField[]}) => {
+const AddConfig = ({name, configs}: {name: string; configs: ConfigField[]}) => {
   const Forms = useForms();
   const formState = Forms.useFormHelpers();
   const listHelpers = Forms.useFormListHelpers();
@@ -159,7 +159,7 @@ export const configs = ({name, label, configs}: ConfigField & {configs: ConfigFi
   </CollapsibleFieldset>;
 };
 
-const AddListItem = ({name, max}: {name: string, max?: number}) => {
+const AddListItem = ({name, max}: {name: string; max?: number}) => {
   const Forms = useForms();
   const formState = Forms.useFormHelpers();
   const listHelpers = Forms.useFormListHelpers();
@@ -171,7 +171,7 @@ const AddListItem = ({name, max}: {name: string, max?: number}) => {
     () => listHelpers.addRecord()
   }>add item</button>;
 };
-export const list = ({name, label, max, fields}: ConfigField & {max?: number, fields: ConfigField[]}) => {
+export const list = ({name, label, max, fields}: ConfigField & {max?: number; fields: ConfigField[]}) => {
   const Forms = useForms();
   return <CollapsibleFieldset legend={label}>
     <Forms.List name={name}>
