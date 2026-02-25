@@ -1,6 +1,6 @@
 {
   "name": "@openstax/flex-page-editor",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "sideEffects": false,
   "dependencies": {
     "classnames": "^2.5.1"
@@ -18,7 +18,7 @@
   },
   "peerDependencies": {
     "react": "^17.0.2 || ^18.0.0",
-    "@openstax/flex-page-renderer": "1.0.14",
+    "@openstax/flex-page-renderer": "1.1.0",
     "@openstax/ui-components": "https://github.com/openstax/ui-components#1.20.1-build-fix-test-2",
     "react-dom": "^17.0.2 || ^18.0.0"
   },
