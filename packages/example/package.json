@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@openstax/flex-page-renderer": "1.0.14",
-    "@openstax/flex-page-editor": "1.0.5",
+    "@openstax/flex-page-renderer": "1.1.0",
+    "@openstax/flex-page-editor": "1.1.0",
     "@openstax/flex-page-editor-quill-extension": "1.0.2",
     "@openstax/flex-page-editor-select-extension": "1.0.1",
     "@openstax/ts-utils": "^1.43.2",
