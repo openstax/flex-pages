@@ -59,7 +59,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"i8rw9\">Overview</h2><p data-block-key=\"ch49k\">The hero component has a hero image on one side and content on the other. Hero components support all the same content as <a href=\"https://staging.openstax.org/flexpage-section-component\">sections</a>, in a more narrow content container. On a mobile device the image and content will move from side by side to one above the other.</p><p data-block-key=\"73jnl\">In the FlexEditor, heroes have a \"content\" section just like sections do. They also have image and \"image alt\" options. Its ok to leave the \"image alt\" empty if the image is considered decorative. If the image conveys information needed to understand the content of the page, you should add alt text describing the image.</p><p data-block-key=\"21r83\">This is a hero with some text.</p>",
+                  "value": "<h2 data-block-key=\"i8rw9\">Overview</h2><p data-block-key=\"ch49k\">The hero component has a hero image on one side and content on the other. Hero components support all the same content as <a href=\"/flex-pages/section\">sections</a>, in a more narrow content container. On a mobile device the image and content will move from side by side to one above the other.</p><p data-block-key=\"73jnl\">In the FlexEditor, heroes have a \"content\" section just like sections do. They also have image and \"image alt\" options. Its ok to leave the \"image alt\" empty if the image is considered decorative. If the image conveys information needed to understand the content of the page, you should add alt text describing the image.</p><p data-block-key=\"21r83\">This is a hero with some text.</p>",
                   "id": "c1e1db8a-99fd-40e2-b4d1-8992ecb305b1"
                 }
               ],
@@ -82,6 +82,21 @@
                   "type": "image_alignment",
                   "value": "bottom_right",
                   "id": "8a8a6c65-551e-46f5-a3b3-075d996dcb5e"
+                },
+                {
+                  "type": "image_border_radius",
+                  "value": "16",
+                  "id": "a1b2c3d4-0001-4000-8000-000000000001"
+                },
+                {
+                  "type": "image_border_color",
+                  "value": "#0DC0DC",
+                  "id": "a1b2c3d4-0002-4000-8000-000000000002"
+                },
+                {
+                  "type": "image_border_size",
+                  "value": "3",
+                  "id": "a1b2c3d4-0003-4000-8000-000000000003"
                 }
               ]
             },
@@ -93,7 +108,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Heroes have a config section with a number of options. All options from sections are (should be, but are not currently) supported on heroes as well.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"4sc9\">everything from <a href=\"https://staging.openstax.org/flexpage-section-component\">sections</a></p><p data-block-key=\"8ih75\"><b>Image alignment</b>: switches the image to be on the left side (with content on the right), or control the image's vertical alignment.</p><p data-block-key=\"buhkq\"></p>",
+                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Heroes have a config section with a number of options. All options from sections are (should be, but are not currently) supported on heroes as well.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"4sc9\">everything from <a href=\"/flex-pages/section\">sections</a></p><p data-block-key=\"8ih75\"><b>Image alignment</b>: switches the image to be on the left side (with content on the right), or control the image's vertical alignment.</p><p data-block-key=\"buhkq\"><b>Image Border Radius</b>: border radius for the hero image in pixels.</p><p data-block-key=\"buhkr\"><b>Image Border Color</b>: hex color for the hero image border (e.g. #D4450C).</p><p data-block-key=\"buhks\"><b>Image Border Size</b>: border width for the hero image in pixels.</p>",
                   "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
                 }
               ],
@@ -126,6 +141,55 @@
               ]
             },
             "id": "41b699c0-d659-46ba-bc43-c9e61f682689"
+          },
+          {
+            "type": "hero",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"sal9m\">Hero with image border styling. This example uses a blue border with rounded corners to frame the image.</p>",
+                  "id": "b1c2d3e4-0001-4000-8000-000000000010"
+                }
+              ],
+              "image": {
+                "id": 1081,
+                "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
+                "title": "pillar-1",
+                "height": 240,
+                "width": 480,
+                "created_at": "2024-08-13T17:36:07.930857-05:00"
+              },
+              "image_alt": "",
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 2,
+                  "id": "b1c2d3e4-0002-4000-8000-000000000011"
+                },
+                {
+                  "type": "image_alignment",
+                  "value": "right",
+                  "id": "b1c2d3e4-0003-4000-8000-000000000012"
+                },
+                {
+                  "type": "image_border_radius",
+                  "value": "20",
+                  "id": "b1c2d3e4-0004-4000-8000-000000000013"
+                },
+                {
+                  "type": "image_border_color",
+                  "value": "#0DC0DC",
+                  "id": "b1c2d3e4-0005-4000-8000-000000000014"
+                },
+                {
+                  "type": "image_border_size",
+                  "value": "4",
+                  "id": "b1c2d3e4-0006-4000-8000-000000000015"
+                }
+              ]
+            },
+            "id": "b1c2d3e4-0007-4000-8000-000000000016"
           },
           {
             "type": "hero",

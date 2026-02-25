@@ -79,7 +79,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\"><b>card style</b>: the style of the cards. unset is plain.</p><p data-block-key=\"buhkq\"><b>card size</b>: set the width of the cards. default is 27</p><p data-block-key=\"c0lmn\"><b>card columns</b>: set a fixed number of columns. cards show in exactly N columns when there is space, then collapse directly to 1 column. works with card size.</p><p data-block-key=\"c0acc\"><b>accent colors</b>: comma-separated hex colors for card borders (rounded) or top shadows (square). cycles through the colors.</p><p data-block-key=\"c0div\"><b>divider colors</b>: comma-separated hex colors for card divider (hr) lines. independent from accent colors.</p><p data-block-key=\"c0bgc\"><b>background color</b>: hex background color for cards. text color auto-adjusts for contrast.</p><p data-block-key=\"c0bdr\"><b>border size</b>: border thickness (e.g. 2px, 0.3rem). for rounded cards this controls the border width (default: thin). for square cards this controls the top accent bar height (default: 1rem).</p>",
+                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"8vle4\"><b>card style</b>: the style of the cards. unset is plain.</p><p data-block-key=\"buhkq\"><b>card size</b>: set the width of the cards. default is 27</p><p data-block-key=\"c0lmn\"><b>card columns</b>: set a fixed number of columns. cards show in exactly N columns when there is space, then collapse directly to 1 column. works with card size.</p><p data-block-key=\"c0acc\"><b>accent colors</b>: comma-separated hex colors for card borders (rounded) or top shadows (square). cycles through the colors.</p><p data-block-key=\"c0div\"><b>divider colors</b>: comma-separated hex colors for card divider (hr) lines. independent from accent colors.</p><p data-block-key=\"c0bgc\"><b>background color</b>: hex background color for cards. text color auto-adjusts for contrast.</p><p data-block-key=\"c0bdr\"><b>border size</b>: border thickness in pixels. for rounded cards this controls the border width (default: 1px). for square cards this controls the top accent bar height (default: 10px).</p>",
                   "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
                 }
               ],
@@ -473,7 +473,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"cbs01\">Custom Border Size</h2><p data-block-key=\"cbs02\">Rounded cards with <b>border_size: \"3px\"</b> for a thicker border.</p>",
+                  "value": "<h2 data-block-key=\"cbs01\">Custom Border Size</h2><p data-block-key=\"cbs02\">Rounded cards with <b>border_size: 3</b> for a thicker 3px border.</p>",
                   "id": "cbs-text-01"
                 },
                 {
@@ -501,7 +501,7 @@
                       },
                       {
                         "type": "border_size",
-                        "value": "3px",
+                        "value": "3",
                         "id": "cbs-border-01"
                       }
                     ]
@@ -515,7 +515,7 @@
                 },
                 {
                   "type": "text",
-                  "value": "<p data-block-key=\"cbs09\">Square cards with <b>border_size: \"0.5rem\"</b> for a shorter accent bar.</p>",
+                  "value": "<p data-block-key=\"cbs09\">Square cards with <b>border_size: 8</b> for a shorter 8px accent bar.</p>",
                   "id": "cbs-text-02"
                 },
                 {
@@ -543,7 +543,7 @@
                       },
                       {
                         "type": "border_size",
-                        "value": "0.5rem",
+                        "value": "8",
                         "id": "cbs-border-02"
                       }
                     ]

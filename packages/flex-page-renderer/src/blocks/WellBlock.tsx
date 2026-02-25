@@ -76,10 +76,10 @@ WellBlock.blockConfig = {
       ]},
       {name: 'border_radius', label: 'Border Radius', help: 'Border radius in pixels', type: 'number'},
       {name: 'border_color', label: 'Border Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex border color'},
-      {name: 'border_size', label: 'Border Size', type: 'text', help: 'Border width (e.g. 1px, 2px, thin). Only applies when border color is set.'},
+      {name: 'border_size', label: 'Border Size', type: 'number', help: 'Border width in pixels. Only applies when border color is set.'},
       {name: 'padding', label: 'Padding', help: 'Inner padding, in 10px increments', type: 'number'},
       {name: 'margin', label: 'Margin', help: 'Outer margin, in 10px increments', type: 'number'},
-      {name: 'pull_up', label: 'Pull Up', type: 'text', help: 'Pulls the well upward by this amount (e.g. 3rem, 40px). Use with extra padding on the section above to create an overlap effect.'},
+      {name: 'pull_up', label: 'Pull Up', type: 'number', help: 'Pulls the well upward by this amount in rem units. Use with extra padding on the section above to create an overlap effect.'},
       {name: 'width', label: 'Width', help: 'Maximum width of the well content (e.g., 600px, 50%, auto)', type: 'text'},
       {name: 'text_alignment', label: 'Text Alignment', type: 'select', options: [
         {label: 'Left', value: 'left'},
@@ -116,7 +116,7 @@ export function WellBlock({data, content}: {data: WellBlockConfig; content?: Rea
     style={{
       '--padding-multiplier': padding,
       '--margin-multiplier': margin,
-      ...(pullUp ? {marginTop: `-${pullUp}`} : {})
+      ...(pullUp ? {marginTop: `-${pullUp}rem`} : {})
     } as React.CSSProperties}
   >
     <div className="well-content" style={{
@@ -125,7 +125,7 @@ export function WellBlock({data, content}: {data: WellBlockConfig; content?: Rea
       borderRadius: `${borderRadius}px`,
       textAlign,
       maxWidth: width,
-      ...(borderColor ? {border: `${borderSize || '1px'} solid ${borderColor}`} : {})
+      ...(borderColor ? {border: `${borderSize ?? 1}px solid ${borderColor}`} : {})
     }}>
       {content}
     </div>
