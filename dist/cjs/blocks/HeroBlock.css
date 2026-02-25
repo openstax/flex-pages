@@ -1,0 +1,52 @@
+.flex-structure-container > section.content-block-hero {
+  width: 100%;
+  margin: 0;
+}
+.flex-structure-container > section.content-block-hero.dark-background .hero-content {
+  color: #fff;
+}
+.flex-structure-container > section.content-block-hero > div.hero-inner-wrapper {
+  /* to show above divider images */
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template: 1fr/1fr 1fr;
+  grid-gap: 1.5rem;
+  width: calc(100% - 1.5rem);
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  margin-top: calc(1.5rem * var(--padding-top-multiplier, var(--padding-multiplier, 0)));
+  margin-bottom: calc(1.5rem * var(--padding-bottom-multiplier, var(--padding-multiplier, 0)));
+}
+@media (max-width: 37.5em) {
+  .flex-structure-container > section.content-block-hero > div.hero-inner-wrapper {
+    grid-template-columns: 100%;
+  }
+}
+.flex-structure-container > section.content-block-hero > div.hero-inner-wrapper .hero-content {
+  max-width: 80rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 37.5em) {
+  .flex-structure-container > section.content-block-hero > div.hero-inner-wrapper .hero-content {
+    margin: 0 auto 2rem;
+  }
+}
+.flex-structure-container > section.content-block-hero > div.hero-inner-wrapper > div.hero-image-container {
+  display: flex;
+  flex-direction: row;
+  /* should change these based on the desired image alignment (if set) */
+  justify-content: center;
+  align-items: var(--image-vertical-align);
+  /* this assumes the image is wide, we can handle it better we know the image dimensions */
+}
+.flex-structure-container > section.content-block-hero > div.hero-inner-wrapper > div.hero-image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--image-border-radius, 0);
+  border: var(--image-border-size, 0) solid var(--image-border-color, transparent);
+}
+
+/*# sourceMappingURL=HeroBlock.css.map */

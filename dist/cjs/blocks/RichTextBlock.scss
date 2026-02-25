@@ -1,0 +1,47 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page div.content-block-rich-text {
+  width: 100%;
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  img.richtext-image.full-width {
+    width: 100%;
+    height: auto;
+  }
+
+  img.richtext-image.left {
+    float: left;
+    margin-right: $normal-margin;
+  }
+
+  img.richtext-image.right {
+    float: right;
+    margin-left: $normal-margin;
+  }
+
+  h5, h6 {
+    @extend %text-h4;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    @include set-font(body-regular);
+    margin: $normal-margin 0;
+  }
+}
+
+#main.layout-landing .flex-page.page div.content-block-rich-text {
+  p {
+    @include set-font(body-large)
+  }
+}

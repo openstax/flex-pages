@@ -1,0 +1,93 @@
+.flex-structure-container > section.content-block-columns {
+  width: 100%;
+  margin: 0;
+}
+.flex-structure-container > section.content-block-columns.content-block-flex-grow {
+  flex: 1 0;
+}
+.flex-structure-container > section.content-block-columns.content-block-flex {
+  flex: 1;
+}
+.flex-structure-container > section.content-block-columns.content-block-flex-shrink {
+  flex: 0 1;
+}
+.flex-structure-container > section.content-block-columns.content-block-flex, .flex-structure-container > section.content-block-columns.content-block-flex-shrink {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.flex-structure-container > section.content-block-columns.content-block-flex > div.columns-content, .flex-structure-container > section.content-block-columns.content-block-flex-shrink > div.columns-content {
+  overflow-y: hidden;
+}
+.flex-structure-container > section.content-block-columns.content-block-flex > div.columns-content .content-block-columns-left,
+.flex-structure-container > section.content-block-columns.content-block-flex > div.columns-content .content-block-columns-right, .flex-structure-container > section.content-block-columns.content-block-flex-shrink > div.columns-content .content-block-columns-left,
+.flex-structure-container > section.content-block-columns.content-block-flex-shrink > div.columns-content .content-block-columns-right {
+  overflow-y: auto;
+}
+@media (max-width: 60em) {
+  .flex-structure-container > section.content-block-columns.content-block-flex > div.columns-content, .flex-structure-container > section.content-block-columns.content-block-flex-shrink > div.columns-content {
+    overflow-y: auto;
+  }
+}
+.flex-structure-container > section.content-block-columns.content-block-flex-grow > div.columns-content {
+  min-height: 100%;
+}
+.flex-structure-container > section.content-block-columns.content-block-flex > div.columns-content {
+  height: 100%;
+}
+.flex-structure-container > section.content-block-columns.content-block-flex-shrink > div.columns-content {
+  max-height: 100%;
+}
+@media (max-width: 60em) {
+  .flex-structure-container > section.content-block-columns {
+    flex-shrink: 0;
+    display: block;
+  }
+  .flex-structure-container > section.content-block-columns.content-block-flex > div.columns-content {
+    height: unset;
+  }
+  .flex-structure-container > section.content-block-columns.content-block-flex-shrink > div.columns-content {
+    max-height: unset;
+  }
+}
+.flex-structure-container > section.content-block-columns > div.columns-content {
+  /* to show above divider images */
+  position: relative;
+  z-index: 1;
+  width: calc(100% - 1.5rem);
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  margin-top: calc(1.5rem * var(--padding-top-multiplier, var(--padding-multiplier, 0)));
+  margin-bottom: calc(1.5rem * var(--padding-bottom-multiplier, var(--padding-multiplier, 0)));
+  display: flex;
+  flex-direction: row;
+}
+.flex-structure-container > section.content-block-columns > div.columns-content .content-block-columns-left {
+  margin-right: calc(1.5rem * var(--col-gap, 0));
+}
+@media (max-width: 60em) {
+  .flex-structure-container > section.content-block-columns > div.columns-content {
+    display: block;
+    overflow: auto;
+  }
+  .flex-structure-container > section.content-block-columns > div.columns-content .content-block-columns-left {
+    margin-right: unset;
+  }
+}
+.flex-structure-container > section.content-block-columns > div.columns-content .content-block-columns-left,
+.flex-structure-container > section.content-block-columns > div.columns-content .content-block-columns-right {
+  max-width: var(--col-width, unset);
+  flex: var(--col-flex, unset);
+}
+@media (max-width: 60em) {
+  .flex-structure-container > section.content-block-columns > div.columns-content .content-block-columns-left,
+  .flex-structure-container > section.content-block-columns > div.columns-content .content-block-columns-right {
+    flex: unset;
+    max-width: unset;
+  }
+}
+.flex-structure-container > section.content-block-columns.dark-background > div.columns-content {
+  color: #fff;
+}
+
+/*# sourceMappingURL=ColumnsBlock.css.map */
