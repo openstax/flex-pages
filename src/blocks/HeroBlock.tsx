@@ -35,6 +35,15 @@ export type HeroConfigOptions = {
 } | {
     type: 'image_alignment';
     value: string;
+} | {
+    type: 'image_border_radius';
+    value: string;
+} | {
+    type: 'image_border_color';
+    value: string;
+} | {
+    type: 'image_border_size';
+    value: string;
 };
 
 export interface HeroBlockConfig {
@@ -88,6 +97,12 @@ HeroBlock.blockConfig = {
       {name: 'padding_bottom', label: 'Padding Bottom', help: 'Bottom padding, in 10px increments', type: 'number'},
       {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text'},
       {name: 'id', label: 'ID', help: 'The HTML id of the section (can be referenced by anchor links).', type: 'text'},
+      {name: 'image_border_radius', label: 'Image Border Radius', type: 'number',
+        help: 'Border radius for the hero image in pixels'},
+      {name: 'image_border_color', label: 'Image Border Color', type: 'text', pattern: '#[a-fA-F0-9]{6}',
+        help: 'Hex color for the hero image border'},
+      {name: 'image_border_size', label: 'Image Border Size', type: 'number',
+        help: 'Border width for the hero image in pixels'},
     ]},
   ],
 };
@@ -108,6 +123,9 @@ export function HeroBlock({data, content}: {data: HeroBlockConfig; content?: Rea
     const padding = findByType(data.value.config, 'padding')?.value ?? 0;
     const paddingTop = findByType(data.value.config, 'padding_top')?.value;
     const paddingBottom = findByType(data.value.config, 'padding_bottom')?.value;
+    const imageBorderRadius = findByType(data.value.config, 'image_border_radius')?.value;
+    const imageBorderColor = findByType(data.value.config, 'image_border_color')?.value;
+    const imageBorderSize = findByType(data.value.config, 'image_border_size')?.value;
     const analytics = findByType(data.value.config, 'analytics_label')?.value;
     const bg = resolveBackground(backgroundColor, gradientColor, gradientDirection);
 
@@ -123,7 +141,10 @@ export function HeroBlock({data, content}: {data: HeroBlockConfig; content?: Rea
             '--padding-multiplier': padding,
             '--padding-top-multiplier': paddingTop,
             '--padding-bottom-multiplier': paddingBottom,
-            '--image-vertical-align': imageVerticalAlign
+            '--image-vertical-align': imageVerticalAlign,
+            '--image-border-radius': imageBorderRadius ? `${imageBorderRadius}px` : undefined,
+            '--image-border-color': imageBorderColor,
+            '--image-border-size': imageBorderSize ? `${imageBorderSize}px` : undefined
         } as React.CSSProperties}
     >
         <div className="hero-inner-wrapper">

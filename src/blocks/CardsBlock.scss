@@ -59,7 +59,7 @@
 
     &.card_style_rounded > .content-block-card {
       border-radius: 1rem;
-      border-width: var(--card-border-size, thin);
+      border-width: var(--card-border-size, 1px);
       border-style: solid;
       padding: $normal-margin;
       background-color: var(--card-bg-color, ui-color(white));
@@ -88,16 +88,16 @@
       color: text-color(normal);
 
       &:nth-child(4n+1) {
-        box-shadow: 0 calc(-1 * var(--card-border-size, 1rem)) 0 os-color(blue);
+        box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(blue);
       }
       &:nth-child(4n+2) {
-        box-shadow: 0 calc(-1 * var(--card-border-size, 1rem)) 0 os-color(green);
+        box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(green);
       }
       &:nth-child(4n+3) {
-        box-shadow: 0 calc(-1 * var(--card-border-size, 1rem)) 0 os-color(light-blue);
+        box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(light-blue);
       }
       &:nth-child(4n+4) {
-        box-shadow: 0 calc(-1 * var(--card-border-size, 1rem)) 0 os-color(red);
+        box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(red);
       }
     }
 
@@ -108,7 +108,7 @@
       border-color: var(--card-accent);
     }
     &.has-custom-accent.card_style_square > .content-block-card {
-      box-shadow: 0 calc(-1 * var(--card-border-size, 1rem)) 0 var(--card-accent);
+      box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 var(--card-accent);
     }
     &.dark-card-background > .content-block-card {
       color: text-color(white);

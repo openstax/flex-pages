@@ -50,6 +50,8 @@
             img {
               width: 100%;
               height: auto;
+              border-radius: var(--image-border-radius, 0);
+              border: var(--image-border-size, 0) solid var(--image-border-color, transparent);
             }
         }
     }
