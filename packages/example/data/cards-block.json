@@ -108,15 +108,15 @@
                     "cards": [
                       {
                         "text": "<p data-block-key=\"dxu69\">these</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"isfhz\">are</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"isfhz\">rounded</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": [
@@ -140,15 +140,15 @@
                     "cards": [
                       {
                         "text": "<p data-block-key=\"dxu69\">these</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"isfhz\">are</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"isfhz\">square</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": [
@@ -172,15 +172,15 @@
                     "cards": [
                       {
                         "text": "<p data-block-key=\"dxu69\">these</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"isfhz\">are</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"isfhz\">plain</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": []
@@ -213,15 +213,15 @@
                     "cards": [
                       {
                         "text": "<h3 data-block-key=\"c0l03\">Column 1</h3><p data-block-key=\"c0l04\">This layout uses card_columns to fix the column count.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<h3 data-block-key=\"c0l05\">Column 2</h3><p data-block-key=\"c0l06\">It skips intermediate breakpoints like 2 columns.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<h3 data-block-key=\"c0l07\">Column 3</h3><p data-block-key=\"c0l08\">Resize the browser to see 3 columns collapse directly to 1.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": [
@@ -265,19 +265,19 @@
                     "cards": [
                       {
                         "text": "<h3 data-block-key=\"cacc3\">Pink accent</h3><hr/><p data-block-key=\"cacc4\">This card gets the first custom accent color.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<h3 data-block-key=\"cacc5\">Blue accent</h3><hr/><p data-block-key=\"cacc6\">This card gets the second custom accent color.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<h3 data-block-key=\"cacc7\">Teal accent</h3><hr/><p data-block-key=\"cacc8\">This card gets the third custom accent color.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<h3 data-block-key=\"cacc9\">Pink again</h3><hr/><p data-block-key=\"cacca\">The colors cycle, so this card is back to the first color.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": [
@@ -316,15 +316,15 @@
                     "cards": [
                       {
                         "text": "<p data-block-key=\"caccc\">one</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"caccd\">two</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"cacce\">three</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": [
@@ -368,15 +368,15 @@
                     "cards": [
                       {
                         "text": "<h3 data-block-key=\"cbg03\">Dark card</h3><hr/><p data-block-key=\"cbg04\">This card has a dark background with light text.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<h3 data-block-key=\"cbg05\">Dark card</h3><hr/><p data-block-key=\"cbg06\">Text color is automatically derived.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<h3 data-block-key=\"cbg07\">Dark card</h3><hr/><p data-block-key=\"cbg08\">No need to set text color manually.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": [
@@ -420,15 +420,15 @@
                     "cards": [
                       {
                         "text": "<h3 data-block-key=\"cbg0a\">Light green card</h3><hr/><p data-block-key=\"cbg0b\">Light backgrounds keep dark text.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<h3 data-block-key=\"cbg0c\">Light green card</h3><hr/><p data-block-key=\"cbg0d\">Accent colors work with custom backgrounds too.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<h3 data-block-key=\"cbg0e\">Light green card</h3><hr/><p data-block-key=\"cbg0f\">Everything composes together.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": [
@@ -482,15 +482,15 @@
                     "cards": [
                       {
                         "text": "<h3 data-block-key=\"cbs03\">Thick border</h3><p data-block-key=\"cbs04\">This rounded card has a 3px border instead of the default thin.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<h3 data-block-key=\"cbs05\">Thick border</h3><p data-block-key=\"cbs06\">The border size applies to all cards in the block.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<h3 data-block-key=\"cbs07\">Thick border</h3><p data-block-key=\"cbs08\">Works with accent colors too.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": [
@@ -524,15 +524,15 @@
                     "cards": [
                       {
                         "text": "<p data-block-key=\"cbs0a\">shorter</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"cbs0b\">accent</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"cbs0c\">bar</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": [
@@ -581,19 +581,19 @@
                     "cards": [
                       {
                         "text": "<p data-block-key=\"d7xex\">i</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"isfhz\">need</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"isfhz\">a</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"isfhz\">hero!</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": [
@@ -620,7 +620,7 @@
                 "width": 2048,
                 "created_at": "2024-07-12T14:33:51.592227-05:00"
               },
-              "image_alt": "",
+              "imageAlt": "",
               "config": [
                 {
                   "type": "padding",
@@ -641,15 +641,15 @@
                     "cards": [
                       {
                         "text": "<p data-block-key=\"s7kjj\"></p><img alt=\"\" class=\"richtext-image full-width\" height=\"80\" src=\"https://assets.openstax.org/oscms-prod/media/images/ed_tech.width-800.svg\" width=\"80\"><p data-block-key=\"1lvm4\">the plain style looks cool with full-width images and some text</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"s7kjj\"></p><img alt=\"\" class=\"richtext-image full-width\" height=\"80\" src=\"https://assets.openstax.org/oscms-prod/media/images/ed_tech.width-800.svg\" width=\"80\"><p data-block-key=\"1lvm4\">the plain style looks cool with full-width images and some text</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<p data-block-key=\"s7kjj\"></p><img alt=\"\" class=\"richtext-image full-width\" height=\"80\" src=\"https://assets.openstax.org/oscms-prod/media/images/ed_tech.width-800.svg\" width=\"80\"><p data-block-key=\"1lvm4\">the plain style looks cool with full-width images and some text</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": []
@@ -682,15 +682,15 @@
                     "cards": [
                       {
                         "text": "<h2 data-block-key=\"s7kjj\">some heading</h2><hr/><p data-block-key=\"3almm\">the plain style also has support for using a \"horizontal line\" in the text editor, which looks cool with headings and some text</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<h2 data-block-key=\"s7kjj\">some heading</h2><hr/><p data-block-key=\"3almm\">the plain style also has support for using a \"horizontal line\" in the text editor, which looks cool with headings and some text</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       },
                       {
                         "text": "<h2 data-block-key=\"s7kjj\">some heading</h2><hr/><p data-block-key=\"3almm\">the plain style also has support for using a \"horizontal line\" in the text editor, which looks cool with headings and some text</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": []
@@ -723,7 +723,7 @@
                     "cards": [
                       {
                         "text": "<h2 data-block-key=\"ogxop\">short text</h2><p data-block-key=\"eo2ln\">If you have a short block of text, that would look weird in the full content width, you can use a cards block with one card and a card-size defined to make a smaller content width for that text.</p><p data-block-key=\"5um72\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquet faucibus quam, sed mollis quam imperdiet nec.</p>",
-                        "cta_block": []
+                        "ctaBlock": []
                       }
                     ],
                     "config": [
@@ -757,10 +757,10 @@
                     "cards": [
                       {
                         "text": "<p data-block-key=\"z58fs\">cards can have calls to action configured</p>",
-                        "cta_block": [
+                        "ctaBlock": [
                           {
                             "text": "this is a cta",
-                            "aria_label": "",
+                            "ariaLabel": "",
                             "target": {
                               "value": "https://openstax.org",
                               "type": "external"
@@ -771,10 +771,10 @@
                       },
                       {
                         "text": "<p data-block-key=\"z58fs\">you can also put <a href=\"/\">links in the text</a>, but the configured cta will always make sure the links line up at the bottom of the card area, which looks a little cleaner. is this text long enough yet?</p>",
-                        "cta_block": [
+                        "ctaBlock": [
                           {
                             "text": "this is a cta",
-                            "aria_label": "",
+                            "ariaLabel": "",
                             "target": {
                               "value": "https://openstax.org",
                               "type": "external"
@@ -785,10 +785,10 @@
                       },
                       {
                         "text": "<p data-block-key=\"z58fs\">the cta can also be a button, if you're into that kind of thing.</p>",
-                        "cta_block": [
+                        "ctaBlock": [
                           {
                             "text": "this is a cta",
-                            "aria_label": "",
+                            "ariaLabel": "",
                             "target": {
                               "value": "https://openstax.org",
                               "type": "external"

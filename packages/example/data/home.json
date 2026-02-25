@@ -71,7 +71,7 @@
                 "width": 2048,
                 "created_at": "2024-07-12T14:33:51.592227-05:00"
               },
-              "image_alt": "",
+              "imageAlt": "",
               "config": [
                 {
                   "type": "padding",
@@ -339,7 +339,7 @@
                 "width": 612,
                 "created_at": "2024-03-15T11:08:11.032348-05:00"
               },
-              "image_alt": "",
+              "imageAlt": "",
               "config": []
             },
             "id": "f8020f84-2982-43f3-b57a-7787c9bb156c"

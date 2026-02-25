@@ -68,7 +68,7 @@
                     "actions": [
                       {
                         "text": "I'm a button",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -77,7 +77,7 @@
                       },
                       {
                         "text": "Yep, definitely a button",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -141,7 +141,7 @@
                     "actions": [
                       {
                         "text": "primary only",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -159,7 +159,7 @@
                     "actions": [
                       {
                         "text": "primary",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -168,7 +168,7 @@
                       },
                       {
                         "text": "secondary",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -186,7 +186,7 @@
                     "actions": [
                       {
                         "text": "primary",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -195,7 +195,7 @@
                       },
                       {
                         "text": "styled",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -219,7 +219,7 @@
                     "actions": [
                       {
                         "text": "styled",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -234,7 +234,7 @@
                       },
                       {
                         "text": "secondary",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -252,7 +252,7 @@
                     "actions": [
                       {
                         "text": "both",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -267,7 +267,7 @@
                       },
                       {
                         "text": "styled",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -296,7 +296,7 @@
                     "actions": [
                       {
                         "text": "custom dark (#7b2d8e)",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -311,7 +311,7 @@
                       },
                       {
                         "text": "custom light (#ffd54f)",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -335,7 +335,7 @@
                     "actions": [
                       {
                         "text": "custom teal (#009688)",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -350,7 +350,7 @@
                       },
                       {
                         "text": "preset blue outline",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -395,7 +395,7 @@
                     "actions": [
                       {
                         "text": "Subscribe",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -409,7 +409,7 @@
                       },
                       {
                         "text": "Learn more",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.org",
                           "type": "external"
@@ -457,7 +457,7 @@
                           "actions": [
                             {
                               "text": "Register now",
-                              "aria_label": "",
+                              "ariaLabel": "",
                               "target": {
                                 "value": "https://openstax.org",
                                 "type": "external"
@@ -516,7 +516,7 @@
                           "actions": [
                             {
                               "text": "Watch now",
-                              "aria_label": "",
+                              "ariaLabel": "",
                               "target": {
                                 "value": "https://openstax.org",
                                 "type": "external"
