@@ -28,6 +28,9 @@ type TabbedContentConfigOptions = {
 } | {
   type: 'default_tab';
   value: string;
+} | {
+  type: 'border_width';
+  value: 'content' | 'full';
 };
 
 type TabItemConfig = {
@@ -78,6 +81,10 @@ TabbedContentBlock.blockConfig = {
         help: 'Zero-based index of the tab to show by default'},
       {name: 'analytics_label', label: 'Analytics Label',
         help: 'Analytics events from within this block will include this label', type: 'text'},
+      {name: 'border_width', label: 'Border Width', type: 'select', options: [
+        {label: 'Content Width', value: 'content'},
+        {label: 'Full Width', value: 'full'},
+      ]},
       {name: 'id', label: 'ID',
         help: 'The HTML id of the tabbed content block (can be referenced by anchor links).', type: 'text'},
     ]},
@@ -93,6 +100,7 @@ export function TabbedContentBlock({data, tabs: resolvedTabs}: {data: TabbedCont
   const gradientColor = findByType(data.value.config, 'gradient_color')?.value;
   const gradientDirection = findByType(data.value.config, 'gradient_direction')?.value;
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
+  const borderWidth = findByType(data.value.config, 'border_width')?.value;
   const bg = resolveBackground(backgroundColor, gradientColor, gradientDirection);
   const defaultTabRaw = findByType(data.value.config, 'default_tab')?.value;
   const defaultTab = defaultTabRaw
@@ -132,7 +140,7 @@ export function TabbedContentBlock({data, tabs: resolvedTabs}: {data: TabbedCont
 
   return <div
     id={id}
-    className={cn('content-block-tabbed-content', alignment && `tab-align-${alignment}`, {'dark-background': bg.isDark})}
+    className={cn('content-block-tabbed-content', alignment && `tab-align-${alignment}`, borderWidth === 'full' && 'border-full-width', {'dark-background': bg.isDark})}
     data-analytics-nav={analytics}
     style={{
       background: bg.background, backgroundColor: bg.backgroundColor,
