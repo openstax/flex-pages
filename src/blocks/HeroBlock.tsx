@@ -44,6 +44,9 @@ export type HeroConfigOptions = {
 } | {
     type: 'image_border_size';
     value: string;
+} | {
+    type: 'image_overhang';
+    value: string;
 };
 
 export interface HeroBlockConfig {
@@ -103,6 +106,8 @@ HeroBlock.blockConfig = {
         help: 'Hex color for the hero image border'},
       {name: 'image_border_size', label: 'Image Border Size', type: 'number',
         help: 'Border width for the hero image in pixels'},
+      {name: 'image_overhang', label: 'Image Overhang', type: 'text',
+        help: 'Extends the image beyond the content area by this amount (e.g. 5rem, 10%)'},
     ]},
   ],
 };
@@ -126,6 +131,7 @@ export function HeroBlock({data, content}: {data: HeroBlockConfig; content?: Rea
     const imageBorderRadius = findByType(data.value.config, 'image_border_radius')?.value;
     const imageBorderColor = findByType(data.value.config, 'image_border_color')?.value;
     const imageBorderSize = findByType(data.value.config, 'image_border_size')?.value;
+    const imageOverhang = findByType(data.value.config, 'image_overhang')?.value;
     const analytics = findByType(data.value.config, 'analytics_label')?.value;
     const bg = resolveBackground(backgroundColor, gradientColor, gradientDirection);
 
@@ -144,10 +150,11 @@ export function HeroBlock({data, content}: {data: HeroBlockConfig; content?: Rea
             '--image-vertical-align': imageVerticalAlign,
             '--image-border-radius': imageBorderRadius ? `${imageBorderRadius}px` : undefined,
             '--image-border-color': imageBorderColor,
-            '--image-border-size': imageBorderSize ? `${imageBorderSize}px` : undefined
+            '--image-border-size': imageBorderSize ? `${imageBorderSize}px` : undefined,
+            '--image-overhang': imageOverhang || undefined
         } as React.CSSProperties}
     >
-        <div className="hero-inner-wrapper">
+        <div className={cn('hero-inner-wrapper', {'image-left': !imageRight})}>
           {imageRight ? <>
             <div className="hero-content" style={{textAlign}}>
                 {content}
