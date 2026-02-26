@@ -34,6 +34,9 @@ export type SectionConfigOptions = {
 } | {
   type: 'flex';
   value: 'flex' | 'flex-grow' | 'flex-shrink';
+} | {
+  type: 'rendering_condition';
+  value: string;
 };
 
 export interface SectionBlockConfig {
@@ -80,12 +83,17 @@ SectionBlock.blockConfig = {
       {name: 'padding_bottom', label: 'Padding Bottom', help: 'Bottom padding, in 10px increments', type: 'number'},
       {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text'},
       {name: 'id', label: 'ID', help: 'The HTML id of the section (can be referenced by anchor links).', type: 'text'},
+      {name: 'rendering_condition', label: 'Rendering Condition', type: 'text',
+        help: 'Comma-separated condition slugs. Block renders only when at least one is active.'},
     ]},
   ],
 };
 
 // eslint-disable-next-line complexity
-export function SectionBlock({data, content}: {data: SectionBlockConfig; content?: React.ReactNode}) {
+export function SectionBlock({data, content, activeConditions}: {data: SectionBlockConfig; content?: React.ReactNode; activeConditions?: string[]}) {
+  const condition = findByType(data.value.config, 'rendering_condition')?.value;
+  if (condition && !condition.split(',').some(c => activeConditions?.includes(c.trim()))) return null;
+
   const id = findByType(data.value.config, 'id')?.value;
   const textAlign = findByType(data.value.config, 'text_alignment')?.value;
   const flex = findByType(data.value.config, 'flex')?.value;

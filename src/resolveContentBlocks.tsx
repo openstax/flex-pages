@@ -16,7 +16,8 @@ function isBlockArray(value: unknown, blocks: BlockMap): value is ContentBlockCo
 
 function resolveSlotProps(
   block: ContentBlockConfig,
-  blocks: BlockMap
+  blocks: BlockMap,
+  activeConditions?: string[]
 ): Record<string, unknown> {
   const slotProps: Record<string, unknown> = {};
   const value = block.value as Record<string, unknown>;
@@ -25,7 +26,7 @@ function resolveSlotProps(
     if (key === 'config') continue;
 
     if (isBlockArray(val, blocks)) {
-      slotProps[key] = resolveContentBlocks(val, blocks);
+      slotProps[key] = resolveContentBlocks(val, blocks, activeConditions);
       continue;
     }
 
@@ -38,7 +39,7 @@ function resolveSlotProps(
           const resolved = { ...item };
           for (const [itemKey, itemVal] of Object.entries(item)) {
             if (itemKey !== 'config' && isBlockArray(itemVal, blocks)) {
-              resolved[itemKey] = resolveContentBlocks(itemVal as ContentBlockConfig[], blocks);
+              resolved[itemKey] = resolveContentBlocks(itemVal as ContentBlockConfig[], blocks, activeConditions);
             }
           }
           return resolved;
@@ -52,19 +53,21 @@ function resolveSlotProps(
 
 function resolveContentBlock(
   block: ContentBlockConfig,
-  blocks: BlockMap
+  blocks: BlockMap,
+  activeConditions?: string[]
 ): React.ReactNode {
   const Block = blocks[block.type];
   if (!Block) return <pre key={block.id}>{JSON.stringify(block, null, 2)}</pre>;
 
-  const slotProps = resolveSlotProps(block, blocks);
+  const slotProps = resolveSlotProps(block, blocks, activeConditions);
   const Comp: React.ComponentType<any> = Block;
-  return <Comp key={block.id} data={block} {...slotProps} />;
+  return <Comp key={block.id} data={block} activeConditions={activeConditions} {...slotProps} />;
 }
 
 export function resolveContentBlocks(
   data: ContentBlockConfig[],
-  blocks: BlockMap
+  blocks: BlockMap,
+  activeConditions?: string[]
 ): React.ReactNode {
-  return <>{data.map((block) => resolveContentBlock(block, blocks))}</>;
+  return <>{data.map((block) => resolveContentBlock(block, blocks, activeConditions))}</>;
 }

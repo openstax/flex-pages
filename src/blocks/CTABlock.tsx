@@ -57,6 +57,9 @@ type CTAConfig = {
 } | {
   type: 'layout';
   value: 'inline';
+} | {
+  type: 'rendering_condition';
+  value: string;
 };
 
 export interface CTABlockConfig {
@@ -81,11 +84,16 @@ CTABlock.blockConfig = {
       {name: 'layout', label: 'Layout', type: 'select', options: [
         {label: 'Inline', value: 'inline'},
       ]},
+      {name: 'rendering_condition', label: 'Rendering Condition', type: 'text',
+        help: 'Comma-separated condition slugs. Block renders only when at least one is active.'},
     ]},
   ],
 };
 
-export function CTABlock({data}: {data: CTABlockConfig}) {
+export function CTABlock({data, activeConditions}: {data: CTABlockConfig; activeConditions?: string[]}) {
+    const condition = findByType(data.value.config, 'rendering_condition')?.value;
+    if (condition && !condition.split(',').some(c => activeConditions?.includes(c.trim()))) return null;
+
     const analytics = findByType(data.value.config, 'analytics_label')?.value;
     const layout = findByType(data.value.config, 'layout')?.value;
 
