@@ -47,6 +47,9 @@ export type HeroConfigOptions = {
 } | {
     type: 'image_overhang';
     value: string;
+} | {
+    type: 'rendering_condition';
+    value: string;
 };
 
 export interface HeroBlockConfig {
@@ -108,6 +111,8 @@ HeroBlock.blockConfig = {
         help: 'Border width for the hero image in pixels'},
       {name: 'image_overhang', label: 'Image Overhang', type: 'text',
         help: 'Extends the image beyond the content area by this amount (e.g. 5rem, 10%)'},
+      {name: 'rendering_condition', label: 'Rendering Condition', type: 'text',
+        help: 'Comma-separated condition slugs. Block renders only when at least one is active.'},
     ]},
   ],
 };
@@ -119,7 +124,10 @@ const parseAlignment = (alignment: string) => {
 };
 
 // eslint-disable-next-line complexity
-export function HeroBlock({data, content}: {data: HeroBlockConfig; content?: React.ReactNode}) {
+export function HeroBlock({data, content, activeConditions}: {data: HeroBlockConfig; content?: React.ReactNode; activeConditions?: string[]}) {
+    const condition = findByType(data.value.config, 'rendering_condition')?.value;
+    if (condition && !condition.split(',').some(c => activeConditions?.includes(c.trim()))) return null;
+
     const id = findByType(data.value.config, 'id')?.value;
     const textAlign = findByType(data.value.config, 'text_alignment')?.value;
     const backgroundColor = findByType(data.value.config, 'background_color')?.value;
