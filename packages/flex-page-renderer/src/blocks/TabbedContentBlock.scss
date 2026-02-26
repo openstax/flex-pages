@@ -5,8 +5,6 @@
   width: 100%;
 
   > .tab-list-container {
-    border-bottom: 1px solid ui-color(form-border);
-
     > .tab-list {
       display: flex;
       overflow-x: auto;
@@ -15,6 +13,7 @@
       width: calc(100% - $normal-margin);
       max-width: var(--max-content-width);
       margin: 0 auto;
+      border-bottom: 1px solid ui-color(form-border);
 
       &::-webkit-scrollbar {
         height: 4px;
@@ -23,6 +22,14 @@
         background: ui-color(form-border);
         border-radius: 2px;
       }
+    }
+  }
+
+  &.border-full-width > .tab-list-container {
+    border-bottom: 1px solid ui-color(form-border);
+
+    > .tab-list {
+      border-bottom: none;
     }
   }
 

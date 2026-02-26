@@ -79,7 +79,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\"><b>tab_alignment</b>: align tabs left (default), center, or right.</p><p data-block-key=\"8vle4\"><b>active_color</b>: hex color for the active tab underline and text.</p><p data-block-key=\"buhkq\"><b>default_tab</b>: zero-based index of which tab to show initially.</p><p data-block-key=\"c0lmn\"><b>analytics_label</b>: label for analytics events within this block.</p><p data-block-key=\"c0acc\"><b>id</b>: HTML id for anchor link targeting.</p>",
+                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\"><b>tab_alignment</b>: align tabs left (default), center, or right.</p><p data-block-key=\"8vle4\"><b>active_color</b>: hex color for the active tab underline and text.</p><p data-block-key=\"buhkq\"><b>default_tab</b>: zero-based index of which tab to show initially.</p><p data-block-key=\"bwdth\"><b>border_width</b>: &quot;content&quot; (default) constrains the bottom border to content width, &quot;full&quot; spans the full page width.</p><p data-block-key=\"c0lmn\"><b>analytics_label</b>: label for analytics events within this block.</p><p data-block-key=\"c0acc\"><b>id</b>: HTML id for anchor link targeting.</p>",
                   "id": "b1b2c3d4-3333-1111-1111-000000000012"
                 }
               ],
@@ -315,7 +315,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h3 data-block-key=\"36jpq\">Center-aligned with custom color</h3>",
+                  "value": "<h3 data-block-key=\"36jpq\">Center-aligned with custom color and full-width border</h3>",
                   "id": "b1b2c3d4-3333-1111-1111-000000000021"
                 }
               ],
@@ -419,6 +419,11 @@
                   "type": "active_color",
                   "value": "#d4006a",
                   "id": "b1b2c3d4-3333-4444-1111-000000000011"
+                },
+                {
+                  "type": "border_width",
+                  "value": "full",
+                  "id": "b1b2c3d4-3333-4444-1111-000000000013"
                 }
               ]
             },
