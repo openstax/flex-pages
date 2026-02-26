@@ -108,7 +108,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Heroes have a config section with a number of options. All options from sections are (should be, but are not currently) supported on heroes as well.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"4sc9\">everything from <a href=\"/flex-pages/section\">sections</a></p><p data-block-key=\"8ih75\"><b>Image alignment</b>: switches the image to be on the left side (with content on the right), or control the image's vertical alignment.</p><p data-block-key=\"buhkq\"><b>Image Border Radius</b>: border radius for the hero image in pixels.</p><p data-block-key=\"buhkr\"><b>Image Border Color</b>: hex color for the hero image border (e.g. #D4450C).</p><p data-block-key=\"buhks\"><b>Image Border Size</b>: border width for the hero image in pixels.</p>",
+                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Heroes have a config section with a number of options. All options from sections are (should be, but are not currently) supported on heroes as well.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"4sc9\">everything from <a href=\"/flex-pages/section\">sections</a></p><p data-block-key=\"8ih75\"><b>Image alignment</b>: switches the image to be on the left side (with content on the right), or control the image's vertical alignment.</p><p data-block-key=\"buhkq\"><b>Image Border Radius</b>: border radius for the hero image in pixels.</p><p data-block-key=\"buhkr\"><b>Image Border Color</b>: hex color for the hero image border (e.g. #D4450C).</p><p data-block-key=\"buhks\"><b>Image Border Size</b>: border width for the hero image in pixels.</p><p data-block-key=\"buhkt\"><b>Image Overhang</b>: a CSS value (e.g. 5rem, 10%) that extends the image beyond the content area. Percentage values are relative to the grid column width, making them responsive. The section clips the overflow to prevent horizontal scrollbars. Overhang is disabled on mobile.</p>",
                   "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
                 }
               ],
@@ -394,6 +394,119 @@
               ]
             },
             "id": "47944af2-57df-4372-85ac-38f7dd422c35"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"ovh01\">Image Overhang</h2><p data-block-key=\"ovh02\">The image overhang option extends the hero image beyond the content area by a configurable CSS value (e.g. 5rem, 10%). Percentage values are relative to the grid column width, so they scale responsively. The section uses overflow hidden to prevent horizontal scrollbars.</p>",
+                  "id": "ovh-intro-text-001"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "ovh-intro-pad-001"
+                }
+              ]
+            },
+            "id": "ovh-intro-section-001"
+          },
+          {
+            "type": "hero",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"ovh03\">Hero with image overhang on the right. The image extends 20% beyond the content area to the right, creating a dramatic visual effect.</p>",
+                  "id": "ovh-right-text-001"
+                }
+              ],
+              "image": {
+                "id": 1081,
+                "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
+                "title": "pillar-1",
+                "height": 240,
+                "width": 480,
+                "created_at": "2024-08-13T17:36:07.930857-05:00"
+              },
+              "imageAlt": "",
+              "config": [
+                {
+                  "type": "image_alignment",
+                  "value": "right",
+                  "id": "ovh-right-align-001"
+                },
+                {
+                  "type": "padding",
+                  "value": 2,
+                  "id": "ovh-right-pad-001"
+                },
+                {
+                  "type": "image_border_radius",
+                  "value": "8",
+                  "id": "ovh-right-border-radius-001"
+                },
+                {
+                  "type": "image_border_color",
+                  "value": "#0DC0DC",
+                  "id": "ovh-right-border-color-001"
+                },
+                {
+                  "type": "image_border_size",
+                  "value": "2",
+                  "id": "ovh-right-border-size-001"
+                },
+                {
+                  "type": "image_overhang",
+                  "value": "20%",
+                  "id": "ovh-right-overhang-001"
+                }
+              ]
+            },
+            "id": "ovh-right-hero-001"
+          },
+          {
+            "type": "hero",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"ovh04\">Hero with image overhang on the left. The image extends 20% beyond the content area to the left.</p>",
+                  "id": "ovh-left-text-001"
+                }
+              ],
+              "image": {
+                "id": 1081,
+                "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
+                "title": "pillar-1",
+                "height": 240,
+                "width": 480,
+                "created_at": "2024-08-13T17:36:07.930857-05:00"
+              },
+              "imageAlt": "",
+              "config": [
+                {
+                  "type": "image_alignment",
+                  "value": "left",
+                  "id": "ovh-left-align-001"
+                },
+                {
+                  "type": "padding",
+                  "value": 2,
+                  "id": "ovh-left-pad-001"
+                },
+                {
+                  "type": "image_overhang",
+                  "value": "20%",
+                  "id": "ovh-left-overhang-001"
+                }
+              ]
+            },
+            "id": "ovh-left-hero-001"
           }
         ]
       }
