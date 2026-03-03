@@ -3,7 +3,6 @@
 .flex-page.page {
   display: flex;
   flex-flow: column nowrap;
-  overflow: hidden;
   color: text-color(normal);
 
   &.width-fixed {
