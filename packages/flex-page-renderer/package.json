@@ -26,12 +26,12 @@
   },
   "exports": {
     ".": {
-      "browser": "./dist/cjs/index.js",
+      "browser": "./dist/esm/index.js",
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
     },
     "./*": {
-      "browser": "./dist/cjs/*.js",
+      "browser": "./dist/esm/*.js",
       "import": "./dist/esm/*.js",
       "require": "./dist/cjs/*.js"
     }
