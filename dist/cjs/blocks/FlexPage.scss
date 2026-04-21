@@ -1,0 +1,20 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-structure-container {
+  container-type: inline-size;
+  container-name: flex-structure;
+}
+
+.flex-page.page {
+  display: flex;
+  flex-flow: column nowrap;
+  color: text-color(normal);
+
+  &.width-fixed {
+    @include wider-than($media-content-max) {
+      --max-content-width: #{$content-max};
+    }
+  }
+
+  @import 'pattern-library/core/pattern-library/elements/typography';
+}

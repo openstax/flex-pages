@@ -1,0 +1,120 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page div.content-block-cards {
+    display: grid;
+
+    /* needs responsive design */
+    grid-template-columns: repeat(auto-fit, minmax(min-content, calc(var(--card-size, 27) * 1rem)));
+    grid-gap: ($normal-margin * 2);
+    justify-content: center;
+
+    // Fixed column count with dynamic responsive breakpoint.
+    // Uses a CSS clamp toggle: shows exactly N columns when there's space,
+    // jumps directly to 1 column when there isn't — no intermediate sizes.
+    &.has-columns {
+        --container-min: calc(
+            var(--card-columns) * var(--card-size, 27) * 1rem +
+            (var(--card-columns) - 1) * #{$normal-margin * 2}
+        );
+        --col-toggle: calc((var(--container-min) - 100%) * 9999);
+
+        max-width: var(--container-min);
+        margin-inline: auto;
+        grid-template-columns: repeat(auto-fit,
+            minmax(clamp(calc(var(--card-size, 27) * 1rem), var(--col-toggle), 100%), 1fr)
+        );
+    }
+
+    > .content-block-card {
+      /* to show above divider images */
+      position: relative;
+      z-index: 1;
+
+      display: flex;
+      flex-direction: column;
+
+      > .content-block-rich-text {
+        flex: 1;
+      }
+
+      hr {
+        border: none;
+        height: 1rem;
+        margin: 2rem 5rem;
+      }
+
+      &:nth-child(4n+1) hr {
+        background-color: os-color(yellow);
+      }
+      &:nth-child(4n+2) hr {
+        background-color: os-color(light-blue);
+      }
+      &:nth-child(4n+3) hr {
+        background-color: os-color(orange);
+      }
+      &:nth-child(4n+4) hr {
+        background-color: os-color(green);
+      }
+    }
+
+    &.card_style_rounded > .content-block-card {
+      border-radius: 1rem;
+      border-width: var(--card-border-size, 1px);
+      border-style: solid;
+      padding: $normal-margin;
+      background-color: var(--card-bg-color, ui-color(white));
+      color: text-color(normal);
+
+      &:nth-child(4n+1) {
+        border-color: os-color(yellow);
+      }
+      &:nth-child(4n+2) {
+        border-color: os-color(red);
+      }
+      &:nth-child(4n+3) {
+        border-color: os-color(orange);
+      }
+      &:nth-child(4n+4) {
+        border-color: os-color(green);
+      }
+    }
+
+    // stylelint-disable-next-line no-descending-specificity
+    &.card_style_square > .content-block-card {
+      border: thin solid ui-color(form-border);
+      border-top: none;
+      padding: $normal-margin;
+      background-color: var(--card-bg-color, ui-color(white));
+      color: text-color(normal);
+
+      &:nth-child(4n+1) {
+        box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(blue);
+      }
+      &:nth-child(4n+2) {
+        box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(green);
+      }
+      &:nth-child(4n+3) {
+        box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(light-blue);
+      }
+      &:nth-child(4n+4) {
+        box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(red);
+      }
+    }
+
+    &.has-custom-divider > .content-block-card hr {
+      background-color: var(--card-divider);
+    }
+    &.has-custom-accent.card_style_rounded > .content-block-card {
+      border-color: var(--card-accent);
+    }
+    &.has-custom-accent.card_style_square > .content-block-card {
+      box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 var(--card-accent);
+    }
+    &.dark-card-background > .content-block-card {
+      color: text-color(white);
+    }
+
+    h2, h3 {
+      @include scale-set-font(h4, h3);
+    }
+}

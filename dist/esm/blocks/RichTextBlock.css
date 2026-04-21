@@ -1,0 +1,49 @@
+.flex-page.page div.content-block-rich-text h5, .flex-page.page div.content-block-rich-text h6 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: -0.072rem;
+  line-height: normal;
+  line-height: 2.5rem;
+}
+
+.flex-page.page div.content-block-rich-text {
+  width: 100%;
+}
+.flex-page.page div.content-block-rich-text::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.flex-page.page div.content-block-rich-text img.richtext-image.full-width {
+  width: 100%;
+  height: auto;
+}
+.flex-page.page div.content-block-rich-text img.richtext-image.left {
+  float: left;
+  margin-right: 1.5rem;
+}
+.flex-page.page div.content-block-rich-text img.richtext-image.right {
+  float: right;
+  margin-left: 1.5rem;
+}
+.flex-page.page div.content-block-rich-text h1:first-child, .flex-page.page div.content-block-rich-text h2:first-child, .flex-page.page div.content-block-rich-text h3:first-child, .flex-page.page div.content-block-rich-text h4:first-child, .flex-page.page div.content-block-rich-text h5:first-child, .flex-page.page div.content-block-rich-text h6:first-child {
+  margin-top: 0;
+}
+.flex-page.page div.content-block-rich-text p {
+  font-size: 1.6rem;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  line-height: 2.5rem;
+  margin: 1.5rem 0;
+}
+
+#main.layout-landing .flex-page.page div.content-block-rich-text p {
+  font-size: 1.8rem;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  line-height: 3rem;
+}
+
+/*# sourceMappingURL=RichTextBlock.css.map */
