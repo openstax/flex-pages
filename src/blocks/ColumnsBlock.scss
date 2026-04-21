@@ -21,10 +21,6 @@
       .content-block-columns-right {
         overflow-y: auto;
       }
-
-      @include width-up-to($tablet-max) {
-        overflow-y: auto;
-      }
     }
   }
 
@@ -36,18 +32,6 @@
   }
   &.content-block-flex-shrink > div.columns-content {
     max-height: 100%;
-  }
-
-  @include width-up-to($tablet-max) {
-    flex-shrink: 0;
-    display: block;
-
-    &.content-block-flex > div.columns-content {
-      height: unset;
-    }
-    &.content-block-flex-shrink > div.columns-content {
-      max-height: unset;
-    }
   }
 
   > div.columns-content {
@@ -68,24 +52,10 @@
       margin-right: calc( #{$normal-margin} * var(--col-gap, 0));
     }
 
-    @include width-up-to($tablet-max) {
-      display: block;
-      overflow: auto;
-
-      .content-block-columns-left {
-        margin-right: unset;
-      }
-    }
-
     .content-block-columns-left,
     .content-block-columns-right {
       max-width: var(--col-width, unset);
       flex: var(--col-flex, unset);
-
-      @include width-up-to($tablet-max) {
-        flex: unset;
-        max-width: unset;
-      }
     }
   }
 
