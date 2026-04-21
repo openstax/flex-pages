@@ -40,6 +40,9 @@ export type SectionConfigOptions = {
 } | {
   type: 'flex';
   value: 'flex' | 'flex-grow' | 'flex-shrink';
+} | {
+  type: 'stack_at';
+  value: string;
 };
 
 export interface ColumnsBlockConfig {
@@ -84,6 +87,7 @@ ColumnsBlock.blockConfig = {
       {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text'},
       {name: 'id', label: 'ID', help: 'The HTML id of the section (can be referenced by anchor links).', type: 'text'},
       {name: 'gap', label: 'Column Gap', help: 'The space between the columns, in 10px increments', type: 'number'},
+      {name: 'stack_at', label: 'Stack Below Width', help: 'Column width at which the two columns stack vertically (CSS length, e.g. 60em, 400px). Defaults to 60em.', type: 'text'},
       {name: 'right_size', label: 'Right Column Size', help: 'CSS text for the right column eg (20rem, 30%)', type: 'text',
         disabledWhen: (data: any) => !!data?.config?.find((c: any) => c.name === 'left_size')
       },
@@ -93,6 +97,9 @@ ColumnsBlock.blockConfig = {
     ]},
   ],
 };
+
+const STACK_AT_DEFAULT = '60em';
+const STACK_AT_PATTERN = /^\d+(\.\d+)?(px|em|rem|%|vw|vh|cqw|cqi|cqmin|cqmax|ch|ex)$/;
 
 // eslint-disable-next-line complexity
 export function ColumnsBlock({data, leftContent, rightContent}: {data: ColumnsBlockConfig; leftContent?: React.ReactNode; rightContent?: React.ReactNode}) {
@@ -108,7 +115,10 @@ export function ColumnsBlock({data, leftContent, rightContent}: {data: ColumnsBl
   const paddingTop = findByType(data.value.config, 'padding_top')?.value;
   const paddingBottom = findByType(data.value.config, 'padding_bottom')?.value;
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
+  const stackAtRaw = findByType(data.value.config, 'stack_at')?.value;
+  const stackAt = stackAtRaw && STACK_AT_PATTERN.test(stackAtRaw.trim()) ? stackAtRaw.trim() : STACK_AT_DEFAULT;
   const bg = resolveBackground(backgroundColor, gradientColor, gradientDirection);
+  const scope = React.useId();
 
   const leftDisplay = data.value.leftContent.some(d => findByType(d.value.config, 'flex'))
     ? 'flex' : 'block';
@@ -126,8 +136,20 @@ export function ColumnsBlock({data, leftContent, rightContent}: {data: ColumnsBl
     ...(rightSize ? {'--col-width': rightSize} : {'--col-flex': 1}),
   };
 
+  const sel = `.flex-structure-container > section.content-block-columns[data-cols="${scope}"]`;
+  const stackCSS = `@container flex-structure (max-width: ${stackAt}) {
+    ${sel} { flex-shrink: 0; display: block }
+    ${sel}.content-block-flex > div.columns-content,
+    ${sel}.content-block-flex-shrink > div.columns-content { overflow-y: auto; height: unset; max-height: unset }
+    ${sel} > div.columns-content { display: block; overflow: auto }
+    ${sel} > div.columns-content .content-block-columns-left { margin-right: unset }
+    ${sel} > div.columns-content .content-block-columns-left,
+    ${sel} > div.columns-content .content-block-columns-right { flex: unset; max-width: unset }
+  }`;
+
   return <section
     id={id}
+    data-cols={scope}
     className={cn('content-block-columns', {'dark-background': bg.isDark, [`content-block-${flex}`]: flex})}
     data-analytics-nav={analytics}
     style={{background: bg.background, backgroundColor: bg.backgroundColor,
@@ -137,6 +159,7 @@ export function ColumnsBlock({data, leftContent, rightContent}: {data: ColumnsBl
       '--padding-bottom-multiplier': paddingBottom
     } as React.CSSProperties}
   >
+    <style>{stackCSS}</style>
     <div className="columns-content">
       <div className="content-block-columns-left" style={leftStyle as React.CSSProperties}>
         {leftContent}
