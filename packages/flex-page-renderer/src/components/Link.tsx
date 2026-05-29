@@ -2,26 +2,13 @@ import React from 'react';
 import { ActionContext } from '../ActionContext';
 import { RouteContext } from '../RouteContext';
 import { scrollTo } from '../utils';
+import type { LinkProps } from './Link.fields';
 
-export interface LinkFields {
-  text: string;
-  ariaLabel?: string;
-  target: {
-    type: string;
-    value: string;
-    params?: Record<string, string>;
-  };
-}
-
-export const linkFieldConfig = [
-  {name: 'text', label: 'Link Text', type: 'text', required: true},
-  {name: 'ariaLabel', label: 'Aria Label', type: 'text'},
-  {name: 'target', label: 'Link Target', type: 'link-target'},
-];
-
-type LinkProps = {
-  link: LinkFields;
-} & React.AnchorHTMLAttributes<HTMLAnchorElement> & React.ButtonHTMLAttributes<HTMLButtonElement>;
+// Re-exported for existing client-side consumers of this module. Server code
+// must import these from './Link.fields' directly to avoid evaluating this
+// (client) module.
+export type { LinkFields, LinkProps } from './Link.fields';
+export { linkFieldConfig } from './Link.fields';
 
 export function Link({link, ...props}: LinkProps) {
   const type = link.target.type;

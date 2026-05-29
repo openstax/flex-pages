@@ -1,5 +1,5 @@
 import React from 'react';
-import type { BlockComponent, ContentBlockConfig } from './ContentBlockContext';
+import type { BlockComponent, BlockComponentRegistry, ContentBlockConfig } from './ContentBlockContext';
 
 type BlockMap = Record<string, BlockComponent>;
 
@@ -17,6 +17,7 @@ function isBlockArray(value: unknown, blocks: BlockMap): value is ContentBlockCo
 function resolveSlotProps(
   block: ContentBlockConfig,
   blocks: BlockMap,
+  components: BlockComponentRegistry,
   activeConditions?: string[]
 ): Record<string, unknown> {
   const slotProps: Record<string, unknown> = {};
@@ -26,7 +27,7 @@ function resolveSlotProps(
     if (key === 'config') continue;
 
     if (isBlockArray(val, blocks)) {
-      slotProps[key] = resolveContentBlocks(val, blocks, activeConditions);
+      slotProps[key] = resolveContentBlocks(val, blocks, components, activeConditions);
       continue;
     }
 
@@ -39,7 +40,7 @@ function resolveSlotProps(
           const resolved = { ...item };
           for (const [itemKey, itemVal] of Object.entries(item)) {
             if (itemKey !== 'config' && isBlockArray(itemVal, blocks)) {
-              resolved[itemKey] = resolveContentBlocks(itemVal as ContentBlockConfig[], blocks, activeConditions);
+              resolved[itemKey] = resolveContentBlocks(itemVal as ContentBlockConfig[], blocks, components, activeConditions);
             }
           }
           return resolved;
@@ -54,20 +55,22 @@ function resolveSlotProps(
 function resolveContentBlock(
   block: ContentBlockConfig,
   blocks: BlockMap,
+  components: BlockComponentRegistry,
   activeConditions?: string[]
 ): React.ReactNode {
   const Block = blocks[block.type];
   if (!Block) return <pre key={block.id}>{JSON.stringify(block, null, 2)}</pre>;
 
-  const slotProps = resolveSlotProps(block, blocks, activeConditions);
+  const slotProps = resolveSlotProps(block, blocks, components, activeConditions);
   const Comp: React.ComponentType<any> = Block;
-  return <Comp key={block.id} data={block} activeConditions={activeConditions} {...slotProps} />;
+  return <Comp key={block.id} data={block} components={components} activeConditions={activeConditions} {...slotProps} />;
 }
 
 export function resolveContentBlocks(
   data: ContentBlockConfig[],
   blocks: BlockMap,
+  components: BlockComponentRegistry,
   activeConditions?: string[]
 ): React.ReactNode {
-  return <>{data.map((block) => resolveContentBlock(block, blocks, activeConditions))}</>;
+  return <>{data.map((block) => resolveContentBlock(block, blocks, components, activeConditions))}</>;
 }
