@@ -1,0 +1,135 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page div.content-block-cta-block {
+  margin: $normal-margin 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+
+  > .cta-description {
+    margin-bottom: $normal-margin;
+  }
+
+  > .cta-actions {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: $normal-margin;
+  }
+
+  &.layout-inline {
+    display: flex;
+    gap: $normal-margin;
+    align-items: center;
+
+    > .cta-description {
+      flex: 1;
+      min-width: 0;
+      margin-bottom: 0;
+    }
+
+    > .cta-actions {
+      display: flex;
+    }
+  }
+
+  .cta-actions > a, .cta-actions > button {
+    &:nth-child(1):not(.styled-button) {
+        @include button();
+        @extend %primary;
+        @include body-font(2rem);
+    }
+    &:nth-child(2):not(.styled-button) {
+        @include button();
+        background-color: ui-color(white);
+        @include body-font(2rem);
+    }
+    &:nth-child(n):not(.styled-button) {
+        white-space: normal;
+        height: auto;
+        min-height: 5rem;
+        max-width: 100%;
+    }
+
+    /* nth-child hack to raise specificity */
+    & + a, & + button {
+      &:nth-child(n):nth-child(n) {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.flex-page.page .cta-link {
+
+  &.style-orange {
+      @include button();
+      @extend %primary;
+      @include body-font(2rem);
+  }
+
+  &.style-white {
+      @include button();
+      background-color: ui-color(white);
+      @include body-font(2rem);
+  }
+
+  &.style-blue_outline {
+      @include button();
+      background-color: ui-color(white);
+      border-color: os-color(blue);
+      @include body-font(2rem);
+  }
+
+  &.style-deep_green_outline {
+      @include button();
+      background-color: ui-color(white);
+      border-color: os-color(deep-green);
+      @include body-font(2rem);
+  }
+
+  &.style-custom-dark {
+      @include button();
+      background-color: var(--cta-custom-color);
+      border-color: var(--cta-custom-color);
+      color: text-color(white);
+      @include body-font(2rem);
+
+      &:hover, &:focus {
+          background-color: color-mix(in srgb, var(--cta-custom-color), black 15%);
+      }
+      &:active {
+          background-color: color-mix(in srgb, var(--cta-custom-color), black 25%);
+      }
+  }
+
+  &.style-custom-light {
+      @include button();
+      background-color: var(--cta-custom-color);
+      border-color: var(--cta-custom-color);
+      color: text-color(normal);
+      @include body-font(2rem);
+
+      &:hover, &:focus {
+          background-color: color-mix(in srgb, var(--cta-custom-color), white 15%);
+      }
+      &:active {
+          background-color: color-mix(in srgb, var(--cta-custom-color), white 25%);
+      }
+  }
+
+  &.style-orange,
+  &.style-white,
+  &.style-blue_outline,
+  &.style-deep_green_outline,
+  &.style-custom-dark,
+  &.style-custom-light {
+    white-space: normal;
+    height: auto;
+    min-height: 5rem;
+    max-width: 100%;
+  }
+}
