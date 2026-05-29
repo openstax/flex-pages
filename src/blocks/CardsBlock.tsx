@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import Color from 'color';
 import React from 'react';
+import type { BlockComponentRegistry } from '../ContentBlockContext';
 import { findByType } from '../utils';
 import { CTALink, ctaLinkFieldConfig, CTALinkFields } from './CTABlock';
 import { RichTextContent } from './RichTextBlock';
@@ -74,7 +75,7 @@ CardsBlock.blockConfig = {
   ],
 };
 
-export function CardsBlock({data}: {data: CardsBlockConfig}) {
+export function CardsBlock({data, components}: {data: CardsBlockConfig; components: BlockComponentRegistry}) {
   const cardStyle = findByType(data.value.config, 'card_style')?.value;
   const styleClass = cardStyle ? `card_style_${cardStyle}` : undefined;
   const cardSize = findByType(data.value.config, 'card_size')?.value;
@@ -111,6 +112,7 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
       {data.value.cards.map((card, i) => <CardBlock
         key={i}
         data={card}
+        components={components}
         accentColor={accentColors ? accentColors[i % accentColors.length] : undefined}
         dividerColor={dividerColors ? dividerColors[i % dividerColors.length] : undefined}
       />)}
@@ -118,7 +120,7 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
   );
 }
 
-export function CardBlock({data, accentColor, dividerColor}: {data: CardBlockConfig; accentColor?: string; dividerColor?: string}) {
+export function CardBlock({data, components, accentColor, dividerColor}: {data: CardBlockConfig; components: BlockComponentRegistry; accentColor?: string; dividerColor?: string}) {
   const [cta] = data.ctaBlock ?? [];
   const style = (accentColor || dividerColor)
     ? {
@@ -129,6 +131,6 @@ export function CardBlock({data, accentColor, dividerColor}: {data: CardBlockCon
 
   return <div className="content-block-card" style={style}>
     <RichTextContent html={data.text} />
-    {cta ? <CTALink link={cta} /> : null}
+    {cta ? <CTALink link={cta} components={components} /> : null}
   </div>;
 }
