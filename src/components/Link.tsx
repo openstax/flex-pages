@@ -1,7 +1,8 @@
+'use client';
 import React from 'react';
 import { ActionContext } from '../ActionContext';
 import { RouteContext } from '../RouteContext';
-import { scrollTo } from '../utils';
+import { handleLinkClick } from '../lib/linkBehavior';
 import type { LinkProps } from './Link.fields';
 
 // Re-exported for existing client-side consumers of this module. Server code
@@ -17,23 +18,8 @@ export function Link({link, ...props}: LinkProps) {
   const route = type === 'route' ? routes[link.target.value] : undefined;
 
   const onClick = React.useCallback((e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
-    if (type === 'anchor') {
-      e.preventDefault();
-      const target = document.getElementById(link.target.value.substring(1));
-
-      if (target) {
-        scrollTo(target);
-      }
-    } if (route) {
-      if (isClickWithModifierKeys(e) || e.currentTarget.getAttribute('target') === '_blank') {
-        return;
-      }
-      e.preventDefault();
-      route.handler(link.target.params);
-    } else if (type === 'action') {
-      actions[link.target.value]?.handler?.(link.target.params);
-    }
-  }, [link]);
+    handleLinkClick(e, e.currentTarget, link.target, { routes, actions });
+  }, [link, routes, actions]);
 
   if (type === 'action') {
     return <button
@@ -59,8 +45,4 @@ export function Link({link, ...props}: LinkProps) {
     href={link.target.value}
     onClick={onClick}
   >{link.text}</a>;
-}
-
-function isClickWithModifierKeys(e: React.MouseEvent | MouseEvent) {
-  return Boolean(e.shiftKey || e.ctrlKey || e.metaKey || e.altKey);
 }

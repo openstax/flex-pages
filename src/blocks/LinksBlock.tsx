@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import Color from 'color';
 import React from 'react';
-import type { BlockComponentRegistry } from '../ContentBlockContext';
+import { Link } from '../components/Link';
 import { linkFieldConfig, LinkFields } from '../components/Link.fields';
 import { findByType } from '../utils';
 import './LinksBlock.css';
@@ -58,8 +58,7 @@ LinksBlock.blockConfig = {
   ],
 };
 
-export function LinksBlock({data, components}: {data: LinksBlockConfig; components: BlockComponentRegistry}) {
-  const { Link } = components;
+export function LinksBlock({data}: {data: LinksBlockConfig}) {
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
   const color = findByType(data.value.config, 'color')?.value ?? 'white';
   const customColor = findByType(data.value.config, 'custom_color')?.value;
