@@ -1,3 +1,4 @@
+'use client';
 import cn from 'classnames';
 import React from 'react';
 import type { ContentBlockConfig } from '../ContentBlockContext';

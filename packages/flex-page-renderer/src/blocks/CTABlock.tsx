@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import Color from 'color';
 import React from 'react';
-import type { BlockComponentRegistry } from '../ContentBlockContext';
+import { Link } from '../components/Link';
 import { linkFieldConfig, LinkFields } from '../components/Link.fields';
 import { findByType } from '../utils';
 import { RichTextContent } from './RichTextBlock';
@@ -32,7 +32,7 @@ export const ctaLinkFieldConfig = [
   ]},
 ];
 
-export function CTALink({link, components}: {link: CTALinkFields; components: BlockComponentRegistry}) {
+export function CTALink({link}: {link: CTALinkFields}) {
     const stylePreset = findByType(link.config, 'style')?.value;
     const customColor = findByType(link.config, 'custom_color')?.value;
 
@@ -45,7 +45,6 @@ export function CTALink({link, components}: {link: CTALinkFields; components: Bl
         ? {'--cta-custom-color': customColor} as React.CSSProperties
         : undefined;
 
-    const { Link } = components;
     return <Link
         link={link}
         className={cn('cta-link', styleClass, customColorClass, (styleClass || customColorClass) ? 'styled-button' : undefined)}
@@ -92,7 +91,7 @@ CTABlock.blockConfig = {
   ],
 };
 
-export function CTABlock({data, activeConditions, components}: {data: CTABlockConfig; activeConditions?: string[]; components: BlockComponentRegistry}) {
+export function CTABlock({data, activeConditions}: {data: CTABlockConfig; activeConditions?: string[]}) {
     const condition = findByType(data.value.config, 'rendering_condition')?.value;
     if (condition && !condition.split(',').some(c => activeConditions?.includes(c.trim()))) return null;
 
@@ -102,7 +101,7 @@ export function CTABlock({data, activeConditions, components}: {data: CTABlockCo
     return <div className={cn('content-block-cta-block', layout === 'inline' ? 'layout-inline' : undefined)} data-analytics-nav={analytics}>
         {data.value.description ? <div className="cta-description"><RichTextContent html={data.value.description} /></div> : null}
         <div className="cta-actions">
-            {data.value.actions.map((action, i) => <CTALink key={i} link={action} components={components} />)}
+            {data.value.actions.map((action, i) => <CTALink key={i} link={action} />)}
         </div>
     </div>;
 }

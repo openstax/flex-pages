@@ -1,11 +1,16 @@
+// Single block registry. Each renderer block declares its own client/server
+// boundary via a 'use client' directive where needed, so the app no longer
+// curates a server/client split by hand.
 export { CTABlock as cta_block } from '@openstax/flex-page-renderer/blocks/CTABlock';
 export { CardsBlock as cards_block } from '@openstax/flex-page-renderer/blocks/CardsBlock';
 export { ColumnsBlock as columns } from '@openstax/flex-page-renderer/blocks/ColumnsBlock';
 export { DividerBlock as divider } from '@openstax/flex-page-renderer/blocks/DividerBlock';
+export { FlexPage as flex_page } from '@openstax/flex-page-renderer/blocks/FlexPage';
 export { HTMLBlock as html } from '@openstax/flex-page-renderer/blocks/HTMLBlock';
 export { HeroBlock as hero } from '@openstax/flex-page-renderer/blocks/HeroBlock';
 export { LinksBlock as links_group } from '@openstax/flex-page-renderer/blocks/LinksBlock';
 export { QuoteBlock as quote } from '@openstax/flex-page-renderer/blocks/QuoteBlock';
 export { RichTextBlock as text } from '@openstax/flex-page-renderer/blocks/RichTextBlock';
 export { SectionBlock as section } from '@openstax/flex-page-renderer/blocks/SectionBlock';
+export { TabbedContentBlock as tabbed_content } from '@openstax/flex-page-renderer/blocks/TabbedContentBlock';
 export { WellBlock as well } from '@openstax/flex-page-renderer/blocks/WellBlock';

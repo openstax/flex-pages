@@ -1,13 +1,12 @@
-import type { BlockComponentRegistry, BlockComponents, BlockData } from './ContentBlockContext';
+import type { BlockComponents, BlockData } from './ContentBlockContext';
 import { resolveContentBlocks } from './resolveContentBlocks';
 
 export * from './ContentBlockContext';
 
-export function ContentBlockRoot<D extends BlockComponents<any>>({data, blocks, components, activeConditions}: {
+export function ContentBlockRoot<D extends BlockComponents<any>>({data, blocks, activeConditions}: {
   data: BlockData<D>;
   blocks: D;
-  components: BlockComponentRegistry;
   activeConditions?: string[];
 }) {
-  return <>{resolveContentBlocks(data, blocks, components, activeConditions)}</>;
+  return <>{resolveContentBlocks(data, blocks, activeConditions)}</>;
 }

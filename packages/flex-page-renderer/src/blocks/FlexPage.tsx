@@ -1,3 +1,4 @@
+'use client';
 import cn from 'classnames';
 import React from 'react';
 import './FlexPage.css';
