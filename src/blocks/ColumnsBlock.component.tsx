@@ -116,7 +116,10 @@ export function ColumnsBlock({data, leftContent, rightContent}: {data: ColumnsBl
       '--padding-bottom-multiplier': paddingBottom
     } as React.CSSProperties}
   >
-    <style>{stackCSS}</style>
+    {/* `<style>` is a raw-text element: React escapes `>`/`"` in text children
+        on the server but the browser keeps them literal, breaking hydration.
+        Inject as raw HTML so server and client text content match. */}
+    <style dangerouslySetInnerHTML={{__html: stackCSS}} />
     <div className="columns-content">
       <div className="content-block-columns-left" style={leftStyle as React.CSSProperties}>
         {leftContent}
