@@ -1,12 +1,14 @@
 import { ContentBlockRoot } from '@openstax/flex-page-renderer/ContentBlockRoot';
 import { mapPageNodes } from '@openstax/flex-page-renderer/lib/mapPageNodes';
 import * as blocks from '../blocks';
+import { resolvePageLinks } from '../lib/pages';
 import { FlexPageContextProvider } from './FlexPageContextProvider';
 
 export const FlexPage = async ({ data }: { data: any }) => {
-  // No mappers yet — this just verifies the async page-transform wiring.
-  // Apps opt into dynamic routing by passing a linkMapper here.
-  const resolved = data ? await mapPageNodes(data, blocks, {}) : data;
+  // Collapse stored id-based cross-page links to slug routes at the data layer,
+  // so they point straight at the slug page (the renderer still resolves them
+  // through RouteContext for soft navigation).
+  const resolved = data ? await mapPageNodes(data, blocks, { linkMapper: resolvePageLinks }) : data;
   return (
     <FlexPageContextProvider>
       <ContentBlockRoot blocks={blocks} data={resolved} />

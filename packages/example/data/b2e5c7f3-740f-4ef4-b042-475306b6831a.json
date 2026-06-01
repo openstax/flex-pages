@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "Divider",
-    "description": "Documentation and examples for the Divider component."
+    "description": "Documentation and examples for the Divider component.",
+    "url": "divider"
   },
   "page": [
     {
@@ -45,7 +46,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<p data-block-key=\"yw19e\"><a href=\"/flex-pages/\">documentation home</a></p>",
+                  "value": "<p data-block-key=\"yw19e\"><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
                   "id": "1d01474d-8b55-4127-bff2-437ef5a9f84b"
                 }
               ],

@@ -71,6 +71,7 @@ const EditorPage = () => {
                 <UI.Forms.Controlled.NameSpace name="metadata">
                   <UI.Forms.Controlled.TextInput name="title" label="Title" />
                   <UI.Forms.Controlled.TextArea name="description" label="Description" />
+                  <UI.Forms.Controlled.TextInput name="url" label="URL" />
                 </UI.Forms.Controlled.NameSpace>
               </fieldset>
               <FlexBlockEditor

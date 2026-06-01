@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "Links",
-    "description": "Documentation and examples for the Links component."
+    "description": "Documentation and examples for the Links component.",
+    "url": "links"
   },
   "page": [
     {
@@ -45,7 +46,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<p data-block-key=\"iu0dt\"><a href=\"/flex-pages/\">documentation home</a></p>",
+                  "value": "<p data-block-key=\"iu0dt\"><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
                   "id": "a6b73cb4-4606-4d6d-82ef-a7b4a97250f6"
                 }
               ],

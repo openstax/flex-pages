@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "Calls to Action",
-    "description": "Documentation and examples for the Calls to Action component."
+    "description": "Documentation and examples for the Calls to Action component.",
+    "url": "ctas"
   },
   "page": [
     {
@@ -45,7 +46,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<p data-block-key=\"5h01s\"><a href=\"/flex-pages/\">documentation home</a></p>",
+                  "value": "<p data-block-key=\"5h01s\"><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
                   "id": "c3015bc5-d554-4ba6-8c4d-9afdde6e4318"
                 }
               ],

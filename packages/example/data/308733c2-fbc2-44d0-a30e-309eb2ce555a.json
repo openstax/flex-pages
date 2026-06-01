@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "HTML Blocks",
-    "description": "Documentation and examples for HTML block components."
+    "description": "Documentation and examples for HTML block components.",
+    "url": "html-blocks"
   },
   "page": [
     {
@@ -40,7 +41,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<p data-block-key=\"ms8wh\"><a href=\"/flex-pages/\">documentation home</a></p>",
+                  "value": "<p data-block-key=\"ms8wh\"><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
                   "id": "32c940c4-cd98-4fdc-9a85-61939edbe7d1"
                 }
               ],

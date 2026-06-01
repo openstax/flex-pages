@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "Section",
-    "description": "Documentation and examples for the Section component."
+    "description": "Documentation and examples for the Section component.",
+    "url": "section"
   },
   "page": [
     {
@@ -45,7 +46,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<p data-block-key=\"n041h\"><a href=\"/flex-pages/\">documentation home</a></p>",
+                  "value": "<p data-block-key=\"n041h\"><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
                   "id": "cdb0e0be-7a33-4ef7-a3e7-99b95d337f60"
                 }
               ],

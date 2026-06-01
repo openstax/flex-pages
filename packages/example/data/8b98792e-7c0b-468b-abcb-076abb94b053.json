@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "Columns",
-    "description": "Documentation and examples for the Columns component."
+    "description": "Documentation and examples for the Columns component.",
+    "url": "columns"
   },
   "page": [
     {
@@ -45,7 +46,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<p data-block-key=\"pvocz\"><a href=\"/flex-pages/\">documentation home</a></p>",
+                  "value": "<p data-block-key=\"pvocz\"><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
                   "id": "b1b2c3d4-1111-1111-1111-000000000006"
                 }
               ],

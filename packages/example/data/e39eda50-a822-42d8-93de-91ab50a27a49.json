@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "FlexPage Documentation",
-    "description": "Documentation for the OpenStax FlexPage component system."
+    "description": "Documentation for the OpenStax FlexPage component system.",
+    "url": ""
   },
   "page": [
     {
@@ -134,8 +135,11 @@
                         "text": "Section",
                         "ariaLabel": "Section Component",
                         "target": {
-                          "value": "/flex-pages/section",
-                          "type": "internal"
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "a4ee4b33-bebf-4602-ac2e-d3fa81d51076"
+                          }
                         },
                         "id": "6a53c420"
                       },
@@ -143,8 +147,11 @@
                         "text": "Hero",
                         "ariaLabel": "",
                         "target": {
-                          "value": "/flex-pages/hero",
-                          "type": "internal"
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "28f75916-649f-4cc7-8301-a9710f303d8c"
+                          }
                         },
                         "id": "747c794a"
                       },
@@ -152,8 +159,11 @@
                         "text": "Divider",
                         "ariaLabel": "Divider Component",
                         "target": {
-                          "value": "/flex-pages/divider",
-                          "type": "internal"
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "b2e5c7f3-740f-4ef4-b042-475306b6831a"
+                          }
                         },
                         "id": "82d95f4f"
                       },
@@ -161,8 +171,11 @@
                         "text": "Columns",
                         "ariaLabel": "Columns Component",
                         "target": {
-                          "value": "/flex-pages/columns",
-                          "type": "internal"
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "8b98792e-7c0b-468b-abcb-076abb94b053"
+                          }
                         },
                         "id": "96c0b1c8"
                       },
@@ -170,8 +183,11 @@
                         "text": "Tabbed Content",
                         "ariaLabel": "Tabbed Content Component",
                         "target": {
-                          "value": "/flex-pages/tabbed-content",
-                          "type": "internal"
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "18e61f63-7238-4065-9fe8-5c8775248359"
+                          }
                         },
                         "id": "86ca9c7e"
                       }
@@ -239,8 +255,11 @@
                         "text": "Text",
                         "ariaLabel": "Text Component",
                         "target": {
-                          "value": "/flex-pages/text",
-                          "type": "internal"
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "f474ed33-a081-4bf8-bde4-1b9ba3152a1c"
+                          }
                         },
                         "id": "700fc0ff"
                       },
@@ -248,8 +267,11 @@
                         "text": "Cards Block",
                         "ariaLabel": "Cards Block Component",
                         "target": {
-                          "value": "/flex-pages/cards-block",
-                          "type": "internal"
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "d1031693-b529-4ebc-a738-c637bb389f8e"
+                          }
                         },
                         "id": "2c45e056"
                       },
@@ -257,8 +279,11 @@
                         "text": "Calls to Action",
                         "ariaLabel": "Calls to Action Component",
                         "target": {
-                          "value": "/flex-pages/ctas",
-                          "type": "internal"
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "5af8cbc5-ae7a-440d-8876-c7fd63c698aa"
+                          }
                         },
                         "id": "87e66baf"
                       },
@@ -266,8 +291,11 @@
                         "text": "Links Group",
                         "ariaLabel": "Links Group Component",
                         "target": {
-                          "value": "/flex-pages/links",
-                          "type": "internal"
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "fc57b5e4-f07b-4d73-925c-64dfccb826dc"
+                          }
                         },
                         "id": "2723076e"
                       },
@@ -275,8 +303,11 @@
                         "text": "Quote",
                         "ariaLabel": "Quote Component",
                         "target": {
-                          "value": "/flex-pages/quote",
-                          "type": "internal"
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "24918e34-daa1-4f06-a1a6-ee06451e7ad0"
+                          }
                         },
                         "id": "aba15ccd"
                       },
@@ -284,8 +315,11 @@
                         "text": "Well",
                         "ariaLabel": "Well Component",
                         "target": {
-                          "value": "/flex-pages/well",
-                          "type": "internal"
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "2a1e8d5d-b898-4938-92a8-f2bf60890c7f"
+                          }
                         },
                         "id": "ad77e9c"
                       }
@@ -327,7 +361,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"fcyvo\">Escape Hatch</h2><p data-block-key=\"3lc8u\">There are HTML components available under the page body and section contents for when an escape hatch is really needed. There have been situations where we&#x27;ve written entire pages in HTML components. Less drastically, its useful for an embedded item like a video.</p><p data-block-key=\"ecbgv\"><a href=\"/flex-pages/html-blocks\">html block examples</a></p>",
+                  "value": "<h2 data-block-key=\"fcyvo\">Escape Hatch</h2><p data-block-key=\"3lc8u\">There are HTML components available under the page body and section contents for when an escape hatch is really needed. There have been situations where we&#x27;ve written entire pages in HTML components. Less drastically, its useful for an embedded item like a video.</p><p data-block-key=\"ecbgv\"><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;308733c2-fbc2-44d0-a30e-309eb2ce555a&quot;}\">html block examples</a></p>",
                   "id": "6b34e72a-cb09-449f-b82f-8366ac52b8b6"
                 }
               ],

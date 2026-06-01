@@ -1,9 +1,11 @@
 import { FlexPage } from '../components/FlexPage';
-import { getPageData } from '../lib/pages';
+import { getHomePage } from '../lib/pages';
 
-const data = getPageData('home');
+const data = getHomePage();
 
-export const metadata = data?.metadata ?? {};
+export const metadata = data
+  ? { title: data.metadata.title, description: data.metadata.description }
+  : {};
 
 export default function Page() {
   return <FlexPage data={data?.page} />;

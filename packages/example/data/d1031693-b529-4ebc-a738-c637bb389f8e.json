@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "Cards Block",
-    "description": "Documentation and examples for the Cards Block component."
+    "description": "Documentation and examples for the Cards Block component.",
+    "url": "cards-block"
   },
   "page": [
     {
@@ -45,7 +46,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<p data-block-key=\"upbck\"><a href=\"/flex-pages/\">documentation home</a></p>",
+                  "value": "<p data-block-key=\"upbck\"><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
                   "id": "5d52a043-7657-431c-9be8-c27b8c967eb6"
                 }
               ],

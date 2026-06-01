@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "Text",
-    "description": "Documentation and examples for the Text component."
+    "description": "Documentation and examples for the Text component.",
+    "url": "text"
   },
   "page": [
     {
@@ -45,7 +46,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<p data-block-key=\"rgh0r\"><a href=\"/flex-pages/\">documentation home</a></p>",
+                  "value": "<p data-block-key=\"rgh0r\"><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
                   "id": "8a3cc0f3-854e-423f-b7be-832a8f1f5396"
                 }
               ],

@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "Hero",
-    "description": "Documentation and examples for the Hero component."
+    "description": "Documentation and examples for the Hero component.",
+    "url": "hero"
   },
   "page": [
     {
@@ -45,7 +46,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<p data-block-key=\"yzaue\"><a href=\"/flex-pages/\">documentation home</a></p>",
+                  "value": "<p data-block-key=\"yzaue\"><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
                   "id": "8b831394-f0a6-49b4-bb18-f5aa69cf7f71"
                 }
               ],
@@ -59,7 +60,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"i8rw9\">Overview</h2><p data-block-key=\"ch49k\">The hero component has a hero image on one side and content on the other. Hero components support all the same content as <a href=\"/flex-pages/section\">sections</a>, in a more narrow content container. On a mobile device the image and content will move from side by side to one above the other.</p><p data-block-key=\"73jnl\">In the FlexEditor, heroes have a \"content\" section just like sections do. They also have image and \"image alt\" options. Its ok to leave the \"image alt\" empty if the image is considered decorative. If the image conveys information needed to understand the content of the page, you should add alt text describing the image.</p><p data-block-key=\"21r83\">This is a hero with some text.</p>",
+                  "value": "<h2 data-block-key=\"i8rw9\">Overview</h2><p data-block-key=\"ch49k\">The hero component has a hero image on one side and content on the other. Hero components support all the same content as <a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;a4ee4b33-bebf-4602-ac2e-d3fa81d51076&quot;}\">sections</a>, in a more narrow content container. On a mobile device the image and content will move from side by side to one above the other.</p><p data-block-key=\"73jnl\">In the FlexEditor, heroes have a \"content\" section just like sections do. They also have image and \"image alt\" options. Its ok to leave the \"image alt\" empty if the image is considered decorative. If the image conveys information needed to understand the content of the page, you should add alt text describing the image.</p><p data-block-key=\"21r83\">This is a hero with some text.</p>",
                   "id": "c1e1db8a-99fd-40e2-b4d1-8992ecb305b1"
                 }
               ],
@@ -108,7 +109,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Heroes have a config section with a number of options. All options from sections are (should be, but are not currently) supported on heroes as well.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"4sc9\">everything from <a href=\"/flex-pages/section\">sections</a></p><p data-block-key=\"8ih75\"><b>Image alignment</b>: switches the image to be on the left side (with content on the right), or control the image's vertical alignment.</p><p data-block-key=\"buhkq\"><b>Image Border Radius</b>: border radius for the hero image in pixels.</p><p data-block-key=\"buhkr\"><b>Image Border Color</b>: hex color for the hero image border (e.g. #D4450C).</p><p data-block-key=\"buhks\"><b>Image Border Size</b>: border width for the hero image in pixels.</p><p data-block-key=\"buhkt\"><b>Image Overhang</b>: a CSS value (e.g. 5rem, 10%) that extends the image beyond the content area. Percentage values are relative to the grid column width, making them responsive. The section clips the overflow to prevent horizontal scrollbars. Overhang is disabled on mobile.</p>",
+                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Heroes have a config section with a number of options. All options from sections are (should be, but are not currently) supported on heroes as well.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"4sc9\">everything from <a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;a4ee4b33-bebf-4602-ac2e-d3fa81d51076&quot;}\">sections</a></p><p data-block-key=\"8ih75\"><b>Image alignment</b>: switches the image to be on the left side (with content on the right), or control the image's vertical alignment.</p><p data-block-key=\"buhkq\"><b>Image Border Radius</b>: border radius for the hero image in pixels.</p><p data-block-key=\"buhkr\"><b>Image Border Color</b>: hex color for the hero image border (e.g. #D4450C).</p><p data-block-key=\"buhks\"><b>Image Border Size</b>: border width for the hero image in pixels.</p><p data-block-key=\"buhkt\"><b>Image Overhang</b>: a CSS value (e.g. 5rem, 10%) that extends the image beyond the content area. Percentage values are relative to the grid column width, making them responsive. The section clips the overflow to prevent horizontal scrollbars. Overhang is disabled on mobile.</p>",
                   "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
                 }
               ],
