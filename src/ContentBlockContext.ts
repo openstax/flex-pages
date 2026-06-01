@@ -18,16 +18,26 @@ export type ConfigMetadata<T> = {
 };
 
 /*
+ * A block definition pairs the (possibly client) Component with its `fields`
+ * config. `fields` lives in its own directive-free module, so it stays readable
+ * on both sides of the client/server boundary — a client Component survives only
+ * as a reference on the server, but its `fields` remain real, inspectable data
+ * (used by the editor, and by server-side page pre-processing).
+ *
  * these types are annoying, and do not work perfectly. i'm sort of
  * ok with that because we're anticipating that the data is being
  * retrieved from a db anyway
  */
-export type BlockComponent<K = string> = React.ComponentType<{
-  data: any;
-  activeConditions?: string[];
-}> & {blockConfig: ConfigMetadata<K>};
+export type BlockDefinition<K = string> = {
+  Component: React.ComponentType<{
+    data: any;
+    activeConditions?: string[];
+  }>;
+  fields: ConfigMetadata<K>;
+};
+
 export type BlockDataEntry<D> = ContentBlockConfig & {type: keyof D} & Record<string, unknown>;
 export type BlockData<D> = BlockDataEntry<D>[];
-export type BlockComponents<D> = {
-  [key in keyof D]: BlockComponent<key>;
+export type BlockDefinitions<D> = {
+  [key in keyof D]: BlockDefinition<key>;
 };

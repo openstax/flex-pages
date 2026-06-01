@@ -1,7 +1,7 @@
 import React from 'react';
-import { Image, ImageFields, imageFieldsConfig } from '../components/Image';
+import { Image, ImageFields } from '../components/Image';
 import { findByType } from '../utils';
-import { RichTextContent } from './RichTextBlock';
+import { RichTextContent } from './RichTextBlock.component';
 import './QuoteBlock.css';
 
 type QuoteConfig = {
@@ -20,21 +20,6 @@ export interface QuoteBlockConfig {
     config: QuoteConfig[];
   };
 }
-
-QuoteBlock.blockConfig = {
-  type: 'quote',
-  categories: ['content'],
-  label: 'Quote',
-  fields: [
-    {name: 'content', label: 'Quote Text', type: 'long-text', required: true},
-    {name: 'title', label: 'Quotee\'s title', type: 'text'},
-    {name: 'name', label: 'Quotee\'s name', type: 'text', required: true},
-    {name: 'image', label: 'Image', type: 'namespace', fields: imageFieldsConfig},
-    {name: 'config', label: 'Config', type: 'configs', configs: [
-      {name: 'accent_color', label: 'Accent Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex color for the quote mark'},
-    ]},
-  ],
-};
 
 export function QuoteBlock({data}: {data: QuoteBlockConfig}) {
   const accentColor = findByType(data.value.config, 'accent_color')?.value;

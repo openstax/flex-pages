@@ -8,13 +8,6 @@ export interface RichTextBlockConfig {
   value: string;
 }
 
-RichTextBlock.blockConfig = {
-  type: 'text',
-  categories: ['content'],
-  label: 'Text',
-  field: {name: 'text', label: 'Text', type: 'rich-text'},
-};
-
 export function RichTextContent({html}: {html: string}) {
   // Cheap server-side discriminator: only escalate to the client renderer when
   // the markup actually contains a dynamic link. Link-free prose stays a

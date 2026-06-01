@@ -1,7 +1,7 @@
 import React from 'react';
-import type { BlockComponent, ContentBlockConfig } from './ContentBlockContext';
+import type { BlockDefinition, ContentBlockConfig } from './ContentBlockContext';
 
-type BlockMap = Record<string, BlockComponent>;
+type BlockMap = Record<string, BlockDefinition>;
 
 function isBlockArray(value: unknown, blocks: BlockMap): value is ContentBlockConfig[] {
   if (!Array.isArray(value) || value.length === 0) return false;
@@ -56,11 +56,11 @@ function resolveContentBlock(
   blocks: BlockMap,
   activeConditions?: string[]
 ): React.ReactNode {
-  const Block = blocks[block.type];
-  if (!Block) return <pre key={block.id}>{JSON.stringify(block, null, 2)}</pre>;
+  const def = blocks[block.type];
+  if (!def) return <pre key={block.id}>{JSON.stringify(block, null, 2)}</pre>;
 
   const slotProps = resolveSlotProps(block, blocks, activeConditions);
-  const Comp: React.ComponentType<any> = Block;
+  const Comp: React.ComponentType<any> = def.Component;
   return <Comp key={block.id} data={block} activeConditions={activeConditions} {...slotProps} />;
 }
 
