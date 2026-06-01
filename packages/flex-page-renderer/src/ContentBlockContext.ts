@@ -21,7 +21,7 @@ export type ConfigMetadata<T> = {
  * A block definition pairs the (possibly client) Component with its `fields`
  * config. `fields` lives in its own directive-free module, so it stays readable
  * on both sides of the client/server boundary — a client Component survives only
- * as a reference on the server, but its `fields` remain real, inspectable data
+ * as a reference on the server, but its `fields` remain real, readable data
  * (used by the editor, and by server-side page pre-processing).
  *
  * these types are annoying, and do not work perfectly. i'm sort of

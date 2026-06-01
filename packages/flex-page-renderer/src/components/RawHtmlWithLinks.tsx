@@ -11,7 +11,7 @@ import { handleLinkClick, readLinkTarget } from '../lib/linkBehavior';
  * only escalates to this component when the markup contains a flex-link, so
  * link-free prose stays a zero-JS server render via Html.
  *
- * Route hrefs are resolved from context at render time (so they are present in
+ * Route href values are resolved from context at render time (so they are in
  * the SSR markup), and a single delegated click handler on the wrapper runs the
  * shared link behavior — no per-link React components.
  */

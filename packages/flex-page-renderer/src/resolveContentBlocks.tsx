@@ -1,17 +1,22 @@
 import React from 'react';
 import type { BlockDefinition, ContentBlockConfig } from './ContentBlockContext';
+import type { ConfigField } from '.';
 
 type BlockMap = Record<string, BlockDefinition>;
 
-function isBlockArray(value: unknown, blocks: BlockMap): value is ContentBlockConfig[] {
-  if (!Array.isArray(value) || value.length === 0) return false;
-  const first = value[0];
-  return first
-    && typeof first === 'object'
-    && 'type' in first
-    && 'id' in first
-    && typeof first.type === 'string'
-    && first.type in blocks;
+/*
+ * A block's `fields` config tells us exactly where nested blocks live: a field
+ * of type 'blocks' holds a block array, and a 'list' field can hold items with
+ * 'blocks' sub-fields (e.g. tabbed content tabs). We drive child resolution off
+ * that config rather than sniffing the data shape — it's exact, and it works for
+ * every block including client ones, because `fields` lives in a directive-free
+ * module and stays readable on the server.
+ */
+function fieldDefs(def: BlockDefinition | undefined): ConfigField[] {
+  if (!def) return [];
+  if (def.fields.fields) return def.fields.fields;
+  if (def.fields.field) return [def.fields.field];
+  return [];
 }
 
 function resolveSlotProps(
@@ -22,29 +27,29 @@ function resolveSlotProps(
   const slotProps: Record<string, unknown> = {};
   const value = block.value as Record<string, unknown>;
 
-  for (const [key, val] of Object.entries(value)) {
-    if (key === 'config') continue;
+  for (const field of fieldDefs(blocks[block.type])) {
+    const fieldValue = value[field.name];
 
-    if (isBlockArray(val, blocks)) {
-      slotProps[key] = resolveContentBlocks(val, blocks, activeConditions);
+    // a 'blocks' field is a nested block array -> resolve to React nodes
+    if (field.type === 'blocks' && Array.isArray(fieldValue)) {
+      slotProps[field.name] = resolveContentBlocks(fieldValue as ContentBlockConfig[], blocks, activeConditions);
       continue;
     }
 
-    if (Array.isArray(val) && val.length > 0 && typeof val[0] === 'object' && val[0] !== null) {
-      const firstItem = val[0] as Record<string, unknown>;
-      const hasNestedBlocks = Object.entries(firstItem)
-        .some(([k, v]) => k !== 'config' && isBlockArray(v, blocks));
-      if (hasNestedBlocks) {
-        slotProps[key] = val.map((item: Record<string, unknown>) => {
-          const resolved = { ...item };
-          for (const [itemKey, itemVal] of Object.entries(item)) {
-            if (itemKey !== 'config' && isBlockArray(itemVal, blocks)) {
-              resolved[itemKey] = resolveContentBlocks(itemVal as ContentBlockConfig[], blocks, activeConditions);
-            }
+    // a 'list' field whose items carry 'blocks' sub-fields (e.g. tabbed content)
+    if (field.type === 'list' && Array.isArray(field.fields) && Array.isArray(fieldValue)) {
+      const blockSubFields = (field.fields as ConfigField[]).filter((sub) => sub.type === 'blocks');
+      if (blockSubFields.length === 0) continue;
+
+      slotProps[field.name] = (fieldValue as Array<Record<string, unknown>>).map((item) => {
+        const resolved = { ...item };
+        for (const sub of blockSubFields) {
+          if (Array.isArray(item[sub.name])) {
+            resolved[sub.name] = resolveContentBlocks(item[sub.name] as ContentBlockConfig[], blocks, activeConditions);
           }
-          return resolved;
-        });
-      }
+        }
+        return resolved;
+      });
     }
   }
 
