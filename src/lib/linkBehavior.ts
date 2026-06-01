@@ -45,6 +45,21 @@ export function readLinkTarget(el: Element): LinkTarget | null {
 }
 
 /*
+ * Inverse of readLinkTarget: writes a (possibly resolved) target back onto an
+ * anchor's data attributes. Used by mapPageNodes when transforming rich-text
+ * links in the app data layer.
+ */
+export function writeLinkTarget(el: Element, target: LinkTarget): void {
+  el.setAttribute('data-link-type', target.type);
+  el.setAttribute('data-link-value', target.value);
+  if (target.params && Object.keys(target.params).length > 0) {
+    el.setAttribute('data-link-params', JSON.stringify(target.params));
+  } else {
+    el.removeAttribute('data-link-params');
+  }
+}
+
+/*
  * `anchorEl` is the actual link element — for the standalone Link it is
  * e.currentTarget; for the delegated rich-text handler it is the matched
  * ancestor (e.currentTarget would be the wrapper, not the link).
