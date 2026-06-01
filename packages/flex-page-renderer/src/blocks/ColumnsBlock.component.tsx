@@ -56,6 +56,7 @@ export interface ColumnsBlockConfig {
 }
 
 const STACK_AT_DEFAULT = '60em';
+// cspell:ignore cqmin cqmax -- CSS container query length units
 const STACK_AT_PATTERN = /^\d+(\.\d+)?(px|em|rem|%|vw|vh|cqw|cqi|cqmin|cqmax|ch|ex)$/;
 
 // eslint-disable-next-line complexity
