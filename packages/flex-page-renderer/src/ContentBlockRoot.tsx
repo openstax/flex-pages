@@ -1,9 +1,9 @@
-import type { BlockComponents, BlockData } from './ContentBlockContext';
+import type { BlockData, BlockDefinitions } from './ContentBlockContext';
 import { resolveContentBlocks } from './resolveContentBlocks';
 
 export * from './ContentBlockContext';
 
-export function ContentBlockRoot<D extends BlockComponents<any>>({data, blocks, activeConditions}: {
+export function ContentBlockRoot<D extends BlockDefinitions<any>>({data, blocks, activeConditions}: {
   data: BlockData<D>;
   blocks: D;
   activeConditions?: string[];

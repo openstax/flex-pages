@@ -9,7 +9,7 @@ const DisplayBlockForm = ({children, label}: React.PropsWithChildren<{label?: st
   const formState = useForms().useFormHelpers();
   const data = formState.data;
 
-  const config = React.useContext(BlockContext)[data.type]?.blockConfig;
+  const config = React.useContext(BlockContext)[data.type]?.fields;
   if (!config) return <pre>{JSON.stringify(data, null, 2)}</pre>;
 
   return config.field
@@ -21,13 +21,13 @@ const DisplayBlockForm = ({children, label}: React.PropsWithChildren<{label?: st
 const AddBlock = ({categories}: {categories: string[]}) => {
   const listHelpers = useForms().useFormListHelpers();
   const blocks = Object.entries(React.useContext(BlockContext))
-    .filter(([, definition]) => definition.blockConfig.categories.find(s => categories.includes(s)));
+    .filter(([, definition]) => definition.fields.categories.find(s => categories.includes(s)));
 
   return <div>add a:
-    <ul>{blocks.map(([key, {blockConfig}]) =>
+    <ul>{blocks.map(([key, {fields}]) =>
       <li key={key}><button type="button" onClick={
         () => listHelpers.addRecord({type: key})
-      }>{blockConfig.label}</button></li>
+      }>{fields.label}</button></li>
     )}</ul>
   </div>;
 };
@@ -41,8 +41,8 @@ export const block = ({name, label, types, categories}: {name: string; label: st
   const value = formState.data[name];
   const setValue = formState.setInput.field(name);
   const blocks = Object.entries(React.useContext(BlockContext)).filter(
-    ([, definition]) => (!categories || definition.blockConfig.categories.find(s => categories.includes(s)))
-      && (!types || types.includes(definition.blockConfig.type))
+    ([, definition]) => (!categories || definition.fields.categories.find(s => categories.includes(s)))
+      && (!types || types.includes(definition.fields.type))
   );
 
   if (value) {
@@ -53,15 +53,15 @@ export const block = ({name, label, types, categories}: {name: string; label: st
 
   if (blocks.length === 1) {
     return <button type="button" onClick={
-      () => setValue({type: blocks[0][1].blockConfig.type, id: randomId()})
-    }>Add {blocks[0][1].blockConfig.label}</button>;
+      () => setValue({type: blocks[0][1].fields.type, id: randomId()})
+    }>Add {blocks[0][1].fields.label}</button>;
   }
 
   return <div>add a:
-    <ul>{blocks.map(([key, {blockConfig}]) =>
+    <ul>{blocks.map(([key, {fields}]) =>
       <li key={key}><button type="button" onClick={
         () => setValue({type: key, id: randomId()})
-      }>{blockConfig.label}</button></li>
+      }>{fields.label}</button></li>
     )}</ul>
   </div>;
 };
