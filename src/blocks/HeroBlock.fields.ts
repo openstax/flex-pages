@@ -1,5 +1,3 @@
-import { imageFieldsConfig } from '../components/Image';
-
 export const fields = {
   type: 'hero',
   categories: ['structure'],
@@ -7,7 +5,7 @@ export const fields = {
   fields: [
     {name: 'content', label: 'Content', type: 'blocks', categories: ['content']},
     {name: 'imageAlt', label: 'Image Alt', type: 'text'},
-    {name: 'image', label: 'Hero Image', type: 'namespace', fields: imageFieldsConfig},
+    {name: 'image', label: 'Hero Image', type: 'image'},
     {name: 'config', label: 'Config', type: 'configs', configs: [
       {name: 'image_alignment', label: 'Image Alignment', type: 'select', options: [
         {label: 'Left', value: 'left'},
