@@ -21,6 +21,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import replace from '@rollup/plugin-replace';
+import terser from '@rollup/plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 
 const dir = path.dirname(fileURLToPath(import.meta.url));
@@ -40,6 +42,16 @@ export default {
   },
   external: ['react', 'react-dom'],
   plugins: [
+    // Bundled deps (the react/jsx-runtime shim, dompurify) branch on
+    // `process.env.NODE_ENV` at module top-level. `process` doesn't exist in a
+    // browser, so leaving these reads in throws ReferenceError before exports
+    // are assigned. Inline a production value so the reads vanish and terser can
+    // drop the dev-only branches. Must run before commonjs so it sees the
+    // original source text.
+    replace({
+      preventAssignment: true,
+      values: { 'process.env.NODE_ENV': JSON.stringify('production') },
+    }),
     resolve({ browser: true, preferBuiltins: false }),
     commonjs(),
     postcss({
@@ -47,5 +59,6 @@ export default {
       minimize: true,
       sourceMap: true,
     }),
+    terser(),
   ],
 };
