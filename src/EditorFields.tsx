@@ -3,6 +3,7 @@ import type * as UI from '@openstax/ui-components';
 import React from 'react';
 import { CollapsibleFieldset } from './CollapsibleFieldset';
 import * as fieldTypes from './FieldTypes';
+import { ImageField } from './Fields/ImageField';
 import { LinkTarget } from './Fields/LinkTarget';
 import { useForms } from './FormsContext';
 
@@ -33,6 +34,7 @@ const defaultFieldTypes = {
     return <Select {...props} />;
   },
   ['link-target']: LinkTarget,
+  image: ImageField,
   namespace: ({name, label, fields, children}: React.PropsWithChildren<ConfigField & {fields: ConfigField[]}>) => {
     const Forms = useForms();
     return <CollapsibleFieldset legend={label}>
