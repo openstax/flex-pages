@@ -8,7 +8,7 @@
   "devDependencies": {
     "@openstax/flex-page-renderer": "1.1.4",
     "@openstax/ts-utils": "^1.43.2",
-    "@openstax/ui-components": "https://github.com/openstax/ui-components#1.20.1-build-fix-test-2",
+    "@openstax/ui-components": "https://github.com/openstax/ui-components#1.22.2",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
@@ -24,7 +24,7 @@
     "@openstax/flex-page-editor": "1.1.1",
     "@openstax/flex-page-renderer": "1.1.4",
     "@openstax/ts-utils": "^1.43.2",
-    "@openstax/ui-components": "https://github.com/openstax/ui-components#1.20.1-build-fix-test-2",
+    "@openstax/ui-components": "https://github.com/openstax/ui-components#1.22.2",
     "react-dom": "^18.2.0"
   },
   "exports": {
