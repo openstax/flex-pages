@@ -1,16 +1,19 @@
 import type { ConfigField } from '..';
 import type { ConfigMetadata, ContentBlockConfig } from '../ContentBlockContext';
+import type { ImageFields } from '../components/Image.fields';
 import type { LinkFields } from '../components/Link.fields';
 import { readLinkTarget, writeLinkTarget } from './linkBehavior';
 
 /*
  * Pure, async, config-aware page transform for the app data layer. Walks the
  * page using each block's `fields` config (server-readable, since `fields` lives
- * in directive-free modules) to locate dynamic-link targets — both structured
- * `link-target` fields and links embedded in rich-text strings — and runs each
- * through the mapper. This is how an app opts into dynamic routing (e.g.
- * resolving stored ids to current slugs) without the renderer ever depending on
- * server components: it just rewrites the targets the renderer will receive.
+ * in directive-free modules) to locate mappable values — dynamic-link targets
+ * (both structured `link-target` fields and links embedded in rich-text strings)
+ * and `image` fields — and runs each through the matching mapper. This is how an
+ * app opts into dynamic routing (e.g. resolving stored ids to current slugs) or
+ * dynamic asset resolution (e.g. resolving an image id to its current url/size)
+ * without the renderer ever depending on server components: it just rewrites the
+ * values the renderer will receive.
  *
  * Mapper calls run concurrently (Promise.all); de-duplicating/batching across
  * repeated ids is the mapper's responsibility (e.g. a memoized wrapper).
@@ -19,9 +22,11 @@ import { readLinkTarget, writeLinkTarget } from './linkBehavior';
 type LinkTarget = LinkFields['target'];
 
 export type LinkMapper = (target: LinkTarget) => LinkTarget | Promise<LinkTarget>;
+export type ImageMapper = (image: ImageFields) => ImageFields | Promise<ImageFields>;
 
 export interface PageNodeMappers {
   linkMapper?: LinkMapper;
+  imageMapper?: ImageMapper;
 }
 
 // Environment seam: parse an HTML string into a DOM `Document`. The rich-text
@@ -45,32 +50,80 @@ export type BlockRegistry = Record<string, { fields: ConfigMetadata<string> }>;
 
 type Ctx = { blocks: BlockRegistry; mappers: PageNodeMappers; parseHtml: ParseHtml | undefined };
 
-// Rewrites dynamic-link targets encoded in a rich-text HTML string. Parses with
-// the injected `parseHtml` (native DOMParser in the browser, jsdom on the
+/*
+ * Reads an image descriptor off an <img> tag's attributes, the rich-text analog
+ * of readLinkTarget. `src`/`width`/`height` are the rendered form; the asset
+ * reference (when present) lives in `data-image-id`, the counterpart to a link's
+ * `data-link-value`. Returns null when there is nothing to map (no src and no id).
+ */
+function readImageFields(el: Element): ImageFields | null {
+  const file = el.getAttribute('src');
+  const id = el.getAttribute('data-image-id') ?? undefined;
+  if (file === null && id === undefined) return null;
+  return {
+    ...(id !== undefined ? { id } : {}),
+    file: file ?? '',
+    width: Number(el.getAttribute('width')) || 0,
+    height: Number(el.getAttribute('height')) || 0,
+  };
+}
+
+/*
+ * Inverse of readImageFields: writes a (possibly resolved) image back onto an
+ * <img> tag. Mirrors writeLinkTarget — keeps the rendered `src` in sync and
+ * carries the asset id in `data-image-id`. Only writes width/height when the
+ * mapper supplies them (truthy) so an unknown dimension never clobbers a real
+ * one with `0`; other attributes (alt, class, …) are left untouched.
+ */
+function writeImageFields(el: Element, image: ImageFields): void {
+  el.setAttribute('src', image.file);
+  if (image.width) el.setAttribute('width', String(image.width));
+  if (image.height) el.setAttribute('height', String(image.height));
+  if (image.id) {
+    el.setAttribute('data-image-id', image.id);
+  } else {
+    el.removeAttribute('data-image-id');
+  }
+}
+
+// Rewrites mappable values encoded in a rich-text HTML string — dynamic-link
+// targets (`a[data-flex-link]`) and images (`img`) — in a single parse. Parses
+// with the injected `parseHtml` (native DOMParser in the browser, jsdom on the
 // server) so we walk the markup WITHOUT sanitizing. This is a data transform,
 // not a security boundary: the renderer sanitizes unconditionally at draw time
 // (Html / RawHtmlWithLinks), so re-sanitizing here would only risk silently
-// mutating stored content beyond the link rewrite this function is meant to do.
-async function rewriteHtmlLinks(
+// mutating stored content beyond the rewrites this function is meant to do.
+async function rewriteHtmlContent(
   html: string,
-  linkMapper: LinkMapper,
+  mappers: PageNodeMappers,
   parseHtml: ParseHtml | undefined,
 ): Promise<string> {
   if (!parseHtml) {
     throw new Error(
-      'mapPageNodes: rich-text contains links to rewrite but no HTML parser is ' +
-        'available. Pass a `parseHtml` argument (e.g. `(html) => new ' +
+      'mapPageNodes: rich-text contains links or images to rewrite but no HTML ' +
+        'parser is available. Pass a `parseHtml` argument (e.g. `(html) => new ' +
         'JSDOM(html).window.document`) when running without a platform DOM.',
     );
   }
+  const { linkMapper, imageMapper } = mappers;
   const document = parseHtml(html);
+  const jobs: Promise<void>[] = [];
 
-  await Promise.all(
-    Array.from(document.querySelectorAll('a[data-flex-link]')).map(async (a) => {
+  if (linkMapper) {
+    for (const a of Array.from(document.querySelectorAll('a[data-flex-link]'))) {
       const target = readLinkTarget(a);
-      if (target) writeLinkTarget(a, await linkMapper(target));
-    })
-  );
+      if (target) jobs.push(Promise.resolve(linkMapper(target)).then((t) => writeLinkTarget(a, t)));
+    }
+  }
+
+  if (imageMapper) {
+    for (const img of Array.from(document.querySelectorAll('img'))) {
+      const image = readImageFields(img);
+      if (image) jobs.push(Promise.resolve(imageMapper(image)).then((i) => writeImageFields(img, i)));
+    }
+  }
+
+  await Promise.all(jobs);
 
   return document.body.innerHTML;
 }
@@ -79,6 +132,11 @@ async function processField(field: ConfigField, value: unknown, ctx: Ctx): Promi
   // structured link target
   if (field.type === 'link-target' && ctx.mappers.linkMapper) {
     return value ? ctx.mappers.linkMapper(value as LinkTarget) : value;
+  }
+
+  // structured image
+  if (field.type === 'image' && ctx.mappers.imageMapper) {
+    return value ? ctx.mappers.imageMapper(value as ImageFields) : value;
   }
 
   // nested block array
@@ -101,12 +159,16 @@ async function processField(field: ConfigField, value: unknown, ctx: Ctx): Promi
     }));
   }
 
-  // Rich text lives in string fields. The literal `data-flex-link` marker scan
-  // is exact and sidesteps the rich-text-vs-long-text field-type ambiguity
-  // (e.g. Quote stores rich text in a 'long-text' field) — it only touches
-  // strings that actually carry links.
-  if (typeof value === 'string' && value.includes('data-flex-link') && ctx.mappers.linkMapper) {
-    return rewriteHtmlLinks(value, ctx.mappers.linkMapper, ctx.parseHtml);
+  // Rich text lives in string fields. Cheap literal substring pre-checks (the
+  // `data-flex-link` marker for links, `<img` for images) sidestep the rich-
+  // text-vs-long-text field-type ambiguity (e.g. Quote stores rich text in a
+  // 'long-text' field) and skip parsing strings that carry neither.
+  if (typeof value === 'string') {
+    const rewriteLinks = ctx.mappers.linkMapper && value.includes('data-flex-link');
+    const rewriteImages = ctx.mappers.imageMapper && value.includes('<img');
+    if (rewriteLinks || rewriteImages) {
+      return rewriteHtmlContent(value, ctx.mappers, ctx.parseHtml);
+    }
   }
 
   return value;

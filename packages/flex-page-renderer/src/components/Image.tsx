@@ -1,17 +1,7 @@
 import React from 'react';
+import type { ImageFields } from './Image.fields';
 
-export interface ImageFields {
-    id?: string;
-    file: string;
-    height: number;
-    width: number;
-}
-
-export const imageFieldsConfig = [
-  {name: 'file', label: 'File Path', help: 'URL to the image file.', type: 'text'},
-  {name: 'height', label: 'Height', help: 'The raw pixel height of the image.', type: 'number'},
-  {name: 'width', label: 'Width', help: 'The raw pixel width of the image.', type: 'number'},
-];
+export type { ImageFields } from './Image.fields';
 
 type ImageProps = {
     image: ImageFields;
@@ -20,4 +10,3 @@ type ImageProps = {
 export function Image({image, ...props}: ImageProps) {
     return <img {...props} src={image.file} width={image.width} height={image.height} />;
 }
-
