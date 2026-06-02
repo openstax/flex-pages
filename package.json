@@ -1,6 +1,6 @@
 {
   "name": "@openstax/flex-page-renderer",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "sideEffects": [
     "**/*.css"
   ],
@@ -13,6 +13,8 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25",
     "@rollup/plugin-node-resolve": "^15",
+    "@rollup/plugin-replace": "^5",
+    "@rollup/plugin-terser": "^0.4",
     "@types/jsdom": "^28.0.3",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
