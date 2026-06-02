@@ -1,21 +1,23 @@
 import type { LinkTarget } from '@openstax/flex-page-renderer/lib/linkBehavior';
 import { readLinkTarget } from '@openstax/flex-page-renderer/lib/linkBehavior';
 import Quill from 'quill';
-import { FlexLink } from './flexLink';
+import { FlexLink, FlexLinkValue } from './flexLink';
 
 /*
  * Pure helpers for the custom link-editing flow, kept out of the editor
  * component so index.tsx is just Quill wiring + composition. All flexLink
  * reads/writes go through these.
  */
-export type LinkEdit = {index: number; length: number; initial: LinkTarget | null};
+export type LinkEdit = {index: number; length: number; text: string; initial: LinkTarget | null};
+
+export type LinkResult = {text: string; target: LinkTarget};
 
 // Toolbar link button: edit the link covering the current selection.
 export function selectionLinkEdit(quill: Quill): LinkEdit | null {
   const range = quill.getSelection();
   if (!range) return null;
-  const initial = (quill.getFormat(range)[FlexLink.blotName] as LinkTarget) ?? null;
-  return {index: range.index, length: range.length, initial};
+  const initial = (quill.getFormat(range)[FlexLink.blotName] as FlexLinkValue | undefined)?.target ?? null;
+  return {index: range.index, length: range.length, text: quill.getText(range.index, range.length), initial};
 }
 
 // Link click: edit the whole anchor. A bare `<a href>` (no flex data) opens as
@@ -26,7 +28,7 @@ export function anchorLinkEdit(quill: Quill, anchor: HTMLAnchorElement): LinkEdi
   const length = blot ? (blot as {length(): number}).length() : 0;
   const initial = readLinkTarget(anchor)
     ?? {type: 'external', value: anchor.getAttribute('href') ?? ''};
-  return {index, length, initial};
+  return {index, length, text: anchor.textContent ?? '', initial};
 }
 
 // Open the editor whenever a link is clicked — replaces the native link
@@ -42,14 +44,21 @@ export function attachLinkClick(quill: Quill, open: (anchor: HTMLAnchorElement) 
   return () => quill.root.removeEventListener('click', onClick);
 }
 
-export function applyLink(quill: Quill, edit: LinkEdit, target: LinkTarget): void {
+// `href` is the target resolved to a concrete url by the caller (e.g. a route
+// link via RouteContext); url-typed targets can omit it (writeLinkTarget mirrors
+// the value).
+export function applyLink(quill: Quill, edit: LinkEdit, {text, target}: LinkResult, href?: string): void {
   const {index, length} = edit;
-  if (length > 0) {
-    quill.formatText(index, length, FlexLink.blotName, target, 'user');
-  } else {
-    // No selection: insert the value as link text so there is something to click.
-    quill.insertText(index, target.value || 'link', FlexLink.blotName, target, 'user');
+  const value: FlexLinkValue = {target, href};
+  // Unchanged text over a real selection: just (re)apply the format, preserving
+  // any sub-formatting (bold, etc.) within the link text.
+  if (length > 0 && text === edit.text) {
+    quill.formatText(index, length, FlexLink.blotName, value, 'user');
+    return;
   }
+  // Otherwise replace the range with the (new) link text.
+  if (length > 0) quill.deleteText(index, length, 'user');
+  quill.insertText(index, text || target.value || 'link', FlexLink.blotName, value, 'user');
 }
 
 export function removeLink(quill: Quill, edit: LinkEdit): void {

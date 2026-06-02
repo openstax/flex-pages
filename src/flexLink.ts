@@ -14,27 +14,32 @@ import Inline from 'quill/blots/inline';
  * absorbed as an external link with its href as the value, so it normalizes
  * into the flex format and is editable in the custom link modal.
  */
+// The flexLink format value pairs the link target with its resolved href, so
+// the anchor can carry a concrete href the editor resolved (e.g. a page route's
+// url, via RouteContext) without the blot needing any resolver itself.
+export type FlexLinkValue = {target: LinkTarget; href?: string};
+
 export class FlexLink extends Inline {
   static blotName = 'flexLink';
   static tagName = 'A';
 
-  static create(value: LinkTarget) {
+  static create(value: FlexLinkValue) {
     const node = super.create() as HTMLElement;
     node.setAttribute('data-flex-link', '');
-    writeLinkTarget(node, value);
+    writeLinkTarget(node, value.target, value.href);
     return node;
   }
 
-  static formats(domNode: HTMLElement): LinkTarget | undefined {
-    const target = readLinkTarget(domNode);
-    if (target) return target;
-    const href = domNode.getAttribute('href');
-    return href ? {type: 'external', value: href} : undefined;
+  static formats(domNode: HTMLElement): FlexLinkValue | undefined {
+    const href = domNode.getAttribute('href') ?? undefined;
+    const target = readLinkTarget(domNode) ?? (href ? {type: 'external', value: href} : null);
+    return target ? {target, href} : undefined;
   }
 
   format(name: string, value: unknown) {
     if (name === FlexLink.blotName && value) {
-      writeLinkTarget(this.domNode as HTMLElement, value as LinkTarget);
+      const {target, href} = value as FlexLinkValue;
+      writeLinkTarget(this.domNode as HTMLElement, target, href);
     } else {
       super.format(name, value);
     }
