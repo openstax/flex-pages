@@ -4,17 +4,38 @@ import 'quill/dist/quill.snow.css';
 import Bold from 'quill/formats/bold';
 import Header from 'quill/formats/header';
 import Italic from 'quill/formats/italic';
+import List from 'quill/formats/list';
+import Underline from 'quill/formats/underline';
 import Toolbar from 'quill/modules/toolbar';
 import Snow from 'quill/themes/snow';
 import React from 'react';
+import { LinkModal } from './LinkModal';
+import { FlexLink } from './flexLink';
+import {
+  anchorLinkEdit, applyLink, attachLinkClick, LinkEdit, removeLink, selectionLinkEdit,
+} from './linkEditing';
 
 Quill.register({
   'modules/toolbar': Toolbar,
   'themes/snow': Snow,
   'formats/bold': Bold,
   'formats/italic': Italic,
+  'formats/underline': Underline,
   'formats/header': Header,
+  'formats/list': List,
 });
+
+// `formats` whitelist deliberately omits Quill's built-in `link` — that format
+// (and its "Visit URL / Edit / Remove" tooltip) is fully disabled. Links are
+// our `flexLink` format instead; FlexLink registers itself on import.
+const TOOLBAR = [
+  [{header: [1, 2, 3, false]}],
+  ['bold', 'italic', 'underline'],
+  ['link'],
+  [{list: 'ordered'}, {list: 'bullet'}],
+  ['clean'],
+];
+const FORMATS = ['header', 'bold', 'italic', 'underline', 'list', FlexLink.blotName];
 
 // from https://quilljs.com/playground/react
 const RichEditor = React.forwardRef<Quill, {
@@ -22,10 +43,12 @@ const RichEditor = React.forwardRef<Quill, {
   className?: string;
   onChange?: (value: string) => void;
   id?: string;
-}>(({defaultValue, className, onChange, id}, ref) => {
+  Forms: typeof UI.Forms.Controlled;
+}>(({defaultValue, className, onChange, id, Forms}, ref) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const quillRef = React.useRef<Quill>();
   const defaultValueRef = React.useRef(defaultValue);
+  const [linkEdit, setLinkEdit] = React.useState<LinkEdit | null>(null);
 
   React.useEffect(() => {
     const container = containerRef.current;
@@ -36,6 +59,18 @@ const RichEditor = React.forwardRef<Quill, {
     );
     const quill = new Quill(editorContainer, {
       theme: 'snow',
+      formats: FORMATS,
+      modules: {
+        toolbar: {
+          container: TOOLBAR,
+          handlers: {
+            link() {
+              const edit = selectionLinkEdit(quill);
+              if (edit) setLinkEdit(edit);
+            },
+          },
+        },
+      },
     });
 
     quillRef.current = quill;
@@ -43,6 +78,14 @@ const RichEditor = React.forwardRef<Quill, {
     if (defaultValueRef.current) {
       quill.setContents(quill.clipboard.convert({html: defaultValueRef.current}));
     }
+
+    const detach = attachLinkClick(quill, (anchor) => setLinkEdit(anchorLinkEdit(quill, anchor)));
+
+    return () => {
+      detach();
+      quillRef.current = undefined;
+      container.innerHTML = '';
+    };
   }, []);
 
   React.useImperativeHandle(ref, () => {
@@ -62,7 +105,24 @@ const RichEditor = React.forwardRef<Quill, {
     return () => { quill.off('text-change', handleChange); };
   }, [onChange]);
 
-  return <div id={id} className={className} ref={containerRef} />;
+  return <>
+    <div id={id} className={className} ref={containerRef} />
+    {linkEdit ?
+      <LinkModal
+        Forms={Forms}
+        initial={linkEdit.initial}
+        onConfirm={(target) => {
+          if (quillRef.current) applyLink(quillRef.current, linkEdit, target);
+          setLinkEdit(null);
+        }}
+        onRemove={() => {
+          if (quillRef.current) removeLink(quillRef.current, linkEdit);
+          setLinkEdit(null);
+        }}
+        onCancel={() => setLinkEdit(null)}
+      />
+    : null}
+  </>;
 });
 
 export const RichTextInput = (Forms: typeof UI.Forms.Controlled) =>
@@ -76,7 +136,7 @@ export const RichTextInput = (Forms: typeof UI.Forms.Controlled) =>
       <Forms.FormInputWrapper htmlFor={id}>
         <Forms.FormLabelText><Forms.RequiredIndicator show={required} />{label}:</Forms.FormLabelText>
       </Forms.FormInputWrapper>
-      <RichEditor id={id} defaultValue={value} onChange={setValue} />
+      <RichEditor id={id} defaultValue={value} onChange={setValue} Forms={Forms} />
       <Forms.HelpText value={help} />
     </Forms.FormInputWrapper>;
   };
