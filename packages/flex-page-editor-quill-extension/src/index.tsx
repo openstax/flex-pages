@@ -1,3 +1,5 @@
+import { RouteContext } from '@openstax/flex-page-renderer/RouteContext';
+import type { LinkTarget } from '@openstax/flex-page-renderer/lib/linkBehavior';
 import type * as UI from '@openstax/ui-components';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
@@ -49,6 +51,14 @@ const RichEditor = React.forwardRef<Quill, {
   const quillRef = React.useRef<Quill>();
   const defaultValueRef = React.useRef(defaultValue);
   const [linkEdit, setLinkEdit] = React.useState<LinkEdit | null>(null);
+
+  // Resolve a link target to a concrete href using the routes the editor was
+  // given (same RouteContext the renderer uses). Url-typed targets resolve from
+  // their value in writeLinkTarget, so only routes need resolving here.
+  const routes = React.useContext(RouteContext);
+  const resolveHref = React.useCallback((target: LinkTarget): string | undefined =>
+    target.type === 'route' ? routes[target.value]?.render(target.params) : undefined,
+  [routes]);
 
   React.useEffect(() => {
     const container = containerRef.current;
@@ -110,9 +120,10 @@ const RichEditor = React.forwardRef<Quill, {
     {linkEdit ?
       <LinkModal
         Forms={Forms}
+        initialText={linkEdit.text}
         initial={linkEdit.initial}
-        onConfirm={(target) => {
-          if (quillRef.current) applyLink(quillRef.current, linkEdit, target);
+        onConfirm={(result) => {
+          if (quillRef.current) applyLink(quillRef.current, linkEdit, result, resolveHref(result.target));
           setLinkEdit(null);
         }}
         onRemove={() => {

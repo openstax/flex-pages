@@ -17,8 +17,8 @@ export function clearToken(): void {
 
 const dataDir = 'packages/example/data';
 
-function filePath(slug: string): string {
-  return `${dataDir}/${slug}.json`;
+function filePath(id: string): string {
+  return `${dataDir}/${id}.json`;
 }
 
 function ghHeaders(token: string) {
@@ -62,14 +62,14 @@ export async function fetchPageList(token: string): Promise<PageListItem[]> {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function fetchPage(slug: string, token: string): Promise<{page: any; metadata: PageMetadata; sha: string}> {
+export async function fetchPage(id: string, token: string): Promise<{page: any; metadata: PageMetadata; sha: string}> {
   const res = await fetch(
-    `https://api.github.com/repos/${REPO}/contents/${filePath(slug)}`,
+    `https://api.github.com/repos/${REPO}/contents/${filePath(id)}`,
     {headers: ghHeaders(token)}
   );
 
   if (res.status === 401) throw new Error('Invalid or expired token');
-  if (res.status === 404) throw new Error(`Page "${slug}" not found`);
+  if (res.status === 404) throw new Error(`Page "${id}" not found`);
   if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
 
   const data = await res.json();
@@ -79,23 +79,23 @@ export async function fetchPage(slug: string, token: string): Promise<{page: any
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function savePage(slug: string, page: any, metadata: PageMetadata, sha: string, token: string): Promise<{sha: string}> {
+export async function savePage(id: string, page: any, metadata: PageMetadata, sha: string, token: string): Promise<{sha: string}> {
   const content = JSON.stringify({metadata, page: [page]}, null, 2) + '\n';
   const encoded = btoa(
     Array.from(new TextEncoder().encode(content), b => String.fromCharCode(b)).join('')
   );
 
   const res = await fetch(
-    `https://api.github.com/repos/${REPO}/contents/${filePath(slug)}`,
+    `https://api.github.com/repos/${REPO}/contents/${filePath(id)}`,
     {
       method: 'PUT',
       headers: {Authorization: `Bearer ${token}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json'},
-      body: JSON.stringify({message: `Update ${slug} page via editor`, content: encoded, sha}),
+      body: JSON.stringify({message: `Update ${id} page via editor`, content: encoded, sha}),
     }
   );
 
   if (res.status === 401) throw new Error('Invalid or expired token');
-  if (res.status === 404) throw new Error(`Page "${slug}" not found`);
+  if (res.status === 404) throw new Error(`Page "${id}" not found`);
   if (res.status === 409) throw new Error('Conflict: the file was modified since you loaded it. Reload and try again.');
   if (res.status === 422) throw new Error('Validation error: check that your token has the correct permissions');
   if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);

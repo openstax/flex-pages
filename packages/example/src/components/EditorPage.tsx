@@ -43,22 +43,22 @@ type PageData = {page: any; metadata: PageMetadata; sha: string};
 
 const EditorPage = () => {
   const searchParams = useSearchParams();
-  const slug = searchParams.get('slug');
-  if (!slug) notFound(); 
+  const id = searchParams.get('id');
+  if (!id) notFound(); 
 
   const [token, setToken] = React.useState<string | null>(getToken);
   const [state, setState] = React.useState<FetchState<PageData, string>>(fetchIdle());
   const [pages, setPages] = React.useState<PageListItem[]>([]);
 
   React.useEffect(() => {
-    if (!slug || !token) return;
+    if (!id || !token) return;
     if (state.type !== FetchStateType.IDLE) return;
 
     setState(previous => fetchLoading(previous));
-    fetchPage(slug, token)
+    fetchPage(id, token)
       .then(({page, metadata, sha}) => setState(fetchSuccess({page, metadata, sha})))
       .catch((err: Error) => setState(previous => fetchError(err.message, previous)));
-  }, [slug, token, state]);
+  }, [id, token, state]);
 
   // Live list of pages for the link-target page picker, keyed by id.
   React.useEffect(() => {
@@ -67,16 +67,16 @@ const EditorPage = () => {
   }, [token]);
 
   const onSubmit = React.useCallback((data: UI.Forms.Controlled.AbstractFormData) => {
-    if (slug && token && stateHasData(state)) {
+    if (id && token && stateHasData(state)) {
       setState(previous => fetchLoading(previous));
-      savePage(slug, data.page, data.metadata, state.data.sha, token)
+      savePage(id, data.page, data.metadata, state.data.sha, token)
         .then(({sha}) => setState(fetchSuccess({page: data.page, metadata: data.metadata, sha})))
         .catch((err: Error) => setState(previous => fetchError(err.message, previous)));
     }
-  }, [slug, token, state]);
+  }, [id, token, state]);
 
   return <>
-    <h1>Edit: {slug}</h1>
+    <h1>Edit: {id}</h1>
     {!token
       ? <>
           <p>A GitHub token with repo access is required to load and save pages.</p>

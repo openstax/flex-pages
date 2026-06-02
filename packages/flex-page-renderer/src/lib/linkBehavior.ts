@@ -44,12 +44,22 @@ export function readLinkTarget(el: Element): LinkTarget | null {
   return { type, value, params };
 }
 
+// Link target types whose `value` is itself a usable href.
+const URL_LINK_TYPES = ['external', 'internal', 'anchor'];
+
 /*
  * Inverse of readLinkTarget: writes a (possibly resolved) target back onto an
  * anchor's data attributes. Used by mapPageNodes when transforming rich-text
- * links in the app data layer.
+ * links in the app data layer, and by the editor's flexLink blot.
+ *
+ * Keeps a concrete `href` on the anchor so it stays a valid link eagerly (in
+ * the editor, raw HTML, etc.). A caller that has resolved the target to a url
+ * — e.g. a route link's resolved page url — passes it as `href`; otherwise we
+ * mirror the value for url-typed targets. We never clear an existing href, so
+ * switching a link's type without supplying its new href won't silently drop
+ * it (the caller is expected to pass the updated href).
  */
-export function writeLinkTarget(el: Element, target: LinkTarget): void {
+export function writeLinkTarget(el: Element, target: LinkTarget, href?: string): void {
   el.setAttribute('data-link-type', target.type);
   el.setAttribute('data-link-value', target.value);
   if (target.params && Object.keys(target.params).length > 0) {
@@ -57,6 +67,8 @@ export function writeLinkTarget(el: Element, target: LinkTarget): void {
   } else {
     el.removeAttribute('data-link-params');
   }
+  const resolvedHref = href ?? (URL_LINK_TYPES.includes(target.type) ? target.value : undefined);
+  if (resolvedHref !== undefined) el.setAttribute('href', resolvedHref);
 }
 
 /*
