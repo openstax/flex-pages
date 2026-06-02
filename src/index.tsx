@@ -45,7 +45,17 @@ export const FancySelect = (Forms: typeof UI.Forms.Controlled) => (
 
   return <Forms.FormInputWrapper>
     <Forms.FormLabelText><Forms.RequiredIndicator show={props.required} />{label}:</Forms.FormLabelText>
-    <Select {...props} value={selected} onChange={onChange} />
+    <Select
+      {...props}
+      value={selected}
+      onChange={onChange}
+      // Position the menu `fixed` so it escapes an `overflow: hidden` ancestor
+      // (e.g. the link-editor modal) WITHOUT a body portal — a portal renders
+      // outside react-aria's modal overlay, which blocks pointer events to the
+      // menu. Keeping it inline leaves it inside the modal's interaction scope.
+      menuPosition="fixed"
+      styles={{menu: base => ({...base, zIndex: 9999})}}
+    />
     <Forms.HelpText value={help} />
   </Forms.FormInputWrapper>;
 };
