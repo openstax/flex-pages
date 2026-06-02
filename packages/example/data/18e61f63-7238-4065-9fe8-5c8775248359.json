@@ -46,7 +46,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<p><a data-flex-link=\"\" data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;b2e5c7f3-740f-4ef4-b042-475306b6831a&quot;}\">documentation home</a></p>",
+                  "value": "<p><a data-flex-link=\"\" data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\" href=\"/flex-pages/id/e39eda50-a822-42d8-93de-91ab50a27a49\">documentation home</a></p>",
                   "id": "b1b2c3d4-3333-1111-1111-000000000006"
                 }
               ],
