@@ -1,0 +1,57 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.fields = void 0;
+const Image_1 = require("../components/Image");
+exports.fields = {
+    type: 'hero',
+    categories: ['structure'],
+    label: 'Hero',
+    fields: [
+        { name: 'content', label: 'Content', type: 'blocks', categories: ['content'] },
+        { name: 'imageAlt', label: 'Image Alt', type: 'text' },
+        { name: 'image', label: 'Hero Image', type: 'namespace', fields: Image_1.imageFieldsConfig },
+        { name: 'config', label: 'Config', type: 'configs', configs: [
+                { name: 'image_alignment', label: 'Image Alignment', type: 'select', options: [
+                        { label: 'Left', value: 'left' },
+                        { label: 'Top Left', value: 'top_left' },
+                        { label: 'Bottom Left', value: 'bottom_left' },
+                        { label: 'Right', value: 'right' },
+                        { label: 'Top Right', value: 'top_right' },
+                        { label: 'Bottom Right', value: 'bottom_right' },
+                    ] },
+                { name: 'text_alignment', label: 'Text Alignment', type: 'select', options: [
+                        { label: 'Left', value: 'left' },
+                        { label: 'Right', value: 'right' },
+                        { label: 'Center', value: 'center' },
+                    ] },
+                { name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}' },
+                { name: 'gradient_color', label: 'Gradient To Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}',
+                    help: 'Second color for gradient effect. Background Color is the starting color.' },
+                { name: 'gradient_direction', label: 'Gradient Direction', type: 'select', options: [
+                        { label: 'Top to Bottom', value: 'to bottom' },
+                        { label: 'Bottom to Top', value: 'to top' },
+                        { label: 'Left to Right', value: 'to right' },
+                        { label: 'Right to Left', value: 'to left' },
+                        { label: 'Top-Left to Bottom-Right', value: 'to bottom right' },
+                        { label: 'Top-Right to Bottom-Left', value: 'to bottom left' },
+                        { label: 'Bottom-Left to Top-Right', value: 'to top right' },
+                        { label: 'Bottom-Right to Top-Left', value: 'to top left' },
+                    ] },
+                { name: 'padding', label: 'Padding', help: 'Top and Bottom padding, in 10px increments', type: 'number' },
+                { name: 'padding_top', label: 'Padding Top', help: 'Top padding, in 10px increments', type: 'number' },
+                { name: 'padding_bottom', label: 'Padding Bottom', help: 'Bottom padding, in 10px increments', type: 'number' },
+                { name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text' },
+                { name: 'id', label: 'ID', help: 'The HTML id of the section (can be referenced by anchor links).', type: 'text' },
+                { name: 'image_border_radius', label: 'Image Border Radius', type: 'number',
+                    help: 'Border radius for the hero image in pixels' },
+                { name: 'image_border_color', label: 'Image Border Color', type: 'text', pattern: '#[a-fA-F0-9]{6}',
+                    help: 'Hex color for the hero image border' },
+                { name: 'image_border_size', label: 'Image Border Size', type: 'number',
+                    help: 'Border width for the hero image in pixels' },
+                { name: 'image_overhang', label: 'Image Overhang', type: 'text',
+                    help: 'Extends the image beyond the content area by this amount (e.g. 5rem, 10%)' },
+                { name: 'rendering_condition', label: 'Rendering Condition', type: 'text',
+                    help: 'Comma-separated condition slugs. Block renders only when at least one is active.' },
+            ] },
+    ],
+};
