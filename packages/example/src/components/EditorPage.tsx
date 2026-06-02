@@ -1,6 +1,7 @@
 import { quillExtensions } from '@openstax/flex-page-editor-quill-extension';
 import { selectExtensions } from '@openstax/flex-page-editor-select-extension';
 import { FlexBlockEditor } from '@openstax/flex-page-editor/Editor';
+import type { RouteConfig } from '@openstax/flex-page-renderer/RouteContext';
 import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
 import {
   fetchError, fetchIdle, fetchLoading, FetchState,
@@ -10,14 +11,31 @@ import * as UI from '@openstax/ui-components';
 import { notFound, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { actions } from '../lib/actions';
-import { fetchPage, getToken, savePage } from '../lib/github';
+import { fetchPage, fetchPageList, getToken, type PageListItem, savePage } from '../lib/github';
 import type { PageMetadata } from '../lib/pages';
+import { PAGE_ID_ROUTE, pageIdHref } from '../lib/routes';
 import styles from './EditorPage.module.css';
+import { pageLinkExtension, PagesContext } from './PageLinkTarget';
 import { TokenInput } from './TokenInput';
 
 const fieldTypes = {
   ...quillExtensions({Forms: UI.Forms.Controlled}),
   ...selectExtensions({Forms: UI.Forms.Controlled}),
+  ...pageLinkExtension,
+};
+
+// The page-id route, passed to the editor for completeness. Our PageLinkTarget
+// extension overrides the link-target field and resolves pages itself, so this
+// isn't consumed by the link editor — but it keeps RouteContext correct for any
+// non-overridden link-target consumer.
+const editorRoutes: RouteConfig = {
+  [PAGE_ID_ROUTE]: {
+    id: PAGE_ID_ROUTE,
+    label: 'Page',
+    render: (params) => pageIdHref(params?.id),
+    handler: () => undefined,
+    fields: [{name: 'id', label: 'Page Id', type: 'text', required: true}],
+  },
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -30,6 +48,7 @@ const EditorPage = () => {
 
   const [token, setToken] = React.useState<string | null>(getToken);
   const [state, setState] = React.useState<FetchState<PageData, string>>(fetchIdle());
+  const [pages, setPages] = React.useState<PageListItem[]>([]);
 
   React.useEffect(() => {
     if (!slug || !token) return;
@@ -40,6 +59,12 @@ const EditorPage = () => {
       .then(({page, metadata, sha}) => setState(fetchSuccess({page, metadata, sha})))
       .catch((err: Error) => setState(previous => fetchError(err.message, previous)));
   }, [slug, token, state]);
+
+  // Live list of pages for the link-target page picker, keyed by id.
+  React.useEffect(() => {
+    if (!token) return;
+    fetchPageList(token).then(setPages).catch(() => setPages([]));
+  }, [token]);
 
   const onSubmit = React.useCallback((data: UI.Forms.Controlled.AbstractFormData) => {
     if (slug && token && stateHasData(state)) {
@@ -74,14 +99,17 @@ const EditorPage = () => {
                   <UI.Forms.Controlled.TextInput name="url" label="URL" />
                 </UI.Forms.Controlled.NameSpace>
               </fieldset>
-              <FlexBlockEditor
-                blocks={allBlocks}
-                actions={actions}
-                fields={fieldTypes}
-                type="flex_page"
-                name="page"
-                Forms={UI.Forms.Controlled}
-              />
+              <PagesContext.Provider value={pages}>
+                <FlexBlockEditor
+                  blocks={allBlocks}
+                  actions={actions}
+                  routes={editorRoutes}
+                  fields={fieldTypes}
+                  type="flex_page"
+                  name="page"
+                  Forms={UI.Forms.Controlled}
+                />
+              </PagesContext.Provider>
               <UI.Forms.Controlled.Buttons />
             </UI.Forms.Controlled.Form>
           </>}

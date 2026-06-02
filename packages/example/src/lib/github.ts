@@ -15,15 +15,57 @@ export function clearToken(): void {
   localStorage.removeItem(STORAGE_KEY);
 }
 
+const dataDir = 'packages/example/data';
+
 function filePath(slug: string): string {
-  return `packages/example/data/${slug}.json`;
+  return `${dataDir}/${slug}.json`;
+}
+
+function ghHeaders(token: string) {
+  return {Authorization: `Bearer ${token}`, Accept: 'application/vnd.github.v3+json'};
+}
+
+function decodeBase64Content(content: string): string {
+  return new TextDecoder().decode(
+    Uint8Array.from(atob(content.replace(/\n/g, '')), c => c.charCodeAt(0))
+  );
+}
+
+export type PageListItem = {id: string; title: string; url: string};
+
+// Live page list from GitHub: list the data dir, then read each file's metadata
+// for a human title. id is the file name (a UUID). N+1 requests, fine at this
+// scale. Reflects the repo's current pages — including ones committed but not
+// yet deployed — which is what an editor wants when choosing a link target.
+export async function fetchPageList(token: string): Promise<PageListItem[]> {
+  const res = await fetch(
+    `https://api.github.com/repos/${REPO}/contents/${dataDir}`,
+    {headers: ghHeaders(token)}
+  );
+  if (res.status === 401) throw new Error('Invalid or expired token');
+  if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const entries: any[] = await res.json();
+  const jsonFiles = entries.filter(e => e.type === 'file' && e.name.endsWith('.json'));
+
+  const items = await Promise.all(jsonFiles.map(async (file): Promise<PageListItem> => {
+    const id = file.name.replace(/\.json$/, '');
+    const fileRes = await fetch(file.url, {headers: ghHeaders(token)});
+    if (!fileRes.ok) return {id, title: id, url: ''};
+    const data = await fileRes.json();
+    const metadata = JSON.parse(decodeBase64Content(data.content)).metadata ?? {};
+    return {id, title: metadata.title ?? id, url: metadata.url ?? ''};
+  }));
+
+  return items.sort((a, b) => a.title.localeCompare(b.title));
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function fetchPage(slug: string, token: string): Promise<{page: any; metadata: PageMetadata; sha: string}> {
   const res = await fetch(
     `https://api.github.com/repos/${REPO}/contents/${filePath(slug)}`,
-    {headers: {Authorization: `Bearer ${token}`, Accept: 'application/vnd.github.v3+json'}}
+    {headers: ghHeaders(token)}
   );
 
   if (res.status === 401) throw new Error('Invalid or expired token');
@@ -31,10 +73,7 @@ export async function fetchPage(slug: string, token: string): Promise<{page: any
   if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
 
   const data = await res.json();
-  const decoded = new TextDecoder().decode(
-    Uint8Array.from(atob(data.content.replace(/\n/g, '')), c => c.charCodeAt(0))
-  );
-  const fileData = JSON.parse(decoded);
+  const fileData = JSON.parse(decodeBase64Content(data.content));
   const metadata: PageMetadata = fileData.metadata ?? {title: '', description: ''};
   return {page: fileData.page[0], metadata, sha: data.sha};
 }
