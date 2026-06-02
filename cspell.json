@@ -5,6 +5,7 @@
   "words": [
     "allowfullscreen",
     "autoplay",
+    "builtins",
     "describedby",
     "dompurify",
     "labelledby",
@@ -16,8 +17,10 @@
     "quotee",
     "referrerpolicy",
     "richtext",
+    "rollup",
     "srgb",
     "stylelint",
+    "stylesheet",
     "tabindex",
     "unoptimized"
   ],
