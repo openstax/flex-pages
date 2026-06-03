@@ -15,9 +15,13 @@
   }
 
   > .cta-actions {
-    display: inline-flex;
+    display: flex;
     flex-wrap: wrap;
     gap: $normal-margin;
+    // a full-width flex row can't be positioned by the section's text-align, so
+    // map the alignment intent onto justify-content to keep each wrapped line
+    // aligned; the value resolves from the nearest .flex-align-* ancestor (below)
+    justify-content: var(--cta-actions-justify, flex-start);
   }
 
   &.layout-inline {
@@ -29,10 +33,6 @@
       flex: 1;
       min-width: 0;
       margin-bottom: 0;
-    }
-
-    > .cta-actions {
-      display: flex;
     }
   }
 
@@ -62,6 +62,14 @@
     }
   }
 }
+
+// The CTA translates the alignment intent into a justify-content value. Resolving
+// it through an inherited custom property makes the nearest .flex-align-* ancestor
+// win — a nested left well overrides its centered section — which descendant
+// selectors can't express (they have no notion of proximity).
+.flex-page .flex-align-left { --cta-actions-justify: flex-start; }
+.flex-page .flex-align-center { --cta-actions-justify: center; }
+.flex-page .flex-align-right { --cta-actions-justify: flex-end; }
 
 .flex-page.page .cta-link {
 

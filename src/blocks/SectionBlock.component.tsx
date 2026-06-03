@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 import type { ContentBlockConfig } from '../ContentBlockContext';
-import { findByType, resolveBackground } from '../utils';
+import { findByType, flexAlignClass, resolveBackground } from '../utils';
 import './SectionBlock.css';
 
 export type SectionConfigOptions = {
@@ -78,7 +78,7 @@ export function SectionBlock({data, content, activeConditions}: {data: SectionBl
       '--padding-bottom-multiplier': paddingBottom
     } as React.CSSProperties}
   >
-    <div className="section-content" style={{textAlign, display, flexDirection: 'column'}}>
+    <div className={cn('section-content', flexAlignClass(textAlign))} style={{textAlign, display, flexDirection: 'column'}}>
       {content}
     </div>
   </section>;

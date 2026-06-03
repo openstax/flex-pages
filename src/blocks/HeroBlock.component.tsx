@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 import type { ContentBlockConfig } from '../ContentBlockContext';
 import { Image, ImageFields } from '../components/Image';
-import { findByType, resolveBackground } from '../utils';
+import { findByType, flexAlignClass, resolveBackground } from '../utils';
 import './HeroBlock.css';
 
 export type HeroConfigOptions = {
@@ -110,7 +110,7 @@ export function HeroBlock({data, content, activeConditions}: {data: HeroBlockCon
     >
         <div className={cn('hero-inner-wrapper', {'image-left': !imageRight})}>
           {imageRight ? <>
-            <div className="hero-content" style={{textAlign}}>
+            <div className={cn('hero-content', flexAlignClass(textAlign))} style={{textAlign}}>
                 {content}
             </div>
             <div className="hero-image-container">
@@ -128,7 +128,7 @@ export function HeroBlock({data, content, activeConditions}: {data: HeroBlockCon
                     alt={data.value.imageAlt}
                 />
             </div>
-            <div className="hero-content" style={{textAlign}}>
+            <div className={cn('hero-content', flexAlignClass(textAlign))} style={{textAlign}}>
                 {content}
             </div>
           </>}
