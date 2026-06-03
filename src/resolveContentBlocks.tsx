@@ -1,23 +1,9 @@
 import React from 'react';
 import type { BlockDefinition, ContentBlockConfig } from './ContentBlockContext';
+import { fieldDefs } from './lib/blockFields';
 import type { ConfigField } from '.';
 
 type BlockMap = Record<string, BlockDefinition>;
-
-/*
- * A block's `fields` config tells us exactly where nested blocks live: a field
- * of type 'blocks' holds a block array, and a 'list' field can hold items with
- * 'blocks' sub-fields (e.g. tabbed content tabs). We drive child resolution off
- * that config rather than sniffing the data shape — it's exact, and it works for
- * every block including client ones, because `fields` lives in a directive-free
- * module and stays readable on the server.
- */
-function fieldDefs(def: BlockDefinition | undefined): ConfigField[] {
-  if (!def) return [];
-  if (def.fields.fields) return def.fields.fields;
-  if (def.fields.field) return [def.fields.field];
-  return [];
-}
 
 function resolveSlotProps(
   block: ContentBlockConfig,

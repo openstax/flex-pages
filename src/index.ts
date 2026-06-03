@@ -8,3 +8,7 @@ export type ConfigField = {
 };
 
 export { resolveContentBlocks } from './resolveContentBlocks';
+export { validateBlock } from './validateBlock';
+export type { ValidationCode, ValidationIssue, ValidationResult } from './validateBlock';
+export { generateBlockDocs } from './generateBlockDocs';
+export type { BlockDocsOptions } from './generateBlockDocs';

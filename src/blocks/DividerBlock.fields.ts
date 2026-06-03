@@ -3,7 +3,7 @@ export const fields = {
   categories: ['structure'],
   label: 'Divider',
   fields: [
-    {name: 'image', label: 'Image', type: 'image'},
+    {name: 'image', label: 'Image', type: 'image', required: true},
     {name: 'config', label: 'Config', type: 'configs', configs: [
       {name: 'width', label: 'Image Display Width', help: 'CSS text for the width to display the image', type: 'text'},
       {name: 'height', label: 'Image Display Height', help: 'CSS text for the height to display the image', type: 'text'},
