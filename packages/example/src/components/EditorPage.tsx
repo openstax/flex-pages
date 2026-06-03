@@ -1,9 +1,9 @@
 import { quillExtensions } from '@openstax/flex-page-editor-quill-extension';
 import { selectExtensions } from '@openstax/flex-page-editor-select-extension';
 import { FlexBlockEditor } from '@openstax/flex-page-editor/Editor';
-import { validateBlock, type ValidationIssue } from '@openstax/flex-page-renderer';
 import type { RouteConfig } from '@openstax/flex-page-renderer/RouteContext';
 import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
+import { validateBlock, type ValidationIssue } from '@openstax/flex-page-renderer/validateBlock';
 import {
   fetchError, fetchIdle, fetchLoading, FetchState,
   FetchStateType, fetchSuccess, stateHasData, stateHasError

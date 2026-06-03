@@ -7,6 +7,8 @@ import type { BlockFieldDefinitions, ConfigMetadata } from './ContentBlockContex
  * document their own block set the same way.
  */
 
+export type { BlockFieldDefinition, BlockFieldDefinitions } from './ContentBlockContext';
+
 export type BlockDocsOptions = {
   /* top-level heading; defaults to "Flex Page Block Reference" */
   title?: string;

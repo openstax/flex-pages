@@ -4,6 +4,8 @@ import type { ConfigField } from '.';
 
 type BlockMap = BlockFieldDefinitions;
 
+export type { BlockFieldDefinition, BlockFieldDefinitions } from './ContentBlockContext';
+
 export type ValidationCode =
   | 'unknown-block'
   | 'invalid-category'
