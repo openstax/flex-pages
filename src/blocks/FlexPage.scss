@@ -5,6 +5,15 @@
   container-name: flex-structure;
 }
 
+// Wraps content children (e.g. a Section's or Hero's content), as opposed to the
+// structural children held by .flex-structure-container. Content blocks query this
+// to respond to the width they actually get, which varies by container (a full
+// section vs. a Hero column vs. a column).
+.flex-content-container {
+  container-type: inline-size;
+  container-name: flex-content;
+}
+
 .flex-page.page {
   display: flex;
   flex-flow: column nowrap;
