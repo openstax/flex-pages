@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 import type { ContentBlockConfig } from '../ContentBlockContext';
-import { findByType, resolveBackground } from '../utils';
+import { findByType, flexAlignClass, resolveBackground } from '../utils';
 import './WellBlock.css';
 
 export type WellConfigOptions = {
@@ -81,7 +81,7 @@ export function WellBlock({data, content}: {data: WellBlockConfig; content?: Rea
       ...(pullUp ? {marginTop: `-${pullUp}rem`} : {})
     } as React.CSSProperties}
   >
-    <div className="well-content" style={{
+    <div className={cn('well-content', flexAlignClass(textAlign))} style={{
       background: bg.background,
       backgroundColor: bg.backgroundColor,
       borderRadius: `${borderRadius}px`,

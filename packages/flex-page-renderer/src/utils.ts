@@ -21,6 +21,15 @@ export function findByType<Union extends {type: string}, T extends string>(entri
   return entries?.find((entry) => entry.type === type) as Extract<Union, { type: T }> | undefined;
 }
 
+// Marks an element as the text-alignment context for its descendants. Flex-based
+// blocks (e.g. CTA actions) read this class to align themselves to match, since a
+// flex row stretched to the full width can't be positioned by text-align alone.
+// Goes on the same element that carries the text-align style so the nearest one
+// wins for nested contexts.
+export function flexAlignClass(textAlign: string | undefined) {
+  return textAlign ? `flex-align-${textAlign}` : undefined;
+}
+
 export function scrollTo(el: Element, offset = 0) {
   const getOffsetTop = () => {
     const rect = el.getBoundingClientRect();
