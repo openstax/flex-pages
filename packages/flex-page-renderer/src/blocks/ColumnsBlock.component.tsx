@@ -122,10 +122,10 @@ export function ColumnsBlock({data, leftContent, rightContent}: {data: ColumnsBl
         Inject as raw HTML so server and client text content match. */}
     <style dangerouslySetInnerHTML={{__html: stackCSS}} />
     <div className="columns-content">
-      <div className="content-block-columns-left" style={leftStyle as React.CSSProperties}>
+      <div className="content-block-columns-left flex-content-container" style={leftStyle as React.CSSProperties}>
         {leftContent}
       </div>
-      <div className="content-block-columns-right" style={rightStyle as React.CSSProperties}>
+      <div className="content-block-columns-right flex-content-container" style={rightStyle as React.CSSProperties}>
         {rightContent}
       </div>
     </div>

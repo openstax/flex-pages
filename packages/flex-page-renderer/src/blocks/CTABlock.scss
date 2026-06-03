@@ -26,12 +26,20 @@
 
   &.layout-inline {
     display: flex;
+    flex-wrap: wrap;
     gap: $normal-margin;
     align-items: center;
+    // Aligns the actions once they wrap onto their own line; a no-op on the shared
+    // line, where the flex:1 description has already absorbed the free space.
+    justify-content: var(--cta-actions-justify, flex-start);
 
     > .cta-description {
       flex: 1;
-      min-width: 0;
+      // Hold the description at ~20rem before bumping the actions onto the next
+      // line, so the wrap point follows the actual button width (one vs two) rather
+      // than a fixed breakpoint. min() caps it at the container so a container
+      // narrower than 20rem shrinks the floor instead of overflowing.
+      min-width: min(100%, 20rem);
       margin-bottom: 0;
     }
   }

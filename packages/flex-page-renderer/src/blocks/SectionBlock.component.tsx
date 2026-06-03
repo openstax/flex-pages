@@ -78,7 +78,7 @@ export function SectionBlock({data, content, activeConditions}: {data: SectionBl
       '--padding-bottom-multiplier': paddingBottom
     } as React.CSSProperties}
   >
-    <div className={cn('section-content', flexAlignClass(textAlign))} style={{textAlign, display, flexDirection: 'column'}}>
+    <div className={cn('section-content', 'flex-content-container', flexAlignClass(textAlign))} style={{textAlign, display, flexDirection: 'column'}}>
       {content}
     </div>
   </section>;

@@ -81,7 +81,7 @@ export function WellBlock({data, content}: {data: WellBlockConfig; content?: Rea
       ...(pullUp ? {marginTop: `-${pullUp}rem`} : {})
     } as React.CSSProperties}
   >
-    <div className={cn('well-content', flexAlignClass(textAlign))} style={{
+    <div className={cn('well-content', 'flex-content-container', flexAlignClass(textAlign))} style={{
       background: bg.background,
       backgroundColor: bg.backgroundColor,
       borderRadius: `${borderRadius}px`,
