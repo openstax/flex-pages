@@ -8,7 +8,8 @@
  */
 import { writeFileSync, mkdirSync } from 'fs';
 import { join } from 'path';
-import { blockFieldDefinitions, generateBlockDocs } from '../src';
+import { blockFieldDefinitions } from '../src/blocks.fields';
+import { generateBlockDocs } from '../src';
 
 const OUT_DIR = join(process.cwd(), 'docs');
 const OUT_FILE = join(OUT_DIR, 'blocks.md');
