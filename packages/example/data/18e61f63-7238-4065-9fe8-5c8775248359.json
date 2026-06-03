@@ -16,7 +16,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<p></p>",
+                  "value": "<p><strong>Page Structure:</strong></p>",
                   "id": "b1b2c3d4-3333-1111-1111-000000000001"
                 },
                 {
