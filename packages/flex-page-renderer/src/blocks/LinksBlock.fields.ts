@@ -1,7 +1,7 @@
 import { linkFieldConfig } from '../components/Link.fields';
 
 export const fields = {
-  type: 'cta_block',
+  type: 'links_group',
   categories: ['content'],
   label: 'Links',
   fields: [

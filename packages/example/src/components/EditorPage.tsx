@@ -1,6 +1,7 @@
 import { quillExtensions } from '@openstax/flex-page-editor-quill-extension';
 import { selectExtensions } from '@openstax/flex-page-editor-select-extension';
 import { FlexBlockEditor } from '@openstax/flex-page-editor/Editor';
+import { validateBlock, type ValidationIssue } from '@openstax/flex-page-renderer';
 import type { RouteConfig } from '@openstax/flex-page-renderer/RouteContext';
 import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
 import {
@@ -49,6 +50,7 @@ const EditorPage = () => {
   const [token, setToken] = React.useState<string | null>(getToken);
   const [state, setState] = React.useState<FetchState<PageData, string>>(fetchIdle());
   const [pages, setPages] = React.useState<PageListItem[]>([]);
+  const [issues, setIssues] = React.useState<ValidationIssue[]>([]);
 
   React.useEffect(() => {
     if (!id || !token) return;
@@ -67,16 +69,32 @@ const EditorPage = () => {
   }, [token]);
 
   const onSubmit = React.useCallback((data: UI.Forms.Controlled.AbstractFormData) => {
-    if (id && token && stateHasData(state)) {
-      setState(previous => fetchLoading(previous));
-      savePage(id, data.page, data.metadata, state.data.sha, token)
-        .then(({sha}) => setState(fetchSuccess({page: data.page, metadata: data.metadata, sha})))
-        .catch((err: Error) => setState(previous => fetchError(err.message, previous)));
+    if (!(id && token && stateHasData(state))) return;
+
+    // Pre-save guard: the form already validates individual fields as you type;
+    // this checks the assembled block tree (required fields, block placement,
+    // value types) before we persist, and blocks the save if anything is wrong.
+    const result = validateBlock(data.page, allBlocks as unknown as Parameters<typeof validateBlock>[1]);
+    if (!result.valid) {
+      setIssues(result.issues);
+      return;
     }
+    setIssues([]);
+
+    setState(previous => fetchLoading(previous));
+    savePage(id, data.page, data.metadata, state.data.sha, token)
+      .then(({sha}) => setState(fetchSuccess({page: data.page, metadata: data.metadata, sha})))
+      .catch((err: Error) => setState(previous => fetchError(err.message, previous)));
   }, [id, token, state]);
 
   return <>
     <h1>Edit: {id}</h1>
+    {issues.length > 0 && <div className={styles.validationErrors} role="alert">
+      <strong>This page wasn&apos;t saved — {issues.length} problem{issues.length === 1 ? '' : 's'} found:</strong>
+      <ul>
+        {issues.map((issue, i) => <li key={i}><code>{issue.path}</code> — {issue.message}</li>)}
+      </ul>
+    </div>}
     {!token
       ? <>
           <p>A GitHub token with repo access is required to load and save pages.</p>

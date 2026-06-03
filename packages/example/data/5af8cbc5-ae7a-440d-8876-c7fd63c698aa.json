@@ -551,7 +551,7 @@
                       },
                       {
                         "type": "border_size",
-                        "value": "2px"
+                        "value": 2
                       },
                       {
                         "type": "border_radius",

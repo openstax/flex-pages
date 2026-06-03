@@ -3,8 +3,8 @@ export const fields = {
   label: 'Columns',
   categories: ['structure'],
   fields: [
-    {name: 'leftContent', label: 'Left Column Content', type: 'blocks', categories: ['content']},
-    {name: 'rightContent', label: 'Right Column Content', type: 'blocks', categories: ['content']},
+    {name: 'leftContent', label: 'Left Column Content', type: 'blocks', categories: ['content'], required: true},
+    {name: 'rightContent', label: 'Right Column Content', type: 'blocks', categories: ['content'], required: true},
     {name: 'config', label: 'Config', type: 'configs', configs: [
       {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}'},
       {name: 'gradient_color', label: 'Gradient To Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}',

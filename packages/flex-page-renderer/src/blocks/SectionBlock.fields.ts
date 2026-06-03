@@ -3,7 +3,7 @@ export const fields = {
   categories: ['structure'],
   label: 'Section',
   fields: [
-    {name: 'content', label: 'Section Content', type: 'blocks', categories: ['content']},
+    {name: 'content', label: 'Section Content', type: 'blocks', categories: ['content'], required: true},
     {name: 'config', label: 'Config', type: 'configs', configs: [
       {name: 'text_alignment', label: 'Text Alignment', type: 'select', options: [
         {label: 'Left', value: 'left'},

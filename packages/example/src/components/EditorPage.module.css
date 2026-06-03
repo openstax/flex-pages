@@ -2,6 +2,23 @@
   color: red;
 }
 
+.validationErrors {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #c00;
+  border-radius: 4px;
+  background: #fdecea;
+  color: #900;
+}
+
+.validationErrors ul {
+  margin: 0.5rem 0 0;
+}
+
+.validationErrors code {
+  font-family: monospace;
+}
+
 .metadata {
   margin-bottom: 1.5rem;
   padding: 1rem;
