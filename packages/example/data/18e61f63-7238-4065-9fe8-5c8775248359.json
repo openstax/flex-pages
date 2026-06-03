@@ -16,7 +16,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<p data-block-key=\"t6nx6\"><b>Page Structure:</b></p>",
+                  "value": "<p></p>",
                   "id": "b1b2c3d4-3333-1111-1111-000000000001"
                 },
                 {
@@ -28,7 +28,7 @@
               "config": [
                 {
                   "type": "padding",
-                  "value": 7,
+                  "value": "7",
                   "id": "b1b2c3d4-3333-1111-1111-000000000003"
                 },
                 {
