@@ -36,6 +36,16 @@ export type BlockDefinition<K = string> = {
   fields: ConfigMetadata<K>;
 };
 
+/*
+ * The field-definition-only view of a block — everything the introspection
+ * utilities (validateBlock, generateBlockDocs) need, without the Component.
+ * Importing Components pulls their CSS, which breaks plain node/tsx execution,
+ * so these utilities accept this lighter map. A full Record<string,
+ * BlockDefinition> is assignable to it, and so is a CSS-free {fields}-only map.
+ */
+export type BlockFieldDefinition = Pick<BlockDefinition, 'fields'>;
+export type BlockFieldDefinitions = Record<string, BlockFieldDefinition>;
+
 export type BlockDataEntry<D> = ContentBlockConfig & {type: keyof D} & Record<string, unknown>;
 export type BlockData<D> = BlockDataEntry<D>[];
 export type BlockDefinitions<D> = {

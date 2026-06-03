@@ -12,3 +12,5 @@ export { validateBlock } from './validateBlock';
 export type { ValidationCode, ValidationIssue, ValidationResult } from './validateBlock';
 export { generateBlockDocs } from './generateBlockDocs';
 export type { BlockDocsOptions } from './generateBlockDocs';
+export { blockFieldDefinitions } from './blocks/fieldDefinitions';
+export type { BlockFieldDefinition, BlockFieldDefinitions } from './ContentBlockContext';

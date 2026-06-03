@@ -1,5 +1,5 @@
 import type { ConfigField } from '..';
-import type { BlockDefinition } from '../ContentBlockContext';
+import type { BlockFieldDefinition } from '../ContentBlockContext';
 
 /*
  * A block's `fields` config tells us exactly where its data lives — including
@@ -14,7 +14,7 @@ import type { BlockDefinition } from '../ContentBlockContext';
  * value directly). This flattens both to a list; callers that care about the
  * scalar-value form check `def.fields.field` themselves.
  */
-export function fieldDefs(def: BlockDefinition | undefined): ConfigField[] {
+export function fieldDefs(def: BlockFieldDefinition | undefined): ConfigField[] {
   if (!def) return [];
   if (def.fields.fields) return def.fields.fields;
   if (def.fields.field) return [def.fields.field];

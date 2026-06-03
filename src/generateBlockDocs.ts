@@ -1,4 +1,4 @@
-import type { BlockDefinition, ConfigMetadata } from './ContentBlockContext';
+import type { BlockFieldDefinitions, ConfigMetadata } from './ContentBlockContext';
 
 /*
  * Generates a markdown reference for a set of block definitions — the same
@@ -183,7 +183,7 @@ const VALUE_TYPES: Array<{ type: string; lines: string[] }> = [
 ];
 
 export function generateBlockDocs(
-  definitions: Record<string, BlockDefinition>,
+  definitions: BlockFieldDefinitions,
   options: BlockDocsOptions = {}
 ): string {
   const blocks: DocBlock[] = Object.entries(definitions).map(([key, def]) => ({ key, meta: def.fields }));

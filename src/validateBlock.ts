@@ -1,8 +1,8 @@
-import type { BlockDefinition, ContentBlockConfig } from './ContentBlockContext';
+import type { BlockFieldDefinition, BlockFieldDefinitions, ContentBlockConfig } from './ContentBlockContext';
 import { fieldDefs } from './lib/blockFields';
 import type { ConfigField } from '.';
 
-type BlockMap = Record<string, BlockDefinition>;
+type BlockMap = BlockFieldDefinitions;
 
 export type ValidationCode =
   | 'unknown-block'
@@ -242,7 +242,7 @@ function validateChildBlock(
 }
 
 /* validate one block's own fields, handling both the object-value and scalar-value (single `field`) forms */
-function validateBlockNode(block: ContentBlockConfig, def: BlockDefinition, path: string, ctx: Ctx): void {
+function validateBlockNode(block: ContentBlockConfig, def: BlockFieldDefinition, path: string, ctx: Ctx): void {
   const loc: BlockLoc = { blockId: block.id, blockType: block.type };
   const field = def.fields.field;
 
