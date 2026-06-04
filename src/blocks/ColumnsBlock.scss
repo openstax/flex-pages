@@ -54,7 +54,6 @@
 
     .content-block-columns-left,
     .content-block-columns-right {
-      max-width: var(--col-width, unset);
       flex: var(--col-flex, unset);
     }
   }

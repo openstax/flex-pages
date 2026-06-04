@@ -9,17 +9,17 @@
     clear: both;
   }
 
-  img.richtext-image.full-width {
+  img.full-width {
     width: 100%;
     height: auto;
   }
 
-  img.richtext-image.left {
+  img.left {
     float: left;
     margin-right: $normal-margin;
   }
 
-  img.richtext-image.right {
+  img.right {
     float: right;
     margin-left: $normal-margin;
   }
