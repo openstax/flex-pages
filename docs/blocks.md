@@ -5,21 +5,25 @@
 
 ## Node shape
 
-The content is an array of block nodes. Each node is:
+The content is an array of block nodes. Each block node is:
 
 ```json
-{ "type": "<block key>", "id": "<unique string>", "value": <value> }
+{ "type": "<block key>", "id": "<unique string>", "value": <data node> }
 ```
 
-`type` is the block key from the headings below. `value` is an object keyed by the block's field keys (the **Key** column), except for single-field blocks, whose `value` is that one field's value directly (e.g. a Text block's `value` is its HTML string).
-
-A block's configuration options are not keyed fields; they live in a `config` array on the value:
+`type` is the block key from the headings below. A **data node** is the shape almost everything uses — an object holding the **Fields** (each keyed by its **Key**) and a **`config`** array:
 
 ```json
-"value": { ...fields, "config": [ { "type": "<option key>", "value": <value> } ] }
+{
+  "<fieldKey>": <field value>,
+  // ...one entry per field...
+  "config": [ { "type": "<config key>", "value": <config value> } ]
+}
 ```
 
-Each config entry's `type` is the option's **Key** and `value` is its value. List fields hold an array of item objects (keyed by the item's field keys), and a list item may carry its own `config` array in the same shape.
+Each `config` entry's `type` is a **Key** from the block's **Config** table and `value` is its value. A **list** field's value is an array of data nodes — one per item, each with its own **Fields** and its own `config` array.
+
+Most blocks have a data-node `value`, but some hold a single scalar `value` instead, with no **Fields** and no `config`. Each per-block schema below says which.
 
 ## Block categories
 
@@ -66,7 +70,7 @@ A link target: a `type` that selects the kind of link, plus a `value` whose mean
 
 *Categories: content*
 
-`value` is an object keyed by the field and slot keys below (with options under `config`).
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Fields**
 
@@ -75,7 +79,7 @@ A link target: a `type` that selects the kind of link, plus a `value` whose mean
 | Description | `description` | rich text |  |  |
 | Actions | `actions` | list |  |  |
 
-**Configuration options**
+**Config** — entries of the data node's `config` array:
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
@@ -89,7 +93,7 @@ _Layout (`layout`) options:_
 | --- | --- |
 | `inline` | Inline |
 
-**Actions** — list; each item has:
+**Actions** — an array of data nodes; each item's **Fields**:
 
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
@@ -97,7 +101,7 @@ _Layout (`layout`) options:_
 | Aria Label | `ariaLabel` | text |  |  |
 | Link Target | `target` | link | Yes |  |
 
-_Actions — per-item options:_
+_Actions item — entries of its `config` array:_
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
@@ -117,7 +121,7 @@ _Style (`style`) options:_
 
 *Categories: content*
 
-`value` is an object keyed by the field and slot keys below (with options under `config`).
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Fields**
 
@@ -125,7 +129,7 @@ _Style (`style`) options:_
 | --- | --- | --- | --- | --- |
 | Cards | `cards` | list |  |  |
 
-**Configuration options**
+**Config** — entries of the data node's `config` array:
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
@@ -144,14 +148,14 @@ _Style (`card_style`) options:_
 | `rounded` | Rounded |
 | `square` | Square |
 
-**Cards** — list; each item has:
+**Cards** — an array of data nodes; each item's **Fields**:
 
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | Card Text | `text` | rich text | Yes |  |
 | Call To Action | `ctaBlock` | list |  |  |
 
-**Cards › Call To Action** — list (max 1); each item has:
+**Cards › Call To Action** — an array of data nodes (max 1); each item's **Fields**:
 
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
@@ -159,7 +163,7 @@ _Style (`card_style`) options:_
 | Aria Label | `ariaLabel` | text |  |  |
 | Link Target | `target` | link | Yes |  |
 
-_Cards › Call To Action — per-item options:_
+_Cards › Call To Action item — entries of its `config` array:_
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
@@ -179,7 +183,7 @@ _Style (`style`) options:_
 
 *Categories: structure*
 
-`value` is an object keyed by the field and slot keys below (with options under `config`).
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Child content**
 
@@ -195,7 +199,7 @@ _Style (`style`) options:_
 | Left Column Content | `leftContent` | child blocks | Yes |  |
 | Right Column Content | `rightContent` | child blocks | Yes |  |
 
-**Configuration options**
+**Config** — entries of the data node's `config` array:
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
@@ -238,7 +242,7 @@ _Height (`flex`) options:_
 
 *Categories: structure*
 
-`value` is an object keyed by the field and slot keys below (with options under `config`).
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Fields**
 
@@ -246,7 +250,7 @@ _Height (`flex`) options:_
 | --- | --- | --- | --- | --- |
 | Image | `image` | image | Yes |  |
 
-**Configuration options**
+**Config** — entries of the data node's `config` array:
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
@@ -270,7 +274,7 @@ _Image Alignment (`alignment`) options:_
 
 *Categories: structure*
 
-`value` is an object keyed by the field and slot keys below (with options under `config`).
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Child content**
 
@@ -286,7 +290,7 @@ _Image Alignment (`alignment`) options:_
 | Image Alt | `imageAlt` | text |  |  |
 | Hero Image | `image` | image | Yes |  |
 
-**Configuration options**
+**Config** — entries of the data node's `config` array:
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
@@ -342,7 +346,7 @@ _Gradient Direction (`gradient_direction`) options:_
 
 *Categories: structure, content*
 
-`value` is the long text value directly (a bare `long-text`, not an object).
+`value` is the long text value directly (a bare `long-text`, not a data node).
 
 **Fields**
 
@@ -354,7 +358,7 @@ _Gradient Direction (`gradient_direction`) options:_
 
 *Categories: content*
 
-`value` is an object keyed by the field and slot keys below (with options under `config`).
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Fields**
 
@@ -362,7 +366,7 @@ _Gradient Direction (`gradient_direction`) options:_
 | --- | --- | --- | --- | --- |
 | Links | `links` | list |  |  |
 
-**Configuration options**
+**Config** — entries of the data node's `config` array:
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
@@ -394,7 +398,7 @@ _Layout (`layout`) options:_
 | `grid` | Grid |
 | `inline` | Inline |
 
-**Links** — list; each item has:
+**Links** — an array of data nodes; each item's **Fields**:
 
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
@@ -406,7 +410,7 @@ _Layout (`layout`) options:_
 
 *Categories: page*
 
-`value` is an object keyed by the field and slot keys below (with options under `config`).
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Child content**
 
@@ -420,7 +424,7 @@ _Layout (`layout`) options:_
 | --- | --- | --- | --- | --- |
 | Page Content | `content` | child blocks |  |  |
 
-**Configuration options**
+**Config** — entries of the data node's `config` array:
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
@@ -446,7 +450,7 @@ _Height (`height`) options:_
 
 *Categories: content*
 
-`value` is an object keyed by the field and slot keys below (with options under `config`).
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Fields**
 
@@ -457,7 +461,7 @@ _Height (`height`) options:_
 | Quotee's name | `name` | text | Yes |  |
 | Image | `image` | image | Yes |  |
 
-**Configuration options**
+**Config** — entries of the data node's `config` array:
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
@@ -467,7 +471,7 @@ _Height (`height`) options:_
 
 *Categories: structure*
 
-`value` is an object keyed by the field and slot keys below (with options under `config`).
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Child content**
 
@@ -481,7 +485,7 @@ _Height (`height`) options:_
 | --- | --- | --- | --- | --- |
 | Section Content | `content` | child blocks | Yes |  |
 
-**Configuration options**
+**Config** — entries of the data node's `config` array:
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
@@ -530,7 +534,7 @@ _Gradient Direction (`gradient_direction`) options:_
 
 *Categories: structure*
 
-`value` is an object keyed by the field and slot keys below (with options under `config`).
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Child content**
 
@@ -544,7 +548,7 @@ _Gradient Direction (`gradient_direction`) options:_
 | --- | --- | --- | --- | --- |
 | Tabs | `tabs` | list |  |  |
 
-**Configuration options**
+**Config** — entries of the data node's `config` array:
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
@@ -586,7 +590,7 @@ _Border Width (`border_width`) options:_
 | `content` | Content Width |
 | `full` | Full Width |
 
-**Tabs** — list; each item has:
+**Tabs** — an array of data nodes; each item's **Fields**:
 
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
@@ -597,7 +601,7 @@ _Border Width (`border_width`) options:_
 
 *Categories: content*
 
-`value` is the rich text value directly (a bare `rich-text`, not an object).
+`value` is the rich text value directly (a bare `rich-text`, not a data node).
 
 **Fields**
 
@@ -609,7 +613,7 @@ _Border Width (`border_width`) options:_
 
 *Categories: content*
 
-`value` is an object keyed by the field and slot keys below (with options under `config`).
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Child content**
 
@@ -623,7 +627,7 @@ _Border Width (`border_width`) options:_
 | --- | --- | --- | --- | --- |
 | Well Content | `content` | child blocks |  |  |
 
-**Configuration options**
+**Config** — entries of the data node's `config` array:
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
