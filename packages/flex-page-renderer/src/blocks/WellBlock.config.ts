@@ -5,8 +5,8 @@ export const config = {
   fields: [
     {name: 'content', label: 'Well Content', type: 'blocks', categories: ['content']},
     {name: 'config', label: 'Config', type: 'configs', configs: [
-      {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}'},
-      {name: 'gradient_color', label: 'Gradient To Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}',
+      {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-F0-9]{6}'},
+      {name: 'gradient_color', label: 'Gradient To Color', type: 'text', pattern: '#[a-fA-F0-9]{6}',
         help: 'Second color for gradient effect. Background Color is the starting color.'},
       {name: 'gradient_direction', label: 'Gradient Direction', type: 'select', options: [
         {label: 'Top to Bottom', value: 'to bottom'},

@@ -21,7 +21,12 @@ The content is an array of block nodes. Each block node is:
 }
 ```
 
-Each `config` entry's `type` is a **Key** from the block's **Config** table and `value` is its value. A **list** field's value is an array of data nodes — one per item, each with its own **Fields** and its own `config` array.
+Each `config` entry's `type` is a **Key** from the block's **Config** table and `value` is its value.
+
+Two field types hold arrays, and their element shapes differ:
+
+- A **child blocks** field (a content slot) holds an array of full **block nodes** — each its own `{ type, id, value }` — so any block the slot allows can be nested. See the block's **Child content** table for what's allowed.
+- A **list** field holds an array of **data nodes** — **Fields** plus `config` only, with no `type` or `id`.
 
 Most blocks have a data-node `value`, but some hold a single scalar `value` instead, with no **Fields** and no `config`. Each per-block schema below says which.
 
@@ -203,8 +208,8 @@ _Style (`style`) options:_
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
-| Background Color | `background_color` | text | must match `#[a-fA-Z0-9]{6}` |  |
-| Gradient To Color | `gradient_color` | text | must match `#[a-fA-Z0-9]{6}` | Second color for gradient effect. Background Color is the starting color. |
+| Background Color | `background_color` | text | must match `#[a-fA-F0-9]{6}` |  |
+| Gradient To Color | `gradient_color` | text | must match `#[a-fA-F0-9]{6}` | Second color for gradient effect. Background Color is the starting color. |
 | Gradient Direction | `gradient_direction` | select | see options below |  |
 | Padding | `padding` | number | a number | Top and Bottom padding, in 10px increments |
 | Padding Top | `padding_top` | number | a number | Top padding, in 10px increments |
@@ -296,8 +301,8 @@ _Image Alignment (`alignment`) options:_
 | --- | --- | --- | --- | --- |
 | Image Alignment | `image_alignment` | select | see options below |  |
 | Text Alignment | `text_alignment` | select | see options below |  |
-| Background Color | `background_color` | text | must match `#[a-fA-Z0-9]{6}` |  |
-| Gradient To Color | `gradient_color` | text | must match `#[a-fA-Z0-9]{6}` | Second color for gradient effect. Background Color is the starting color. |
+| Background Color | `background_color` | text | must match `#[a-fA-F0-9]{6}` |  |
+| Gradient To Color | `gradient_color` | text | must match `#[a-fA-F0-9]{6}` | Second color for gradient effect. Background Color is the starting color. |
 | Gradient Direction | `gradient_direction` | select | see options below |  |
 | Padding | `padding` | number | a number | Top and Bottom padding, in 10px increments |
 | Padding Top | `padding_top` | number | a number | Top padding, in 10px increments |
@@ -422,7 +427,7 @@ _Layout (`layout`) options:_
 
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| Page Content | `content` | child blocks |  |  |
+| Page Content | `content` | child blocks | Yes |  |
 
 **Config** — entries of the data node's `config` array:
 
@@ -491,8 +496,8 @@ _Height (`height`) options:_
 | --- | --- | --- | --- | --- |
 | Text Alignment | `text_alignment` | select | see options below |  |
 | Height | `flex` | select | see options below |  |
-| Background Color | `background_color` | text | must match `#[a-fA-Z0-9]{6}` |  |
-| Gradient To Color | `gradient_color` | text | must match `#[a-fA-Z0-9]{6}` | Second color for gradient effect. Background Color is the starting color. |
+| Background Color | `background_color` | text | must match `#[a-fA-F0-9]{6}` |  |
+| Gradient To Color | `gradient_color` | text | must match `#[a-fA-F0-9]{6}` | Second color for gradient effect. Background Color is the starting color. |
 | Gradient Direction | `gradient_direction` | select | see options below |  |
 | Padding | `padding` | number | a number | Top and Bottom padding, in 10px increments |
 | Padding Top | `padding_top` | number | a number | Top padding, in 10px increments |
@@ -554,8 +559,8 @@ _Gradient Direction (`gradient_direction`) options:_
 | --- | --- | --- | --- | --- |
 | Tab Alignment | `tab_alignment` | select | see options below |  |
 | Active Tab Color | `active_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for the active tab underline |
-| Background Color | `background_color` | text | must match `#[a-fA-Z0-9]{6}` |  |
-| Gradient To Color | `gradient_color` | text | must match `#[a-fA-Z0-9]{6}` | Second color for gradient effect. Background Color is the starting color. |
+| Background Color | `background_color` | text | must match `#[a-fA-F0-9]{6}` |  |
+| Gradient To Color | `gradient_color` | text | must match `#[a-fA-F0-9]{6}` | Second color for gradient effect. Background Color is the starting color. |
 | Gradient Direction | `gradient_direction` | select | see options below |  |
 | Default Tab | `default_tab` | number | a number | Zero-based index of the tab to show by default |
 | Analytics Label | `analytics_label` | text |  | Analytics events from within this block will include this label |
@@ -631,8 +636,8 @@ _Border Width (`border_width`) options:_
 
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
-| Background Color | `background_color` | text | must match `#[a-fA-Z0-9]{6}` |  |
-| Gradient To Color | `gradient_color` | text | must match `#[a-fA-Z0-9]{6}` | Second color for gradient effect. Background Color is the starting color. |
+| Background Color | `background_color` | text | must match `#[a-fA-F0-9]{6}` |  |
+| Gradient To Color | `gradient_color` | text | must match `#[a-fA-F0-9]{6}` | Second color for gradient effect. Background Color is the starting color. |
 | Gradient Direction | `gradient_direction` | select | see options below |  |
 | Border Radius | `border_radius` | number | a number | Border radius in pixels |
 | Border Color | `border_color` | text | must match `#[a-fA-F0-9]{6}` | Hex border color |
