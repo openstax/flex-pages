@@ -31,10 +31,10 @@ export const config = {
       {name: 'id', label: 'ID', help: 'The HTML id of the section (can be referenced by anchor links).', type: 'text'},
       {name: 'gap', label: 'Column Gap', help: 'The space between the columns, in 10px increments', type: 'number'},
       {name: 'stack_at', label: 'Stack Below Width', help: 'Column width at which the two columns stack vertically (CSS length, e.g. 60em, 400px). Defaults to 60em.', type: 'text'},
-      {name: 'right_size', label: 'Right Column Size', help: 'CSS text for the right column eg (20rem, 30%)', type: 'text',
+      {name: 'right_size', label: 'Right Column Size', help: 'Width for the right column, in rem or % (e.g. 20rem, 30%)', type: 'text',
         disabledWhen: (data: any) => !!data?.config?.find((c: any) => c.name === 'left_size')
       },
-      {name: 'left_size', label: 'Left Column Size', help: 'CSS text for the left column eg (20rem, 30%)', type: 'text',
+      {name: 'left_size', label: 'Left Column Size', help: 'Width for the left column, in rem or % (e.g. 20rem, 30%)', type: 'text',
         disabledWhen: (data: any) => !!data?.config?.find((c: any) => c.name === 'right_size')
       },
     ]},
