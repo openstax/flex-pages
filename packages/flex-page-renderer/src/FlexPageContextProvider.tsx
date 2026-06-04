@@ -1,11 +1,11 @@
 import React from 'react';
-import { ActionContext } from './ActionContext';
-import type { ActionConfig } from './ActionContext';
-import { RouteContext } from './RouteContext';
-import type { RouteConfig } from './RouteContext';
+import { ActionContext } from './ActionContext.js';
+import type { ActionConfig } from './ActionContext.js';
+import { RouteContext } from './RouteContext.js';
+import type { RouteConfig } from './RouteContext.js';
 
-export * from './ActionContext';
-export * from './RouteContext';
+export * from './ActionContext.js';
+export * from './RouteContext.js';
 
 export function FlexPageContextProvider({children, actions, routes}: {
   children: React.ReactNode;

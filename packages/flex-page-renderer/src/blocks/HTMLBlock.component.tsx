@@ -1,4 +1,4 @@
-import { Html } from '../components/Html';
+import { Html } from '../components/Html.js';
 
 export interface HTMLBlockConfig {
   id: string;

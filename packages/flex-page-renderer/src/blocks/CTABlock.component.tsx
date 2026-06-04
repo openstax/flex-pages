@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import Color from 'color';
 import React from 'react';
-import { Link } from '../components/Link';
-import { findByType } from '../utils';
-import type { CTABlockConfig, CTALinkFields } from './CTABlock.fields';
-import { RichTextContent } from './RichTextBlock.component';
+import { Link } from '../components/Link.js';
+import { findByType } from '../utils.js';
+import type { CTABlockConfig, CTALinkFields } from './CTABlock.fields.js';
+import { RichTextContent } from './RichTextBlock.component.js';
 import './CTABlock.css';
 
 export function CTALink({link}: {link: CTALinkFields}) {

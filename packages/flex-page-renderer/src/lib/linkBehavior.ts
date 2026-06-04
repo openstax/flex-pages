@@ -1,8 +1,8 @@
 import type React from 'react';
-import type { ActionConfig } from '../ActionContext';
-import type { RouteConfig } from '../RouteContext';
-import type { LinkFields } from '../components/Link.fields';
-import { scrollTo } from '../utils';
+import type { ActionConfig } from '../ActionContext.js';
+import type { RouteConfig } from '../RouteContext.js';
+import type { LinkFields } from '../components/Link.fields.js';
+import { scrollTo } from '../utils.js';
 
 /*
  * Shared dynamic-link behavior, used by both the Link component and the

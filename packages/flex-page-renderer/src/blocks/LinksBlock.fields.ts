@@ -1,4 +1,4 @@
-import { linkFieldConfig } from '../components/Link.fields';
+import { linkFieldConfig } from '../components/Link.fields.js';
 
 export const fields = {
   type: 'links_group',

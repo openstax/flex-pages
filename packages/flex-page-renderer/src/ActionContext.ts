@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConfigField } from '.';
+import { ConfigField } from './index.js';
 
 export type ActionConfig = Record<string, {
   id: string;

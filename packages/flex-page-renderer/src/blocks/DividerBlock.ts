@@ -1,2 +1,2 @@
-export { DividerBlock as Component } from './DividerBlock.component';
-export { fields } from './DividerBlock.fields';
+export { DividerBlock as Component } from './DividerBlock.component.js';
+export { fields } from './DividerBlock.fields.js';

@@ -1,6 +1,6 @@
 import cn from 'classnames';
-import { Image, ImageFields } from '../components/Image';
-import { findByType } from '../utils';
+import { Image, ImageFields } from '../components/Image.js';
+import { findByType } from '../utils.js';
 import './DividerBlock.css';
 
 export type DividerConfigOptions = {

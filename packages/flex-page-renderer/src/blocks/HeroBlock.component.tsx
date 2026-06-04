@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
-import type { ContentBlockConfig } from '../ContentBlockContext';
-import { Image, ImageFields } from '../components/Image';
-import { findByType, flexAlignClass, resolveBackground } from '../utils';
+import type { ContentBlockConfig } from '../ContentBlockContext.js';
+import { Image, ImageFields } from '../components/Image.js';
+import { findByType, flexAlignClass, resolveBackground } from '../utils.js';
 import './HeroBlock.css';
 
 export type HeroConfigOptions = {

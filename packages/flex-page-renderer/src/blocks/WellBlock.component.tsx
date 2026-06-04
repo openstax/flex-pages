@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
-import type { ContentBlockConfig } from '../ContentBlockContext';
-import { findByType, flexAlignClass, resolveBackground } from '../utils';
+import type { ContentBlockConfig } from '../ContentBlockContext.js';
+import { findByType, flexAlignClass, resolveBackground } from '../utils.js';
 import './WellBlock.css';
 
 export type WellConfigOptions = {

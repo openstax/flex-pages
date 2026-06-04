@@ -1,4 +1,4 @@
-import { linkFieldConfig, LinkFields } from '../components/Link.fields';
+import { linkFieldConfig, LinkFields } from '../components/Link.fields.js';
 
 type CTALinkConfig = {
   type: 'style';

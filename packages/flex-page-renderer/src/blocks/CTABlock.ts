@@ -1,2 +1,2 @@
-export { CTABlock as Component } from './CTABlock.component';
-export { fields } from './CTABlock.fields';
+export { CTABlock as Component } from './CTABlock.component.js';
+export { fields } from './CTABlock.fields.js';

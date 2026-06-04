@@ -1,4 +1,4 @@
-import { ctaLinkFieldConfig, CTALinkFields } from './CTABlock.fields';
+import { ctaLinkFieldConfig, CTALinkFields } from './CTABlock.fields.js';
 
 type CardConfig = {
   type: 'card_style';

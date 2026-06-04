@@ -1,10 +1,10 @@
-import type { BlockFieldDefinition, BlockFieldDefinitions, ContentBlockConfig } from './ContentBlockContext';
-import { fieldDefs } from './lib/blockFields';
-import type { ConfigField } from '.';
+import type { BlockFieldDefinition, BlockFieldDefinitions, ContentBlockConfig } from './ContentBlockContext.js';
+import { fieldDefs } from './lib/blockFields.js';
+import type { ConfigField } from './index.js';
 
 type BlockMap = BlockFieldDefinitions;
 
-export type { BlockFieldDefinition, BlockFieldDefinitions } from './ContentBlockContext';
+export type { BlockFieldDefinition, BlockFieldDefinitions } from './ContentBlockContext.js';
 
 export type ValidationCode =
   | 'unknown-block'

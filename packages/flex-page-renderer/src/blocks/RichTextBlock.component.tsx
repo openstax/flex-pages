@@ -1,5 +1,5 @@
-import { Html } from '../components/Html';
-import { RawHtmlWithLinks } from '../components/RawHtmlWithLinks';
+import { Html } from '../components/Html.js';
+import { RawHtmlWithLinks } from '../components/RawHtmlWithLinks.js';
 import './RichTextBlock.css';
 
 export interface RichTextBlockConfig {

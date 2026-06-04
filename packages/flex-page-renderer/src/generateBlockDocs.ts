@@ -1,4 +1,4 @@
-import type { BlockFieldDefinitions, ConfigMetadata } from './ContentBlockContext';
+import type { BlockFieldDefinitions, ConfigMetadata } from './ContentBlockContext.js';
 
 /*
  * Generates a markdown reference for a set of block definitions — the same
@@ -7,7 +7,7 @@ import type { BlockFieldDefinitions, ConfigMetadata } from './ContentBlockContex
  * document their own block set the same way.
  */
 
-export type { BlockFieldDefinition, BlockFieldDefinitions } from './ContentBlockContext';
+export type { BlockFieldDefinition, BlockFieldDefinitions } from './ContentBlockContext.js';
 
 export type BlockDocsOptions = {
   /* top-level heading; defaults to "Flex Page Block Reference" */
