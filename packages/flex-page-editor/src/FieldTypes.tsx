@@ -9,7 +9,7 @@ const DisplayBlockForm = ({children, label}: React.PropsWithChildren<{label?: st
   const formState = useForms().useFormHelpers();
   const data = formState.data;
 
-  const config = React.useContext(BlockContext)[data.type]?.fields;
+  const config = React.useContext(BlockContext)[data.type]?.config;
   if (!config) return <pre>{JSON.stringify(data, null, 2)}</pre>;
 
   return config.field
@@ -21,13 +21,13 @@ const DisplayBlockForm = ({children, label}: React.PropsWithChildren<{label?: st
 const AddBlock = ({categories}: {categories: string[]}) => {
   const listHelpers = useForms().useFormListHelpers();
   const blocks = Object.entries(React.useContext(BlockContext))
-    .filter(([, definition]) => definition.fields.categories.find(s => categories.includes(s)));
+    .filter(([, definition]) => definition.config.categories.find(s => categories.includes(s)));
 
   return <div>add a:
-    <ul>{blocks.map(([key, {fields}]) =>
+    <ul>{blocks.map(([key, {config}]) =>
       <li key={key}><button type="button" onClick={
         () => listHelpers.addRecord({type: key})
-      }>{fields.label}</button></li>
+      }>{config.label}</button></li>
     )}</ul>
   </div>;
 };
@@ -41,8 +41,8 @@ export const block = ({name, label, types, categories}: {name: string; label: st
   const value = formState.data[name];
   const setValue = formState.setInput.field(name);
   const blocks = Object.entries(React.useContext(BlockContext)).filter(
-    ([, definition]) => (!categories || definition.fields.categories.find(s => categories.includes(s)))
-      && (!types || types.includes(definition.fields.type))
+    ([, definition]) => (!categories || definition.config.categories.find(s => categories.includes(s)))
+      && (!types || types.includes(definition.config.type))
   );
 
   if (value) {
@@ -53,15 +53,15 @@ export const block = ({name, label, types, categories}: {name: string; label: st
 
   if (blocks.length === 1) {
     return <button type="button" onClick={
-      () => setValue({type: blocks[0][1].fields.type, id: randomId()})
-    }>Add {blocks[0][1].fields.label}</button>;
+      () => setValue({type: blocks[0][1].config.type, id: randomId()})
+    }>Add {blocks[0][1].config.label}</button>;
   }
 
   return <div>add a:
-    <ul>{blocks.map(([key, {fields}]) =>
+    <ul>{blocks.map(([key, {config}]) =>
       <li key={key}><button type="button" onClick={
         () => setValue({type: key, id: randomId()})
-      }>{fields.label}</button></li>
+      }>{config.label}</button></li>
     )}</ul>
   </div>;
 };

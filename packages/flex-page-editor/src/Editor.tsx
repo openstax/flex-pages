@@ -1,4 +1,4 @@
-import type { BlockDefinitions } from '@openstax/flex-page-renderer/ContentBlockRoot';
+import type { BlockProcessingDefinitions } from '@openstax/flex-page-renderer/ContentBlockContext';
 import { ActionContext, RouteContext } from '@openstax/flex-page-renderer/FlexPageContextProvider';
 import type { ActionConfig, RouteConfig } from '@openstax/flex-page-renderer/FlexPageContextProvider';
 import type * as UI from '@openstax/ui-components';
@@ -23,7 +23,7 @@ export const FlexBlockEditor = ({name, label, blocks, actions, routes, fields, t
   name: string;
   label?: string;
   type?: string;
-  blocks: BlockDefinitions<any>;
+  blocks: BlockProcessingDefinitions<any>;
   actions?: ActionConfig;
   routes?: RouteConfig;
   fields?: Record<string, React.ComponentType<any>>;
