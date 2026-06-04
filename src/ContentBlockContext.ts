@@ -18,36 +18,29 @@ export type ConfigMetadata<T> = {
 };
 
 /*
- * A block definition pairs the (possibly client) Component with its `fields`
- * config. `fields` lives in its own directive-free module, so it stays readable
- * on both sides of the client/server boundary — a client Component survives only
- * as a reference on the server, but its `fields` remain real, readable data
- * (used by the editor, and by server-side page pre-processing).
- *
  * these types are annoying, and do not work perfectly. i'm sort of
  * ok with that because we're anticipating that the data is being
  * retrieved from a db anyway
  */
-export type BlockDefinition<K = string> = {
+export type BlockDataEntry<D> = ContentBlockConfig & {type: keyof D} & Record<string, unknown>;
+export type BlockData<D> = BlockDataEntry<D>[];
+
+export type BlockRenderingDefinition<K> = {
   Component: React.ComponentType<{
     data: any;
     activeConditions?: string[];
   }>;
-  fields: ConfigMetadata<K>;
+  config: ConfigMetadata<K>;
 };
 
-/*
- * The field-definition-only view of a block — everything the introspection
- * utilities (validateBlock, generateBlockDocs) need, without the Component.
- * Importing Components pulls their CSS, which breaks plain node/tsx execution,
- * so these utilities accept this lighter map. A full Record<string,
- * BlockDefinition> is assignable to it, and so is a CSS-free {fields}-only map.
- */
-export type BlockFieldDefinition = Pick<BlockDefinition, 'fields'>;
-export type BlockFieldDefinitions = Record<string, BlockFieldDefinition>;
+export type BlockRenderingDefinitions<D> = {
+  [K in keyof D]: BlockRenderingDefinition<K>;
+};
 
-export type BlockDataEntry<D> = ContentBlockConfig & {type: keyof D} & Record<string, unknown>;
-export type BlockData<D> = BlockDataEntry<D>[];
-export type BlockDefinitions<D> = {
-  [key in keyof D]: BlockDefinition<key>;
+export type BlockProcessingDefinition<K> = {
+  config: ConfigMetadata<K>;
+};
+
+export type BlockProcessingDefinitions<D> = {
+  [K in keyof D]: BlockProcessingDefinition<K>;
 };

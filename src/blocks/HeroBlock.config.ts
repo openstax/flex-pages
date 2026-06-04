@@ -1,19 +1,24 @@
-export const fields = {
-  type: 'section',
+export const config = {
+  type: 'hero',
   categories: ['structure'],
-  label: 'Section',
+  label: 'Hero',
   fields: [
-    {name: 'content', label: 'Section Content', type: 'blocks', categories: ['content'], required: true},
+    {name: 'content', label: 'Content', type: 'blocks', categories: ['content']},
+    {name: 'imageAlt', label: 'Image Alt', type: 'text'},
+    {name: 'image', label: 'Hero Image', type: 'image', required: true},
     {name: 'config', label: 'Config', type: 'configs', configs: [
+      {name: 'image_alignment', label: 'Image Alignment', type: 'select', options: [
+        {label: 'Left', value: 'left'},
+        {label: 'Top Left', value: 'top_left'},
+        {label: 'Bottom Left', value: 'bottom_left'},
+        {label: 'Right', value: 'right'},
+        {label: 'Top Right', value: 'top_right'},
+        {label: 'Bottom Right', value: 'bottom_right'},
+      ]},
       {name: 'text_alignment', label: 'Text Alignment', type: 'select', options: [
         {label: 'Left', value: 'left'},
         {label: 'Right', value: 'right'},
         {label: 'Center', value: 'center'},
-      ]},
-      {name: 'flex', label: 'Height', type: 'select', options: [
-        {label: 'Grow to fill available page space', value: 'flex-grow'},
-        {label: 'Shrink to fit available page space', value: 'flex-shrink'},
-        {label: 'Fit to available page space', value: 'flex'},
       ]},
       {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}'},
       {name: 'gradient_color', label: 'Gradient To Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}',
@@ -33,6 +38,14 @@ export const fields = {
       {name: 'padding_bottom', label: 'Padding Bottom', help: 'Bottom padding, in 10px increments', type: 'number'},
       {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text'},
       {name: 'id', label: 'ID', help: 'The HTML id of the section (can be referenced by anchor links).', type: 'text'},
+      {name: 'image_border_radius', label: 'Image Border Radius', type: 'number',
+        help: 'Border radius for the hero image in pixels'},
+      {name: 'image_border_color', label: 'Image Border Color', type: 'text', pattern: '#[a-fA-F0-9]{6}',
+        help: 'Hex color for the hero image border'},
+      {name: 'image_border_size', label: 'Image Border Size', type: 'number',
+        help: 'Border width for the hero image in pixels'},
+      {name: 'image_overhang', label: 'Image Overhang', type: 'text',
+        help: 'Extends the image beyond the content area by this amount (e.g. 5rem, 10%)'},
       {name: 'rendering_condition', label: 'Rendering Condition', type: 'text',
         help: 'Comma-separated condition slugs. Block renders only when at least one is active.'},
     ]},

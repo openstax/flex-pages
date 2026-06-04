@@ -1,4 +1,4 @@
-import type { BlockFieldDefinition } from '../ContentBlockContext.js';
+import type { BlockProcessingDefinition } from '../ContentBlockContext.js';
 import type { ConfigField } from '../index.js';
 
 /*
@@ -14,9 +14,9 @@ import type { ConfigField } from '../index.js';
  * value directly). This flattens both to a list; callers that care about the
  * scalar-value form check `def.fields.field` themselves.
  */
-export function fieldDefs(def: BlockFieldDefinition | undefined): ConfigField[] {
+export function fieldDefs(def: BlockProcessingDefinition<string> | undefined): ConfigField[] {
   if (!def) return [];
-  if (def.fields.fields) return def.fields.fields;
-  if (def.fields.field) return [def.fields.field];
+  if (def.config.fields) return def.config.fields;
+  if (def.config.field) return [def.config.field];
   return [];
 }

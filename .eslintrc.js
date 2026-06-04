@@ -9,7 +9,7 @@ module.exports = {
       files: ['**/*.ts?(x)'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: 'tsconfig.json',
+        project: 'tsconfig.eslint.json',
         tsconfigRootDir: __dirname,
         ecmaVersion: 2018,
         sourceType: 'module',
@@ -40,6 +40,11 @@ module.exports = {
         ],
         '@typescript-eslint/no-explicit-any': 'off'
       }
+    },
+    {
+      // build/dev scripts run on node, not in the browser
+      files: ['script/**/*.ts'],
+      env: { node: true }
     }
   ],
   ignorePatterns: ['node_modules', 'dist', 'coverage', '.eslintrc.js'],

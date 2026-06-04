@@ -1,2 +1,2 @@
 export { HeroBlock as Component } from './HeroBlock.component.js';
-export { fields } from './HeroBlock.fields.js';
+export { config } from './HeroBlock.config.js';

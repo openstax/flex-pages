@@ -1,6 +1,6 @@
 # Flex Page Block Reference
 
-> Generated from the block field definitions by `script/generate-block-docs.mts`.
+> Generated from the block field definitions by `script/generate-block-docs.ts`.
 > Do not edit by hand — run `yarn workspace @openstax/flex-page-renderer generate:docs`.
 
 ## Block categories

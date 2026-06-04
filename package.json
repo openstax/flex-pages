@@ -62,6 +62,6 @@
     "ci:spelling": "git ls-files | yarn cspell -c ../../cspell.json --file-list stdin",
     "ci:typecheck": "tsc --noEmit",
     "clean": "rm -rf dist",
-    "generate:docs": "tsx ./script/generate-block-docs.mts"
+    "generate:docs": "tsx ./script/generate-block-docs.ts"
   }
 }

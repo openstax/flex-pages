@@ -3,7 +3,7 @@ import Color from 'color';
 import React from 'react';
 import { Link } from '../components/Link.js';
 import { findByType } from '../utils.js';
-import type { CTABlockConfig, CTALinkFields } from './CTABlock.fields.js';
+import type { CTABlockConfig, CTALinkFields } from './CTABlock.config.js';
 import { RichTextContent } from './RichTextBlock.component.js';
 import './CTABlock.css';
 

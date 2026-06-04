@@ -1,6 +1,6 @@
-import { linkFieldConfig } from '../components/Link.fields.js';
+import { linkFieldConfig } from '../components/Link.config.js';
 
-export const fields = {
+export const config = {
   type: 'links_group',
   categories: ['content'],
   label: 'Links',

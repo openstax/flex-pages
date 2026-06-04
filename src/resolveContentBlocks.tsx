@@ -1,9 +1,11 @@
 import React from 'react';
-import type { BlockDefinition, ContentBlockConfig } from './ContentBlockContext.js';
+import type { BlockRenderingDefinition, ContentBlockConfig } from './ContentBlockContext.js';
 import { fieldDefs } from './lib/blockFields.js';
 import type { ConfigField } from './index.js';
 
-type BlockMap = Record<string, BlockDefinition>;
+// this is intentionally loose to avoid typing issues,
+// the strongly typed entrypoint is ContentBlockRoot
+type BlockMap = Record<string, BlockRenderingDefinition<string>>;
 
 function resolveSlotProps(
   block: ContentBlockConfig,
