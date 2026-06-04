@@ -1,13 +1,13 @@
 @import 'pattern-library/core/pattern-library/headers';
 
 .flex-page.page div.content-block-rich-text {
-  width: 100%;
-
-  &::after {
-    content: '';
-    display: block;
-    clear: both;
-  }
+  // flow-root contains this block's own floated images (img.left/right) by
+  // establishing a BFC. An ::after{clear:both} clearfix would instead clear
+  // *adjacent* floats in the shared BFC too — e.g. a Quote's profile image,
+  // which then pushed the quotee below it. width:auto (not 100%) lets the BFC
+  // shrink to sit beside an adjacent float instead of dropping below it.
+  display: flow-root;
+  width: auto;
 
   img.full-width {
     width: 100%;
