@@ -43,7 +43,10 @@
       }
     }
 
-    @include width-up-to($tablet-max) {
+    // Query the content container's width, not the viewport, so a quote stacks
+    // whenever it sits in a narrow container (e.g. a Hero column) regardless of
+    // screen size.
+    @container flex-content (max-width: #{$tablet-max}) {
         text-align: center;
 
         > img {
