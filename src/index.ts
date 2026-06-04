@@ -7,4 +7,4 @@ export type ConfigField = {
   [key: string]: unknown;
 };
 
-export { resolveContentBlocks } from './resolveContentBlocks';
+export { resolveContentBlocks } from './resolveContentBlocks.js';

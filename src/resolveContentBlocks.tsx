@@ -1,7 +1,7 @@
 import React from 'react';
-import type { BlockDefinition, ContentBlockConfig } from './ContentBlockContext';
-import { fieldDefs } from './lib/blockFields';
-import type { ConfigField } from '.';
+import type { BlockDefinition, ContentBlockConfig } from './ContentBlockContext.js';
+import { fieldDefs } from './lib/blockFields.js';
+import type { ConfigField } from './index.js';
 
 type BlockMap = Record<string, BlockDefinition>;
 

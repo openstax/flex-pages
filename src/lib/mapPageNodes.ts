@@ -1,8 +1,8 @@
-import type { ConfigField } from '..';
-import type { ConfigMetadata, ContentBlockConfig } from '../ContentBlockContext';
-import type { ImageFields } from '../components/Image.fields';
-import type { LinkFields } from '../components/Link.fields';
-import { readLinkTarget, writeLinkTarget } from './linkBehavior';
+import type { ConfigMetadata, ContentBlockConfig } from '../ContentBlockContext.js';
+import type { ImageFields } from '../components/Image.fields.js';
+import type { LinkFields } from '../components/Link.fields.js';
+import type { ConfigField } from '../index.js';
+import { readLinkTarget, writeLinkTarget } from './linkBehavior.js';
 
 /*
  * Pure, async, config-aware page transform for the app data layer. Walks the

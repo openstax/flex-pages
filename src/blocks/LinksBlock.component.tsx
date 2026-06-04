@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import Color from 'color';
 import React from 'react';
-import { Link } from '../components/Link';
-import { LinkFields } from '../components/Link.fields';
-import { findByType } from '../utils';
+import { LinkFields } from '../components/Link.fields.js';
+import { Link } from '../components/Link.js';
+import { findByType } from '../utils.js';
 import './LinksBlock.css';
 
 type LinksConfig = {

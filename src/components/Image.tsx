@@ -1,7 +1,7 @@
 import React from 'react';
-import type { ImageFields } from './Image.fields';
+import type { ImageFields } from './Image.fields.js';
 
-export type { ImageFields } from './Image.fields';
+export type { ImageFields } from './Image.fields.js';
 
 type ImageProps = {
     image: ImageFields;

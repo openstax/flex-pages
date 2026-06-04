@@ -1,9 +1,9 @@
 'use client';
 import DOMPurify from 'isomorphic-dompurify';
 import React from 'react';
-import { ActionContext } from '../ActionContext';
-import { RouteContext } from '../RouteContext';
-import { handleLinkClick, readLinkTarget } from '../lib/linkBehavior';
+import { ActionContext } from '../ActionContext.js';
+import { RouteContext } from '../RouteContext.js';
+import { handleLinkClick, readLinkTarget } from '../lib/linkBehavior.js';
 
 /*
  * Client renderer for rich text that contains dynamic links

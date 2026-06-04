@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import Color from 'color';
 import React from 'react';
-import { findByType } from '../utils';
-import { CTALink } from './CTABlock.component';
-import type { CardBlockConfig, CardsBlockConfig } from './CardsBlock.fields';
-import { RichTextContent } from './RichTextBlock.component';
+import { findByType } from '../utils.js';
+import { CTALink } from './CTABlock.component.js';
+import type { CardBlockConfig, CardsBlockConfig } from './CardsBlock.fields.js';
+import { RichTextContent } from './RichTextBlock.component.js';
 import './CardsBlock.css';
 
 export function CardsBlock({data}: {data: CardsBlockConfig}) {

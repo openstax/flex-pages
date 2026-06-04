@@ -1,15 +1,15 @@
 'use client';
 import React from 'react';
-import { ActionContext } from '../ActionContext';
-import { RouteContext } from '../RouteContext';
-import { handleLinkClick } from '../lib/linkBehavior';
-import type { LinkProps } from './Link.fields';
+import { ActionContext } from '../ActionContext.js';
+import { RouteContext } from '../RouteContext.js';
+import { handleLinkClick } from '../lib/linkBehavior.js';
+import type { LinkProps } from './Link.fields.js';
 
 // Re-exported for existing client-side consumers of this module. Server code
-// must import these from './Link.fields' directly to avoid evaluating this
+// must import these from './Link.fields.js' directly to avoid evaluating this
 // (client) module.
-export type { LinkFields, LinkProps } from './Link.fields';
-export { linkFieldConfig } from './Link.fields';
+export type { LinkFields, LinkProps } from './Link.fields.js';
+export { linkFieldConfig } from './Link.fields.js';
 
 export function Link({link, ...props}: LinkProps) {
   const type = link.target.type;

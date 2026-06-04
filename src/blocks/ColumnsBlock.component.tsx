@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
-import type { ContentBlockConfig } from '../ContentBlockContext';
-import { findByType, resolveBackground } from '../utils';
+import type { ContentBlockConfig } from '../ContentBlockContext.js';
+import { findByType, resolveBackground } from '../utils.js';
 import './ColumnsBlock.css';
 
 export type SectionConfigOptions = {

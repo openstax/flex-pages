@@ -1,5 +1,5 @@
 import type React from 'react';
-import type { ConfigField } from '.';
+import type { ConfigField } from './index.js';
 
 export type ContentBlockConfig = {
   type: string;

@@ -1,7 +1,7 @@
-import type { BlockData, BlockDefinitions } from './ContentBlockContext';
-import { resolveContentBlocks } from './resolveContentBlocks';
+import type { BlockData, BlockDefinitions } from './ContentBlockContext.js';
+import { resolveContentBlocks } from './resolveContentBlocks.js';
 
-export * from './ContentBlockContext';
+export * from './ContentBlockContext.js';
 
 export function ContentBlockRoot<D extends BlockDefinitions<any>>({data, blocks, activeConditions}: {
   data: BlockData<D>;

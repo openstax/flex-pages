@@ -2,8 +2,8 @@
 import cn from 'classnames';
 import React from 'react';
 import './FlexPage.css';
-import type { ContentBlockConfig } from '../ContentBlockContext';
-import { findByType } from '../utils';
+import type { ContentBlockConfig } from '../ContentBlockContext.js';
+import { findByType } from '../utils.js';
 
 const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;

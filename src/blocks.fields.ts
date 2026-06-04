@@ -1,17 +1,17 @@
-import type { BlockFieldDefinitions } from './ContentBlockContext';
-import { fields as cta_block } from './blocks/CTABlock.fields';
-import { fields as cards_block } from './blocks/CardsBlock.fields';
-import { fields as columns } from './blocks/ColumnsBlock.fields';
-import { fields as divider } from './blocks/DividerBlock.fields';
-import { fields as flex_page } from './blocks/FlexPage.fields';
-import { fields as html } from './blocks/HTMLBlock.fields';
-import { fields as hero } from './blocks/HeroBlock.fields';
-import { fields as links_group } from './blocks/LinksBlock.fields';
-import { fields as quote } from './blocks/QuoteBlock.fields';
-import { fields as text } from './blocks/RichTextBlock.fields';
-import { fields as section } from './blocks/SectionBlock.fields';
-import { fields as tabbed_content } from './blocks/TabbedContentBlock.fields';
-import { fields as well } from './blocks/WellBlock.fields';
+import type { BlockFieldDefinitions } from './ContentBlockContext.js';
+import { fields as cta_block } from './blocks/CTABlock.fields.js';
+import { fields as cards_block } from './blocks/CardsBlock.fields.js';
+import { fields as columns } from './blocks/ColumnsBlock.fields.js';
+import { fields as divider } from './blocks/DividerBlock.fields.js';
+import { fields as flex_page } from './blocks/FlexPage.fields.js';
+import { fields as html } from './blocks/HTMLBlock.fields.js';
+import { fields as hero } from './blocks/HeroBlock.fields.js';
+import { fields as links_group } from './blocks/LinksBlock.fields.js';
+import { fields as quote } from './blocks/QuoteBlock.fields.js';
+import { fields as text } from './blocks/RichTextBlock.fields.js';
+import { fields as section } from './blocks/SectionBlock.fields.js';
+import { fields as tabbed_content } from './blocks/TabbedContentBlock.fields.js';
+import { fields as well } from './blocks/WellBlock.fields.js';
 
 /*
  * The built-in blocks' field definitions, keyed exactly as blocks/index.ts keys

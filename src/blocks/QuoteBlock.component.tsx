@@ -1,7 +1,7 @@
 import React from 'react';
-import { Image, ImageFields } from '../components/Image';
-import { findByType } from '../utils';
-import { RichTextContent } from './RichTextBlock.component';
+import { Image, ImageFields } from '../components/Image.js';
+import { findByType } from '../utils.js';
+import { RichTextContent } from './RichTextBlock.component.js';
 import './QuoteBlock.css';
 
 type QuoteConfig = {

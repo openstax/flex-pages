@@ -1,5 +1,5 @@
-import type { ConfigField } from '..';
-import type { BlockFieldDefinition } from '../ContentBlockContext';
+import type { BlockFieldDefinition } from '../ContentBlockContext.js';
+import type { ConfigField } from '../index.js';
 
 /*
  * A block's `fields` config tells us exactly where its data lives — including
