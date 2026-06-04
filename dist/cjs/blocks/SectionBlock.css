@@ -1,0 +1,37 @@
+.flex-structure-container > section.content-block-section {
+  width: 100%;
+  margin: 0;
+}
+.flex-structure-container > section.content-block-section.content-block-flex-grow {
+  flex: 1 0;
+}
+.flex-structure-container > section.content-block-section.content-block-flex {
+  flex: 1;
+}
+.flex-structure-container > section.content-block-section.content-block-flex-shrink {
+  flex: 0 1;
+}
+.flex-structure-container > section.content-block-section.content-block-flex, .flex-structure-container > section.content-block-section.content-block-flex-shrink {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.flex-structure-container > section.content-block-section.content-block-flex > div.section-content, .flex-structure-container > section.content-block-section.content-block-flex-shrink > div.section-content {
+  flex: 1;
+  overflow-y: auto;
+}
+.flex-structure-container > section.content-block-section > div.section-content {
+  /* to show above divider images */
+  position: relative;
+  z-index: 1;
+  width: calc(100% - 1.5rem);
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  margin-top: calc(1.5rem * var(--padding-top-multiplier, var(--padding-multiplier, 0)));
+  margin-bottom: calc(1.5rem * var(--padding-bottom-multiplier, var(--padding-multiplier, 0)));
+}
+.flex-structure-container > section.content-block-section.dark-background > div.section-content {
+  color: #fff;
+}
+
+/*# sourceMappingURL=SectionBlock.css.map */
