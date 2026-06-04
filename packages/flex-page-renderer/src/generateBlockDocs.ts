@@ -119,15 +119,15 @@ function configTable(heading: string, configs: ConfigField[], out: string[]): vo
 }
 
 /*
- * Document a list field's item shape: the fields each item carries, its per-item
- * config options, and any lists nested within items (e.g. a Card's Call To
- * Action list). `pathLabel` is a breadcrumb like "Cards › Call To Action".
+ * Document a list field's item shape. Each item is itself a data node, so it
+ * gets the same Fields / `config` pair as a block, recursing into any lists
+ * nested within items. `pathLabel` is a breadcrumb like "Cards › Call To Action".
  */
 function renderListItems(pathLabel: string, listField: ConfigField, out: string[]): void {
   const itemFields = listField.fields ?? [];
   const max = typeof listField.max === 'number' ? ` (max ${listField.max})` : '';
-  fieldsTable(`**${pathLabel}** — list${max}; each item has:`, itemFields, out);
-  configTable(`_${pathLabel} — per-item options:_`, configOptions(itemFields), out);
+  fieldsTable(`**${pathLabel}** — an array of data nodes${max}; each item's **Fields**:`, itemFields, out);
+  configTable(`_${pathLabel} item — entries of its \`config\` array:_`, configOptions(itemFields), out);
   for (const sub of itemFields) {
     if (sub.type === 'list') renderListItems(`${pathLabel} › ${sub.label}`, sub, out);
   }
@@ -198,21 +198,29 @@ export function generateBlockDocs<D extends BlockProcessingDefinitions<any>>(
   out.push(`# ${options.title ?? 'Flex Page Block Reference'}`, '');
   if (options.intro && options.intro.length > 0) out.push(...options.intro, '');
 
-  // Node shape: the block envelope and config-array shape the per-block tables
-  // don't otherwise spell out.
+  // Node shape: establish the one recurring data-node shape (fields + config)
+  // up front, so every per-block "Fields" / "Config" table reads against it.
   out.push('## Node shape', '');
-  out.push('The content is an array of block nodes. Each node is:', '');
-  out.push('```json', '{ "type": "<block key>", "id": "<unique string>", "value": <value> }', '```', '');
+  out.push('The content is an array of block nodes. Each block node is:', '');
+  out.push('```json', '{ "type": "<block key>", "id": "<unique string>", "value": <data node> }', '```', '');
+  out.push('`type` is the block key from the headings below. A **data node** is the shape almost everything uses — an object holding the **Fields** (each keyed by its **Key**) and a **`config`** array:', '');
   out.push(
-    '`type` is the block key from the headings below. `value` is an object keyed by the block\'s field keys (the **Key** column), '
-      + 'except for single-field blocks, whose `value` is that one field\'s value directly (e.g. a Text block\'s `value` is its HTML string).',
+    '```json',
+    '{',
+    '  "<fieldKey>": <field value>,',
+    '  // ...one entry per field...',
+    '  "config": [ { "type": "<config key>", "value": <config value> } ]',
+    '}',
+    '```',
     ''
   );
-  out.push('A block\'s configuration options are not keyed fields; they live in a `config` array on the value:', '');
-  out.push('```json', '"value": { ...fields, "config": [ { "type": "<option key>", "value": <value> } ] }', '```', '');
   out.push(
-    'Each config entry\'s `type` is the option\'s **Key** and `value` is its value. List fields hold an array of item objects '
-      + '(keyed by the item\'s field keys), and a list item may carry its own `config` array in the same shape.',
+    'Each `config` entry\'s `type` is a **Key** from the block\'s **Config** table and `value` is its value. '
+      + 'A **list** field\'s value is an array of data nodes — one per item, each with its own **Fields** and its own `config` array.',
+    ''
+  );
+  out.push(
+    'Most blocks have a data-node `value`, but some hold a single scalar `value` instead, with no **Fields** and no `config`. Each per-block schema below says which.',
     ''
   );
 
@@ -252,8 +260,8 @@ export function generateBlockDocs<D extends BlockProcessingDefinitions<any>>(
     const singleField = definition.config.field;
     out.push(
       singleField
-        ? `\`value\` is the ${typeLabel(singleField.type)} value directly (a bare \`${singleField.type}\`, not an object).`
-        : '`value` is an object keyed by the field and slot keys below (with options under `config`).',
+        ? `\`value\` is the ${typeLabel(singleField.type)} value directly (a bare \`${singleField.type}\`, not a data node).`
+        : '`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.',
       ''
     );
 
@@ -269,7 +277,7 @@ export function generateBlockDocs<D extends BlockProcessingDefinitions<any>>(
     }
 
     fieldsTable('**Fields**', fields, out);
-    configTable('**Configuration options**', configOptions(fields), out);
+    configTable('**Config** — entries of the data node\'s `config` array:', configOptions(fields), out);
 
     // List fields hold repeating items; document each item's shape, recursing
     // into per-item config options and any lists nested within items.
