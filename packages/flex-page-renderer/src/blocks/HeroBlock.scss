@@ -29,6 +29,11 @@
         }
 
         .hero-content {
+            // As a flex-content size container (container-type: inline-size), an
+            // auto width resolves from contents instead of stretching, collapsing
+            // this grid item to 0 when it's the sole item in a stacked column.
+            // An explicit width fills the column in both side-by-side and stacked.
+            width: 100%;
             max-width: $text-content-max;
             display: flex;
             flex-direction: column;
