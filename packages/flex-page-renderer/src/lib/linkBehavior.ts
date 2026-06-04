@@ -1,7 +1,7 @@
 import type React from 'react';
 import type { ActionConfig } from '../ActionContext.js';
 import type { RouteConfig } from '../RouteContext.js';
-import type { LinkFields } from '../components/Link.fields.js';
+import type { LinkFields } from '../components/Link.config.js';
 import { scrollTo } from '../utils.js';
 
 /*

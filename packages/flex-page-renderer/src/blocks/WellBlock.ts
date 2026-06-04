@@ -1,2 +1,2 @@
 export { WellBlock as Component } from './WellBlock.component.js';
-export { fields } from './WellBlock.fields.js';
+export { config } from './WellBlock.config.js';

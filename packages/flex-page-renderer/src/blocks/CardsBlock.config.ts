@@ -1,4 +1,4 @@
-import { ctaLinkFieldConfig, CTALinkFields } from './CTABlock.fields.js';
+import { ctaLinkFieldConfig, CTALinkFields } from './CTABlock.config.js';
 
 type CardConfig = {
   type: 'card_style';
@@ -44,7 +44,7 @@ export type CardsBlockConfig = {
   };
 };
 
-export const fields = {
+export const config = {
   type: 'cards_block',
   label: 'Cards Block',
   categories: ['content'],

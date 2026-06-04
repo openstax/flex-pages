@@ -1,4 +1,4 @@
-import { linkFieldConfig, LinkFields } from '../components/Link.fields.js';
+import { linkFieldConfig, LinkFields } from '../components/Link.config.js';
 
 type CTALinkConfig = {
   type: 'style';
@@ -46,7 +46,7 @@ export interface CTABlockConfig {
   };
 }
 
-export const fields = {
+export const config = {
   type: 'cta_block',
   categories: ['content'],
   label: 'Call to Action',

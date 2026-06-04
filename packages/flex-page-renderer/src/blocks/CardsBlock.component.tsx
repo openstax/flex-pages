@@ -3,7 +3,7 @@ import Color from 'color';
 import React from 'react';
 import { findByType } from '../utils.js';
 import { CTALink } from './CTABlock.component.js';
-import type { CardBlockConfig, CardsBlockConfig } from './CardsBlock.fields.js';
+import type { CardBlockConfig, CardsBlockConfig } from './CardsBlock.config.js';
 import { RichTextContent } from './RichTextBlock.component.js';
 import './CardsBlock.css';
 

@@ -1,12 +1,12 @@
-import type { ConfigMetadata, ContentBlockConfig } from '../ContentBlockContext.js';
-import type { ImageFields } from '../components/Image.fields.js';
-import type { LinkFields } from '../components/Link.fields.js';
+import type { BlockProcessingDefinition, BlockProcessingDefinitions, ContentBlockConfig } from '../ContentBlockContext.js';
+import type { ImageFields } from '../components/Image.config.js';
+import type { LinkFields } from '../components/Link.config.js';
 import type { ConfigField } from '../index.js';
 import { readLinkTarget, writeLinkTarget } from './linkBehavior.js';
 
 /*
  * Pure, async, config-aware page transform for the app data layer. Walks the
- * page using each block's `fields` config (server-readable, since `fields` lives
+ * page using each block's `config` (server-readable, since `config` lives
  * in directive-free modules) to locate mappable values — dynamic-link targets
  * (both structured `link-target` fields and links embedded in rich-text strings)
  * and `image` fields — and runs each through the matching mapper. This is how an
@@ -44,9 +44,9 @@ const nativeParseHtml: ParseHtml | undefined =
     ? (html) => new DOMParser().parseFromString(html, 'text/html')
     : undefined;
 
-// The block registry, keyed by type — the same `{ Component, fields }` map the
-// app already passes to ContentBlockRoot. We only read `.fields`.
-export type BlockRegistry = Record<string, { fields: ConfigMetadata<string> }>;
+// The block registry, keyed by type — the same `{ Component, config }` map the
+// app already passes to ContentBlockRoot. We only read `.config`.
+type BlockRegistry = Record<string, BlockProcessingDefinition<string>>;
 
 type Ctx = { blocks: BlockRegistry; mappers: PageNodeMappers; parseHtml: ParseHtml | undefined };
 
@@ -175,7 +175,7 @@ async function processField(field: ConfigField, value: unknown, ctx: Ctx): Promi
 }
 
 async function processBlock(node: ContentBlockConfig, ctx: Ctx): Promise<ContentBlockConfig> {
-  const meta = ctx.blocks[node.type]?.fields;
+  const meta = ctx.blocks[node.type]?.config;
   if (!meta) return node;
 
   // singular-`field` blocks (e.g. text) store their value directly at node.value
@@ -191,9 +191,9 @@ async function processBlock(node: ContentBlockConfig, ctx: Ctx): Promise<Content
   return { ...node, value: out } as ContentBlockConfig;
 }
 
-export async function mapPageNodes(
+export async function mapPageNodes<D extends BlockProcessingDefinitions<any>>(
   nodes: ContentBlockConfig[],
-  blocks: BlockRegistry,
+  blocks: D,
   mappers: PageNodeMappers,
   parseHtml: ParseHtml | undefined = nativeParseHtml,
 ): Promise<ContentBlockConfig[]> {

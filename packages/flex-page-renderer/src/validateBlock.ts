@@ -1,10 +1,6 @@
-import type { BlockFieldDefinition, BlockFieldDefinitions, ContentBlockConfig } from './ContentBlockContext.js';
+import type { BlockDataEntry, BlockProcessingDefinition, BlockProcessingDefinitions, ContentBlockConfig } from './ContentBlockContext.js';
 import { fieldDefs } from './lib/blockFields.js';
 import type { ConfigField } from './index.js';
-
-type BlockMap = BlockFieldDefinitions;
-
-export type { BlockFieldDefinition, BlockFieldDefinitions } from './ContentBlockContext.js';
 
 export type ValidationCode =
   | 'unknown-block'
@@ -42,7 +38,7 @@ export type ValidationResult =
 const LINK_TARGET_TYPES = ['external', 'internal', 'anchor', 'action', 'route'];
 
 type BlockLoc = { blockId?: string; blockType?: string };
-type Ctx = { definitions: BlockMap; issues: ValidationIssue[] };
+type Ctx = { definitions: BlockProcessingDefinitions<any>; issues: ValidationIssue[] };
 
 /*
  * A value is "empty" when it carries no author content. The serializer always
@@ -143,7 +139,7 @@ function validateField(field: ConfigField, value: unknown, path: string, ctx: Ct
       if (!Array.isArray(value)) { wrongType('a list of blocks'); return; }
       const categories = asArray<string>(field.categories);
       value.forEach((child, i) =>
-        validateChildBlock(child as ContentBlockConfig, categories, `${fieldPath}[${i}]`, ctx));
+        validateChildBlock(child, categories, `${fieldPath}[${i}]`, ctx));
       return;
     }
 
@@ -231,11 +227,11 @@ function validateChildBlock(
     return;
   }
 
-  const blockCategories = def.fields.categories ?? [];
+  const blockCategories = def.config.categories ?? [];
   if (allowedCategories.length > 0 && !blockCategories.some((c) => allowedCategories.includes(c))) {
     ctx.issues.push({
       path: label, code: 'invalid-category', severity: 'error',
-      message: `"${def.fields.label}" is not allowed here (allowed: ${allowedCategories.join(', ')})`,
+      message: `"${def.config.label}" is not allowed here (allowed: ${allowedCategories.join(', ')})`,
       blockId: block.id, blockType,
     });
   }
@@ -244,9 +240,9 @@ function validateChildBlock(
 }
 
 /* validate one block's own fields, handling both the object-value and scalar-value (single `field`) forms */
-function validateBlockNode(block: ContentBlockConfig, def: BlockFieldDefinition, path: string, ctx: Ctx): void {
+function validateBlockNode(block: ContentBlockConfig, def: BlockProcessingDefinition<string>, path: string, ctx: Ctx): void {
   const loc: BlockLoc = { blockId: block.id, blockType: block.type };
-  const field = def.fields.field;
+  const field = def.config.field;
 
   // single-field block: `value` is the field's value directly, not an object
   if (field) {
@@ -273,7 +269,7 @@ function validateBlockNode(block: ContentBlockConfig, def: BlockFieldDefinition,
  * fails fast and never throws on malformed data). The root block carries no
  * parent, so its own placement isn't category-checked; every descendant is.
  */
-export function validateBlock(root: ContentBlockConfig, definitions: BlockMap): ValidationResult {
+export function validateBlock<D extends BlockProcessingDefinitions<any>>(root: BlockDataEntry<D>, definitions: D): ValidationResult {
   const ctx: Ctx = { definitions, issues: [] };
   const def = definitions[root?.type];
 

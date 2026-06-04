@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import Color from 'color';
 import React from 'react';
-import { LinkFields } from '../components/Link.fields.js';
+import { LinkFields } from '../components/Link.config.js';
 import { Link } from '../components/Link.js';
 import { findByType } from '../utils.js';
 import './LinksBlock.css';

@@ -6,17 +6,17 @@
  *
  *   yarn workspace @openstax/flex-page-renderer generate:docs
  */
-import { writeFileSync, mkdirSync } from 'fs';
+import { mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
-import { blockFieldDefinitions } from '../src/blocks.fields';
-import { generateBlockDocs } from '../src/generateBlockDocs';
+import * as blockFieldDefinitions from '../src/blocks.config.js';
+import { generateBlockDocs } from '../src/generateBlockDocs.js';
 
 const OUT_DIR = join(process.cwd(), 'docs');
 const OUT_FILE = join(OUT_DIR, 'blocks.md');
 
 const markdown = generateBlockDocs(blockFieldDefinitions, {
   intro: [
-    '> Generated from the block field definitions by `script/generate-block-docs.mts`.',
+    '> Generated from the block field definitions by `script/generate-block-docs.ts`.',
     '> Do not edit by hand — run `yarn workspace @openstax/flex-page-renderer generate:docs`.',
   ],
 });

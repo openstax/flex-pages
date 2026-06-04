@@ -1,4 +1,4 @@
-export const fields = {
+export const config = {
   type: 'tabbed_content',
   label: 'Tabbed Content',
   categories: ['structure'],

@@ -1,4 +1,4 @@
-export const fields = {
+export const config = {
   type: 'well',
   categories: ['content'],
   label: 'Well',

@@ -1,4 +1,4 @@
-export const fields = {
+export const config = {
   type: 'flex_page',
   categories: ['page'],
   label: 'Page',
