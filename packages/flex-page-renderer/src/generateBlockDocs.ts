@@ -35,14 +35,27 @@ function typeLabel(type: string): string {
   return TYPE_LABELS[type] ?? type;
 }
 
-/* Description of the allowed values / format for a field, for the option/config tables. */
+/* The allowed values / format for a field. Select options get their own
+ * Value/Label table (see selectOptionsTables), so this only covers scalar formats. */
 function valuesColumn(field: ConfigField): string {
-  if (field.type === 'select' && field.options) {
-    return field.options.map((o) => o.label).join(', ');
-  }
+  if (field.type === 'select') return 'see options below';
   if (field.pattern) return `must match \`${field.pattern}\``;
   if (field.type === 'number') return 'a number';
   return '';
+}
+
+/* The stored value of a select is the option's `value` slug, not its label, so
+ * the two are listed as separate columns. Emitted for every select in a field set. */
+function selectOptionsTables(fields: ConfigField[], out: string[]): void {
+  for (const field of fields) {
+    if (field.type !== 'select' || !field.options) continue;
+    out.push(`_${cell(field.label)} (\`${field.name}\`) options:_`, '');
+    out.push('| Value | Label |', '| --- | --- |');
+    for (const option of field.options) {
+      out.push(`| \`${option.value}\` | ${cell(option.label)} |`);
+    }
+    out.push('');
+  }
 }
 
 /* escape pipe characters so help text doesn't break markdown tables */
@@ -60,12 +73,12 @@ function configOptions(fields: ConfigField[]): ConfigField[] {
   return fields.filter((f) => f.type === 'configs').flatMap((f) => f.configs ?? []);
 }
 
-/* Every nested-block slot in a field tree (top level or inside list items), with allowed categories. */
-function blockSlots(fields: ConfigField[]): Array<{ label: string; categories: string[] }> {
-  const slots: Array<{ label: string; categories: string[] }> = [];
+/* Every nested-block slot in a field tree (top level or inside list items), with its key and allowed categories. */
+function blockSlots(fields: ConfigField[]): Array<{ label: string; name: string; categories: string[] }> {
+  const slots: Array<{ label: string; name: string; categories: string[] }> = [];
   for (const field of fields) {
     if (field.type === 'blocks') {
-      slots.push({ label: field.label, categories: field.categories ?? [] });
+      slots.push({ label: field.label, name: field.name, categories: field.categories ?? [] });
     } else if (field.type === 'list' && field.fields) {
       slots.push(...blockSlots(field.fields));
     }
@@ -86,21 +99,23 @@ function fieldsTable(heading: string, fields: ConfigField[], out: string[]): voi
   const content = contentFields(fields);
   if (content.length === 0) return;
   out.push(heading, '');
-  out.push('| Field | Type | Required | Description |', '| --- | --- | --- | --- |');
+  out.push('| Field | Key | Type | Required | Description |', '| --- | --- | --- | --- | --- |');
   for (const field of content) {
-    out.push(`| ${cell(field.label)} | ${typeLabel(field.type)} | ${field.required ? 'Yes' : ''} | ${cell(field.help)} |`);
+    out.push(`| ${cell(field.label)} | \`${field.name}\` | ${typeLabel(field.type)} | ${field.required ? 'Yes' : ''} | ${cell(field.help)} |`);
   }
   out.push('');
+  selectOptionsTables(content, out);
 }
 
 function configTable(heading: string, configs: ConfigField[], out: string[]): void {
   if (configs.length === 0) return;
   out.push(heading, '');
-  out.push('| Option | Type | Values / format | Description |', '| --- | --- | --- | --- |');
+  out.push('| Option | Key | Type | Values / format | Description |', '| --- | --- | --- | --- | --- |');
   for (const option of configs) {
-    out.push(`| ${cell(option.label)} | ${typeLabel(option.type)} | ${cell(valuesColumn(option))} | ${cell(option.help)} |`);
+    out.push(`| ${cell(option.label)} | \`${option.name}\` | ${typeLabel(option.type)} | ${cell(valuesColumn(option))} | ${cell(option.help)} |`);
   }
   out.push('');
+  selectOptionsTables(configs, out);
 }
 
 /*
@@ -119,12 +134,20 @@ function renderListItems(pathLabel: string, listField: ConfigField, out: string[
 }
 
 /*
- * Structured value types whose shape is defined OUTSIDE the block field
- * definitions (so it can't be introspected): `image` lives in
- * components/Image.config.ts, and `link-target` in the editor's LinkTarget
- * component. Hardcoded here, emitted only when a block actually uses the type.
+ * Value-type shapes that the field definitions don't describe on their own:
+ * `image` is defined in components/Image.config.ts, `link-target` in the
+ * editor's LinkTarget component, and `rich-text` is a plain string. Hardcoded
+ * here, emitted only when a block actually uses the type.
  */
 const VALUE_TYPES: Array<{ type: string; lines: string[] }> = [
+  {
+    type: 'rich-text',
+    lines: [
+      '### Rich text (`rich-text`)',
+      '',
+      'An HTML string.',
+    ],
+  },
   {
     type: 'image',
     lines: [
@@ -175,6 +198,24 @@ export function generateBlockDocs<D extends BlockProcessingDefinitions<any>>(
   out.push(`# ${options.title ?? 'Flex Page Block Reference'}`, '');
   if (options.intro && options.intro.length > 0) out.push(...options.intro, '');
 
+  // Node shape: the block envelope and config-array shape the per-block tables
+  // don't otherwise spell out.
+  out.push('## Node shape', '');
+  out.push('The content is an array of block nodes. Each node is:', '');
+  out.push('```json', '{ "type": "<block key>", "id": "<unique string>", "value": <value> }', '```', '');
+  out.push(
+    '`type` is the block key from the headings below. `value` is an object keyed by the block\'s field keys (the **Key** column), '
+      + 'except for single-field blocks, whose `value` is that one field\'s value directly (e.g. a Text block\'s `value` is its HTML string).',
+    ''
+  );
+  out.push('A block\'s configuration options are not keyed fields; they live in a `config` array on the value:', '');
+  out.push('```json', '"value": { ...fields, "config": [ { "type": "<option key>", "value": <value> } ] }', '```', '');
+  out.push(
+    'Each config entry\'s `type` is the option\'s **Key** and `value` is its value. List fields hold an array of item objects '
+      + '(keyed by the item\'s field keys), and a list item may carry its own `config` array in the same shape.',
+    ''
+  );
+
   // Category summary
   const categories = [...new Set(blocks.flatMap((b) => b.definition.config.categories))].sort();
   out.push('## Block categories', '');
@@ -194,7 +235,7 @@ export function generateBlockDocs<D extends BlockProcessingDefinitions<any>>(
   const valueTypes = VALUE_TYPES.filter((v) => usedTypes.has(v.type));
   if (valueTypes.length > 0) {
     out.push('## Value types', '');
-    out.push('Some fields hold a structured value rather than a plain string. Their shapes:', '');
+    out.push('Some fields hold a value with a specific shape:', '');
     for (const valueType of valueTypes) out.push(...valueType.lines, '');
   }
 
@@ -206,13 +247,23 @@ export function generateBlockDocs<D extends BlockProcessingDefinitions<any>>(
     out.push(`### ${definition.config.label} — \`${key}\``, '');
     out.push(`*Categories: ${definition.config.categories.join(', ')}*`, '');
 
+    // Make the value shape explicit: a single-`field` block stores its value
+    // directly, while a `fields` block stores an object keyed by field name.
+    const singleField = definition.config.field;
+    out.push(
+      singleField
+        ? `\`value\` is the ${typeLabel(singleField.type)} value directly (a bare \`${singleField.type}\`, not an object).`
+        : '`value` is an object keyed by the field and slot keys below (with options under `config`).',
+      ''
+    );
+
     const slots = blockSlots(fields);
     if (slots.length > 0) {
       out.push('**Child content**', '');
-      out.push('| Slot | Allowed blocks |', '| --- | --- |');
+      out.push('| Slot | Key | Allowed blocks |', '| --- | --- | --- |');
       for (const slot of slots) {
         const allowed = childrenFor(slot.categories);
-        out.push(`| ${cell(slot.label)} | ${allowed.length ? allowed.join(', ') : '_none_'} |`);
+        out.push(`| ${cell(slot.label)} | \`${slot.name}\` | ${allowed.length ? allowed.join(', ') : '_none_'} |`);
       }
       out.push('');
     }
