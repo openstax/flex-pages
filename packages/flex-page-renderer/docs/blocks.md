@@ -45,6 +45,8 @@ Some fields hold a value with a specific shape:
 ### Rich text (`rich-text`)
 
 An HTML string.
+Avoid inline styles for font size, color, etc, these are controlled by the framework.
+<img> tags may use "left", "right", or "full-width" classes to control alignment, left and right are floated so text flows around them.
 
 ### Image (`image`)
 
@@ -59,7 +61,7 @@ An uploaded image reference.
 
 ### Link (`link-target`)
 
-A link target: a `type` that selects the kind of link, plus a `value` whose meaning depends on that type. `action` and `route` links may also carry a `params` object resolved by the host app.
+A link target: a `type` that selects the kind of link, plus a `value` whose meaning depends on that type. `action` and `route` links may also carry a `params` object corresponding to the expected payloads for the actions and routes provided by the host application.
 
 | type | value | Description |
 | --- | --- | --- |

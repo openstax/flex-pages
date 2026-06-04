@@ -146,6 +146,8 @@ const VALUE_TYPES: Array<{ type: string; lines: string[] }> = [
       '### Rich text (`rich-text`)',
       '',
       'An HTML string.',
+      'Avoid inline styles for font size, color, etc, these are controlled by the framework.',
+      '<img> tags may use "left", "right", or "full-width" classes to control alignment, left and right are floated so text flows around them.',
     ],
   },
   {

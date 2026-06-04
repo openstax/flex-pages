@@ -83,15 +83,19 @@ export function ColumnsBlock({data, leftContent, rightContent}: {data: ColumnsBl
   const rightDisplay = data.value.rightContent.some(d => findByType(d.value.config, 'flex'))
     ? 'flex' : 'block';
 
+  // A sized column reserves its width as a non-shrinking flex-basis so the
+  // other (flex: 1) column only fills the remaining space. A bare max-width
+  // reserves nothing, so the flexing column claims everything and the sized
+  // column collapses. Sizes hold until the container query stacks the columns.
   const leftStyle = {
     display: leftDisplay,
     flexDirection: 'column',
-    ...(leftSize ? {'--col-width': leftSize} : {'--col-flex': 1}),
+    '--col-flex': leftSize ? `0 0 ${leftSize}` : 1,
   };
   const rightStyle = {
     display: rightDisplay,
     flexDirection: 'column',
-    ...(rightSize ? {'--col-width': rightSize} : {'--col-flex': 1}),
+    '--col-flex': rightSize ? `0 0 ${rightSize}` : 1,
   };
 
   const sel = `.flex-structure-container > section.content-block-columns[data-cols="${scope}"]`;
@@ -102,7 +106,7 @@ export function ColumnsBlock({data, leftContent, rightContent}: {data: ColumnsBl
     ${sel} > div.columns-content { display: block; overflow: auto }
     ${sel} > div.columns-content .content-block-columns-left { margin-right: unset }
     ${sel} > div.columns-content .content-block-columns-left,
-    ${sel} > div.columns-content .content-block-columns-right { flex: unset; max-width: unset }
+    ${sel} > div.columns-content .content-block-columns-right { flex: unset }
   }`;
 
   return <section
