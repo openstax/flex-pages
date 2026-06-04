@@ -3,7 +3,7 @@ export const config = {
   categories: ['page'],
   label: 'Page',
   fields: [
-    {name: 'content', label: 'Page Content', type: 'blocks', categories: ['structure']},
+    {name: 'content', label: 'Page Content', type: 'blocks', categories: ['structure'], required: true},
     {name: 'config', label: 'Config', type: 'configs', configs: [
       {name: 'width', label: 'Width', type: 'select', options: [
         {label: 'Fixed', value: 'fixed'},

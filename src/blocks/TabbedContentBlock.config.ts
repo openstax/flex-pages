@@ -15,8 +15,8 @@ export const config = {
       ]},
       {name: 'active_color', label: 'Active Tab Color', type: 'text', pattern: '#[a-fA-F0-9]{6}',
         help: 'Hex color for the active tab underline'},
-      {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}'},
-      {name: 'gradient_color', label: 'Gradient To Color', type: 'text', pattern: '#[a-fA-Z0-9]{6}',
+      {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-F0-9]{6}'},
+      {name: 'gradient_color', label: 'Gradient To Color', type: 'text', pattern: '#[a-fA-F0-9]{6}',
         help: 'Second color for gradient effect. Background Color is the starting color.'},
       {name: 'gradient_direction', label: 'Gradient Direction', type: 'select', options: [
         {label: 'Top to Bottom', value: 'to bottom'},

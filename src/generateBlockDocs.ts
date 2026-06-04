@@ -168,7 +168,7 @@ const VALUE_TYPES: Array<{ type: string; lines: string[] }> = [
     lines: [
       '### Link (`link-target`)',
       '',
-      'A link target: a `type` that selects the kind of link, plus a `value` whose meaning depends on that type. `action` and `route` links may also carry a `params` object resolved by the host app.',
+      'A link target: a `type` that selects the kind of link, plus a `value` whose meaning depends on that type. `action` and `route` links may also carry a `params` object corresponding to the expected payloads for the actions and routes provided by the host application.',
       '',
       '| type | value | Description |',
       '| --- | --- | --- |',
@@ -214,9 +214,12 @@ export function generateBlockDocs<D extends BlockProcessingDefinitions<any>>(
     '```',
     ''
   );
+  out.push('Each `config` entry\'s `type` is a **Key** from the block\'s **Config** table and `value` is its value.', '');
   out.push(
-    'Each `config` entry\'s `type` is a **Key** from the block\'s **Config** table and `value` is its value. '
-      + 'A **list** field\'s value is an array of data nodes — one per item, each with its own **Fields** and its own `config` array.',
+    'Two field types hold arrays, and their element shapes differ:',
+    '',
+    '- A **child blocks** field (a content slot) holds an array of full **block nodes** — each its own `{ type, id, value }` — so any block the slot allows can be nested. See the block\'s **Child content** table for what\'s allowed.',
+    '- A **list** field holds an array of **data nodes** — **Fields** plus `config` only, with no `type` or `id`.',
     ''
   );
   out.push(
