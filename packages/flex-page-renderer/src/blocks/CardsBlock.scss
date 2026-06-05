@@ -21,7 +21,7 @@
         max-width: var(--container-min);
         margin-inline: auto;
         grid-template-columns: repeat(auto-fit,
-            minmax(clamp(calc(var(--card-size, 27) * 1rem), var(--col-toggle), 100%), 1fr)
+            minmax(clamp(min(calc(var(--card-size, 27) * 1rem), 100%), var(--col-toggle), 100%), 1fr)
         );
     }
 
