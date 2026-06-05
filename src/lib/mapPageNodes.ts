@@ -9,11 +9,13 @@ import { readLinkTarget, writeLinkTarget } from './linkBehavior.js';
  * page using each block's `config` (server-readable, since `config` lives
  * in directive-free modules) to locate mappable values — dynamic-link targets
  * (both structured `link-target` fields and links embedded in rich-text strings)
- * and `image` fields — and runs each through the matching mapper. This is how an
- * app opts into dynamic routing (e.g. resolving stored ids to current slugs) or
- * dynamic asset resolution (e.g. resolving an image id to its current url/size)
- * without the renderer ever depending on server components: it just rewrites the
- * values the renderer will receive.
+ * and `image` fields — and runs each through the matching mapper. A block-level
+ * `blockMapper` also fires once per block (before its fields are walked), letting
+ * an app rewrite or inspect whole blocks. This is how an app opts into dynamic
+ * routing (e.g. resolving stored ids to current slugs) or dynamic asset
+ * resolution (e.g. resolving an image id to its current url/size) without the
+ * renderer ever depending on server components: it just rewrites the values the
+ * renderer will receive.
  *
  * Mapper calls run concurrently (Promise.all); de-duplicating/batching across
  * repeated ids is the mapper's responsibility (e.g. a memoized wrapper).
@@ -23,10 +25,12 @@ type LinkTarget = LinkFields['target'];
 
 export type LinkMapper = (target: LinkTarget) => LinkTarget | Promise<LinkTarget>;
 export type ImageMapper = (image: ImageFields) => ImageFields | Promise<ImageFields>;
+export type BlockMapper = (block: ContentBlockConfig) => ContentBlockConfig | Promise<ContentBlockConfig>;
 
 export interface PageNodeMappers {
   linkMapper?: LinkMapper;
   imageMapper?: ImageMapper;
+  blockMapper?: BlockMapper;
 }
 
 // Environment seam: parse an HTML string into a DOM `Document`. The rich-text
@@ -175,20 +179,24 @@ async function processField(field: ConfigField, value: unknown, ctx: Ctx): Promi
 }
 
 async function processBlock(node: ContentBlockConfig, ctx: Ctx): Promise<ContentBlockConfig> {
-  const meta = ctx.blocks[node.type]?.config;
-  if (!meta) return node;
+  // Block-level hook runs first, so it can rewrite the block (including its
+  // `type`) before we resolve its config and walk its fields.
+  const block = ctx.mappers.blockMapper ? await ctx.mappers.blockMapper(node) : node;
+
+  const meta = ctx.blocks[block.type]?.config;
+  if (!meta) return block;
 
   // singular-`field` blocks (e.g. text) store their value directly at node.value
   if (meta.field) {
-    return { ...node, value: await processField(meta.field, node.value, ctx) } as ContentBlockConfig;
+    return { ...block, value: await processField(meta.field, block.value, ctx) } as ContentBlockConfig;
   }
 
-  const value = node.value as Record<string, unknown>;
+  const value = block.value as Record<string, unknown>;
   const out: Record<string, unknown> = { ...value };
   for (const field of meta.fields ?? []) {
     out[field.name] = await processField(field, value[field.name], ctx);
   }
-  return { ...node, value: out } as ContentBlockConfig;
+  return { ...block, value: out } as ContentBlockConfig;
 }
 
 export async function mapPageNodes<D extends BlockProcessingDefinitions<any>>(
