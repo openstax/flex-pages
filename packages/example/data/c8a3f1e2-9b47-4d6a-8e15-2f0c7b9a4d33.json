@@ -1,0 +1,205 @@
+{
+  "metadata": {
+    "title": "FAQ",
+    "description": "Documentation and examples for the FAQ component.",
+    "url": "faq"
+  },
+  "page": [
+    {
+      "type": "flex_page",
+      "id": "c8a3f1e2-0000-0000-0000-000000000000",
+      "value": {
+        "content": [
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p><strong>Page Content:</strong></p>",
+                  "id": "c8a3f1e2-1111-0000-0000-000000000001"
+                },
+                {
+                  "type": "text",
+                  "value": "<h1 data-block-key=\"faqh1\">FAQ Component</h1>",
+                  "id": "c8a3f1e2-1111-0000-0000-000000000002"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": "7",
+                  "id": "c8a3f1e2-1111-0000-0000-000000000003"
+                },
+                {
+                  "type": "background_color",
+                  "value": "#0dc0dc",
+                  "id": "c8a3f1e2-1111-0000-0000-000000000004"
+                }
+              ]
+            },
+            "id": "c8a3f1e2-1111-0000-0000-000000000005"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p><a data-flex-link=\"\" data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\" href=\"/flex-pages/id/e39eda50-a822-42d8-93de-91ab50a27a49\">documentation home</a></p>",
+                  "id": "c8a3f1e2-1111-0000-0000-000000000006"
+                }
+              ],
+              "config": []
+            },
+            "id": "c8a3f1e2-1111-0000-0000-000000000007"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"faqov\">Overview</h2><p data-block-key=\"faqo1\">The FAQ block presents a list of questions as an accordion. Selecting a question reveals its answer; selecting it again hides it.</p><p data-block-key=\"faqo2\">It follows WAI-ARIA accordion guidance: every question is a real button inside a heading, the focus ring is clearly visible, Enter or Space toggles an answer, and the arrow keys, Home, and End move between questions.</p>",
+                  "id": "c8a3f1e2-1111-0000-0000-000000000008"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "c8a3f1e2-1111-0000-0000-000000000009"
+                }
+              ]
+            },
+            "id": "c8a3f1e2-1111-0000-0000-000000000010"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"faqcf\">Config</h2><p data-block-key=\"faqc1\"><b>heading_level</b>: heading level (H2–H4) used for each question, so the page keeps a sensible outline for screen-reader users. Defaults to H3.</p><p data-block-key=\"faqc2\"><b>allow_multiple</b>: when set to Yes, more than one answer can be open at once. Defaults to No, so opening one question closes the others.</p><p data-block-key=\"faqc3\"><b>accent_color</b>: hex color for the expand and collapse icon.</p><p data-block-key=\"faqc4\">Each question also takes an optional <b>ID</b>: the HTML id of the question, so linking to <b>#your-id</b> opens that question and scrolls to it.</p>",
+                  "id": "c8a3f1e2-1111-0000-0000-000000000011"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "c8a3f1e2-1111-0000-0000-000000000012"
+                }
+              ]
+            },
+            "id": "c8a3f1e2-1111-0000-0000-000000000013"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"faqex\">Examples</h2><h3 data-block-key=\"faqe1\">Basic FAQ (one answer open at a time)</h3>",
+                  "id": "c8a3f1e2-1111-0000-0000-000000000014"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "c8a3f1e2-1111-0000-0000-000000000015"
+                }
+              ]
+            },
+            "id": "c8a3f1e2-1111-0000-0000-000000000016"
+          },
+          {
+            "type": "faq",
+            "value": {
+              "items": [
+                {
+                  "question": "What is OpenStax?",
+                  "id": "what-is-openstax",
+                  "answer": "<p data-block-key=\"a1\">OpenStax is a nonprofit educational initiative based at Rice University. We publish free, peer-reviewed, openly licensed textbooks and learning tools used by millions of students worldwide.</p>"
+                },
+                {
+                  "question": "Are OpenStax textbooks really free?",
+                  "id": "are-books-free",
+                  "answer": "<p data-block-key=\"a2\">Yes. Every OpenStax textbook is free to read online and free to download as a PDF. If you would like a print copy, you can order one at a low cost that covers printing and shipping.</p>"
+                },
+                {
+                  "question": "How do I adopt an OpenStax book for my course?",
+                  "id": "how-to-adopt",
+                  "answer": "<p data-block-key=\"a3\">Browse our subjects, find a book that fits your course, and let us know you are using it. Adopting takes only a few minutes and unlocks instructor resources.</p><ul><li data-block-key=\"a3a\">Choose your book</li><li data-block-key=\"a3b\">Tell us you are using it</li><li data-block-key=\"a3c\">Access test banks, slides, and more</li></ul>"
+                }
+              ],
+              "config": []
+            },
+            "id": "c8a3f1e2-2222-0000-0000-000000000001"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h3 data-block-key=\"faqe2\">Multiple answers open, custom accent color, H2 headings</h3>",
+                  "id": "c8a3f1e2-1111-0000-0000-000000000017"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "c8a3f1e2-1111-0000-0000-000000000018"
+                }
+              ]
+            },
+            "id": "c8a3f1e2-1111-0000-0000-000000000019"
+          },
+          {
+            "type": "faq",
+            "value": {
+              "items": [
+                {
+                  "question": "Can I customize a textbook?",
+                  "id": "customize",
+                  "answer": "<p data-block-key=\"b1\">Absolutely. OpenStax books are openly licensed, so you can remix, reorder, and adapt the content to match your syllabus.</p>"
+                },
+                {
+                  "question": "What formats are available?",
+                  "id": "formats",
+                  "answer": "<p data-block-key=\"b2\">Read online, download a PDF, use the web view on any device, or order an affordable print copy.</p>"
+                },
+                {
+                  "question": "How is OpenStax funded?",
+                  "id": "funding",
+                  "answer": "<p data-block-key=\"b3\">OpenStax is supported by philanthropic foundations and our community of supporters, which is what lets us keep our textbooks free for students.</p>"
+                }
+              ],
+              "config": [
+                {
+                  "type": "allow_multiple",
+                  "value": "true",
+                  "id": "c8a3f1e2-2222-0000-0000-000000000010"
+                },
+                {
+                  "type": "accent_color",
+                  "value": "#f36b32",
+                  "id": "c8a3f1e2-2222-0000-0000-000000000011"
+                },
+                {
+                  "type": "heading_level",
+                  "value": "2",
+                  "id": "c8a3f1e2-2222-0000-0000-000000000012"
+                }
+              ]
+            },
+            "id": "c8a3f1e2-2222-0000-0000-000000000002"
+          }
+        ]
+      }
+    }
+  ]
+}

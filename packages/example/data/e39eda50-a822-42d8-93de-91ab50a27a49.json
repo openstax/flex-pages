@@ -322,6 +322,18 @@
                           }
                         },
                         "id": "ad77e9c"
+                      },
+                      {
+                        "text": "FAQ",
+                        "ariaLabel": "FAQ Component",
+                        "target": {
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "c8a3f1e2-9b47-4d6a-8e15-2f0c7b9a4d33"
+                          }
+                        },
+                        "id": "faq00001"
                       }
                     ],
                     "config": [

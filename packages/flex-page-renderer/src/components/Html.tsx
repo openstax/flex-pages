@@ -4,6 +4,8 @@ import React from 'react';
 export const Html = (props: React.PropsWithChildren<{
   block?: boolean;
   className?: string;
+  id?: string;
+  hidden?: boolean;
   sanitize?: boolean;
   html: string;
 }>) => {
@@ -11,8 +13,11 @@ export const Html = (props: React.PropsWithChildren<{
     ? props.html
     : DOMPurify.sanitize(props.html, {ADD_ATTR: ['target']})
   ;
-  return props.block
-    ? <div dangerouslySetInnerHTML={{__html: html}} className={props.className} />
-    : <span dangerouslySetInnerHTML={{__html: html}} className={props.className} />
-  ;
+  const Tag = props.block ? 'div' : 'span';
+  return <Tag
+    dangerouslySetInnerHTML={{__html: html}}
+    className={props.className}
+    id={props.id}
+    hidden={props.hidden}
+  />;
 };
