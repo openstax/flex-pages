@@ -454,7 +454,7 @@
                       {
                         "type": "cta_block",
                         "value": {
-                          "description": "<p>We're hosting a live Assignable demo on [DATE] at [TIME] CDT.</p>",
+                          "description": "<p>Join us for a live walkthrough of the inline banner layout on [DATE] at [TIME].</p>",
                           "actions": [
                             {
                               "text": "Register now",
@@ -513,7 +513,7 @@
                       {
                         "type": "cta_block",
                         "value": {
-                          "description": "<p>Can't make it? Watch an on-demand demo of Assignable anytime, anywhere.</p>",
+                          "description": "<p>Can't make it? Watch an on-demand walkthrough anytime, anywhere.</p>",
                           "actions": [
                             {
                               "text": "Watch now",

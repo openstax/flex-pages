@@ -60,7 +60,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"npzc6\">They&#x27;re flexible!</h2><p data-block-key=\"f5993\">FlexPages can be used to create pages on openstax.org without a developer. There is one editing interface that is used for any page, and no special code is necessary for your new page or content edits to be published.</p><p data-block-key=\"5crhr\"><a href=\"https://staging.openstax.org/how-to-use-the-flexpage-editor\">how to use the FlexPage editor</a></p>",
+                  "value": "<h2 data-block-key=\"npzc6\">They&#x27;re flexible!</h2><p data-block-key=\"f5993\">FlexPages can be used to create pages on your site without a developer. There is one editing interface that is used for any page, and no special code is necessary for your new page or content edits to be published.</p><p data-block-key=\"5crhr\"><a href=\"https://staging.openstax.org/how-to-use-the-flexpage-editor\">how to use the FlexPage editor</a></p>",
                   "id": "b42543b4-0671-42bc-8850-0c896fa69ef8"
                 }
               ],
@@ -396,7 +396,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"i8q9n\">This is a FlexPage!</h2><p data-block-key=\"cntqk\">The FlexPage component system is indented to provide all the building blocks you need to publish content pages on openstax.org, but it might be missing something! If you have a new component, config option, or design variant you think would enhance the system, contact your friendly neighborhood CMS developer!</p>",
+                  "value": "<h2 data-block-key=\"i8q9n\">This is a FlexPage!</h2><p data-block-key=\"cntqk\">The FlexPage component system is indented to provide all the building blocks you need to publish content pages on your site, but it might be missing something! If you have a new component, config option, or design variant you think would enhance the system, contact your friendly neighborhood CMS developer!</p>",
                   "id": "6379883e-c4bb-4c28-beeb-321c415ed531"
                 },
                 {

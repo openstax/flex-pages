@@ -119,19 +119,19 @@
             "value": {
               "items": [
                 {
-                  "question": "What is OpenStax?",
-                  "id": "what-is-openstax",
-                  "answer": "<p data-block-key=\"a1\">OpenStax is a nonprofit educational initiative based at Rice University. We publish free, peer-reviewed, openly licensed textbooks and learning tools used by millions of students worldwide.</p>"
+                  "question": "What is a Flex Page?",
+                  "id": "what-is-a-flex-page",
+                  "answer": "<p data-block-key=\"a1\">A Flex Page is a page built from reusable content blocks. You arrange blocks like sections, heroes, and cards to lay out a page without writing any code.</p>"
                 },
                 {
-                  "question": "Are OpenStax textbooks really free?",
-                  "id": "are-books-free",
-                  "answer": "<p data-block-key=\"a2\">Yes. Every OpenStax textbook is free to read online and free to download as a PDF. If you would like a print copy, you can order one at a low cost that covers printing and shipping.</p>"
+                  "question": "Do I need a developer to build one?",
+                  "id": "need-a-developer",
+                  "answer": "<p data-block-key=\"a2\">Nope. Flex Pages use a visual editor, so you can add, reorder, and configure blocks yourself, and new pages publish without any special code.</p>"
                 },
                 {
-                  "question": "How do I adopt an OpenStax book for my course?",
-                  "id": "how-to-adopt",
-                  "answer": "<p data-block-key=\"a3\">Browse our subjects, find a book that fits your course, and let us know you are using it. Adopting takes only a few minutes and unlocks instructor resources.</p><ul><li data-block-key=\"a3a\">Choose your book</li><li data-block-key=\"a3b\">Tell us you are using it</li><li data-block-key=\"a3c\">Access test banks, slides, and more</li></ul>"
+                  "question": "How do I add a block to a page?",
+                  "id": "how-to-add-a-block",
+                  "answer": "<p data-block-key=\"a3\">Open the editor, pick a block, and drop it where you want it. Each block has its own options you can tweak.</p><ul><li data-block-key=\"a3a\">Pick a block</li><li data-block-key=\"a3b\">Drop it on the page</li><li data-block-key=\"a3c\">Configure its options</li></ul>"
                 }
               ],
               "config": []
@@ -163,19 +163,19 @@
             "value": {
               "items": [
                 {
-                  "question": "Can I customize a textbook?",
+                  "question": "Can I change how a block looks?",
                   "id": "customize",
-                  "answer": "<p data-block-key=\"b1\">Absolutely. OpenStax books are openly licensed, so you can remix, reorder, and adapt the content to match your syllabus.</p>"
+                  "answer": "<p data-block-key=\"b1\">Absolutely. Most blocks have config options for things like color, padding, and alignment, so you can adapt them to your layout.</p>"
                 },
                 {
-                  "question": "What formats are available?",
-                  "id": "formats",
-                  "answer": "<p data-block-key=\"b2\">Read online, download a PDF, use the web view on any device, or order an affordable print copy.</p>"
+                  "question": "What happens on smaller screens?",
+                  "id": "responsive",
+                  "answer": "<p data-block-key=\"b2\">Blocks are responsive. Columns stack, cards collapse to one column, and content reflows to fit phones and tablets.</p>"
                 },
                 {
-                  "question": "How is OpenStax funded?",
-                  "id": "funding",
-                  "answer": "<p data-block-key=\"b3\">OpenStax is supported by philanthropic foundations and our community of supporters, which is what lets us keep our textbooks free for students.</p>"
+                  "question": "Can one answer stay open while I read another?",
+                  "id": "allow-multiple",
+                  "answer": "<p data-block-key=\"b3\">Yes. This FAQ has allow_multiple turned on, so opening one question leaves the others open too.</p>"
                 }
               ],
               "config": [

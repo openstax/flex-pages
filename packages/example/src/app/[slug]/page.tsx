@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { FlexPage } from '../../components/FlexPage';
-import { getPageByUrl, getPageUrls } from '../../lib/pages';
+import { getPageByUrl, getPageUrls, pageMetadata } from '../../lib/pages';
 
 export function generateStaticParams() {
   return getPageUrls().map(slug => ({ slug }));
@@ -11,8 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const data = getPageByUrl(slug);
   if (!data) return {};
-  const { title, description } = data.metadata;
-  return { title, description };
+  return pageMetadata(data.metadata);
 }
 
 export default async function DocPage({ params }: { params: Promise<{ slug: string }> }) {

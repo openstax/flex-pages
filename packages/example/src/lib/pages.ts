@@ -1,7 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import type { LinkMapper } from '@openstax/flex-page-renderer/lib/mapPageNodes';
+import type { Metadata } from 'next';
 import { PAGE_ID_ROUTE, SLUG_ROUTE, slugHref } from './routes';
+
+// Appended to every page title so data files carry only their own bare title.
+export const SITE_NAME = 'Flex Pages';
 
 const dataDir = path.join(process.cwd(), 'data');
 
@@ -78,6 +82,14 @@ export function getPageByUrl(url: string): PageFile | null {
 
 export function getHomePage(): PageFile | null {
   return getPageByUrl('');
+}
+
+// Build Next page metadata from a page's stored metadata, appending the site
+// name to the title. Both the home and slug routes go through here so the
+// suffix lives in one place rather than in the layout's title template, which
+// would not reach the home page (it shares the root layout's own segment).
+export function pageMetadata(meta: PageMetadata): Metadata {
+  return { title: `${meta.title} | ${SITE_NAME}`, description: meta.description };
 }
 
 /*

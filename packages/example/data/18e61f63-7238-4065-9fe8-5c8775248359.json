@@ -119,7 +119,7 @@
             "value": {
               "tabs": [
                 {
-                  "label": "About",
+                  "label": "Hero tab",
                   "content": [
                     {
                       "type": "hero",
@@ -127,7 +127,7 @@
                         "content": [
                           {
                             "type": "text",
-                            "value": "<h3 data-block-key=\"a01\">About Us</h3><p data-block-key=\"a02\">OpenStax is a nonprofit educational initiative based at Rice University. Our mission is to improve student access to education.</p>",
+                            "value": "<h3 data-block-key=\"a01\">A hero inside a tab</h3><p data-block-key=\"a02\">This panel holds a hero block. Tabs can contain structural blocks like heroes, sections, and columns, so each panel gets full layout control.</p>",
                             "id": "b1b2c3d4-3333-2222-1111-000000000001"
                           }
                         ],
@@ -139,7 +139,7 @@
                           "width": 480,
                           "created_at": "2024-08-13T17:36:07.930857-05:00"
                         },
-                        "imageAlt": "About OpenStax",
+                        "imageAlt": "",
                         "config": [
                           {
                             "type": "padding",
@@ -154,7 +154,7 @@
                   "id": "d949437b"
                 },
                 {
-                  "label": "Features",
+                  "label": "Section tab",
                   "content": [
                     {
                       "type": "section",
@@ -162,7 +162,7 @@
                         "content": [
                           {
                             "type": "text",
-                            "value": "<h3 data-block-key=\"f01\">Key Features</h3><p data-block-key=\"f02\">Free, peer-reviewed, openly licensed textbooks. Available in multiple formats. Customizable and remixable.</p>",
+                            "value": "<h3 data-block-key=\"f01\">What tabs can hold</h3><p data-block-key=\"f02\">Each tab can contain its own blocks. This one is a simple section with a text block inside.</p>",
                             "id": "b1b2c3d4-3333-2222-1111-000000000004"
                           }
                         ],
@@ -180,7 +180,7 @@
                   "id": "767a9b78"
                 },
                 {
-                  "label": "Contact",
+                  "label": "Third tab",
                   "content": [
                     {
                       "type": "section",
@@ -188,7 +188,7 @@
                         "content": [
                           {
                             "type": "text",
-                            "value": "<h3 data-block-key=\"c01\">Get in Touch</h3><p data-block-key=\"c02\">Have questions? Reach out to us at openstax.org/contact for more information about our resources.</p>",
+                            "value": "<h3 data-block-key=\"c01\">A third tab</h3><p data-block-key=\"c02\">Add as many tabs as you need. Selecting a tab swaps the panel below without reloading the page.</p>",
                             "id": "b1b2c3d4-3333-2222-1111-000000000007"
                           }
                         ],
@@ -235,7 +235,7 @@
             "value": {
               "tabs": [
                 {
-                  "label": "Instructors",
+                  "label": "Columns A",
                   "content": [
                     {
                       "type": "columns",
@@ -243,14 +243,14 @@
                         "leftContent": [
                           {
                             "type": "text",
-                            "value": "<h3 data-block-key=\"i01\">For Instructors</h3><p data-block-key=\"i02\">Access free textbooks, ancillary resources, and LMS integration tools designed to make teaching easier.</p>",
+                            "value": "<h3 data-block-key=\"i01\">Left column</h3><p data-block-key=\"i02\">This tab holds a columns block. Content on this side flows independently from the right.</p>",
                             "id": "b1b2c3d4-3333-3333-1111-000000000001"
                           }
                         ],
                         "rightContent": [
                           {
                             "type": "text",
-                            "value": "<h3 data-block-key=\"i03\">Resources</h3><p data-block-key=\"i04\">Test banks, PowerPoint slides, instructor solutions manuals, and more.</p>",
+                            "value": "<h3 data-block-key=\"i03\">Right column</h3><p data-block-key=\"i04\">On smaller screens these two columns stack vertically.</p>",
                             "id": "b1b2c3d4-3333-3333-1111-000000000002"
                           }
                         ],
@@ -273,7 +273,7 @@
                   "id": "547da416"
                 },
                 {
-                  "label": "Students",
+                  "label": "Columns B",
                   "content": [
                     {
                       "type": "columns",
@@ -281,14 +281,14 @@
                         "leftContent": [
                           {
                             "type": "text",
-                            "value": "<h3 data-block-key=\"s01\">For Students</h3><p data-block-key=\"s02\">All textbooks are free to read online, download as a PDF, or order a low-cost print copy.</p>",
+                            "value": "<h3 data-block-key=\"s01\">Left column</h3><p data-block-key=\"s02\">Each tab can hold its own columns block with its own configuration.</p>",
                             "id": "b1b2c3d4-3333-3333-1111-000000000006"
                           }
                         ],
                         "rightContent": [
                           {
                             "type": "text",
-                            "value": "<h3 data-block-key=\"s03\">Study Tools</h3><p data-block-key=\"s04\">Highlights, notes, and study guides to help you succeed in your courses.</p>",
+                            "value": "<h3 data-block-key=\"s03\">Right column</h3><p data-block-key=\"s04\">Switch tabs to compare different column setups.</p>",
                             "id": "b1b2c3d4-3333-3333-1111-000000000007"
                           }
                         ],
@@ -340,7 +340,7 @@
             "value": {
               "tabs": [
                 {
-                  "label": "Pricing",
+                  "label": "One",
                   "content": [
                     {
                       "type": "section",
@@ -348,7 +348,7 @@
                         "content": [
                           {
                             "type": "text",
-                            "value": "<h3 data-block-key=\"p01\">Free Forever</h3><p data-block-key=\"p02\">All OpenStax textbooks are free online. Print copies are available at low cost.</p>",
+                            "value": "<h3 data-block-key=\"p01\">First panel</h3><p data-block-key=\"p02\">These tabs are center-aligned with a custom active color and a full-width bottom border.</p>",
                             "id": "b1b2c3d4-3333-4444-1111-000000000001"
                           }
                         ],
@@ -366,7 +366,7 @@
                   "id": "e118defd"
                 },
                 {
-                  "label": "Partnerships",
+                  "label": "Two",
                   "content": [
                     {
                       "type": "section",
@@ -374,7 +374,7 @@
                         "content": [
                           {
                             "type": "text",
-                            "value": "<h3 data-block-key=\"pa01\">Our Partners</h3><p data-block-key=\"pa02\">We partner with leading technology companies to deliver enhanced learning experiences at no extra cost to students.</p>",
+                            "value": "<h3 data-block-key=\"pa01\">Second panel</h3><p data-block-key=\"pa02\">The active color also tints the underline beneath the selected tab.</p>",
                             "id": "b1b2c3d4-3333-4444-1111-000000000004"
                           }
                         ],
@@ -392,7 +392,7 @@
                   "id": "6d695eda"
                 },
                 {
-                  "label": "Impact",
+                  "label": "Three",
                   "content": [
                     {
                       "type": "section",
@@ -400,7 +400,7 @@
                         "content": [
                           {
                             "type": "text",
-                            "value": "<h3 data-block-key=\"im01\">Our Impact</h3><p data-block-key=\"im02\">OpenStax has saved students over $2 billion since 2012, reaching millions of learners worldwide.</p>",
+                            "value": "<h3 data-block-key=\"im01\">Third panel</h3><p data-block-key=\"im02\">Each panel here is a simple section with a text block.</p>",
                             "id": "b1b2c3d4-3333-4444-1111-000000000007"
                           }
                         ],
@@ -471,7 +471,7 @@
                         "leftContent": [
                           {
                             "type": "html",
-                            "value": "<div style=\"position:relative;padding-bottom:56.34%;height:0;\"><iframe style=\"position:absolute;top:0;left:0;width:100%;height:100%;\" src=\"https://fast.wistia.net/embed/iframe/5ukumgaj0g?seo=true&amp;videoFoam=false&amp;wmode=opaque\" title=\"The future of learning is OpenStax Video\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe></div>",
+                            "value": "<div style=\"position:relative;padding-bottom:56.34%;height:0;\"><iframe style=\"position:absolute;top:0;left:0;width:100%;height:100%;\" src=\"https://fast.wistia.net/embed/iframe/5ukumgaj0g?seo=true&amp;videoFoam=false&amp;wmode=opaque\" title=\"Big Buck Bunny\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe></div>",
                             "id": "b1b2c3d4-3333-5555-1111-000000000004"
                           }
                         ],
