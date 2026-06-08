@@ -20,9 +20,11 @@ type RawHtmlWithLinksProps = {
   html: string;
   className?: string;
   block?: boolean;
+  id?: string;
+  hidden?: boolean;
 };
 
-export function RawHtmlWithLinks({ html, className, block }: RawHtmlWithLinksProps) {
+export function RawHtmlWithLinks({ html, className, block, id, hidden }: RawHtmlWithLinksProps) {
   const routes = React.useContext(RouteContext);
   const actions = React.useContext(ActionContext);
 
@@ -63,6 +65,8 @@ export function RawHtmlWithLinks({ html, className, block }: RawHtmlWithLinksPro
   const Tag = block ? 'div' : 'span';
   return (
     <Tag
+      id={id}
+      hidden={hidden}
       className={className}
       onClick={onClick}
       suppressHydrationWarning

@@ -4,6 +4,7 @@
 export * as cta_block from './CTABlock.js';
 export * as cards_block from './CardsBlock.js';
 export * as divider from './DividerBlock.js';
+export * as faq from './FAQBlock.js';
 export * as html from './HTMLBlock.js';
 export * as hero from './HeroBlock.js';
 export * as links_group from './LinksBlock.js';

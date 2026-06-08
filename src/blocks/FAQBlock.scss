@@ -1,0 +1,80 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.content-block-faq {
+  --faq-accent-color: #{os-color(gray)};
+
+  width: 100%;
+  max-width: $text-content-max;
+  margin: $normal-margin auto;
+
+  .faq-item {
+    border-bottom: 1px solid ui-color(form-border);
+
+    &:first-child {
+      border-top: 1px solid ui-color(form-border);
+    }
+
+    // The heading is a structural wrapper for screen-reader navigation; the
+    // button inside it carries the visible styling. Nesting under .faq-item
+    // raises specificity above the host's heading rules so this reset wins —
+    // otherwise an inherited heading margin leaves a gap below the trigger,
+    // breaking the alignment of the hover background with the item borders.
+    .faq-question {
+      margin: 0;
+      font: inherit;
+    }
+
+    .faq-answer {
+      padding: 0 $normal-margin $normal-margin;
+
+      // The answer renders directly on RichTextContent's element, which carries
+      // a `display` rule that would otherwise defeat the UA `[hidden]` style —
+      // re-assert it (nested here for the specificity to win) so collapsed
+      // panels stay out of the layout and the accessibility tree.
+      &[hidden] {
+        display: none;
+      }
+
+      @include width-up-to($phone-max) {
+        padding: 0 $tight-margin $normal-margin;
+      }
+    }
+  }
+
+  // button-reset() strips the native button and brings the pattern-library
+  // focus-indicator() ring, so we don't reinvent either.
+  .faq-trigger {
+    @include button-reset();
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $normal-margin;
+    padding: $normal-margin;
+    font-family: inherit;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: left;
+    color: text-color(normal);
+
+    &:hover {
+      background-color: ui-color(default-hover);
+    }
+  }
+
+  .faq-icon {
+    flex: none;
+    color: var(--faq-accent-color);
+    transition: transform 0.2s ease;
+  }
+
+  .faq-trigger[aria-expanded='true'] .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-icon {
+      transition: none;
+    }
+  }
+}
