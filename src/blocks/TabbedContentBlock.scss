@@ -1,19 +1,42 @@
 @import 'pattern-library/core/pattern-library/headers';
 
+// Height reserved below the tabs for the horizontal scrollbar. Must be >= the
+// scrollbar height so the bar can sit fully below the border line.
+$tab-scrollbar-strip: 10px;
+
 .flex-structure-container > div.content-block-tabbed-content {
   --tab-active-color: #{os-color(blue)};
   width: 100%;
 
   > .tab-list-container {
     > .tab-list {
+      position: relative;
       display: flex;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
 
       width: calc(100% - $normal-margin);
       max-width: var(--max-content-width);
       margin: 0 auto;
-      border-bottom: 1px solid ui-color(form-border);
+
+      // Reserve a strip for the scrollbar, then pull it back out of layout so
+      // nothing below shifts. The scrollbar renders in this strip, which
+      // overhangs past the border line rather than sitting on top of it.
+      padding-bottom: $tab-scrollbar-strip;
+      margin-bottom: -$tab-scrollbar-strip;
+
+      // Contained border. Absolutely positioned so it escapes the flex row and
+      // stays pinned to the visible width while the tabs scroll beneath it; sits
+      // at the baseline, above the scrollbar strip.
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: $tab-scrollbar-strip;
+        border-bottom: 1px solid ui-color(form-border);
+      }
 
       &::-webkit-scrollbar {
         height: 4px;
@@ -28,8 +51,10 @@
   &.border-full-width > .tab-list-container {
     border-bottom: 1px solid ui-color(form-border);
 
-    > .tab-list {
-      border-bottom: none;
+    // Full-width border is drawn on the container; drop the contained line. The
+    // scrollbar strip overhangs past the container border just the same.
+    > .tab-list::after {
+      display: none;
     }
   }
 
