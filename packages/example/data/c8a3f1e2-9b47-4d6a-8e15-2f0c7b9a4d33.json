@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "FAQ",
-    "description": "Documentation and examples for the FAQ component.",
-    "url": "faq"
+    "title": "Accordion",
+    "description": "Documentation and examples for the Accordion component.",
+    "url": "accordion"
   },
   "page": [
     {
@@ -21,7 +21,7 @@
                 },
                 {
                   "type": "text",
-                  "value": "<h1 data-block-key=\"faqh1\">FAQ Component</h1>",
+                  "value": "<h1 data-block-key=\"ach1\">Accordion Component</h1>",
                   "id": "c8a3f1e2-1111-0000-0000-000000000002"
                 }
               ],
@@ -60,7 +60,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"faqov\">Overview</h2><p data-block-key=\"faqo1\">The FAQ block presents a list of questions as an accordion. Selecting a question reveals its answer; selecting it again hides it.</p><p data-block-key=\"faqo2\">It follows WAI-ARIA accordion guidance: every question is a real button inside a heading, the focus ring is clearly visible, Enter or Space toggles an answer, and the arrow keys, Home, and End move between questions.</p>",
+                  "value": "<h2 data-block-key=\"acov\">Overview</h2><p data-block-key=\"aco1\">The Accordion block presents a list of collapsible items. Selecting an item's header reveals its content; selecting it again hides it. It's a good fit for FAQs, but works for any content you want to reveal on demand.</p><p data-block-key=\"aco2\">It follows WAI-ARIA accordion guidance: every header is a real button inside a heading, the focus ring is clearly visible, Enter or Space toggles an item, and the arrow keys, Home, and End move between items.</p>",
                   "id": "c8a3f1e2-1111-0000-0000-000000000008"
                 }
               ],
@@ -80,7 +80,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"faqcf\">Config</h2><p data-block-key=\"faqc1\"><b>heading_level</b>: heading level (H2–H4) used for each question, so the page keeps a sensible outline for screen-reader users. Defaults to H3.</p><p data-block-key=\"faqc2\"><b>allow_multiple</b>: when set to Yes, more than one answer can be open at once. Defaults to No, so opening one question closes the others.</p><p data-block-key=\"faqc3\"><b>accent_color</b>: hex color for the expand and collapse icon.</p><p data-block-key=\"faqc4\">Each question also takes an optional <b>ID</b>: the HTML id of the question, so linking to <b>#your-id</b> opens that question and scrolls to it.</p>",
+                  "value": "<h2 data-block-key=\"accf\">Config</h2><p data-block-key=\"acc1\"><b>heading_level</b>: heading level (H2–H4) used for each item header, so the page keeps a sensible outline for screen-reader users. Defaults to H3.</p><p data-block-key=\"acc2\"><b>allow_multiple</b>: when set to Yes, more than one item can be open at once. Defaults to No, so opening one item closes the others.</p><p data-block-key=\"acc3\"><b>accent_color</b>: hex color for the expand and collapse icon.</p><p data-block-key=\"acc4\">Each item also takes an optional <b>ID</b>: the HTML id of the item, so linking to <b>#your-id</b> opens that item and scrolls to it.</p>",
                   "id": "c8a3f1e2-1111-0000-0000-000000000011"
                 }
               ],
@@ -100,7 +100,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"faqex\">Examples</h2><h3 data-block-key=\"faqe1\">Basic FAQ (one answer open at a time)</h3>",
+                  "value": "<h2 data-block-key=\"acex\">Examples</h2><h3 data-block-key=\"ace1\">Basic accordion (one panel open at a time)</h3>",
                   "id": "c8a3f1e2-1111-0000-0000-000000000014"
                 }
               ],
@@ -115,23 +115,23 @@
             "id": "c8a3f1e2-1111-0000-0000-000000000016"
           },
           {
-            "type": "faq",
+            "type": "accordion",
             "value": {
               "items": [
                 {
-                  "question": "What is a Flex Page?",
+                  "header":"What is a Flex Page?",
                   "id": "what-is-a-flex-page",
-                  "answer": "<p data-block-key=\"a1\">A Flex Page is a page built from reusable content blocks. You arrange blocks like sections, heroes, and cards to lay out a page without writing any code.</p>"
+                  "content":"<p data-block-key=\"a1\">A Flex Page is a page built from reusable content blocks. You arrange blocks like sections, heroes, and cards to lay out a page without writing any code.</p>"
                 },
                 {
-                  "question": "Do I need a developer to build one?",
+                  "header":"Do I need a developer to build one?",
                   "id": "need-a-developer",
-                  "answer": "<p data-block-key=\"a2\">Nope. Flex Pages use a visual editor, so you can add, reorder, and configure blocks yourself, and new pages publish without any special code.</p>"
+                  "content":"<p data-block-key=\"a2\">Nope. Flex Pages use a visual editor, so you can add, reorder, and configure blocks yourself, and new pages publish without any special code.</p>"
                 },
                 {
-                  "question": "How do I add a block to a page?",
+                  "header":"How do I add a block to a page?",
                   "id": "how-to-add-a-block",
-                  "answer": "<p data-block-key=\"a3\">Open the editor, pick a block, and drop it where you want it. Each block has its own options you can tweak.</p><ul><li data-block-key=\"a3a\">Pick a block</li><li data-block-key=\"a3b\">Drop it on the page</li><li data-block-key=\"a3c\">Configure its options</li></ul>"
+                  "content":"<p data-block-key=\"a3\">Open the editor, pick a block, and drop it where you want it. Each block has its own options you can tweak.</p><ul><li data-block-key=\"a3a\">Pick a block</li><li data-block-key=\"a3b\">Drop it on the page</li><li data-block-key=\"a3c\">Configure its options</li></ul>"
                 }
               ],
               "config": []
@@ -144,7 +144,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h3 data-block-key=\"faqe2\">Multiple answers open, custom accent color, H2 headings</h3>",
+                  "value": "<h3 data-block-key=\"ace2\">Multiple panels open, custom accent color, H2 headings</h3>",
                   "id": "c8a3f1e2-1111-0000-0000-000000000017"
                 }
               ],
@@ -159,23 +159,23 @@
             "id": "c8a3f1e2-1111-0000-0000-000000000019"
           },
           {
-            "type": "faq",
+            "type": "accordion",
             "value": {
               "items": [
                 {
-                  "question": "Can I change how a block looks?",
+                  "header":"Can I change how a block looks?",
                   "id": "customize",
-                  "answer": "<p data-block-key=\"b1\">Absolutely. Most blocks have config options for things like color, padding, and alignment, so you can adapt them to your layout.</p>"
+                  "content":"<p data-block-key=\"b1\">Absolutely. Most blocks have config options for things like color, padding, and alignment, so you can adapt them to your layout.</p>"
                 },
                 {
-                  "question": "What happens on smaller screens?",
+                  "header":"What happens on smaller screens?",
                   "id": "responsive",
-                  "answer": "<p data-block-key=\"b2\">Blocks are responsive. Columns stack, cards collapse to one column, and content reflows to fit phones and tablets.</p>"
+                  "content":"<p data-block-key=\"b2\">Blocks are responsive. Columns stack, cards collapse to one column, and content reflows to fit phones and tablets.</p>"
                 },
                 {
-                  "question": "Can one answer stay open while I read another?",
+                  "header":"Can one answer stay open while I read another?",
                   "id": "allow-multiple",
-                  "answer": "<p data-block-key=\"b3\">Yes. This FAQ has allow_multiple turned on, so opening one question leaves the others open too.</p>"
+                  "content": "<p data-block-key=\"b3\">Yes. This accordion has allow_multiple turned on, so opening one item leaves the others open too.</p>"
                 }
               ],
               "config": [

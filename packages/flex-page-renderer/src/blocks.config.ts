@@ -4,7 +4,7 @@ export * as cta_block from './blocks/CTABlock.config.js';
 export * as cards_block from './blocks/CardsBlock.config.js';
 export * as columns from './blocks/ColumnsBlock.config.js';
 export * as divider from './blocks/DividerBlock.config.js';
-export * as faq from './blocks/FAQBlock.config.js';
+export * as accordion from './blocks/AccordionBlock.config.js';
 export * as flex_page from './blocks/FlexPage.config.js';
 export * as html from './blocks/HTMLBlock.config.js';
 export * as hero from './blocks/HeroBlock.config.js';

@@ -1,13 +1,13 @@
 @import 'pattern-library/core/pattern-library/headers';
 
-.content-block-faq {
-  --faq-accent-color: #{os-color(gray)};
+.content-block-accordion {
+  --accordion-accent-color: #{os-color(gray)};
 
   width: 100%;
   max-width: $text-content-max;
   margin: $normal-margin auto;
 
-  .faq-item {
+  .accordion-item {
     border-bottom: 1px solid ui-color(form-border);
 
     &:first-child {
@@ -15,16 +15,16 @@
     }
 
     // The heading is a structural wrapper for screen-reader navigation; the
-    // button inside it carries the visible styling. Nesting under .faq-item
+    // button inside it carries the visible styling. Nesting under .accordion-item
     // raises specificity above the host's heading rules so this reset wins —
     // otherwise an inherited heading margin leaves a gap below the trigger,
     // breaking the alignment of the hover background with the item borders.
-    .faq-question {
+    .accordion-header {
       margin: 0;
       font: inherit;
     }
 
-    .faq-answer {
+    .accordion-content {
       padding: 0 $normal-margin $normal-margin;
 
       // The answer renders directly on RichTextContent's element, which carries
@@ -43,7 +43,7 @@
 
   // button-reset() strips the native button and brings the pattern-library
   // focus-indicator() ring, so we don't reinvent either.
-  .faq-trigger {
+  .accordion-trigger {
     @include button-reset();
     width: 100%;
     display: flex;
@@ -62,18 +62,18 @@
     }
   }
 
-  .faq-icon {
+  .accordion-icon {
     flex: none;
-    color: var(--faq-accent-color);
+    color: var(--accordion-accent-color);
     transition: transform 0.2s ease;
   }
 
-  .faq-trigger[aria-expanded='true'] .faq-icon {
+  .accordion-trigger[aria-expanded='true'] .accordion-icon {
     transform: rotate(180deg);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .faq-icon {
+    .accordion-icon {
       transition: none;
     }
   }
