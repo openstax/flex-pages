@@ -2,6 +2,7 @@ export const config = {
   type: 'section',
   categories: ['structure'],
   label: 'Section',
+  description: 'A fixed-width container for content blocks — the primary content container for flex pages.',
   fields: [
     {name: 'content', label: 'Section Content', type: 'blocks', categories: ['content'], required: true},
     {name: 'config', label: 'Config', type: 'configs', configs: [

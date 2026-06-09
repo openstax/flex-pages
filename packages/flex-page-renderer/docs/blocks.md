@@ -34,7 +34,7 @@ Most blocks have a data-node `value`, but some hold a single scalar `value` inst
 
 A block may be placed in a slot when the slot's allowed categories include one of the block's categories.
 
-- **content**: Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`)
+- **content**: Accordion (`accordion`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`)
 - **page**: Page (`flex_page`)
 - **structure**: Columns (`columns`), Divider (`divider`), HTML (`html`), Hero (`hero`), Section (`section`), Tabbed Content (`tabbed_content`)
 
@@ -73,9 +73,56 @@ A link target: a `type` that selects the kind of link, plus a `value` whose mean
 
 ## Blocks
 
+### Accordion — `accordion`
+
+*Categories: content*
+
+A list of collapsible items that reveal their content on demand; well suited to FAQs and follows WAI-ARIA accordion guidance.
+
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
+
+**Fields**
+
+| Field | Key | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| Items | `items` | list |  |  |
+
+**Config** — entries of the data node's `config` array:
+
+| Option | Key | Type | Values / format | Description |
+| --- | --- | --- | --- | --- |
+| Heading Level | `heading_level` | select | see options below | Heading level for each item, for the document outline and screen-reader navigation |
+| Allow Multiple Open | `allow_multiple` | select | see options below | Allow more than one panel to be open at the same time |
+| Accent Color | `accent_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for the expand/collapse icon |
+
+_Heading Level (`heading_level`) options:_
+
+| Value | Label |
+| --- | --- |
+| `2` | H2 |
+| `3` | H3 |
+| `4` | H4 |
+
+_Allow Multiple Open (`allow_multiple`) options:_
+
+| Value | Label |
+| --- | --- |
+| `false` | No |
+| `true` | Yes |
+
+**Items** — an array of data nodes; each item's **Fields**:
+
+| Field | Key | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| Header | `header` | text | Yes |  |
+| Content | `content` | rich text | Yes |  |
+| ID | `id` | text |  | The HTML id of the item (can be referenced by anchor links). |
+
 ### Call to Action — `cta_block`
 
 *Categories: content*
+
+Eye-catching action buttons, each with its own text, link target, and style.
 
 `value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
@@ -127,6 +174,8 @@ _Style (`style`) options:_
 ### Cards Block — `cards_block`
 
 *Categories: content*
+
+A wrapping grid of card tiles, each holding rich text and an optional call-to-action button.
 
 `value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
@@ -190,14 +239,16 @@ _Style (`style`) options:_
 
 *Categories: structure*
 
+A two-column layout that stacks vertically on smaller screens, with configurable column sizing and gap.
+
 `value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Child content**
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Left Column Content | `leftContent` | Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
-| Right Column Content | `rightContent` | Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Left Column Content | `leftContent` | Accordion (`accordion`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Right Column Content | `rightContent` | Accordion (`accordion`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -221,8 +272,8 @@ _Style (`style`) options:_
 | ID | `id` | text |  | The HTML id of the section (can be referenced by anchor links). |
 | Column Gap | `gap` | number | a number | The space between the columns, in 10px increments |
 | Stack Below Width | `stack_at` | text |  | Column width at which the two columns stack vertically (CSS length, e.g. 60em, 400px). Defaults to 60em. |
-| Right Column Size | `right_size` | text |  | CSS text for the right column eg (20rem, 30%) |
-| Left Column Size | `left_size` | text |  | CSS text for the left column eg (20rem, 30%) |
+| Right Column Size | `right_size` | text |  | Width for the right column, in rem or % (e.g. 20rem, 30%) |
+| Left Column Size | `left_size` | text |  | Width for the left column, in rem or % (e.g. 20rem, 30%) |
 
 _Gradient Direction (`gradient_direction`) options:_
 
@@ -248,6 +299,8 @@ _Height (`flex`) options:_
 ### Divider — `divider`
 
 *Categories: structure*
+
+A decorative image placed between sections that takes up no vertical space, showing behind the adjacent blocks.
 
 `value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
@@ -281,13 +334,15 @@ _Image Alignment (`alignment`) options:_
 
 *Categories: structure*
 
+Like a section, but with a dedicated image on one side and rich options for how that image is positioned, sized, and bordered; stacks vertically on mobile.
+
 `value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Child content**
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Content | `content` | Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Content | `content` | Accordion (`accordion`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -353,6 +408,8 @@ _Gradient Direction (`gradient_direction`) options:_
 
 *Categories: structure, content*
 
+Raw HTML embedded directly in the page, primarily for embeds like videos. Avoid using it as an escape hatch for unsupported designs — reach out to the developers instead.
+
 `value` is the long text value directly (a bare `long-text`, not a data node).
 
 **Fields**
@@ -364,6 +421,8 @@ _Gradient Direction (`gradient_direction`) options:_
 ### Links — `links_group`
 
 *Categories: content*
+
+A group of links rendered as a grid or inline row, with configurable color and size.
 
 `value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
@@ -417,6 +476,8 @@ _Layout (`layout`) options:_
 
 *Categories: page*
 
+The top-level page container holding the structural blocks that make up a Flex Page.
+
 `value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Child content**
@@ -457,6 +518,8 @@ _Height (`height`) options:_
 
 *Categories: content*
 
+A testimonial showing a quote alongside the quotee's name, title, and photo.
+
 `value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Fields**
@@ -478,13 +541,15 @@ _Height (`height`) options:_
 
 *Categories: structure*
 
+A fixed-width container for content blocks — the primary content container for flex pages.
+
 `value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Child content**
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Section Content | `content` | Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Section Content | `content` | Accordion (`accordion`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -540,6 +605,8 @@ _Gradient Direction (`gradient_direction`) options:_
 ### Tabbed Content — `tabbed_content`
 
 *Categories: structure*
+
+Organizes structural blocks into switchable tabbed panels, following WAI-ARIA tab keyboard patterns.
 
 `value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
@@ -608,6 +675,8 @@ _Border Width (`border_width`) options:_
 
 *Categories: content*
 
+A block of rich text with full inline formatting options.
+
 `value` is the rich text value directly (a bare `rich-text`, not a data node).
 
 **Fields**
@@ -620,13 +689,15 @@ _Border Width (`border_width`) options:_
 
 *Categories: content*
 
+A styled container that wraps content blocks, with configurable background, padding, border, and width; text switches to white on dark backgrounds.
+
 `value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
 
 **Child content**
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Well Content | `content` | Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Well Content | `content` | Accordion (`accordion`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
 
 **Fields**
 

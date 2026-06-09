@@ -2,6 +2,7 @@ export const config = {
   type: 'tabbed_content',
   label: 'Tabbed Content',
   categories: ['structure'],
+  description: 'Organizes structural blocks into switchable tabbed panels, following WAI-ARIA tab keyboard patterns.',
   fields: [
     {name: 'tabs', label: 'Tabs', type: 'list', fields: [
       {name: 'label', label: 'Tab Label', type: 'text', required: true},

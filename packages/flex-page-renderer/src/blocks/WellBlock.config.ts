@@ -2,6 +2,7 @@ export const config = {
   type: 'well',
   categories: ['content'],
   label: 'Well',
+  description: 'A styled container that wraps content blocks, with configurable background, padding, border, and width; text switches to white on dark backgrounds.',
   fields: [
     {name: 'content', label: 'Well Content', type: 'blocks', categories: ['content']},
     {name: 'config', label: 'Config', type: 'configs', configs: [

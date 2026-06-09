@@ -4,6 +4,7 @@ export const config = {
   type: 'links_group',
   categories: ['content'],
   label: 'Links',
+  description: 'A group of links rendered as a grid or inline row, with configurable color and size.',
   fields: [
     {name: 'links', label: 'Links', type: 'list', fields: linkFieldConfig},
     {name: 'config', label: 'Config', type: 'configs', configs: [

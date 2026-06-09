@@ -50,6 +50,7 @@ export const config = {
   type: 'cta_block',
   categories: ['content'],
   label: 'Call to Action',
+  description: 'Eye-catching action buttons, each with its own text, link target, and style.',
   fields: [
     {name: 'description', label: 'Description', type: 'rich-text'},
     {name: 'actions', label: 'Actions', type: 'list', fields: ctaLinkFieldConfig},

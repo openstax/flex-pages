@@ -12,6 +12,8 @@ export type ContentBlockConfig = {
 export type ConfigMetadata<T> = {
   type: T;
   label: string;
+  /* a terse, author-facing summary of what the block is for */
+  description?: string;
   categories: string[];
   field?: ConfigField;
   fields?: ConfigField[];

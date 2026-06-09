@@ -2,6 +2,7 @@ export const config = {
   type: 'columns',
   label: 'Columns',
   categories: ['structure'],
+  description: 'A two-column layout that stacks vertically on smaller screens, with configurable column sizing and gap.',
   fields: [
     {name: 'leftContent', label: 'Left Column Content', type: 'blocks', categories: ['content'], required: true},
     {name: 'rightContent', label: 'Right Column Content', type: 'blocks', categories: ['content'], required: true},
