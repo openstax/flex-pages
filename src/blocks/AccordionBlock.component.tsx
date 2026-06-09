@@ -3,9 +3,9 @@ import cn from 'classnames';
 import React from 'react';
 import { findByType } from '../utils.js';
 import { RichTextContent } from './RichTextBlock.component.js';
-import './FAQBlock.css';
+import './AccordionBlock.css';
 
-type FAQConfigOptions = {
+type AccordionConfigOptions = {
   type: 'heading_level';
   value: string;
 } | {
@@ -16,18 +16,18 @@ type FAQConfigOptions = {
   value: string;
 };
 
-export type FAQItemConfig = {
-  question: string;
-  answer: string;
+export type AccordionItemConfig = {
+  header: string;
+  content: string;
   id: string;
 };
 
-export interface FAQBlockConfig {
+export interface AccordionBlockConfig {
   id: string;
-  type: 'faq';
+  type: 'accordion';
   value: {
-    items: FAQItemConfig[];
-    config: FAQConfigOptions[];
+    items: AccordionItemConfig[];
+    config: AccordionConfigOptions[];
   };
 }
 
@@ -42,18 +42,18 @@ function toAnchorId(id: string | undefined, index: number) {
   return cleaned || `item-${index}`;
 }
 
-export function FAQBlock({data}: {data: FAQBlockConfig}) {
+export function AccordionBlock({data}: {data: AccordionBlockConfig}) {
   const items = data.value.items;
   const headingLevel = findByType(data.value.config, 'heading_level')?.value ?? '3';
   const allowMultiple = findByType(data.value.config, 'allow_multiple')?.value === 'true';
   const accentColor = findByType(data.value.config, 'accent_color')?.value;
-  const baseId = `faq-${data.id}`;
+  const baseId = `accordion-${data.id}`;
 
   const [open, setOpen] = React.useState<Set<number>>(new Set());
   const buttonRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
 
-  // Deep-link support: when the URL hash matches a question's id, open that
-  // question and scroll it into view — both on load and when an in-page anchor
+  // Deep-link support: when the URL hash matches an item's id, open that
+  // item and scroll it into view — both on load and when an in-page anchor
   // link changes the hash.
   React.useEffect(() => {
     const openFromHash = () => {
@@ -89,7 +89,7 @@ export function FAQBlock({data}: {data: FAQBlockConfig}) {
     });
   };
 
-  // Roving focus between question triggers, per the WAI-ARIA accordion pattern.
+  // Roving focus between item triggers, per the WAI-ARIA accordion pattern.
   const handleKeyDown = (e: React.KeyboardEvent, i: number) => {
     let nextIndex: number | undefined;
     switch (e.key) {
@@ -115,8 +115,8 @@ export function FAQBlock({data}: {data: FAQBlockConfig}) {
   const Heading = `h${headingLevel}` as React.ElementType;
 
   return <div
-    className="content-block-faq"
-    style={accentColor ? {'--faq-accent-color': accentColor} as React.CSSProperties : undefined}
+    className="content-block-accordion"
+    style={accentColor ? {'--accordion-accent-color': accentColor} as React.CSSProperties : undefined}
   >
     {items.map((item, i) => {
       const anchorId = toAnchorId(item.id, i);
@@ -124,21 +124,21 @@ export function FAQBlock({data}: {data: FAQBlockConfig}) {
       const panelId = `${baseId}-panel-${anchorId}`;
       const isOpen = open.has(i);
 
-      return <div key={i} className={cn('faq-item', {open: isOpen})}>
-        <Heading className="faq-question" id={anchorId}>
+      return <div key={i} className={cn('accordion-item', {open: isOpen})}>
+        <Heading className="accordion-header" id={anchorId}>
           <button
             ref={(el) => { buttonRefs.current[i] = el; }}
             type="button"
             id={triggerId}
-            className="faq-trigger"
+            className="accordion-trigger"
             aria-expanded={isOpen}
             aria-controls={panelId}
             onClick={() => toggle(i)}
             onKeyDown={(e) => handleKeyDown(e, i)}
           >
-            <span className="faq-question-text">{item.question}</span>
+            <span className="accordion-header-text">{item.header}</span>
             <svg
-              className="faq-icon"
+              className="accordion-icon"
               viewBox="0 0 16 16"
               width="16"
               height="16"
@@ -156,7 +156,7 @@ export function FAQBlock({data}: {data: FAQBlockConfig}) {
             </svg>
           </button>
         </Heading>
-        <RichTextContent id={panelId} className="faq-answer" hidden={!isOpen} html={item.answer} />
+        <RichTextContent id={panelId} className="accordion-content" hidden={!isOpen} html={item.content} />
       </div>;
     })}
   </div>;
