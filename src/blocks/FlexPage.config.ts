@@ -2,6 +2,7 @@ export const config = {
   type: 'flex_page',
   categories: ['page'],
   label: 'Page',
+  description: 'The top-level page container holding the structural blocks that make up a Flex Page.',
   fields: [
     {name: 'content', label: 'Page Content', type: 'blocks', categories: ['structure'], required: true},
     {name: 'config', label: 'Config', type: 'configs', configs: [

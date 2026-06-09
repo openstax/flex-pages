@@ -2,6 +2,7 @@ export const config = {
   type: 'quote',
   categories: ['content'],
   label: 'Quote',
+  description: 'A testimonial showing a quote alongside the quotee\'s name, title, and photo.',
   fields: [
     {name: 'content', label: 'Quote Text', type: 'long-text', required: true},
     {name: 'title', label: 'Quotee\'s title', type: 'text'},

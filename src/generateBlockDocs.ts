@@ -259,6 +259,7 @@ export function generateBlockDocs<D extends BlockProcessingDefinitions<any>>(
     const fields = fieldDefs(definition);
     out.push(`### ${definition.config.label} — \`${key}\``, '');
     out.push(`*Categories: ${definition.config.categories.join(', ')}*`, '');
+    if (definition.config.description) out.push(definition.config.description, '');
 
     // Make the value shape explicit: a single-`field` block stores its value
     // directly, while a `fields` block stores an object keyed by field name.

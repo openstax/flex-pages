@@ -48,6 +48,7 @@ export const config = {
   type: 'cards_block',
   label: 'Cards Block',
   categories: ['content'],
+  description: 'A wrapping grid of card tiles, each holding rich text and an optional call-to-action button.',
   fields: [
     {name: 'cards', label: 'Cards', type: 'list', fields: [
       {name: 'text', label: 'Card Text', type: 'rich-text', required: true},

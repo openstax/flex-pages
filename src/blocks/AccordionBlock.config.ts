@@ -2,6 +2,7 @@ export const config = {
   type: 'accordion',
   label: 'Accordion',
   categories: ['content'],
+  description: 'A list of collapsible items that reveal their content on demand; well suited to FAQs and follows WAI-ARIA accordion guidance.',
   fields: [
     {name: 'items', label: 'Items', type: 'list', fields: [
       {name: 'header', label: 'Header', type: 'text', required: true},

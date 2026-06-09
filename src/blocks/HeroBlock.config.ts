@@ -2,6 +2,7 @@ export const config = {
   type: 'hero',
   categories: ['structure'],
   label: 'Hero',
+  description: 'Like a section, but with a dedicated image on one side and rich options for how that image is positioned, sized, and bordered; stacks vertically on mobile.',
   fields: [
     {name: 'content', label: 'Content', type: 'blocks', categories: ['content']},
     {name: 'imageAlt', label: 'Image Alt', type: 'text'},

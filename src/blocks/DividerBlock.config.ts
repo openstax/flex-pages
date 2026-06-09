@@ -2,6 +2,7 @@ export const config = {
   type: 'divider',
   categories: ['structure'],
   label: 'Divider',
+  description: 'A decorative image placed between sections that takes up no vertical space, showing behind the adjacent blocks.',
   fields: [
     {name: 'image', label: 'Image', type: 'image', required: true},
     {name: 'config', label: 'Config', type: 'configs', configs: [
