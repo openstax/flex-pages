@@ -6,7 +6,7 @@ project_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null 2>&1 && pwd 
 
 cd "$project_dir"
 
-yarn --check-files
+npm install
 
 if [ -n "$(git status --porcelain=v1 2>/dev/null)" ]; then
   echo "please stash, commit, gitignore, or reset your changes before publishing" > /dev/stderr
@@ -39,7 +39,7 @@ for package in "${packages[@]}"; do
     echo "package version $name@$version already exists, skipping."
   else
     echo "building $name@$version ..."
-    yarn build:clean
+    npm run build:clean
     git add -f dist/
     git commit -m "adding dist files"
 

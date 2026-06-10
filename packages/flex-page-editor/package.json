@@ -51,10 +51,10 @@
   "main": "index.js",
   "scripts": {
     "build": "./script/build.bash",
-    "build:clean": "yarn clean && yarn build",
+    "build:clean": "npm run clean && npm run build",
     "ci": "CI=true npm-run-all ci:*",
     "ci:lint": "eslint --max-warnings=0 .",
-    "ci:spelling": "git ls-files | yarn cspell -c ../../cspell.json --file-list stdin",
+    "ci:spelling": "cspell -c ../../cspell.json --gitignore --gitignore-root ../.. '**'",
     "ci:typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
   }

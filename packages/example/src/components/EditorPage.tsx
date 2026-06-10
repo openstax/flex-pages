@@ -90,7 +90,7 @@ const EditorPage = () => {
   return <>
     <h1>Edit: {id}</h1>
     {issues.length > 0 && <div className={styles.validationErrors} role="alert">
-      <strong>This page wasn&apos;t saved — {issues.length} problem{issues.length === 1 ? '' : 's'} found:</strong>
+      <strong>This page wasn't saved — {issues.length} problem{issues.length === 1 ? '' : 's'} found:</strong>
       <ul>
         {issues.map((issue, i) => <li key={i}><code>{issue.path}</code> — {issue.message}</li>)}
       </ul>

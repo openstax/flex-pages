@@ -1,3 +1,4 @@
+// cspell:ignore configurator
 import type { ConfigField } from '@openstax/flex-page-renderer';
 import { CollapsibleFieldset } from '../CollapsibleFieldset';
 import { EditorField } from '../EditorFields';
