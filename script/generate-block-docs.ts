@@ -4,7 +4,7 @@
  * run under tsx without pulling block Components (and their CSS, which Node
  * can't load). Run:
  *
- *   yarn workspace @openstax/flex-page-renderer generate:docs
+ *   npm run generate:docs --workspace @openstax/flex-page-renderer
  */
 import { mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
@@ -17,7 +17,7 @@ const OUT_FILE = join(OUT_DIR, 'blocks.md');
 const markdown = generateBlockDocs(blockFieldDefinitions, {
   intro: [
     '> Generated from the block field definitions by `script/generate-block-docs.ts`.',
-    '> Do not edit by hand — run `yarn workspace @openstax/flex-page-renderer generate:docs`.',
+    '> Do not edit by hand — run `npm run generate:docs --workspace @openstax/flex-page-renderer`.',
   ],
 });
 

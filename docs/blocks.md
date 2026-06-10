@@ -1,7 +1,7 @@
 # Flex Page Block Reference
 
 > Generated from the block field definitions by `script/generate-block-docs.ts`.
-> Do not edit by hand — run `yarn workspace @openstax/flex-page-renderer generate:docs`.
+> Do not edit by hand — run `npm run generate:docs --workspace @openstax/flex-page-renderer`.
 
 ## Node shape
 
