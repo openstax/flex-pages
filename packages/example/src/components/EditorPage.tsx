@@ -1,6 +1,6 @@
+import { FlexBlockEditor } from '@openstax/flex-page-editor/Editor';
 import { quillExtensions } from '@openstax/flex-page-editor-quill-extension';
 import { selectExtensions } from '@openstax/flex-page-editor-select-extension';
-import { FlexBlockEditor } from '@openstax/flex-page-editor/Editor';
 import type { RouteConfig } from '@openstax/flex-page-renderer/RouteContext';
 import * as allBlocks from '@openstax/flex-page-renderer/blocks/index';
 import { validateBlock, type ValidationIssue } from '@openstax/flex-page-renderer/validateBlock';
