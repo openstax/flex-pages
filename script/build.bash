@@ -10,5 +10,5 @@ tsc_args=(--noEmit false --declaration)
 
 mkdir -p dist
 
-yarn -s tsc --project tsconfig.without-specs.esm.json "${tsc_args[@]}"
-yarn -s tsc --project tsconfig.without-specs.cjs.json "${tsc_args[@]}"
+tsc --project tsconfig.without-specs.esm.json "${tsc_args[@]}"
+tsc --project tsconfig.without-specs.cjs.json "${tsc_args[@]}"
