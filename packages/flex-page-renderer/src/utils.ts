@@ -8,7 +8,10 @@ export function resolveBackground(
   if (!backgroundColor) return {isDark: false};
 
   if (gradientColor) {
-    const direction = gradientDirection || 'to bottom';
+    // The CMS stores directions with underscores (e.g. "to_right"); CSS needs
+    // spaces ("to right"). Without this, linear-gradient() is invalid and the
+    // gradient silently drops to the solid background color.
+    const direction = (gradientDirection || 'to bottom').replace(/_/g, ' ');
     const background = `linear-gradient(${direction}, ${backgroundColor}, ${gradientColor})`;
     const mixed = Color(backgroundColor).mix(Color(gradientColor), 0.5); // eslint-disable-line new-cap
     return {background, backgroundColor, isDark: mixed.isDark()};
