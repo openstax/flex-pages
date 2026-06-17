@@ -43,6 +43,42 @@
       }
     }
 
+    // --- Layout variants (default is image-left, styled above) ---
+    &.quote-layout-image-right {
+        > img {
+            float: right;
+        }
+        > .content-block-rich-text:before {
+            left: 0;
+        }
+    }
+    &.quote-layout-image-top {
+        text-align: center;
+
+        > img {
+            float: none;
+            display: block;
+            margin: 0 auto;
+        }
+        > .content-block-rich-text {
+            margin-top: 2rem;
+        }
+    }
+    // Compact "did you know" treatment: small image + short text, no quote mark.
+    &.quote-layout-compact {
+        > img {
+            width: 12rem;
+            padding: 1rem;
+        }
+        > .content-block-rich-text {
+            margin-top: 0;
+
+            &:before {
+                content: none;
+            }
+        }
+    }
+
     // Query the content container's width, not the viewport, so a quote stacks
     // whenever it sits in a narrow container (e.g. a Hero column) regardless of
     // screen size.
