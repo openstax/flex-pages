@@ -85,7 +85,14 @@ export function HeroBlock({data, content, activeConditions}: {data: HeroBlockCon
     const imageBorderRadius = findByType(data.value.config, 'image_border_radius')?.value;
     const imageBorderColor = findByType(data.value.config, 'image_border_color')?.value;
     const imageBorderSize = findByType(data.value.config, 'image_border_size')?.value;
-    const imageOverhang = findByType(data.value.config, 'image_overhang')?.value;
+    const imageOverhangRaw = findByType(data.value.config, 'image_overhang')?.value;
+    // The CMS sends a unit-less px integer, but CSS calc() needs a unit. Append
+    // px to a bare number; let unit-bearing strings ("5rem", "10%") pass through.
+    const imageOverhang = imageOverhangRaw == null || imageOverhangRaw === ''
+      ? undefined
+      : /^-?\d*\.?\d+$/.test(String(imageOverhangRaw))
+        ? `${imageOverhangRaw}px`
+        : String(imageOverhangRaw);
     const analytics = findByType(data.value.config, 'analytics_label')?.value;
     const bg = resolveBackground(backgroundColor, gradientColor, gradientDirection);
 
