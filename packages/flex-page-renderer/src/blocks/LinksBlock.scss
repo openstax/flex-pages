@@ -69,4 +69,23 @@
           background-color: color-mix(in srgb, var(--link-bg-color), white 25%);
       }
   }
+
+  // Text style: render plain links instead of buttons. Placed last so it
+  // overrides the button() and color rules above for these links.
+  &.links-style-text > a, &.links-style-text > button {
+      background: none;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      min-height: 0;
+      height: auto;
+      color: os-color(blue);
+      text-decoration: underline;
+      font-weight: normal;
+
+      &:hover, &:focus {
+          background: none;
+          text-decoration: none;
+      }
+  }
 }

@@ -52,7 +52,7 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
 }
 
 export function CardBlock({data, accentColor, dividerColor}: {data: CardBlockConfig; accentColor?: string; dividerColor?: string}) {
-  const [cta] = data.ctaBlock ?? [];
+  const ctas = data.ctaBlock ?? [];
   const style = (accentColor || dividerColor)
     ? {
       ...(accentColor ? {'--card-accent': accentColor} : {}),
@@ -62,6 +62,6 @@ export function CardBlock({data, accentColor, dividerColor}: {data: CardBlockCon
 
   return <div className="content-block-card" style={style}>
     <RichTextContent html={data.text} />
-    {cta ? <CTALink link={cta} /> : null}
+    {ctas.map((cta, i) => <CTALink key={i} link={cta} />)}
   </div>;
 }

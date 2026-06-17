@@ -9,6 +9,10 @@ export const config = {
     {name: 'links', label: 'Links', type: 'list', fields: linkFieldConfig},
     {name: 'config', label: 'Config', type: 'configs', configs: [
       {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this section will include this label', type: 'text'},
+      {name: 'style', label: 'Style', type: 'select', help: 'Button renders the links as buttons (default); Text renders them as plain links.', options: [
+        {value: 'button', label: 'Button'},
+        {value: 'text', label: 'Text'},
+      ]},
       {name: 'color', label: 'Color', type: 'select', options: [
         {value: 'white', label: 'White'},
         {value: 'blue', label: 'Blue'},
