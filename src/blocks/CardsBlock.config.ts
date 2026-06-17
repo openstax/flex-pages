@@ -58,6 +58,7 @@ export const config = {
       {name: 'card_style', label: 'Style', type: 'select', options: [
         {label: 'Rounded', value: 'rounded'},
         {label: 'Square', value: 'square'},
+        {label: 'Impact', value: 'impact'},
       ]},
       {name: 'card_size', label: 'Size', help: 'A single number representing 10px increments', type: 'number'},
       {name: 'card_columns', label: 'Columns', help: 'Number of columns (works with Size)', type: 'number'},
