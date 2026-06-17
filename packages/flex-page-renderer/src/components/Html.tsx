@@ -1,5 +1,5 @@
-import DOMPurify from 'isomorphic-dompurify';
 import React from 'react';
+import { sanitizeRichText } from './richTextSanitize.js';
 
 export const Html = (props: React.PropsWithChildren<{
   block?: boolean;
@@ -11,7 +11,7 @@ export const Html = (props: React.PropsWithChildren<{
 }>) => {
   const html = props.sanitize === false
     ? props.html
-    : DOMPurify.sanitize(props.html, {ADD_ATTR: ['target']})
+    : sanitizeRichText(props.html)
   ;
   const Tag = props.block ? 'div' : 'span';
   return <Tag

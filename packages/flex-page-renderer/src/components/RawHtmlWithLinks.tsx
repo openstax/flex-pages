@@ -1,9 +1,9 @@
 'use client';
-import DOMPurify from 'isomorphic-dompurify';
 import React from 'react';
 import { ActionContext } from '../ActionContext.js';
 import { RouteContext } from '../RouteContext.js';
 import { handleLinkClick, readLinkTarget } from '../lib/linkBehavior.js';
+import { sanitizeRichTextToDom } from './richTextSanitize.js';
 
 /*
  * Client renderer for rich text that contains dynamic links
@@ -29,12 +29,9 @@ export function RawHtmlWithLinks({ html, className, block, id, hidden }: RawHtml
   const actions = React.useContext(ActionContext);
 
   const resolvedHtml = React.useMemo(() => {
-    // RETURN_DOM yields the sanitized content wrapped in a <body>; the types
-    // surface it as Node, so narrow to HTMLElement for querySelectorAll/innerHTML.
-    const dom = DOMPurify.sanitize(html, {
-      ADD_ATTR: ['target'],
-      RETURN_DOM: true,
-    }) as unknown as HTMLElement;
+    // RETURN_DOM yields the sanitized content wrapped in a <body>; the helper
+    // narrows it to HTMLElement for querySelectorAll/innerHTML.
+    const dom = sanitizeRichTextToDom(html);
 
     dom.querySelectorAll('a[data-flex-link]').forEach((a) => {
       const target = readLinkTarget(a);
