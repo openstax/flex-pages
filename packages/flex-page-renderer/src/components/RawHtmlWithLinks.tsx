@@ -4,6 +4,7 @@ import React from 'react';
 import { ActionContext } from '../ActionContext.js';
 import { RouteContext } from '../RouteContext.js';
 import { handleLinkClick, readLinkTarget } from '../lib/linkBehavior.js';
+import { stripEmptyParagraphs } from './richTextDom.js';
 
 /*
  * Client renderer for rich text that contains dynamic links
@@ -52,6 +53,7 @@ export function RawHtmlWithLinks({ html, className, block, id, hidden }: RawHtml
       }
     });
 
+    stripEmptyParagraphs(dom);
     return dom.innerHTML;
   }, [html, routes]);
 
