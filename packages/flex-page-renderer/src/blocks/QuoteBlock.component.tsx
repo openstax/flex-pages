@@ -7,6 +7,9 @@ import './QuoteBlock.css';
 type QuoteConfig = {
   type: 'accent_color';
   value: string;
+} | {
+  type: 'layout';
+  value: string;
 };
 
 export interface QuoteBlockConfig {
@@ -23,11 +26,12 @@ export interface QuoteBlockConfig {
 
 export function QuoteBlock({data}: {data: QuoteBlockConfig}) {
   const accentColor = findByType(data.value.config, 'accent_color')?.value;
+  const layout = findByType(data.value.config, 'layout')?.value ?? 'image-left';
   const style = accentColor
     ? {'--quote-accent-color': accentColor} as React.CSSProperties
     : undefined;
 
-  return <div className="content-block-quote" style={style}>
+  return <div className={`content-block-quote quote-layout-${layout}`} style={style}>
     <Image alt="" image={data.value.image} />
     <RichTextContent html={data.value.content} />
     <div className="quotee">
