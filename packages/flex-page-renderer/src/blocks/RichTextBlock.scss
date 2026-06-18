@@ -46,7 +46,7 @@
 
   // --- Guard-railed rich text features (CORE-2302) ---
   // Small label above a heading.
-  p.eyebrow {
+  .eyebrow { 
     @include set-font(body-regular);
     margin: 0;
     font-size: 1.4rem;
@@ -63,7 +63,7 @@
     line-height: 1.1;
   }
   // Small caption text.
-  p.caption {
+  .caption {
     @include set-font(body-regular);
     margin: 0;
     font-size: 1.3rem;
