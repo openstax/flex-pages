@@ -48,6 +48,13 @@
         > img {
             float: right;
         }
+
+        @container flex-content (max-width: #{$tablet-max}) {
+            > img {
+                float: none;
+            }
+        }
+
         > .content-block-rich-text:before {
             left: 0;
         }
