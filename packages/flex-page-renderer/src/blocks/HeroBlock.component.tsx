@@ -88,11 +88,12 @@ export function HeroBlock({data, content, activeConditions}: {data: HeroBlockCon
     const imageOverhangRaw = findByType(data.value.config, 'image_overhang')?.value;
     // The CMS sends a unit-less px integer, but CSS calc() needs a unit. Append
     // px to a bare number; let unit-bearing strings ("5rem", "10%") pass through.
-    const imageOverhang = imageOverhangRaw == null || imageOverhangRaw === ''
-      ? undefined
-      : /^-?\d*\.?\d+$/.test(String(imageOverhangRaw))
-        ? `${imageOverhangRaw}px`
-        : String(imageOverhangRaw);
+const imageOverhangValue = imageOverhangRaw == null ? '' : String(imageOverhangRaw).trim();
+const imageOverhang = imageOverhangValue === ''
+  ? undefined
+  : /^-?\d*\.?\d+$/.test(imageOverhangValue)
+    ? `${imageOverhangValue}px`
+    : imageOverhangValue;
     const analytics = findByType(data.value.config, 'analytics_label')?.value;
     const bg = resolveBackground(backgroundColor, gradientColor, gradientDirection);
 
