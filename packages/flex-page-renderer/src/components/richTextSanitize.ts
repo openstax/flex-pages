@@ -26,7 +26,7 @@ let hookRegistered = false;
 const ensureEmbedHook = (): void => {
   if (hookRegistered) return;
   DOMPurify.addHook('uponSanitizeElement', (node, data) => {
-    if (data.tagName !== 'iframe') return;
+    if ((data.tagName ?? '').toLowerCase() !== 'iframe') return;
     const el = node as unknown as Element;
     if (!hostAllowed(el.getAttribute?.('src') ?? '')) {
       el.parentNode?.removeChild(el);
