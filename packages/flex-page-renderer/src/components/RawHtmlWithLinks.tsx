@@ -3,7 +3,7 @@ import React from 'react';
 import { ActionContext } from '../ActionContext.js';
 import { RouteContext } from '../RouteContext.js';
 import { handleLinkClick, readLinkTarget } from '../lib/linkBehavior.js';
-import { sanitizeRichTextToDom } from './richTextSanitize.js';
+import { sanitizeHTMLToDom } from '../lib/sanitizeHtml.js';
 
 /*
  * Client renderer for rich text that contains dynamic links
@@ -31,7 +31,7 @@ export function RawHtmlWithLinks({ html, className, block, id, hidden }: RawHtml
   const resolvedHtml = React.useMemo(() => {
     // RETURN_DOM yields the sanitized content wrapped in a <body>; the helper
     // narrows it to HTMLElement for querySelectorAll/innerHTML.
-    const dom = sanitizeRichTextToDom(html);
+    const dom = sanitizeHTMLToDom(html);
 
     dom.querySelectorAll('a[data-flex-link]').forEach((a) => {
       const target = readLinkTarget(a);
