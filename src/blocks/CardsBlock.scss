@@ -8,9 +8,9 @@
     grid-gap: ($normal-margin * 2);
 
     // Outer top/bottom spacing around the block (mirrors SectionBlock padding).
-    // --card-padding-* are unitless multipliers of 10px.
-    padding-top: calc(10px * var(--card-padding-top, var(--card-padding, 0)));
-    padding-bottom: calc(10px * var(--card-padding-bottom, var(--card-padding, 0)));
+    // --card-padding-* are unitless multipliers of $normal-margin.
+    padding-top: calc(#{$normal-margin} * var(--card-padding-top, var(--card-padding, 0)));
+    padding-bottom: calc(#{$normal-margin} * var(--card-padding-bottom, var(--card-padding, 0)));
 
     // Explicit card size: cap column width and center (the previous default).
     &.has-size {
