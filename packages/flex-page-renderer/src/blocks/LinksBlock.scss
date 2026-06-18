@@ -87,5 +87,11 @@
           background: none;
           text-decoration: none;
       }
+
+      &:disabled {
+          color: ui-color(form-border);
+          text-decoration: none;
+          cursor: not-allowed;
+      }
   }
 }
