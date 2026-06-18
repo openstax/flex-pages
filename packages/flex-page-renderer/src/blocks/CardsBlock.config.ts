@@ -3,7 +3,7 @@ import { ctaLinkFieldConfig, CTALinkFields } from './CTABlock.config.js';
 type CardConfig = {
   type: 'card_style';
   id: string;
-  value: 'rounded' | 'square';
+  value: 'rounded' | 'square' | 'impact';
 } | {
   type: 'card_size';
   id: string;
