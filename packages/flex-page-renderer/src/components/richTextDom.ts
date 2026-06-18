@@ -8,9 +8,9 @@
  */
 export function stripEmptyParagraphs(root: ParentNode): void {
   root.querySelectorAll('p').forEach((p) => {
-    // Treat non-breaking spaces as blank too (trim() leaves   in place).
+    // Treat non-breaking spaces as blank too (trim() doesn't remove \u00a0).
     const text = (p.textContent ?? '').replace(/\u00a0/g, ' ').trim();
-    const hasMedia = p.querySelector('img, picture, svg, iframe, video, audio, embed, object');
+    const hasMedia = p.querySelector('img, picture, svg, iframe, video, audio, embed, object') !== null;
     if (!text && !hasMedia) p.remove();
   });
 }
