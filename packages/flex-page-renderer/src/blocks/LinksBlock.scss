@@ -70,22 +70,20 @@
       }
   }
 
-  // Text style: render plain links instead of buttons. Placed last so it
-  // overrides the button() and color rules above for these links.
+  // Text style: render plain links matching in-text rich-text links instead of
+  // buttons. Placed last so it overrides the button() and color rules above.
   &.links-style-text > a, &.links-style-text > button {
+      @include link();
       background: none;
       border: none;
       border-radius: 0;
       padding: 0;
       min-height: 0;
       height: auto;
-      color: os-color(blue);
-      text-decoration: underline;
       font-weight: normal;
 
       &:hover, &:focus {
           background: none;
-          text-decoration: none;
       }
 
       &:disabled {
