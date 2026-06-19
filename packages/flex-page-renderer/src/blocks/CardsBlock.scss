@@ -121,10 +121,5 @@
     // CTAs inside cards render a touch bolder than elsewhere.
     .cta-link {
       font-weight: bold;
-
-      // When cards contain multiple CTAs, add spacing so the buttons/links don't run together.
-      & + .cta-link {
-        margin-top: $normal-margin;
-      }
     }
 }
