@@ -7,12 +7,11 @@
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     grid-gap: ($normal-margin * 2);
 
-    // Outer top/bottom spacing around the block (mirrors SectionBlock padding).
-    // --card-padding-* are unitless multipliers of $normal-margin.
+    // Block top/bottom spacing, as --card-padding-* multiples of $normal-margin.
     padding-top: calc(#{$normal-margin} * var(--card-padding-top, var(--card-padding, 0)));
     padding-bottom: calc(#{$normal-margin} * var(--card-padding-bottom, var(--card-padding, 0)));
 
-    // Explicit card size: cap column width and center (the previous default).
+    // Explicit card size: cap the column width and center the grid.
     &.has-size {
         grid-template-columns: repeat(auto-fit, minmax(min-content, calc(var(--card-size, 27) * 1rem)));
         justify-content: center;
