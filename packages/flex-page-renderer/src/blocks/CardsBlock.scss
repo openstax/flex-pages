@@ -117,4 +117,9 @@
     h2, h3 {
       @include scale-set-font(h4, h3);
     }
+
+    // Space stacked CTAs within a card so they don't run together.
+    .cta-link + .cta-link {
+      margin-top: $normal-margin;
+    }
 }
