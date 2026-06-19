@@ -1,0 +1,17 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page div.content-block-big-number {
+  .number {
+    display: block;
+    font-size: 4.8rem;
+    font-weight: bold;
+    line-height: 1.1;
+  }
+
+  .caption {
+    @include set-font(body-regular);
+    display: block;
+    font-size: 1.3rem;
+    color: os-color(gray);
+  }
+}
