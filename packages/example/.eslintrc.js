@@ -43,7 +43,7 @@ module.exports = {
       }
     }
   ],
-  ignorePatterns: ['node_modules', '.next', 'out', '.eslintrc.js', 'next.config.js'],
+  ignorePatterns: ['node_modules', '.next', 'out', '.eslintrc.js', 'next.config.js', 'next-env.d.ts'],
   plugins: ['import'],
   extends: [
     'eslint:recommended',
