@@ -38,6 +38,15 @@
     @include set-font(body-regular);
     margin: $normal-margin 0;
   }
+
+  // Style in-text links so the renderer is self-contained. Hosts like
+  // os-webview already apply link() to every anchor globally (via
+  // pattern-library's typography element), so this is a no-op there — but it
+  // keeps links styled in standalone contexts (block preview, CMS) and matches
+  // the Links block's "Text" style.
+  a {
+    @include link();
+  }
 }
 
 #main.layout-landing .flex-page.page div.content-block-rich-text {
