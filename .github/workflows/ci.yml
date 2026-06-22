@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        module: [lambda, frontend, utils]
+        module: [example, flex-page-editor, flex-page-editor-quill-extension, flex-page-editor-select-extension, flex-page-renderer]
     env:
       CI: true
     steps:
