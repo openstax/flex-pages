@@ -1,0 +1,44 @@
+.content-block-book-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+  gap: 2rem;
+}
+
+.book-tile {
+  display: flex;
+  flex-direction: column;
+  // explicit width: a flex-content-container collapses grid/flex item sizing
+  // (container-type: inline-size kills stretch), so size the tile directly.
+  width: 24rem;
+}
+
+.book-tile-head {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.book-tile-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.book-tile-badge {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  height: 4rem;
+  width: auto;
+}
+
+.book-tile-title {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+.book-tile-cta {
+  margin-top: 1rem;
+}
