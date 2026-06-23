@@ -6,12 +6,14 @@ export interface BigNumberBlockConfig {
   value: {
     number: string;
     caption?: string;
+    color?: 'blue' | 'green' | 'orange';
   };
 }
 
 export function BigNumberBlock({data}: {data: BigNumberBlockConfig}) {
+  const {number, caption, color} = data.value;
   return <div className="content-block-big-number">
-    <span className="number">{data.value.number}</span>
-    {data.value.caption ? <span className="caption">{data.value.caption}</span> : null}
+    <span className={color ? `number text-${color}` : 'number'}>{number}</span>
+    {caption ? <span className="caption">{caption}</span> : null}
   </div>;
 }
