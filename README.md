@@ -1,3 +1,0 @@
-# FlexPages 
-
-![logo](./image.png)

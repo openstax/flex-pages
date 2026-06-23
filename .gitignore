@@ -1,5 +1,3 @@
-node_modules/
-
-tsconfig.tsbuildinfo
-
-npm-debug.log*
+dist
+*.css
+*.css.map
