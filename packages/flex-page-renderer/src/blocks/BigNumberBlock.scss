@@ -6,6 +6,11 @@
     font-size: 4.8rem;
     font-weight: bold;
     line-height: 1.1;
+
+    // Optional brand color, set via the block's Color config.
+    &.text-blue { color: os-color(blue); }
+    &.text-green { color: os-color(green); }
+    &.text-orange { color: os-color(orange); }
   }
 
   .caption {
