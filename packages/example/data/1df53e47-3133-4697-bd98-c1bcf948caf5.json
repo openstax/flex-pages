@@ -16,19 +16,24 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h1>Book Tiles</h1><p>Book Tiles renders a grid of OpenStax book covers, each with a title link, an optional overlay badge, and a per-book “Get the book” dropdown menu. Covers and titles are loaded from OpenStax book data by UUID; every link destination is configured per book.</p><p>This block ships in <code>@openstax/flex-page-os-blocks</code> — it is coupled to OpenStax book data, so it lives outside the generic renderer.</p>",
-                  "id": "0001-text-intro"
+                  "value": "<h1>Book Tiles</h1>",
+                  "id": "0001-text-title"
                 }
               ],
               "config": [
                 {
                   "type": "padding",
-                  "value": 4,
+                  "value": 7,
                   "id": "0001-cfg-pad"
+                },
+                {
+                  "type": "background_color",
+                  "value": "#0dc0dc",
+                  "id": "0001-cfg-bg"
                 }
               ]
             },
-            "id": "0001-section-intro"
+            "id": "0001-section-title"
           },
           {
             "type": "section",
@@ -36,8 +41,62 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2>Example</h2><p>Three books: two available (with full dropdown menus) and one coming soon (no menu, so its button is disabled and relabeled per book).</p>",
-                  "id": "0002-text-heading"
+                  "value": "<p><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
+                  "id": "0002-text-breadcrumb"
+                }
+              ],
+              "config": []
+            },
+            "id": "0002-section-breadcrumb"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Overview</h2><p>Book Tiles renders a grid of OpenStax book covers, each with a title link, an optional overlay badge, and a per-book “Get the book” dropdown menu. The cover image and title are loaded from OpenStax book data by UUID, so you only configure each book's id and its link destinations.</p><p>This block ships in <code>@openstax/flex-page-os-blocks</code> rather than the generic renderer, because it is coupled to OpenStax book data.</p>",
+                  "id": "0003-text-overview"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "0003-cfg-pad"
+                }
+              ]
+            },
+            "id": "0003-section-overview"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Config</h2><p>Book Tiles takes a default dropdown button label and a list of <b>books</b> to display. Each book is identified by its CNX UUID — used to load the cover image and title — and configures its own link destinations and badge.</p><h3>The options</h3><p><b>button_text</b>: the dropdown button label, for example “Get the book”. Set it on the block as the default for every tile; a per-book value overrides it, and also serves as the disabled label when a book has no menu (the “Coming soon” book below).</p><p><b>id</b>: a book's CNX UUID, used to load its cover and title.</p><p><b>title_link</b>: where a book's cover and title link to.</p><p><b>badge</b> / <b>badge_alt</b>: an optional overlay image and its alt text. In production the CMS supplies the badge per book — here College Success shows the “Available in Assignable” badge.</p><p><b>menu</b>: dropdown sections of links for a book. Each item is a dynamic link target — <code>external</code> URLs render as links, while <code>action</code> targets (like “Order a print copy” below) defer to a handler the host app registers, in this example the demo <code>alert</code> action. Sections are kept as separate groups so dividers can render once the shared dropdown supports them; today they are flattened into one menu.</p>",
+                  "id": "0004-text-config"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "0004-cfg-pad"
+                }
+              ]
+            },
+            "id": "0004-section-config"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Examples</h2><p>Three books: two available (with full dropdown menus) and one coming soon (no menu, so its button is disabled and relabeled per book).</p>",
+                  "id": "0005-text-examples"
                 },
                 {
                   "type": "book_tile_list",
@@ -165,43 +224,18 @@
                       }
                     ]
                   },
-                  "id": "0002-book-tile-list"
+                  "id": "0005-book-tile-list"
                 }
               ],
               "config": [
                 {
                   "type": "padding",
-                  "value": 4,
-                  "id": "0002-cfg-pad"
-                },
-                {
-                  "type": "id",
-                  "value": "example",
-                  "id": "0002-cfg-id"
+                  "value": 1,
+                  "id": "0005-cfg-pad"
                 }
               ]
             },
-            "id": "0002-section-example"
-          },
-          {
-            "type": "section",
-            "value": {
-              "content": [
-                {
-                  "type": "text",
-                  "value": "<h2>Configuration</h2><p>The block takes a default <strong>button text</strong> and a list of <strong>books</strong>. Each book is identified by its CNX <strong>UUID</strong> (used to load the cover and title) and configures its own behavior:</p><ul><li><strong>Title link</strong> — where the cover and title link to.</li><li><strong>Badge</strong> — an optional overlay image. In production the CMS supplies it per book; here College Success shows the “Available in Assignable” badge.</li><li><strong>Menu</strong> — dropdown sections of links. Each item is a dynamic link target: <code>external</code> URLs render as links, while <code>action</code> targets (like “Order a print copy” here) defer to a handler the host app registers — in this example, the demo <code>alert</code> action.</li><li><strong>Button text override</strong> — per book; doubles as the disabled label when a book has no menu (the “Coming soon” book above).</li></ul><p>Menu sections are kept as separate groups so dividers can render once the shared dropdown supports them; today they are flattened into one menu.</p>",
-                  "id": "0003-text-docs"
-                }
-              ],
-              "config": [
-                {
-                  "type": "padding",
-                  "value": 4,
-                  "id": "0003-cfg-pad"
-                }
-              ]
-            },
-            "id": "0003-section-docs"
+            "id": "0005-section-examples"
           }
         ]
       }

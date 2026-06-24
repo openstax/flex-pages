@@ -11,8 +11,11 @@ export const FlexPage = async ({ data }: { data: any }) => {
   // through RouteContext for soft navigation).
   // This runs in a server component (no platform DOM), so the rich-text link
   // rewrite needs a jsdom-backed parser supplied explicitly.
+  // `hydratePrefetch` runs each block's data loader (e.g. book tiles) server-side
+  // and attaches the result to the node, so data-driven blocks render with their
+  // data on first paint instead of fetching after hydration.
   const resolved = data
-    ? await mapPageNodes(data, blocks, { linkMapper: resolvePageLinks }, (html) => new JSDOM(html).window.document)
+    ? await mapPageNodes(data, blocks, { linkMapper: resolvePageLinks, hydratePrefetch: true }, (html) => new JSDOM(html).window.document)
     : data;
   return (
     <FlexPageContextProvider>

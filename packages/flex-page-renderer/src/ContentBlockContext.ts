@@ -7,7 +7,17 @@ export type ContentBlockConfig = {
   value: {
     config?: Array<{type: string; value: string}>;
   };
+  // Optional external data hydrated onto the node by mapPageNodes (when a block
+  // declares a `prefetch` loader and hydration is enabled). The component reads
+  // this instead of fetching client-side.
+  prefetched?: unknown;
 };
+
+// A block's data loader, declared on its definition alongside `config`. Runs
+// (server-side) via mapPageNodes; its serializable result is attached to the
+// node as `prefetched`. De-duping across repeated lookups is the loader's
+// responsibility (e.g. a memoized fetcher).
+export type BlockPrefetch = (value: any) => unknown | Promise<unknown>;
 
 export type ConfigMetadata<T> = {
   type: T;
@@ -41,6 +51,7 @@ export type BlockRenderingDefinitions<D> = {
 
 export type BlockProcessingDefinition<K> = {
   config: ConfigMetadata<K>;
+  prefetch?: BlockPrefetch;
 };
 
 export type BlockProcessingDefinitions<D> = {

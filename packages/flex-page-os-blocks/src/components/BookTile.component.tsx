@@ -1,7 +1,7 @@
 'use client';
 import { Image } from '@openstax/flex-page-renderer/components/Image';
 import { LinkComponent } from '@openstax/flex-page-renderer/components/Link';
-import type { BookTileConfig } from '../blocks/BookTileListBlock.component.js';
+import type { BookTileConfig } from '../blocks/BookTileListBlock.config.js';
 import type { BookData } from '../lib/fetchBooks.js';
 import { BookMenu } from './BookMenu.component.js';
 

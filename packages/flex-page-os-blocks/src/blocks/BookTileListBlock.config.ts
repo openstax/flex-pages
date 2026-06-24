@@ -1,4 +1,6 @@
-import { linkFieldConfig } from '@openstax/flex-page-renderer/components/Link.config';
+import type { ImageFields } from '@openstax/flex-page-renderer/components/Image.config';
+import { linkFieldConfig, type LinkFields } from '@openstax/flex-page-renderer/components/Link.config';
+import type { BookData } from '../lib/fetchBooks.js';
 
 /*
  * Serializable block config, kept free of the (client) component module so
@@ -37,3 +39,37 @@ export const config = {
     ]},
   ],
 };
+
+// Serializable block-data types live here (the directive-free module) so both
+// the client component and the server prefetch loader import one canonical
+// shape — mirrors the renderer keeping LinkFields/ImageFields in *.config.
+
+// One dropdown section (group of items); section boundaries become dividers once
+// the shared DropdownMenu supports them. `items` are dynamic links.
+export interface BookMenuSection {
+  items: LinkFields[];
+}
+
+// Per-book configuration. `id` is the cnx UUID used to load cover/title; the
+// link destinations are concrete per-book targets supplied by the config author
+// (in practice the CMS proxy).
+export interface BookTileConfig {
+  id: string;
+  button_text?: string;
+  badge?: ImageFields;
+  badge_alt?: string;
+  title_link?: LinkFields['target'];
+  menu?: BookMenuSection[];
+}
+
+export interface BookTileListBlockConfig {
+  id: string;
+  type: 'book_tile_list';
+  value: {
+    // default dropdown button label for every tile; a per-book button_text overrides it
+    button_text?: string;
+    books: BookTileConfig[];
+  };
+  // book display data hydrated server-side by mapPageNodes (see the prefetch module)
+  prefetched?: Record<string, BookData>;
+}
