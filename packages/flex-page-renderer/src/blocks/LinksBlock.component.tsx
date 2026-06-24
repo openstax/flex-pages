@@ -7,6 +7,9 @@ import { findByType } from '../utils.js';
 import './LinksBlock.css';
 
 type LinksConfig = {
+  type: 'style';
+  value: string;
+} | {
   type: 'color';
   value: string;
 } | {
@@ -34,6 +37,7 @@ export interface LinksBlockConfig {
 
 export function LinksBlock({data}: {data: LinksBlockConfig}) {
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
+  const linkStyle = findByType(data.value.config, 'style')?.value ?? 'button';
   const color = findByType(data.value.config, 'color')?.value ?? 'white';
   const customColor = findByType(data.value.config, 'custom_color')?.value;
   const size = findByType(data.value.config, 'size')?.value ?? 'large';
@@ -48,7 +52,7 @@ export function LinksBlock({data}: {data: LinksBlockConfig}) {
     : undefined;
 
   return <div
-    className={cn('content-block-links', !useCustom && `color-${color}`, customColorClass, `size-${size}`, `layout-${layout}`)}
+    className={cn('content-block-links', `links-style-${linkStyle}`, !useCustom && `color-${color}`, customColorClass, `size-${size}`, `layout-${layout}`)}
     style={style}
     data-analytics-nav={analytics}
   >
