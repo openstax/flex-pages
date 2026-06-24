@@ -406,6 +406,18 @@
                           }
                         },
                         "id": "0b1c2d3e"
+                      },
+                      {
+                        "text": "OpenStax Text",
+                        "ariaLabel": "OpenStax Text Component",
+                        "target": {
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "875efbbd-3ffe-4916-baee-e07056d0bb16"
+                          }
+                        },
+                        "id": "0c2d3e4f"
                       }
                     ],
                     "config": [

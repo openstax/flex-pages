@@ -16,6 +16,11 @@
               "content": [
                 {
                   "type": "text",
+                  "value": "<p><b>Page Content:</b></p>",
+                  "id": "0001-text-category"
+                },
+                {
+                  "type": "text",
                   "value": "<h1>Book Tiles</h1>",
                   "id": "0001-text-title"
                 }
