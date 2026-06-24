@@ -2,3 +2,6 @@
 // namespace and declares its own client/server boundary, so the app no longer
 // curates a server/client split by hand.
 export * from '@openstax/flex-page-renderer/blocks/index';
+// OpenStax-specific blocks (coupled to book data); registered alongside the
+// generic renderer blocks under their own block types.
+export * from '@openstax/flex-page-os-blocks/blocks/index';

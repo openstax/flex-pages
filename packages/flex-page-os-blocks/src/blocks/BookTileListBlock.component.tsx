@@ -1,6 +1,6 @@
 'use client';
-import type { ImageFields } from '@openstax/flex-page-renderer/components/Image.config.js';
-import type { LinkFields } from '@openstax/flex-page-renderer/components/Link.config.js';
+import type { ImageFields } from '@openstax/flex-page-renderer/components/Image.config';
+import type { LinkFields } from '@openstax/flex-page-renderer/components/Link.config';
 import { BookTile } from '../components/BookTile.component.js';
 import { fetchBooks as defaultFetchBooks } from '../lib/fetchBooks.js';
 import type { FetchBooks } from '../lib/fetchBooks.js';
@@ -29,6 +29,8 @@ export interface BookTileListBlockConfig {
   id: string;
   type: 'book_tile_list';
   value: {
+    // default dropdown button label for every tile; a per-book button_text overrides it
+    button_text?: string;
     books: BookTileConfig[];
   };
 }
@@ -46,6 +48,7 @@ export function createBookTileList(fetchBooks: FetchBooks) {
         key={entry.id}
         config={entry}
         book={books[entry.id]}
+        defaultButtonText={data.value.button_text}
       />)}
     </div>;
   };

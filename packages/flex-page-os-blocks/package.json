@@ -6,7 +6,7 @@
   ],
   "dependencies": {
     "@openstax/flex-page-renderer": "1.1.16",
-    "@openstax/ui-components": "https://github.com/openstax/ui-components#1.22.2",
+    "@openstax/ui-components": "https://github.com/openstax/ui-components#1.22.3",
     "classnames": "^2.5.1"
   },
   "devDependencies": {

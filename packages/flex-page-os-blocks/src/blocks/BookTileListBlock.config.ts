@@ -1,4 +1,4 @@
-import { linkFieldConfig } from '@openstax/flex-page-renderer/components/Link.config.js';
+import { linkFieldConfig } from '@openstax/flex-page-renderer/components/Link.config';
 
 /*
  * Serializable block config, kept free of the (client) component module so
@@ -21,10 +21,12 @@ export const config = {
   description:
     'A grid of book cover tiles, each with an optional overlay badge and a per-book dropdown menu. Covers and titles are loaded from OpenStax book data by UUID; link destinations are configured per book.',
   fields: [
+    {name: 'button_text', label: 'Dropdown Button Text', type: 'text',
+      help: 'Default dropdown button label for every tile (e.g. "Get the book"). A per-book value overrides this.'},
     {name: 'books', label: 'Books', type: 'list', max: 50, fields: [
       {name: 'id', label: 'Book UUID', type: 'text', required: true},
-      {name: 'button_text', label: 'Dropdown Button Text', type: 'text',
-        help: 'Defaults to "Get the book". Used as the disabled label when this book has no menu (e.g. "Coming soon").'},
+      {name: 'button_text', label: 'Dropdown Button Text Override', type: 'text',
+        help: 'Overrides the block-level button label for this book; also the disabled label when this book has no menu (e.g. "Coming soon").'},
       {name: 'badge', label: 'Badge Image', type: 'image',
         help: 'Optional overlay badge image (e.g. "Available in Assignable" or "Coming soon").'},
       {name: 'badge_alt', label: 'Badge Alt Text', type: 'text'},
