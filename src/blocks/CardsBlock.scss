@@ -117,4 +117,9 @@
     h2, h3 {
       @include scale-set-font(h4, h3);
     }
+
+    // CTAs inside cards render a touch bolder than elsewhere.
+    .cta-link {
+      font-weight: bold;
+    }
 }
