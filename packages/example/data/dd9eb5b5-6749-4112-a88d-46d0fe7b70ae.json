@@ -1,0 +1,173 @@
+{
+  "metadata": {
+    "title": "Big Number",
+    "description": "Documentation and examples for the Big Number component.",
+    "url": "big-number"
+  },
+  "page": [
+    {
+      "id": "big-number-page",
+      "type": "flex_page",
+      "value": {
+        "content": [
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h1 data-block-key=\"bn0h1\">Big Number Component</h1>",
+                  "id": "bn-title-text"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 7,
+                  "id": "bn-title-padding"
+                },
+                {
+                  "type": "background_color",
+                  "value": "#0dc0dc",
+                  "id": "bn-title-bg"
+                }
+              ]
+            },
+            "id": "bn-title-section"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"bn0nav\"><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
+                  "id": "bn-nav-text"
+                }
+              ],
+              "config": []
+            },
+            "id": "bn-nav-section"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"bn0ov1\">Overview</h2><p data-block-key=\"bn0ov2\">The Big Number component shows a large statistic with an optional caption, for impact figures like &quot;8M+ learners&quot;.</p>",
+                  "id": "bn-overview-text"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "bn-overview-padding"
+                }
+              ]
+            },
+            "id": "bn-overview-section"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"bn0cf1\">Config</h2><p data-block-key=\"bn0cf2\"><b>number</b>: the statistic to display large (required).</p><p data-block-key=\"bn0cf3\"><b>caption</b>: optional supporting text shown below the number.</p><p data-block-key=\"bn0cf4\"><b>color</b>: optional brand color for the number (blue, green, or orange). Defaults to the inherited text color.</p>",
+                  "id": "bn-config-text"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "bn-config-padding"
+                }
+              ]
+            },
+            "id": "bn-config-section"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h1 data-block-key=\"bn0ex1\">Examples</h1>",
+                  "id": "bn-examples-text"
+                },
+                {
+                  "type": "text",
+                  "value": "<h3 data-block-key=\"bn0ex2\">Number with caption</h3>",
+                  "id": "bn-ex-default-label"
+                },
+                {
+                  "type": "big_number",
+                  "value": {
+                    "number": "8M+",
+                    "caption": "learners reached"
+                  },
+                  "id": "bn-ex-default"
+                },
+                {
+                  "type": "text",
+                  "value": "<h3 data-block-key=\"bn0ex3\">Number only</h3>",
+                  "id": "bn-ex-bare-label"
+                },
+                {
+                  "type": "big_number",
+                  "value": {
+                    "number": "$3.2B"
+                  },
+                  "id": "bn-ex-bare"
+                },
+                {
+                  "type": "text",
+                  "value": "<h3 data-block-key=\"bn0ex4\">Colored numbers</h3>",
+                  "id": "bn-ex-color-label"
+                },
+                {
+                  "type": "big_number",
+                  "value": {
+                    "number": "150+",
+                    "caption": "free textbooks",
+                    "color": "blue"
+                  },
+                  "id": "bn-ex-blue"
+                },
+                {
+                  "type": "big_number",
+                  "value": {
+                    "number": "60%",
+                    "caption": "of US colleges use OpenStax",
+                    "color": "green"
+                  },
+                  "id": "bn-ex-green"
+                },
+                {
+                  "type": "big_number",
+                  "value": {
+                    "number": "$2.4K",
+                    "caption": "saved per student, on average",
+                    "color": "orange"
+                  },
+                  "id": "bn-ex-orange"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "bn-examples-padding"
+                }
+              ]
+            },
+            "id": "bn-examples-section"
+          }
+        ]
+      }
+    }
+  ]
+}
