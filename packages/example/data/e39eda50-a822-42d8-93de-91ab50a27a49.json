@@ -312,6 +312,18 @@
                         "id": "aba15ccd"
                       },
                       {
+                        "text": "Big Number",
+                        "ariaLabel": "Big Number Component",
+                        "target": {
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "dd9eb5b5-6749-4112-a88d-46d0fe7b70ae"
+                          }
+                        },
+                        "id": "bn00link"
+                      },
+                      {
                         "text": "Well",
                         "ariaLabel": "Well Component",
                         "target": {
