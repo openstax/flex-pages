@@ -380,6 +380,90 @@
             "id": "7170a476-0125-4a8f-bd47-2511901621e1"
           },
           {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "cards_block",
+                  "value": {
+                    "cards": [
+                      {
+                        "text": "<h3 data-block-key=\"osblk1\">OpenStax-specific blocks</h3><p data-block-key=\"osblk2\">These blocks are coupled to OpenStax book data and ship in the <code>@openstax/flex-page-os-blocks</code> package rather than the generic renderer.</p>",
+                        "ctaBlock": [],
+                        "id": "0a1b2c3d"
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "card_size",
+                        "value": 63,
+                        "id": "b1d2e3f4-0000-4000-8000-000000000001"
+                      }
+                    ]
+                  },
+                  "id": "b1d2e3f4-0000-4000-8000-000000000002"
+                },
+                {
+                  "type": "links_group",
+                  "value": {
+                    "links": [
+                      {
+                        "text": "Book Tiles",
+                        "ariaLabel": "Book Tiles Component",
+                        "target": {
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "1df53e47-3133-4697-bd98-c1bcf948caf5"
+                          }
+                        },
+                        "id": "0b1c2d3e"
+                      },
+                      {
+                        "text": "OpenStax Text",
+                        "ariaLabel": "OpenStax Text Component",
+                        "target": {
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "875efbbd-3ffe-4916-baee-e07056d0bb16"
+                          }
+                        },
+                        "id": "0c2d3e4f"
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "color",
+                        "value": "blue",
+                        "id": "b1d2e3f4-0000-4000-8000-000000000003"
+                      }
+                    ]
+                  },
+                  "id": "b1d2e3f4-0000-4000-8000-000000000004"
+                }
+              ],
+              "config": [
+                {
+                  "type": "text_alignment",
+                  "value": "center",
+                  "id": "b1d2e3f4-0000-4000-8000-000000000005"
+                },
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "b1d2e3f4-0000-4000-8000-000000000006"
+                },
+                {
+                  "type": "id",
+                  "value": "openstax-blocks",
+                  "id": "b1d2e3f4-0000-4000-8000-000000000007"
+                }
+              ]
+            },
+            "id": "b1d2e3f4-0000-4000-8000-000000000008"
+          },
+          {
             "type": "hero",
             "value": {
               "content": [
