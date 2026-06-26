@@ -7,4 +7,3 @@ export * as book_tile_list from './BookTileListBlock.js';
 // can instead register it under a separate key to use both versions side by side
 // (the example app exposes it as `os_text`).
 export * as text from './RichTextOverrideBlock.js';
-export * as content_card from './ContentCardBlock.js';
