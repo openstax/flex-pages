@@ -13,6 +13,10 @@ type CardConfig = {
   id: string;
   value: string;
 } | {
+  type: 'card_min_size';
+  id: string;
+  value: string;
+} | {
   type: 'accent_colors';
   id: string;
   value: string;
@@ -76,7 +80,8 @@ export const config = {
         {label: 'Square', value: 'square'},
       ]},
       {name: 'card_size', label: 'Size', help: 'A single number representing 10px increments', type: 'number'},
-      {name: 'card_columns', label: 'Columns', help: 'Maximum cards per row. Rows reflow to fewer columns as the container narrows. Optionally pair with Size to set the minimum card width before wrapping.', type: 'number'},
+      {name: 'card_columns', label: 'Columns', help: 'Maximum cards per row. Rows reflow to fewer columns as the container narrows; set Min card width to control when.', type: 'number'},
+      {name: 'card_min_size', label: 'Min card width', help: 'Smallest a card gets before the grid wraps to fewer columns, in 10px increments (e.g. 18 = 180px). Defaults to 18.', type: 'number'},
       {name: 'accent_colors', label: 'Accent Colors', type: 'text', help: 'Comma-separated hex colors for the top accent bar, cycled per card (needs Accent Size). e.g. #ff0000,#00ff00,#0000ff'},
       {name: 'divider_colors', label: 'Divider Colors', type: 'text', help: 'Comma-separated hex colors for card divider lines, cycled per card. e.g. #ff0000,#00ff00'},
       {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex background color for cards'},
