@@ -5,7 +5,6 @@
     overflow: auto hidden;
 
     > img {
-        float: left;
         padding: 3rem;
         border-radius: 50%;
         width: 30rem;
@@ -25,7 +24,6 @@
             font-weight: bold;
             position: relative;
             top: 0.5rem;
-            left: -4rem;
             display: block;
             height: 0;
             text-align: left;
@@ -43,12 +41,17 @@
       }
     }
 
+    &.quote-layout-image-left {
+        > img {
+            float: left;
+        }
+        > .content-block-rich-text:before {
+            left: -4rem;
+        }
+    }
     &.quote-layout-image-right {
         > img {
             float: right;
-        }
-        > .content-block-rich-text:before {
-            left: 0;
         }
     }
     &.quote-layout-image-top {
