@@ -3,10 +3,19 @@
 .flex-page.page div.content-block-cards {
     display: grid;
 
-    /* needs responsive design */
-    grid-template-columns: repeat(auto-fit, minmax(min-content, calc(var(--card-size, 27) * 1rem)));
+    // Default: stretch cards to fill the container width, down to an 18rem floor.
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     grid-gap: ($normal-margin * 2);
-    justify-content: center;
+
+    // Block top/bottom spacing, as --card-padding-* multiples of $normal-margin.
+    padding-top: calc(#{$normal-margin} * var(--card-padding-top, var(--card-padding, 0)));
+    padding-bottom: calc(#{$normal-margin} * var(--card-padding-bottom, var(--card-padding, 0)));
+
+    // Explicit card size: cap the column width and center the grid.
+    &.has-size {
+        grid-template-columns: repeat(auto-fit, minmax(min-content, calc(var(--card-size, 27) * 1rem)));
+        justify-content: center;
+    }
 
     // Fixed column count with dynamic responsive breakpoint.
     // Uses a CSS clamp toggle: shows exactly N columns when there's space,
@@ -81,34 +90,27 @@
 
     // stylelint-disable-next-line no-descending-specificity
     &.card_style_square > .content-block-card {
-      border: thin solid ui-color(form-border);
-      border-top: none;
+      border: var(--card-border-size, 1px) solid ui-color(form-border);
       padding: $normal-margin;
       background-color: var(--card-bg-color, ui-color(white));
       color: text-color(normal);
-
-      &:nth-child(4n+1) {
-        box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(blue);
-      }
-      &:nth-child(4n+2) {
-        box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(green);
-      }
-      &:nth-child(4n+3) {
-        box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(light-blue);
-      }
-      &:nth-child(4n+4) {
-        box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(red);
-      }
     }
 
     &.has-custom-divider > .content-block-card hr {
       background-color: var(--card-divider);
     }
-    &.has-custom-accent.card_style_rounded > .content-block-card {
-      border-color: var(--card-accent);
+    // Top accent bar, on every style except rounded — its full rounded border
+    // clashes with a square top bar. Height from --card-accent-size; color from
+    // --card-accent or a default palette.
+    // stylelint-disable-next-line no-descending-specificity
+    &.has-accent-size:not(.card_style_rounded) > .content-block-card {
+      &:nth-child(4n+1) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 os-color(blue); }
+      &:nth-child(4n+2) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 os-color(green); }
+      &:nth-child(4n+3) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 os-color(light-blue); }
+      &:nth-child(4n+4) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 os-color(red); }
     }
-    &.has-custom-accent.card_style_square > .content-block-card {
-      box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 var(--card-accent);
+    &.has-accent-size.has-custom-accent:not(.card_style_rounded) > .content-block-card {
+      box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent);
     }
     &.dark-card-background > .content-block-card {
       color: text-color(white);
