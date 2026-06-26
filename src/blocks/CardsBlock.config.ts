@@ -15,11 +15,11 @@ type CardConfig = {
 } | {
   type: 'accent_colors';
   id: string;
-  value: string | string[];
+  value: string;
 } | {
   type: 'divider_colors';
   id: string;
-  value: string | string[];
+  value: string;
 } | {
   type: 'background_color';
   id: string;
@@ -77,8 +77,8 @@ export const config = {
       ]},
       {name: 'card_size', label: 'Size', help: 'A single number representing 10px increments', type: 'number'},
       {name: 'card_columns', label: 'Columns', help: 'Number of columns (works with Size)', type: 'number'},
-      {name: 'accent_colors', label: 'Accent Colors', type: 'text', help: 'Hex colors for the top accent bar, cycled per card (needs Accent Size). A color list in the CMS, or comma-separated in previews.'},
-      {name: 'divider_colors', label: 'Divider Colors', type: 'text', help: 'Hex colors for card divider lines, cycled per card. A color list in the CMS, or comma-separated in previews.'},
+      {name: 'accent_colors', label: 'Accent Colors', type: 'text', help: 'Comma-separated hex colors for the top accent bar, cycled per card (needs Accent Size). e.g. #ff0000,#00ff00,#0000ff'},
+      {name: 'divider_colors', label: 'Divider Colors', type: 'text', help: 'Comma-separated hex colors for card divider lines, cycled per card. e.g. #ff0000,#00ff00'},
       {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex background color for cards'},
       {name: 'border_size', label: 'Border Size', type: 'number', help: 'Outer border width in px, all sides. Leave blank for the style default; 0 = no border.'},
       {name: 'accent_size', label: 'Accent Size', type: 'number', help: 'Top accent bar height in px, independent of the border. Color comes from Accent Colors (or a default palette).'},
