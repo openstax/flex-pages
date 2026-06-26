@@ -17,21 +17,28 @@
         justify-content: center;
     }
 
-    // Fixed column count with dynamic responsive breakpoint.
-    // Uses a CSS clamp toggle: shows exactly N columns when there's space,
-    // jumps directly to 1 column when there isn't — no intermediate sizes.
+    // Columns sets the MAX cards per row. Tracks fill the width (1fr) but never get
+    // narrower than --col-floor; once the 1/N share would dip below the floor the
+    // grid reflows to fewer columns, down to one — driven by the container width,
+    // with no fixed breakpoint. min(100%, …) keeps a lone card from overflowing.
+    // repeat()'s count can't be a custom property, so the column cap is enforced by
+    // sizing each track to its 1/N share rather than by a literal repeat count.
     &.has-columns {
-        --container-min: calc(
-            var(--card-columns) * var(--card-size, 27) * 1rem +
-            (var(--card-columns) - 1) * #{$normal-margin * 2}
-        );
-        --col-toggle: calc((var(--container-min) - 100%) * 9999);
-
-        max-width: var(--container-min);
-        margin-inline: auto;
+        --col-floor: 18rem;
         grid-template-columns: repeat(auto-fit,
-            minmax(clamp(min(calc(var(--card-size, 27) * 1rem), 100%), var(--col-toggle), 100%), 1fr)
+            minmax(
+                min(100%, max(var(--col-floor),
+                    (100% - (var(--card-columns) - 1) * #{$normal-margin * 2}) / var(--card-columns)
+                )),
+                1fr
+            )
         );
+    }
+
+    // With Columns set, Size tunes the reflow floor: cards hold --card-size before
+    // wrapping to fewer columns, instead of the default 18rem.
+    &.has-columns.has-size {
+        --col-floor: calc(var(--card-size, 27) * 1rem);
     }
 
     > .content-block-card {
