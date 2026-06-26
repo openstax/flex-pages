@@ -1,0 +1,18 @@
+.content-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+.content-card .content-card-image img {
+  width: 100%;
+  height: auto;
+}
+.content-card .content-card-title {
+  font-weight: 700;
+}
+.content-card .content-card-excerpt {
+  font-size: 0.875rem;
+}
+
+/*# sourceMappingURL=ContentCardBlock.css.map */

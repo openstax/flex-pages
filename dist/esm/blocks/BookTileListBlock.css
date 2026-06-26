@@ -1,0 +1,51 @@
+.content-block-book-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 22rem));
+  gap: 2rem;
+  align-items: stretch;
+}
+.content-block-book-tiles .book-tile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+.content-block-book-tiles .book-tile-head {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.content-block-book-tiles .book-tile-cover-wrap {
+  display: block;
+  position: relative;
+  aspect-ratio: 1/1;
+}
+.content-block-book-tiles .book-tile-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.content-block-book-tiles .book-tile-badge {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  width: auto;
+  height: 4rem;
+}
+.content-block-book-tiles .book-tile-title {
+  display: block;
+  padding: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #0064b1;
+  min-height: 2.6em;
+}
+.content-block-book-tiles .book-tile-foot {
+  margin-top: auto;
+  padding: 0 1rem 1rem;
+}
+
+/*# sourceMappingURL=BookTileListBlock.css.map */
