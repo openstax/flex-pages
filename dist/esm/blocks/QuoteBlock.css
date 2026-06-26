@@ -1,0 +1,81 @@
+@charset "UTF-8";
+.flex-page.page div.content-block-quote {
+  margin: 3rem 0;
+  overflow: auto hidden;
+}
+.flex-page.page div.content-block-quote > img {
+  padding: 3rem;
+  border-radius: 50%;
+  width: 30rem;
+  max-width: 100%;
+  height: auto;
+}
+.flex-page.page div.content-block-quote > .content-block-rich-text {
+  margin-top: 5rem;
+  overflow: visible;
+}
+.flex-page.page div.content-block-quote > .content-block-rich-text:before {
+  color: var(--quote-accent-color, #f36b32);
+  content: "“";
+  line-height: 2.5rem;
+  font-size: 6rem;
+  font-weight: bold;
+  position: relative;
+  top: 0.5rem;
+  display: block;
+  height: 0;
+  text-align: left;
+}
+.flex-page.page div.content-block-quote > .quotee .name {
+  font-weight: bold;
+}
+.flex-page.page div.content-block-quote > .quotee .title:before {
+  content: " ";
+}
+.flex-page.page div.content-block-quote > .quotee .title {
+  font-style: italic;
+}
+.flex-page.page div.content-block-quote.quote-layout-image-left > img {
+  float: left;
+}
+.flex-page.page div.content-block-quote.quote-layout-image-left > .content-block-rich-text:before {
+  left: -4rem;
+}
+.flex-page.page div.content-block-quote.quote-layout-image-right > img {
+  float: right;
+}
+.flex-page.page div.content-block-quote.quote-layout-image-top {
+  text-align: center;
+}
+.flex-page.page div.content-block-quote.quote-layout-image-top > img {
+  float: none;
+  display: block;
+  margin: 0 auto;
+}
+.flex-page.page div.content-block-quote.quote-layout-image-top > .content-block-rich-text {
+  margin-top: 2rem;
+}
+.flex-page.page div.content-block-quote.quote-layout-compact > img {
+  width: 12rem;
+  padding: 1rem;
+}
+.flex-page.page div.content-block-quote.quote-layout-compact > .content-block-rich-text {
+  margin-top: 0;
+}
+.flex-page.page div.content-block-quote.quote-layout-compact > .content-block-rich-text:before {
+  content: none;
+}
+@container flex-content (max-width: 60em) {
+  .flex-page.page div.content-block-quote.quote-layout-image-left, .flex-page.page div.content-block-quote.quote-layout-image-right {
+    text-align: center;
+  }
+  .flex-page.page div.content-block-quote.quote-layout-image-left > img, .flex-page.page div.content-block-quote.quote-layout-image-right > img {
+    float: none;
+  }
+  .flex-page.page div.content-block-quote.quote-layout-image-left .content-block-rich-text, .flex-page.page div.content-block-quote.quote-layout-image-right .content-block-rich-text {
+    margin-top: 0;
+    padding: 0 5rem;
+  }
+}
+
+/*# sourceMappingURL=QuoteBlock.css.map */
