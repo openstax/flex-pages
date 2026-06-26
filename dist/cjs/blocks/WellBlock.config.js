@@ -1,0 +1,41 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.config = void 0;
+exports.config = {
+    type: 'well',
+    categories: ['content'],
+    label: 'Well',
+    description: 'A styled container that wraps content blocks, with configurable background, padding, border, and width; text switches to white on dark backgrounds.',
+    fields: [
+        { name: 'content', label: 'Well Content', type: 'blocks', categories: ['content'] },
+        { name: 'config', label: 'Config', type: 'configs', configs: [
+                { name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-F0-9]{6}' },
+                { name: 'gradient_color', label: 'Gradient To Color', type: 'text', pattern: '#[a-fA-F0-9]{6}',
+                    help: 'Second color for gradient effect. Background Color is the starting color.' },
+                { name: 'gradient_direction', label: 'Gradient Direction', type: 'select', options: [
+                        { label: 'Top to Bottom', value: 'to bottom' },
+                        { label: 'Bottom to Top', value: 'to top' },
+                        { label: 'Left to Right', value: 'to right' },
+                        { label: 'Right to Left', value: 'to left' },
+                        { label: 'Top-Left to Bottom-Right', value: 'to bottom right' },
+                        { label: 'Top-Right to Bottom-Left', value: 'to bottom left' },
+                        { label: 'Bottom-Left to Top-Right', value: 'to top right' },
+                        { label: 'Bottom-Right to Top-Left', value: 'to top left' },
+                    ] },
+                { name: 'border_radius', label: 'Border Radius', help: 'Border radius in pixels', type: 'number' },
+                { name: 'border_color', label: 'Border Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex border color' },
+                { name: 'border_size', label: 'Border Size', type: 'number', help: 'Border width in pixels. Only applies when border color is set.' },
+                { name: 'padding', label: 'Padding', help: 'Inner padding, in 10px increments', type: 'number' },
+                { name: 'margin', label: 'Margin', help: 'Outer margin, in 10px increments', type: 'number' },
+                { name: 'pull_up', label: 'Pull Up', type: 'number', help: 'Pulls the well upward by this amount in rem units. Use with extra padding on the section above to create an overlap effect.' },
+                { name: 'width', label: 'Width', help: 'Maximum width of the well content (e.g., 600px, 50%, auto)', type: 'text' },
+                { name: 'text_alignment', label: 'Text Alignment', type: 'select', options: [
+                        { label: 'Left', value: 'left' },
+                        { label: 'Right', value: 'right' },
+                        { label: 'Center', value: 'center' },
+                    ] },
+                { name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this well will include this label', type: 'text' },
+                { name: 'id', label: 'ID', help: 'The HTML id of the well (can be referenced by anchor links).', type: 'text' },
+            ] },
+    ],
+};
