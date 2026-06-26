@@ -1,0 +1,27 @@
+.flex-page.page div.content-block-big-number .number {
+  display: block;
+  font-size: 4.8rem;
+  font-weight: bold;
+  line-height: 1.1;
+}
+.flex-page.page div.content-block-big-number .number.text-blue {
+  color: #002469;
+}
+.flex-page.page div.content-block-big-number .number.text-green {
+  color: #63a524;
+}
+.flex-page.page div.content-block-big-number .number.text-orange {
+  color: #f36b32;
+}
+.flex-page.page div.content-block-big-number .caption {
+  font-size: 1.6rem;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  line-height: 2.5rem;
+  display: block;
+  font-size: 1.3rem;
+  color: #5e6162;
+}
+
+/*# sourceMappingURL=BigNumberBlock.css.map */
