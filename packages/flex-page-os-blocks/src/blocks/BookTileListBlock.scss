@@ -1,0 +1,65 @@
+.content-block-book-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 22rem));
+  gap: 2rem;
+  align-items: stretch;
+
+  .book-tile {
+    display: flex;
+    flex-direction: column;
+    // explicit width guard: a flex-content-container collapses grid/flex items
+    width: 100%;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+  }
+
+  .book-tile-head {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .book-tile-cover-wrap {
+    display: block;
+    position: relative;
+    // Covers load via an async client fetch, so the <img> isn't in the DOM on
+    // first paint. Reserve the (square) cover box here so the tile doesn't grow
+    // when the cover arrives — the img fills the already-reserved space.
+    aspect-ratio: 1 / 1;
+  }
+
+  .book-tile-cover {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  // Overlay badge (e.g. "Available in Assignable"), pinned to the cover's top-right.
+  .book-tile-badge {
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    width: auto;
+    height: 4rem;
+  }
+
+  .book-tile-title {
+    display: block;
+    padding: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #0064b1;
+    // Title text also arrives with the async fetch; reserve two lines (the common
+    // case) so the tile doesn't grow when it loads. 2.6em = 2 lines at lh 1.3.
+    min-height: 2.6em;
+  }
+
+  // Footer holds the dropdown / disabled CTA, pinned to the bottom so tiles of
+  // differing title lengths keep their buttons aligned.
+  .book-tile-foot {
+    margin-top: auto;
+    padding: 0 1rem 1rem;
+  }
+}
