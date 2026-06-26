@@ -9,7 +9,7 @@ export const config = {
     {name: 'name', label: 'Quotee\'s name', type: 'text', required: true},
     {name: 'image', label: 'Image', type: 'image', required: true},
     {name: 'config', label: 'Config', type: 'configs', configs: [
-      {name: 'layout', label: 'Layout', type: 'select', help: 'How the image and text are arranged. Compact is a small image + short text ("did you know") treatment.', options: [
+      {name: 'layout', label: 'Layout', type: 'select', help: 'How the image and text are arranged.', options: [
         {label: 'Image Left', value: 'image-left'},
         {label: 'Image Right', value: 'image-right'},
         {label: 'Image Top', value: 'image-top'},
