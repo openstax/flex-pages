@@ -1,0 +1,249 @@
+{
+  "metadata": {
+    "title": "Book Tiles",
+    "description": "Documentation and examples for the OpenStax Book Tiles component.",
+    "url": "book-tiles"
+  },
+  "page": [
+    {
+      "id": "book-tiles-page",
+      "type": "flex_page",
+      "value": {
+        "content": [
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p><b>Page Content:</b></p>",
+                  "id": "0001-text-category"
+                },
+                {
+                  "type": "text",
+                  "value": "<h1>Book Tiles</h1>",
+                  "id": "0001-text-title"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 7,
+                  "id": "0001-cfg-pad"
+                },
+                {
+                  "type": "background_color",
+                  "value": "#0dc0dc",
+                  "id": "0001-cfg-bg"
+                }
+              ]
+            },
+            "id": "0001-section-title"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
+                  "id": "0002-text-breadcrumb"
+                }
+              ],
+              "config": []
+            },
+            "id": "0002-section-breadcrumb"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Overview</h2><p>Book Tiles renders a grid of OpenStax book covers, each with a title link, an optional overlay badge, and a per-book “Get the book” dropdown menu. The cover image and title are loaded from OpenStax book data by UUID, so you only configure each book's id and its link destinations.</p><p>This block ships in <code>@openstax/flex-page-os-blocks</code> rather than the generic renderer, because it is coupled to OpenStax book data.</p>",
+                  "id": "0003-text-overview"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "0003-cfg-pad"
+                }
+              ]
+            },
+            "id": "0003-section-overview"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Config</h2><p>Book Tiles takes a default dropdown button label and a list of <b>books</b> to display. Each book is identified by its CNX UUID — used to load the cover image and title — and configures its own link destinations and badge.</p><h3>The options</h3><p><b>button_text</b>: the dropdown button label, for example “Get the book”. Set it on the block as the default for every tile; a per-book value overrides it, and also serves as the disabled label when a book has no menu (the “Coming soon” book below).</p><p><b>id</b>: a book's CNX UUID, used to load its cover and title.</p><p><b>title_link</b>: where a book's cover and title link to.</p><p><b>badge</b> / <b>badge_alt</b>: an optional overlay image and its alt text. In production the CMS supplies the badge per book — here College Success shows the “Available in Assignable” badge.</p><p><b>menu</b>: dropdown sections of links for a book. Each item is a dynamic link target — <code>external</code> URLs render as links, while <code>action</code> targets (like “Order a print copy” below) defer to a handler the host app registers, in this example the demo <code>alert</code> action. Sections are kept as separate groups so dividers can render once the shared dropdown supports them; today they are flattened into one menu.</p>",
+                  "id": "0004-text-config"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "0004-cfg-pad"
+                }
+              ]
+            },
+            "id": "0004-section-config"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Examples</h2><p>Three books: two available (with full dropdown menus) and one coming soon (no menu, so its button is disabled and relabeled per book).</p>",
+                  "id": "0005-text-examples"
+                },
+                {
+                  "type": "book_tile_list",
+                  "value": {
+                    "button_text": "Get the book",
+                    "books": [
+                      {
+                        "id": "e8668a14-9a7d-4d74-b58c-3681f8351224",
+                        "badge": {
+                          "file": "https://assets.openstax.org/oscms-prodcms/media/original_images/Assignable_icon_1.jpg",
+                          "width": 150,
+                          "height": 64
+                        },
+                        "badge_alt": "Available in OpenStax Assignable",
+                        "title_link": {
+                          "type": "external",
+                          "value": "https://openstax.org/details/books/college-success"
+                        },
+                        "menu": [
+                          {
+                            "items": [
+                              {
+                                "text": "View online",
+                                "target": {
+                                  "type": "external",
+                                  "value": "https://openstax.org/books/college-success/pages/1-introduction"
+                                }
+                              },
+                              {
+                                "text": "Download a PDF",
+                                "target": {
+                                  "type": "external",
+                                  "value": "https://openstax.org/details/books/college-success"
+                                }
+                              },
+                              {
+                                "text": "Order a print copy",
+                                "target": {
+                                  "type": "action",
+                                  "value": "alert"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "items": [
+                              {
+                                "text": "Instructor resources",
+                                "target": {
+                                  "type": "external",
+                                  "value": "https://openstax.org/details/books/college-success?Instructor%20resources"
+                                }
+                              },
+                              {
+                                "text": "Student resources",
+                                "target": {
+                                  "type": "external",
+                                  "value": "https://openstax.org/details/books/college-success?Student%20resources"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "id": "62a49025-8cd8-407c-9cfb-c7eba55cf1c6",
+                        "title_link": {
+                          "type": "external",
+                          "value": "https://openstax.org/details/books/college-success-concise"
+                        },
+                        "menu": [
+                          {
+                            "items": [
+                              {
+                                "text": "View online",
+                                "target": {
+                                  "type": "external",
+                                  "value": "https://openstax.org/books/college-success-concise/pages/1-introduction"
+                                }
+                              },
+                              {
+                                "text": "Download a PDF",
+                                "target": {
+                                  "type": "external",
+                                  "value": "https://openstax.org/details/books/college-success-concise"
+                                }
+                              },
+                              {
+                                "text": "Order a print copy",
+                                "target": {
+                                  "type": "action",
+                                  "value": "alert"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "items": [
+                              {
+                                "text": "Instructor resources",
+                                "target": {
+                                  "type": "external",
+                                  "value": "https://openstax.org/details/books/college-success-concise?Instructor%20resources"
+                                }
+                              },
+                              {
+                                "text": "Student resources",
+                                "target": {
+                                  "type": "external",
+                                  "value": "https://openstax.org/details/books/college-success-concise?Student%20resources"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "id": "503d9717-0d3a-409f-893e-d25740d237dc",
+                        "button_text": "Coming soon",
+                        "title_link": {
+                          "type": "external",
+                          "value": "https://openstax.org/details/books/preparing-college-success"
+                        },
+                        "menu": []
+                      }
+                    ]
+                  },
+                  "id": "0005-book-tile-list"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "0005-cfg-pad"
+                }
+              ]
+            },
+            "id": "0005-section-examples"
+          }
+        ]
+      }
+    }
+  ]
+}

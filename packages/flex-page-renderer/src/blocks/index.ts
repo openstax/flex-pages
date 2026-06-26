@@ -9,6 +9,7 @@ export * as html from './HTMLBlock.js';
 export * as hero from './HeroBlock.js';
 export * as links_group from './LinksBlock.js';
 export * as quote from './QuoteBlock.js';
+export * as big_number from './BigNumberBlock.js';
 export * as text from './RichTextBlock.js';
 export * as section from './SectionBlock.js';
 export * as well from './WellBlock.js';

@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "title": "OpenStax Text",
+    "description": "Documentation and examples for the OpenStax Text block, a styled variant of the rich text block.",
+    "url": "os-text"
+  },
+  "page": [
+    {
+      "id": "os-text-page",
+      "type": "flex_page",
+      "value": {
+        "content": [
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p><b>Page Content:</b></p>",
+                  "id": "0001-text-category"
+                },
+                {
+                  "type": "text",
+                  "value": "<h1>OpenStax Text</h1>",
+                  "id": "0001-text-title"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 7,
+                  "id": "0001-cfg-pad"
+                },
+                {
+                  "type": "background_color",
+                  "value": "#0dc0dc",
+                  "id": "0001-cfg-bg"
+                }
+              ]
+            },
+            "id": "0001-section-title"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
+                  "id": "0002-text-breadcrumb"
+                }
+              ],
+              "config": []
+            },
+            "id": "0002-section-breadcrumb"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Overview</h2><p>OpenStax Text renders exactly like the plain <b>Text</b> block — it proxies the same rich-text renderer, and takes the same single rich-text field, with no extra config. What it adds is the openstax-cms editor styles.</p><p>It ships in <code>@openstax/flex-page-os-blocks</code> and is registered under its own block type, <code>os_text</code>, alongside the generic <code>text</code> block — so a page can use either. The editor styles are scoped to this block, so a plain <b>Text</b> block renders the same markup without them.</p>",
+                  "id": "0003-text-overview"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "0003-cfg-pad"
+                }
+              ]
+            },
+            "id": "0003-section-overview"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Editor styles</h2><p>These are openstax-cms editor classes the content team applies to runs of text in the rich-text editor — they're part of the content, not block config. The <code>eyebrow</code> class renders as a small uppercase label, typically above a heading, and <code>text-blue</code>, <code>text-green</code>, <code>text-orange</code>, <code>text-gray</code>, and <code>text-white</code> apply the OpenStax brand colors to any run of text. For example:</p>",
+                  "id": "0004-text-editor-styles"
+                },
+                {
+                  "type": "os_text",
+                  "value": "<p class=\"eyebrow\">Free + Openly Licensed</p><h3>College Physics</h3><p>OpenStax brand colors on inline runs: <span class=\"text-blue\">blue</span>, <span class=\"text-green\">green</span>, <span class=\"text-orange\">orange</span>, and <span class=\"text-gray\">gray</span>.</p>",
+                  "id": "0004-os-text-example"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "0004-cfg-pad"
+                }
+              ]
+            },
+            "id": "0004-section-editor-styles"
+          }
+        ]
+      }
+    }
+  ]
+}

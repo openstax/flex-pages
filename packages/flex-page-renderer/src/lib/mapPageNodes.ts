@@ -31,6 +31,10 @@ export interface PageNodeMappers {
   linkMapper?: LinkMapper;
   imageMapper?: ImageMapper;
   blockMapper?: BlockMapper;
+  // When true, any block whose definition declares a `prefetch` loader has it
+  // run during this pass and its result attached to the node as `prefetched`.
+  // Off by default — opt in only where the (network) cost is wanted.
+  hydratePrefetch?: boolean;
 }
 
 // Environment seam: parse an HTML string into a DOM `Document`. The rich-text
@@ -183,20 +187,31 @@ async function processBlock(node: ContentBlockConfig, ctx: Ctx): Promise<Content
   // `type`) before we resolve its config and walk its fields.
   const block = ctx.mappers.blockMapper ? await ctx.mappers.blockMapper(node) : node;
 
-  const meta = ctx.blocks[block.type]?.config;
+  const def = ctx.blocks[block.type];
+  const meta = def?.config;
   if (!meta) return block;
 
+  // Hydrate the block's own data loader (if declared + enabled), concurrently
+  // with field processing. The loader reads the unprocessed value (link/image
+  // rewrites don't touch the fields it needs) so it can run in parallel.
+  const prefetchJob = ctx.mappers.hydratePrefetch && def?.prefetch
+    ? Promise.resolve(def.prefetch(block.value))
+    : undefined;
+
   // singular-`field` blocks (e.g. text) store their value directly at node.value
+  let processed: ContentBlockConfig;
   if (meta.field) {
-    return { ...block, value: await processField(meta.field, block.value, ctx) } as ContentBlockConfig;
+    processed = { ...block, value: await processField(meta.field, block.value, ctx) } as ContentBlockConfig;
+  } else {
+    const value = block.value as Record<string, unknown>;
+    const out: Record<string, unknown> = { ...value };
+    for (const field of meta.fields ?? []) {
+      out[field.name] = await processField(field, value[field.name], ctx);
+    }
+    processed = { ...block, value: out } as ContentBlockConfig;
   }
 
-  const value = block.value as Record<string, unknown>;
-  const out: Record<string, unknown> = { ...value };
-  for (const field of meta.fields ?? []) {
-    out[field.name] = await processField(field, value[field.name], ctx);
-  }
-  return { ...block, value: out } as ContentBlockConfig;
+  return prefetchJob ? { ...processed, prefetched: await prefetchJob } : processed;
 }
 
 export async function mapPageNodes<D extends BlockProcessingDefinitions<any>>(
