@@ -11,15 +11,11 @@ import './CardsBlock.css';
 // explicit 0 (a falsy but meaningful value) is treated as set, not absent.
 const present = (v?: string): v is string => v != null && v !== '';
 
-// accent_colors / divider_colors arrive as an array from the Wagtail CMS (a
-// ListBlock of color pickers) and as a comma-separated string from the
-// preview/docs schema. Accept both shapes; empty -> undefined so the class
-// isn't added.
-const toColorList = (raw?: string | string[]): string[] | undefined => {
+// accent_colors / divider_colors arrive as a comma-separated string. Split into
+// a trimmed list of colors; empty -> undefined so the class isn't added.
+const toColorList = (raw?: string): string[] | undefined => {
   if (raw == null) return undefined;
-  const list = (Array.isArray(raw) ? raw : raw.split(','))
-    .map((c) => c.trim())
-    .filter(Boolean);
+  const list = raw.split(',').map((c) => c.trim()).filter(Boolean);
   return list.length ? list : undefined;
 };
 

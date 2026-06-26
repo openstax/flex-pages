@@ -192,10 +192,14 @@ A wrapping grid of card tiles, each holding rich text and an optional call-to-ac
 | Style | `card_style` | select | see options below |  |
 | Size | `card_size` | number | a number | A single number representing 10px increments |
 | Columns | `card_columns` | number | a number | Number of columns (works with Size) |
-| Accent Colors | `accent_colors` | text |  | Comma-separated hex colors for card borders/shadows, e.g. #ff0000,#00ff00,#0000ff |
-| Divider Colors | `divider_colors` | text |  | Comma-separated hex colors for card divider lines, e.g. #ff0000,#00ff00 |
+| Accent Colors | `accent_colors` | text |  | Comma-separated hex colors for the top accent bar, cycled per card (needs Accent Size). e.g. #ff0000,#00ff00,#0000ff |
+| Divider Colors | `divider_colors` | text |  | Comma-separated hex colors for card divider lines, cycled per card. e.g. #ff0000,#00ff00 |
 | Background Color | `background_color` | text | must match `#[a-fA-F0-9]{6}` | Hex background color for cards |
-| Border Size | `border_size` | number | a number | Border thickness in pixels. Rounded: border width (default: 1px). Square: top accent height (default: 10px). |
+| Border Size | `border_size` | number | a number | Outer border width in px, all sides. Leave blank for the style default; 0 = no border. |
+| Accent Size | `accent_size` | number | a number | Top accent bar height in px, independent of the border. Color comes from Accent Colors (or a default palette). |
+| Padding | `padding` | number | a number | Top and bottom spacing around the block, in 10px increments. |
+| Padding Top | `padding_top` | number | a number | Top spacing around the block, in 10px increments. |
+| Padding Bottom | `padding_bottom` | number | a number | Bottom spacing around the block, in 10px increments. |
 
 _Style (`card_style`) options:_
 
@@ -437,10 +441,18 @@ A group of links rendered as a grid or inline row, with configurable color and s
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
 | Analytics Label | `analytics_label` | text |  | Analytics events from within this section will include this label |
-| Color | `color` | select | see options below |  |
-| Custom Color | `custom_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color override. Overrides Color preset. |
-| Size | `size` | select | see options below |  |
+| Style | `style` | select | see options below | Button renders the links as buttons (default); Text renders them as plain links. |
+| Color | `color` | select | see options below | Applies to the Button style only; ignored when Style is Text. |
+| Custom Color | `custom_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color override (Button style only). Overrides the Color preset. |
+| Size | `size` | select | see options below | Applies to the Button style only; ignored when Style is Text. |
 | Layout | `layout` | select | see options below |  |
+
+_Style (`style`) options:_
+
+| Value | Label |
+| --- | --- |
+| `button` | Button |
+| `text` | Text |
 
 _Color (`color`) options:_
 
