@@ -3,13 +3,23 @@
 .flex-page.page div.content-block-cards {
     display: grid;
 
-    // Default: stretch cards to fill the container width, down to an 18rem floor.
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    // Smallest a card gets before the grid wraps to fewer columns. Overridable
+    // per block via the Min card width config.
+    --col-floor: 18rem;
+
+    // Default: stretch cards to fill the container width, down to the floor.
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--col-floor)), 1fr));
     grid-gap: ($normal-margin * 2);
 
     // Block top/bottom spacing, as --card-padding-* multiples of $normal-margin.
     padding-top: calc(#{$normal-margin} * var(--card-padding-top, var(--card-padding, 0)));
     padding-bottom: calc(#{$normal-margin} * var(--card-padding-bottom, var(--card-padding, 0)));
+
+    // Min card width: tune the wrap threshold (when the grid drops a column),
+    // in the same 10px steps as Size.
+    &.has-min-size {
+        --col-floor: calc(var(--card-min-size) * 1rem);
+    }
 
     // Explicit card size: cap the column width and center the grid.
     &.has-size {
@@ -24,7 +34,6 @@
     // repeat()'s count can't be a custom property, so the column cap is enforced by
     // sizing each track to its 1/N share rather than by a literal repeat count.
     &.has-columns {
-        --col-floor: 18rem;
         grid-template-columns: repeat(auto-fit,
             minmax(
                 min(100%, max(var(--col-floor),
@@ -33,12 +42,6 @@
                 1fr
             )
         );
-    }
-
-    // With Columns set, Size tunes the reflow floor: cards hold --card-size before
-    // wrapping to fewer columns, instead of the default 18rem.
-    &.has-columns.has-size {
-        --col-floor: calc(var(--card-size, 27) * 1rem);
     }
 
     > .content-block-card {

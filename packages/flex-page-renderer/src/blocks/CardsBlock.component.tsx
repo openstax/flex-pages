@@ -24,6 +24,7 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
   const styleClass = cardStyle ? `card_style_${cardStyle}` : undefined;
   const cardSize = findByType(data.value.config, 'card_size')?.value;
   const cardColumns = findByType(data.value.config, 'card_columns')?.value;
+  const cardMinSize = findByType(data.value.config, 'card_min_size')?.value;
   const accentColors = toColorList(findByType(data.value.config, 'accent_colors')?.value);
   const dividerColors = toColorList(findByType(data.value.config, 'divider_colors')?.value);
   const backgroundColor = findByType(data.value.config, 'background_color')?.value;
@@ -41,6 +42,7 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
         styleClass,
         present(cardSize) && 'has-size',
         cardColumns && 'has-columns',
+        present(cardMinSize) && 'has-min-size',
         present(accentSize) && 'has-accent-size',
         accentColors && 'has-custom-accent',
         dividerColors && 'has-custom-divider',
@@ -49,6 +51,7 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
       style={{
         '--card-size': cardSize,
         '--card-columns': cardColumns,
+        '--card-min-size': cardMinSize,
         // Set value-bearing vars only when present, so an explicit 0
         // (e.g. border_size: 0 = no border) wins over the SCSS fallback.
         ...(present(backgroundColor) ? {'--card-bg-color': backgroundColor} : {}),
