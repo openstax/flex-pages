@@ -76,7 +76,7 @@ export const config = {
         {label: 'Square', value: 'square'},
       ]},
       {name: 'card_size', label: 'Size', help: 'A single number representing 10px increments', type: 'number'},
-      {name: 'card_columns', label: 'Columns', help: 'Number of columns (works with Size)', type: 'number'},
+      {name: 'card_columns', label: 'Columns', help: 'Maximum cards per row. Rows reflow to fewer columns as the container narrows. Optionally pair with Size to set the minimum card width before wrapping.', type: 'number'},
       {name: 'accent_colors', label: 'Accent Colors', type: 'text', help: 'Comma-separated hex colors for the top accent bar, cycled per card (needs Accent Size). e.g. #ff0000,#00ff00,#0000ff'},
       {name: 'divider_colors', label: 'Divider Colors', type: 'text', help: 'Comma-separated hex colors for card divider lines, cycled per card. e.g. #ff0000,#00ff00'},
       {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex background color for cards'},
