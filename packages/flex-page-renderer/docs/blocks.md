@@ -34,7 +34,7 @@ Most blocks have a data-node `value`, but some hold a single scalar `value` inst
 
 A block may be placed in a slot when the slot's allowed categories include one of the block's categories.
 
-- **content**: Accordion (`accordion`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`)
+- **content**: Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`)
 - **page**: Page (`flex_page`)
 - **structure**: Columns (`columns`), Divider (`divider`), HTML (`html`), Hero (`hero`), Section (`section`), Tabbed Content (`tabbed_content`)
 
@@ -117,6 +117,31 @@ _Allow Multiple Open (`allow_multiple`) options:_
 | Header | `header` | text | Yes |  |
 | Content | `content` | rich text | Yes |  |
 | ID | `id` | text |  | The HTML id of the item (can be referenced by anchor links). |
+
+### Big Number — `big_number`
+
+*Categories: content*
+
+A large statistic with an optional caption, e.g. "8M+ learners".
+
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
+
+**Fields**
+
+| Field | Key | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| Number | `number` | text | Yes | The statistic to display large, e.g. 8M+. |
+| Caption | `caption` | text |  | Optional supporting text shown below the number. |
+| Color | `color` | select |  | Brand color for the number. Defaults to the inherited text color. |
+
+_Color (`color`) options:_
+
+| Value | Label |
+| --- | --- |
+| `` | Default |
+| `blue` | Blue |
+| `green` | Green |
+| `orange` | Orange |
 
 ### Call to Action — `cta_block`
 
@@ -251,8 +276,8 @@ A two-column layout that stacks vertically on smaller screens, with configurable
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Left Column Content | `leftContent` | Accordion (`accordion`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
-| Right Column Content | `rightContent` | Accordion (`accordion`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Left Column Content | `leftContent` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Right Column Content | `rightContent` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -346,7 +371,7 @@ Like a section, but with a dedicated image on one side and rich options for how 
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Content | `content` | Accordion (`accordion`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -561,7 +586,7 @@ A fixed-width container for content blocks — the primary content container for
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Section Content | `content` | Accordion (`accordion`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Section Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -709,7 +734,7 @@ A styled container that wraps content blocks, with configurable background, padd
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Well Content | `content` | Accordion (`accordion`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Well Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
 
 **Fields**
 

@@ -34,9 +34,22 @@
     }
   }
 
+  // Headings render in OpenStax blue by default (CORE-2302).
+  h1, h2 {
+    color: os-color(blue);
+  }
+
   p {
     @include set-font(body-regular);
     margin: $normal-margin 0;
+  }
+
+  // Image captions render small and muted.
+  figcaption {
+    @include set-font(body-regular);
+    margin: 0;
+    font-size: 1.3rem;
+    color: os-color(gray);
   }
 
   // Style in-text links so the renderer is self-contained. Hosts like
