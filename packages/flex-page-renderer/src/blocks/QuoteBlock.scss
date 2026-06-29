@@ -64,6 +64,12 @@
         }
         > .content-block-rich-text {
             margin-top: 2rem;
+
+            // Center the quote mark over the centered text; the base
+            // left-aligns it for the side-by-side layouts.
+            &:before {
+                text-align: center;
+            }
         }
     }
     &.quote-layout-compact {
