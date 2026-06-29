@@ -3,7 +3,7 @@
 .flex-page.page div.content-block-cards {
     display: grid;
 
-    // Smallest a card gets before the grid wraps to fewer columns. Overridable
+    // Smallest a card gets before the grid wraps to fewer columns. Adjustable
     // per block via the Min card width config.
     --col-floor: 18rem;
 
