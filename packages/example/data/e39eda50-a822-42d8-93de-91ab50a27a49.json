@@ -346,6 +346,18 @@
                           }
                         },
                         "id": "acc00001"
+                      },
+                      {
+                        "text": "Table",
+                        "ariaLabel": "Table Component",
+                        "target": {
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "4d8e2f1a-7c3b-4e6d-9a1f-2b5c8d0e3f7a"
+                          }
+                        },
+                        "id": "tbl00001"
                       }
                     ],
                     "config": [
