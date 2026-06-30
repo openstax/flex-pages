@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.personConfig = exports.PersonComponent = exports.fetchBooks = exports.prefetch = exports.createBookTilePrefetch = exports.config = exports.createBookTileList = exports.Component = void 0;
+var BookTileListBlock_component_js_1 = require("./blocks/BookTileListBlock.component.js");
+Object.defineProperty(exports, "Component", { enumerable: true, get: function () { return BookTileListBlock_component_js_1.Component; } });
+Object.defineProperty(exports, "createBookTileList", { enumerable: true, get: function () { return BookTileListBlock_component_js_1.createBookTileList; } });
+var BookTileListBlock_config_js_1 = require("./blocks/BookTileListBlock.config.js");
+Object.defineProperty(exports, "config", { enumerable: true, get: function () { return BookTileListBlock_config_js_1.config; } });
+var BookTileListBlock_prefetch_js_1 = require("./blocks/BookTileListBlock.prefetch.js");
+Object.defineProperty(exports, "createBookTilePrefetch", { enumerable: true, get: function () { return BookTileListBlock_prefetch_js_1.createBookTilePrefetch; } });
+Object.defineProperty(exports, "prefetch", { enumerable: true, get: function () { return BookTileListBlock_prefetch_js_1.prefetch; } });
+var fetchBooks_js_1 = require("./lib/fetchBooks.js");
+Object.defineProperty(exports, "fetchBooks", { enumerable: true, get: function () { return fetchBooks_js_1.fetchBooks; } });
+var PersonBlock_component_js_1 = require("./blocks/PersonBlock.component.js");
+Object.defineProperty(exports, "PersonComponent", { enumerable: true, get: function () { return PersonBlock_component_js_1.PersonBlock; } });
+var PersonBlock_config_js_1 = require("./blocks/PersonBlock.config.js");
+Object.defineProperty(exports, "personConfig", { enumerable: true, get: function () { return PersonBlock_config_js_1.config; } });
