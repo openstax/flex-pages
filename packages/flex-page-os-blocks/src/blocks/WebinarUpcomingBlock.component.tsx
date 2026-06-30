@@ -12,6 +12,7 @@ export function createWebinarUpcoming(fetchWebinars: FetchWebinars) {
     const subject = data.value.subject || undefined;
     const descriptionWords = Number(data.value.description_words) || undefined;
     const perPage = Number(data.value.per_page) || undefined;
+    const ctaText = data.value.cta_text || undefined;
     const select = React.useCallback(
       (all: Webinar[], now: Date) => selectUpcoming(all, now, {subject, limit: count}),
       [subject, count]);
@@ -19,7 +20,7 @@ export function createWebinarUpcoming(fetchWebinars: FetchWebinars) {
 
     return <div className="content-block-webinars content-block-webinars-upcoming">
       {webinars.length
-        ? <WebinarCardGrid webinars={webinars} blockId={data.id} descriptionWords={descriptionWords} perPage={perPage} />
+        ? <WebinarCardGrid webinars={webinars} blockId={data.id} descriptionWords={descriptionWords} ctaText={ctaText} perPage={perPage} />
         : <p className="webinar-empty">No upcoming webinars right now — check back soon.</p>}
     </div>;
   };

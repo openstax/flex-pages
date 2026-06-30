@@ -22,7 +22,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
-    margin: 0.5rem 0 0;
+    // Top margin separates tags from the body; bottom opens space before the CTA.
+    margin: 0.75rem 0 1.25rem;
     padding: 0;
     list-style: none;
   }

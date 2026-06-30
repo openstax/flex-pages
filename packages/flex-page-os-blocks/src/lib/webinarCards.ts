@@ -35,7 +35,8 @@ function webinarCardHtml(webinar: Webinar, descriptionWords?: number): string {
 
 export function webinarsToCards(
   webinars: Webinar[],
-  opts: {id: string; descriptionWords?: number},
+  // `ctaText` overrides each webinar's own register-link text when set.
+  opts: {id: string; descriptionWords?: number; ctaText?: string},
 ): CardsBlockConfig {
   return {
     id: opts.id,
@@ -45,7 +46,7 @@ export function webinarsToCards(
         text: webinarCardHtml(webinar, opts.descriptionWords),
         ctaBlock: webinar.registrationUrl
           ? [{
-              text: webinar.registrationText,
+              text: opts.ctaText || webinar.registrationText,
               target: {type: 'url', value: webinar.registrationUrl},
               config: [{type: 'style' as const, value: 'orange'}],
             }]

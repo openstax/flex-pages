@@ -8,10 +8,11 @@ import './Webinars.css';
 // Renders a list of webinars as a Cards-block grid, optionally paginated. When
 // `perPage` is set, shows one page at a time with prev/next controls; `resetKey`
 // (e.g. the active subject) snaps back to page 1 when it changes.
-export function WebinarCardGrid({webinars, blockId, descriptionWords, perPage, resetKey}: {
+export function WebinarCardGrid({webinars, blockId, descriptionWords, ctaText, perPage, resetKey}: {
   webinars: Webinar[];
   blockId: string;
   descriptionWords?: number;
+  ctaText?: string;
   perPage?: number;
   resetKey?: string;
 }) {
@@ -25,7 +26,7 @@ export function WebinarCardGrid({webinars, blockId, descriptionWords, perPage, r
   const items = perPage ? webinars.slice(safePage * perPage, (safePage + 1) * perPage) : webinars;
 
   return <>
-    <CardsBlock data={webinarsToCards(items, {id: blockId, descriptionWords})} />
+    <CardsBlock data={webinarsToCards(items, {id: blockId, descriptionWords, ctaText})} />
     {perPage && pageCount > 1
       ? <nav className="webinar-pagination" aria-label="Webinar pages">
           <button type="button" disabled={safePage === 0} onClick={() => setPage(safePage - 1)}>Previous</button>

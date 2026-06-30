@@ -16,6 +16,7 @@ export function createWebinarLibrary(fetchWebinars: FetchWebinars) {
     const count = Number(data.value.count) || undefined;
     const descriptionWords = Number(data.value.description_words) || undefined;
     const perPage = Number(data.value.per_page) || undefined;
+    const ctaText = data.value.cta_text || undefined;
 
     const filtered = subject ? webinars.filter((w) => w.subjects.includes(subject)) : webinars;
     const capped = count ? filtered.slice(0, count) : filtered;
@@ -34,6 +35,7 @@ export function createWebinarLibrary(fetchWebinars: FetchWebinars) {
             webinars={capped}
             blockId={data.id}
             descriptionWords={descriptionWords}
+            ctaText={ctaText}
             perPage={perPage}
             resetKey={subject}
           />

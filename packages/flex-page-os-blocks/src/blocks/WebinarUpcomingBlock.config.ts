@@ -11,6 +11,7 @@ export interface WebinarUpcomingBlockConfig {
     subject?: string;
     description_words?: number;
     per_page?: number;
+    cta_text?: string;
   };
   prefetched?: Webinar[];
 }
@@ -29,5 +30,7 @@ export const config = {
       help: 'Trim each description to at most this many words. Leave blank for the full text.'},
     {name: 'per_page', label: 'Per Page', type: 'number',
       help: 'Show this many at a time with Previous/Next controls. Leave blank to show all at once.'},
+    {name: 'cta_text', label: 'Call-to-action Text', type: 'text',
+      help: "Override the link label on every card, e.g. Register now. Leave blank to use each webinar's own text."},
   ],
 };
