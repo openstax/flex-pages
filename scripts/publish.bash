@@ -21,6 +21,7 @@ git checkout -b "$release_branch_name"
 
 packages=( \
   "renderer" \
+  "os-blocks" \
   "editor" \
   "editor-quill-extension" \
   "editor-select-extension" \
