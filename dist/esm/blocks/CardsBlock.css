@@ -1,0 +1,26 @@
+.flex-page.page div.content-block-cards > .content-block-card > .content-block-rich-text {
+  flex: 1;
+}
+.flex-page.page div.content-block-cards > .content-block-card hr {
+  border: none;
+  height: 5px;
+  margin: 2rem 0;
+}
+.flex-page.page div.content-block-cards > .content-block-card:nth-child(4n+1) hr {
+  background-color: #f4d019;
+}
+.flex-page.page div.content-block-cards > .content-block-card:nth-child(4n+2) hr {
+  background-color: #0dc0dc;
+}
+.flex-page.page div.content-block-cards > .content-block-card:nth-child(4n+3) hr {
+  background-color: #f36b32;
+}
+.flex-page.page div.content-block-cards > .content-block-card:nth-child(4n+4) hr {
+  background-color: #63a524;
+}
+
+.flex-page.page div.content-block-cards.has-custom-divider > .content-block-card hr {
+  background-color: var(--card-divider);
+}
+
+/*# sourceMappingURL=CardsBlock.css.map */

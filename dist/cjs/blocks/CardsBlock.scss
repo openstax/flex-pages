@@ -1,0 +1,33 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+// Rich-text-content-specific rules for cards. Grid + card chrome live in
+// CardGrid.scss (shared with PersonBlock); these rules are only relevant to
+// CardsBlock's rich-text cards, so they stay here and load only with CardsBlock.
+.flex-page.page div.content-block-cards > .content-block-card {
+  > .content-block-rich-text {
+    flex: 1;
+  }
+
+  hr {
+    border: none;
+    height: 5px;
+    margin: 2rem 0;
+  }
+
+  &:nth-child(4n+1) hr {
+    background-color: os-color(yellow);
+  }
+  &:nth-child(4n+2) hr {
+    background-color: os-color(light-blue);
+  }
+  &:nth-child(4n+3) hr {
+    background-color: os-color(orange);
+  }
+  &:nth-child(4n+4) hr {
+    background-color: os-color(green);
+  }
+}
+
+.flex-page.page div.content-block-cards.has-custom-divider > .content-block-card hr {
+  background-color: var(--card-divider);
+}
