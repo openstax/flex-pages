@@ -12,7 +12,7 @@ export function WebinarCardGrid({webinars, blockId, descriptionWords, ctaText, p
   webinars: Webinar[];
   blockId: string;
   descriptionWords?: number;
-  ctaText?: string;
+  ctaText?: string | ((webinar: Webinar) => string | undefined);
   perPage?: number;
   resetKey?: string;
 }) {

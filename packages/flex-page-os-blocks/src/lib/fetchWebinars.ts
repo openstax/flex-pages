@@ -103,6 +103,16 @@ export function selectPast(webinars: Webinar[], now: Date): Webinar[] {
   return webinars.filter((w) => endMs(w) < t).sort((a, b) => startMs(b) - startMs(a));
 }
 
+// The whole timeline: upcoming (soonest first) followed by past (most recent first).
+export function selectAll(webinars: Webinar[], now: Date): Webinar[] {
+  return [...selectUpcoming(webinars, now), ...selectPast(webinars, now)];
+}
+
+// A webinar is past once its end (or start, if no end) is before now.
+export function isPast(webinar: Webinar, now: Date): boolean {
+  return endMs(webinar) < now.getTime();
+}
+
 export function selectById(webinars: Webinar[], id: number | undefined): Webinar | undefined {
   return id === undefined ? undefined : webinars.find((w) => w.id === id);
 }

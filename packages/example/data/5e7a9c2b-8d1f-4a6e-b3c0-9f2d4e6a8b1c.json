@@ -49,7 +49,8 @@
             "value": {
               "content": [
                 {"type": "text", "value": "<h2>Upcoming Webinars</h2><p>The next few webinars, soonest first. Set how many to show, an optional subject, and a description word limit.</p>", "id": "0004-text"},
-                {"type": "webinar_upcoming", "value": {"count": 3, "description_words": 25, "cta_text": "Register now"}, "id": "0004-webinar-upcoming"}
+                {"type": "webinar_upcoming", "value": {"count": 3, "description_words": 25, "cta_text": "Register now"}, "id": "0004-webinar-upcoming"},
+                {"type": "text", "value": "<h3>Config options</h3><ul><li><b>count</b> — how many upcoming webinars to show (default 3).</li><li><b>subject</b> — optional; show only webinars tagged with this subject, e.g. Science.</li><li><b>description_words</b> — trim each description to at most this many words.</li><li><b>per_page</b> — show this many at a time with Previous/Next controls.</li><li><b>cta_text</b> — override the register-link label on every card.</li></ul><p>Used here: <code>{&quot;count&quot;: 3, &quot;description_words&quot;: 25, &quot;cta_text&quot;: &quot;Register now&quot;}</code></p>", "id": "0004-text-config"}
               ],
               "config": [{"type": "padding", "value": 1, "id": "0004-cfg-pad"}]
             },
@@ -60,7 +61,8 @@
             "value": {
               "content": [
                 {"type": "text", "value": "<h2>Featured Webinar</h2><p>A single webinar highlighted by its id.</p>", "id": "0005-text"},
-                {"type": "webinar_highlight", "value": {"webinar_id": 445}, "id": "0005-webinar-highlight"}
+                {"type": "webinar_highlight", "value": {"webinar_id": 445}, "id": "0005-webinar-highlight"},
+                {"type": "text", "value": "<h3>Config options</h3><ul><li><b>webinar_id</b> — required; the id of the webinar to feature, from the feed.</li><li><b>eyebrow</b> — small label shown above the webinar (default &quot;Featured webinar&quot;).</li></ul><p>Used here: <code>{&quot;webinar_id&quot;: 445}</code></p>", "id": "0005-text-config"}
               ],
               "config": [{"type": "padding", "value": 1, "id": "0005-cfg-pad"}]
             },
@@ -70,8 +72,9 @@
             "type": "section",
             "value": {
               "content": [
-                {"type": "text", "value": "<h2>Webinar Library</h2><p>Past webinars, most recent first. Use the subject filter to narrow the list; each card shows its collections as tags. This example caps the list, trims descriptions, and paginates 6 per page.</p>", "id": "0006-text"},
-                {"type": "webinar_library", "value": {"count": 18, "description_words": 20, "per_page": 6, "cta_text": "Watch recording"}, "id": "0006-webinar-library"}
+                {"type": "text", "value": "<h2>Webinar Library</h2><p>All webinars in one block, filterable by subject; each card shows its collections as tags. Upcoming webinars get a Register link and past ones get a Watch recording link. This example trims descriptions and paginates 6 per page.</p>", "id": "0006-text"},
+                {"type": "webinar_library", "value": {"show": "all", "description_words": 20, "per_page": 6, "future_cta_text": "Register now", "past_cta_text": "Watch recording"}, "id": "0006-webinar-library"},
+                {"type": "text", "value": "<h3>Config options</h3><ul><li><b>show</b> — which webinars to list: <code>past</code> (default), <code>upcoming</code>, or <code>all</code>.</li><li><b>default_subject</b> — optional; pre-select this subject in the filter (readers can change it).</li><li><b>count</b> — maximum webinars to show after filtering (blank shows all).</li><li><b>description_words</b> — trim each description to at most this many words.</li><li><b>per_page</b> — show this many at a time with Previous/Next controls.</li><li><b>future_cta_text</b> — link label on upcoming webinars, e.g. Register now.</li><li><b>past_cta_text</b> — link label on past webinars, e.g. Watch recording.</li></ul><p>Used here: <code>{&quot;show&quot;: &quot;all&quot;, &quot;description_words&quot;: 20, &quot;per_page&quot;: 6, &quot;future_cta_text&quot;: &quot;Register now&quot;, &quot;past_cta_text&quot;: &quot;Watch recording&quot;}</code></p>", "id": "0006-text-config"}
               ],
               "config": [{"type": "padding", "value": 1, "id": "0006-cfg-pad"}]
             },

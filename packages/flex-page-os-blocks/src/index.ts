@@ -17,6 +17,6 @@ export type { WebinarUpcomingBlockConfig } from './blocks/WebinarUpcomingBlock.c
 export type { WebinarLibraryBlockConfig } from './blocks/WebinarLibraryBlock.config.js';
 export type { WebinarHighlightBlockConfig } from './blocks/WebinarHighlightBlock.config.js';
 export {
-  fetchWebinars, selectUpcoming, selectPast, selectById, subjectsOf,
+  fetchWebinars, selectUpcoming, selectPast, selectAll, selectById, isPast, subjectsOf,
 } from './lib/fetchWebinars.js';
 export type { FetchWebinars, Webinar } from './lib/fetchWebinars.js';

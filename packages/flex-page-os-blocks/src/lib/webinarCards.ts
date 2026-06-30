@@ -35,23 +35,27 @@ function webinarCardHtml(webinar: Webinar, descriptionWords?: number): string {
 
 export function webinarsToCards(
   webinars: Webinar[],
-  // `ctaText` overrides each webinar's own register-link text when set.
-  opts: {id: string; descriptionWords?: number; ctaText?: string},
+  // `ctaText` overrides each webinar's own register-link text: a fixed string, or
+  // a per-webinar resolver (e.g. different text for past vs future).
+  opts: {id: string; descriptionWords?: number; ctaText?: string | ((webinar: Webinar) => string | undefined)},
 ): CardsBlockConfig {
   return {
     id: opts.id,
     type: 'cards_block',
     value: {
-      cards: webinars.map((webinar) => ({
-        text: webinarCardHtml(webinar, opts.descriptionWords),
-        ctaBlock: webinar.registrationUrl
-          ? [{
-              text: opts.ctaText || webinar.registrationText,
-              target: {type: 'url', value: webinar.registrationUrl},
-              config: [{type: 'style' as const, value: 'orange'}],
-            }]
-          : [],
-      })),
+      cards: webinars.map((webinar) => {
+        const ctaText = typeof opts.ctaText === 'function' ? opts.ctaText(webinar) : opts.ctaText;
+        return {
+          text: webinarCardHtml(webinar, opts.descriptionWords),
+          ctaBlock: webinar.registrationUrl
+            ? [{
+                text: ctaText || webinar.registrationText,
+                target: {type: 'url', value: webinar.registrationUrl},
+                config: [{type: 'style' as const, value: 'orange'}],
+              }]
+            : [],
+        };
+      }),
       // A card style is required for the card chrome (border/padding/background).
       config: [{type: 'card_style', value: 'rounded', id: `${opts.id}-style`}],
     } as CardsBlockConfig['value'],
