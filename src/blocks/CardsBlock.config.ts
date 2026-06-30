@@ -13,6 +13,10 @@ type CardConfig = {
   id: string;
   value: string;
 } | {
+  type: 'card_min_size';
+  id: string;
+  value: string;
+} | {
   type: 'accent_colors';
   id: string;
   value: string;
@@ -26,6 +30,22 @@ type CardConfig = {
   value: string;
 } | {
   type: 'border_size';
+  id: string;
+  value: string;
+} | {
+  type: 'accent_size';
+  id: string;
+  value: string;
+} | {
+  type: 'padding';
+  id: string;
+  value: string;
+} | {
+  type: 'padding_top';
+  id: string;
+  value: string;
+} | {
+  type: 'padding_bottom';
   id: string;
   value: string;
 };
@@ -60,11 +80,16 @@ export const config = {
         {label: 'Square', value: 'square'},
       ]},
       {name: 'card_size', label: 'Size', help: 'A single number representing 10px increments', type: 'number'},
-      {name: 'card_columns', label: 'Columns', help: 'Number of columns (works with Size)', type: 'number'},
-      {name: 'accent_colors', label: 'Accent Colors', type: 'text', help: 'Comma-separated hex colors for card borders/shadows, e.g. #ff0000,#00ff00,#0000ff'},
-      {name: 'divider_colors', label: 'Divider Colors', type: 'text', help: 'Comma-separated hex colors for card divider lines, e.g. #ff0000,#00ff00'},
+      {name: 'card_columns', label: 'Columns', help: 'Maximum cards per row. Rows reflow to fewer columns as the container narrows; set Min card width to control when.', type: 'number'},
+      {name: 'card_min_size', label: 'Min card width', help: 'Smallest a card gets before the grid wraps to fewer columns, in 10px increments (e.g. 18 = 180px). Defaults to 18.', type: 'number'},
+      {name: 'accent_colors', label: 'Accent Colors', type: 'text', help: 'Comma-separated hex colors for the top accent bar, cycled per card (needs Accent Size). e.g. #ff0000,#00ff00,#0000ff'},
+      {name: 'divider_colors', label: 'Divider Colors', type: 'text', help: 'Comma-separated hex colors for card divider lines, cycled per card. e.g. #ff0000,#00ff00'},
       {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex background color for cards'},
-      {name: 'border_size', label: 'Border Size', type: 'number', help: 'Border thickness in pixels. Rounded: border width (default: 1px). Square: top accent height (default: 10px).'},
+      {name: 'border_size', label: 'Border Size', type: 'number', help: 'Outer border width in px, all sides. Leave blank for the style default; 0 = no border.'},
+      {name: 'accent_size', label: 'Accent Size', type: 'number', help: 'Top accent bar height in px, independent of the border. Color comes from Accent Colors (or a default palette).'},
+      {name: 'padding', label: 'Padding', type: 'number', help: 'Top and bottom spacing around the block, in 10px increments.'},
+      {name: 'padding_top', label: 'Padding Top', type: 'number', help: 'Top spacing around the block, in 10px increments.'},
+      {name: 'padding_bottom', label: 'Padding Bottom', type: 'number', help: 'Bottom spacing around the block, in 10px increments.'},
     ]},
   ],
 };

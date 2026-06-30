@@ -7,29 +7,43 @@ import type { CardBlockConfig, CardsBlockConfig } from './CardsBlock.config.js';
 import { RichTextContent } from './RichTextBlock.component.js';
 import './CardsBlock.css';
 
+// A config value counts as "set" when it is present and non-empty. Used so an
+// explicit 0 (a falsy but meaningful value) is treated as set, not absent.
+const present = (v?: string): v is string => v != null && v !== '';
+
+// accent_colors / divider_colors arrive as a comma-separated string. Split into
+// a trimmed list of colors; empty -> undefined so the class isn't added.
+const toColorList = (raw?: string): string[] | undefined => {
+  if (raw == null) return undefined;
+  const list = raw.split(',').map((c) => c.trim()).filter(Boolean);
+  return list.length ? list : undefined;
+};
+
 export function CardsBlock({data}: {data: CardsBlockConfig}) {
   const cardStyle = findByType(data.value.config, 'card_style')?.value;
   const styleClass = cardStyle ? `card_style_${cardStyle}` : undefined;
   const cardSize = findByType(data.value.config, 'card_size')?.value;
   const cardColumns = findByType(data.value.config, 'card_columns')?.value;
-  const accentColorsRaw = findByType(data.value.config, 'accent_colors')?.value;
-  const accentColors = accentColorsRaw
-    ? accentColorsRaw.split(',').map((c: string) => c.trim()).filter(Boolean)
-    : undefined;
-  const dividerColorsRaw = findByType(data.value.config, 'divider_colors')?.value;
-  const dividerColors = dividerColorsRaw
-    ? dividerColorsRaw.split(',').map((c: string) => c.trim()).filter(Boolean)
-    : undefined;
+  const cardMinSize = findByType(data.value.config, 'card_min_size')?.value;
+  const accentColors = toColorList(findByType(data.value.config, 'accent_colors')?.value);
+  const dividerColors = toColorList(findByType(data.value.config, 'divider_colors')?.value);
   const backgroundColor = findByType(data.value.config, 'background_color')?.value;
   const isDarkBg = backgroundColor ? Color(backgroundColor).isDark() : false; // eslint-disable-line new-cap
   const borderSize = findByType(data.value.config, 'border_size')?.value;
+  const accentSize = findByType(data.value.config, 'accent_size')?.value;
+  const padding = findByType(data.value.config, 'padding')?.value;
+  const paddingTop = findByType(data.value.config, 'padding_top')?.value;
+  const paddingBottom = findByType(data.value.config, 'padding_bottom')?.value;
 
   return (
     <div
       className={cn(
         'content-block-cards',
         styleClass,
+        present(cardSize) && 'has-size',
         cardColumns && 'has-columns',
+        present(cardMinSize) && 'has-min-size',
+        present(accentSize) && 'has-accent-size',
         accentColors && 'has-custom-accent',
         dividerColors && 'has-custom-divider',
         isDarkBg && 'dark-card-background',
@@ -37,8 +51,15 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
       style={{
         '--card-size': cardSize,
         '--card-columns': cardColumns,
-        ...(backgroundColor ? {'--card-bg-color': backgroundColor} : {}),
-        ...(borderSize ? {'--card-border-size': `${borderSize}px`} : {}),
+        '--card-min-size': cardMinSize,
+        // Set value-bearing vars only when present, so an explicit 0
+        // (e.g. border_size: 0 = no border) wins over the SCSS fallback.
+        ...(present(backgroundColor) ? {'--card-bg-color': backgroundColor} : {}),
+        ...(present(borderSize) ? {'--card-border-size': `${borderSize}px`} : {}),
+        ...(present(accentSize) ? {'--card-accent-size': `${accentSize}px`} : {}),
+        ...(present(padding) ? {'--card-padding': padding} : {}),
+        ...(present(paddingTop) ? {'--card-padding-top': paddingTop} : {}),
+        ...(present(paddingBottom) ? {'--card-padding-bottom': paddingBottom} : {}),
       } as React.CSSProperties}
     >
       {data.value.cards.map((card, i) => <CardBlock
