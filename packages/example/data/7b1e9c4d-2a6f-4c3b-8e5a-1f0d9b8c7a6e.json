@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "title": "Rice News Cards",
+    "description": "Documentation and examples for the OpenStax Rice News Cards component.",
+    "url": "rice-news-cards"
+  },
+  "page": [
+    {
+      "id": "rice-news-cards-page",
+      "type": "flex_page",
+      "value": {
+        "content": [
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p><b>Page Content:</b></p>",
+                  "id": "0001-text-category"
+                },
+                {
+                  "type": "text",
+                  "value": "<h1>Rice News Cards</h1>",
+                  "id": "0001-text-title"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 7,
+                  "id": "0001-cfg-pad"
+                },
+                {
+                  "type": "background_color",
+                  "value": "#0dc0dc",
+                  "id": "0001-cfg-bg"
+                }
+              ]
+            },
+            "id": "0001-section-title"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
+                  "id": "0002-text-breadcrumb"
+                }
+              ],
+              "config": []
+            },
+            "id": "0002-section-breadcrumb"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Overview</h2><p>Rice News Cards renders the most recent articles from the <a href=\"https://news.rice.edu\">Rice News</a> feed as a grid of cards. Each card shows the article's publication month and year, its title, a short summary, and a call-to-action link to the full article. You choose how many articles to display.</p><p>The cards are drawn with the standard <a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;d1031693-b529-4ebc-a738-c637bb389f8e&quot;}\">Cards block</a> layout, so the same styling options (style, columns, size, colors) apply.</p><p>This block ships in <code>@openstax/flex-page-os-blocks</code> rather than the generic renderer, because it is coupled to a specific external feed. Article data is loaded server-side so the cards render with their content on first paint.</p>",
+                  "id": "0003-text-overview"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "0003-cfg-pad"
+                }
+              ]
+            },
+            "id": "0003-section-overview"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Config</h2><p>Rice News Cards takes a few feed options plus the same styling config as the Cards block.</p><h3>The options</h3><p><b>count</b>: how many of the most recent articles to display (default: 3).</p><p><b>button_text</b>: the call-to-action label shown on every card (default: “Read more”).</p><p><b>summary_words</b>: trim each summary to at most this many words (blank shows the full summary).</p><p><b>show_image</b>: whether to show each article's featured image at the top of its card (default: hidden). The image is pulled from the feed alongside the article.</p><p><b>tag_id</b>: the Rice news taxonomy term id to filter by (default: 1236, the OpenStax news tag). Change it to surface a different topic feed.</p><p><b>config</b>: card styling, passed straight through to the Cards block — <b>Style</b> (rounded / square), <b>Size</b>, <b>Columns</b>, <b>Accent Colors</b>, <b>Divider Colors</b>, <b>Background Color</b>, and <b>Border Size</b>.</p>",
+                  "id": "0004-text-config"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "0004-cfg-pad"
+                }
+              ]
+            },
+            "id": "0004-section-config"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Example</h2><p>The six most recent OpenStax articles from the Rice News feed, in a three-column rounded layout with the featured image shown.</p>",
+                  "id": "0005-text-examples"
+                },
+                {
+                  "type": "news_card_list",
+                  "value": {
+                    "count": 6,
+                    "button_text": "Read more",
+                    "summary_words": 20,
+                    "show_image": "show",
+                    "config": [
+                      {
+                        "type": "card_style",
+                        "value": "rounded",
+                        "id": "0005-cfg-style"
+                      },
+                      {
+                        "type": "card_columns",
+                        "value": 3,
+                        "id": "0005-cfg-cols"
+                      },
+                      {
+                        "type": "card_size",
+                        "value": 30,
+                        "id": "0005-cfg-size"
+                      }
+                    ]
+                  },
+                  "id": "0005-news-card-list"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "0005-cfg-pad"
+                }
+              ]
+            },
+            "id": "0005-section-examples"
+          }
+        ]
+      }
+    }
+  ]
+}

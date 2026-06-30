@@ -1,0 +1,53 @@
+// List variant of the Rice News block: title links with a date caption.
+.content-block-news-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  .news-link-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid transparent;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .news-link {
+    font-weight: 600;
+    color: #0064b1;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Inline caption after the title link.
+  .news-link-date {
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+    color: #6f6f6f;
+    white-space: nowrap;
+
+    &::before {
+      content: "·";
+      margin-right: 0.5rem;
+    }
+  }
+
+  // Image variant: a small square thumbnail to the left of the title.
+  .news-link-item.has-image {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .news-link-thumb {
+      flex: 0 0 auto;
+      width: 3rem;
+      height: 3rem;
+      object-fit: cover;
+      border-radius: 0.25rem;
+    }
+  }
+}

@@ -430,6 +430,30 @@
                           }
                         },
                         "id": "0c2d3e4f"
+                      },
+                      {
+                        "text": "Rice News Cards",
+                        "ariaLabel": "Rice News Cards Component",
+                        "target": {
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "7b1e9c4d-2a6f-4c3b-8e5a-1f0d9b8c7a6e"
+                          }
+                        },
+                        "id": "0d3e4f50"
+                      },
+                      {
+                        "text": "Rice News Links",
+                        "ariaLabel": "Rice News Links Component",
+                        "target": {
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "3c9d2e8a-5f1b-4d7c-9a2e-6b8f0c1d4e3f"
+                          }
+                        },
+                        "id": "0e4f5061"
                       }
                     ],
                     "config": [

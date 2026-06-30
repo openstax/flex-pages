@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "title": "Rice News Links",
+    "description": "Documentation and examples for the OpenStax Rice News Links component.",
+    "url": "rice-news-links"
+  },
+  "page": [
+    {
+      "id": "rice-news-links-page",
+      "type": "flex_page",
+      "value": {
+        "content": [
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p><b>Page Content:</b></p>",
+                  "id": "0001-text-category"
+                },
+                {
+                  "type": "text",
+                  "value": "<h1>Rice News Links</h1>",
+                  "id": "0001-text-title"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 7,
+                  "id": "0001-cfg-pad"
+                },
+                {
+                  "type": "background_color",
+                  "value": "#0dc0dc",
+                  "id": "0001-cfg-bg"
+                }
+              ]
+            },
+            "id": "0001-section-title"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
+                  "id": "0002-text-breadcrumb"
+                }
+              ],
+              "config": []
+            },
+            "id": "0002-section-breadcrumb"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Overview</h2><p>Rice News Links is the list variant of <a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;7b1e9c4d-2a6f-4c3b-8e5a-1f0d9b8c7a6e&quot;}\">Rice News Cards</a>. It loads the same recent articles from the <a href=\"https://news.rice.edu\">Rice News</a> feed, but renders them as a compact list: each article is a title link with its publication month and year shown as an inline caption.</p><p>Use it where a dense, scannable list fits better than a grid of cards — sidebars, footers, or “more news” sections. Like the card variant, it ships in <code>@openstax/flex-page-os-blocks</code> and loads its data server-side.</p>",
+                  "id": "0003-text-overview"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "0003-cfg-pad"
+                }
+              ]
+            },
+            "id": "0003-section-overview"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Config</h2><p>The list variant shares the feed controls with the card variant, plus an option to show the featured image.</p><h3>The options</h3><p><b>count</b>: how many of the most recent articles to display (default: 3).</p><p><b>show_image</b>: whether to show each article's featured image as a small thumbnail to the left of the title (default: hidden).</p><p><b>tag_id</b>: the Rice news taxonomy term id to filter by (default: 1236, the OpenStax news tag).</p>",
+                  "id": "0004-text-config"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "0004-cfg-pad"
+                }
+              ]
+            },
+            "id": "0004-section-config"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Example: default</h2><p>The eight most recent OpenStax articles from the Rice News feed, as title links with the publication date as an inline caption.</p>",
+                  "id": "0005-text-examples"
+                },
+                {
+                  "type": "news_link_list",
+                  "value": {
+                    "count": 8
+                  },
+                  "id": "0005-news-link-list"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "0005-cfg-pad"
+                }
+              ]
+            },
+            "id": "0005-section-examples"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2>Example: with featured images</h2><p>With <b>Featured Image</b> set to “Show”, each entry shows the article's featured image as a small thumbnail to the left of the title.</p>",
+                  "id": "0006-text-examples"
+                },
+                {
+                  "type": "news_link_list",
+                  "value": {
+                    "count": 4,
+                    "show_image": "show"
+                  },
+                  "id": "0006-news-link-list"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "0006-cfg-pad"
+                }
+              ]
+            },
+            "id": "0006-section-examples"
+          }
+        ]
+      }
+    }
+  ]
+}
