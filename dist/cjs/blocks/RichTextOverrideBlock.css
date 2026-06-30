@@ -1,0 +1,30 @@
+.flex-page.page div.content-block-rich-text.os-rich-text .eyebrow {
+  font-size: 1.6rem;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  line-height: 2.5rem;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5e6162;
+}
+.flex-page.page div.content-block-rich-text.os-rich-text .text-blue {
+  color: #002469;
+}
+.flex-page.page div.content-block-rich-text.os-rich-text .text-green {
+  color: #63a524;
+}
+.flex-page.page div.content-block-rich-text.os-rich-text .text-orange {
+  color: #f36b32;
+}
+.flex-page.page div.content-block-rich-text.os-rich-text .text-gray {
+  color: #5e6162;
+}
+.flex-page.page div.content-block-rich-text.os-rich-text .text-white {
+  color: #fff;
+}
+
+/*# sourceMappingURL=RichTextOverrideBlock.css.map */
