@@ -430,6 +430,18 @@
                           }
                         },
                         "id": "0c2d3e4f"
+                      },
+                      {
+                        "text": "Webinars",
+                        "ariaLabel": "Webinars Components",
+                        "target": {
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "5e7a9c2b-8d1f-4a6e-b3c0-9f2d4e6a8b1c"
+                          }
+                        },
+                        "id": "0f506172"
                       }
                     ],
                     "config": [

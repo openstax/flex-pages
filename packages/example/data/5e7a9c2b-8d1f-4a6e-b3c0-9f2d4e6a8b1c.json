@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "Webinars",
+    "description": "Documentation and examples for the OpenStax Webinar components.",
+    "url": "webinars"
+  },
+  "page": [
+    {
+      "id": "webinars-page",
+      "type": "flex_page",
+      "value": {
+        "content": [
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {"type": "text", "value": "<p><b>OpenStax blocks:</b></p>", "id": "0001-text-category"},
+                {"type": "text", "value": "<h1>Webinars</h1>", "id": "0001-text-title"}
+              ],
+              "config": [
+                {"type": "padding", "value": 7, "id": "0001-cfg-pad"},
+                {"type": "background_color", "value": "#0dc0dc", "id": "0001-cfg-bg"}
+              ]
+            },
+            "id": "0001-section-title"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {"type": "text", "value": "<p><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>", "id": "0002-text-breadcrumb"}
+              ],
+              "config": []
+            },
+            "id": "0002-section-breadcrumb"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {"type": "text", "value": "<h2>Overview</h2><p>Three blocks render OpenStax webinars from the CMS feed: <b>Upcoming Webinars</b> (a grid of the soonest events), <b>Webinar Library</b> (past webinars, filterable by subject, with collections shown as tags), and <b>Featured Webinar</b> (one webinar highlighted by id). All ship in <code>@openstax/flex-page-os-blocks</code> and load their data server-side. Upcoming vs. past is decided when the page is built, so rebuild to refresh.</p>", "id": "0003-text-overview"}
+              ],
+              "config": [{"type": "padding_bottom", "value": 1, "id": "0003-cfg-pad"}]
+            },
+            "id": "0003-section-overview"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {"type": "text", "value": "<h2>Upcoming Webinars</h2><p>The next few webinars, soonest first. Set how many to show, an optional subject, and a description word limit.</p>", "id": "0004-text"},
+                {"type": "webinar_upcoming", "value": {"count": 3, "description_words": 25}, "id": "0004-webinar-upcoming"}
+              ],
+              "config": [{"type": "padding", "value": 1, "id": "0004-cfg-pad"}]
+            },
+            "id": "0004-section"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {"type": "text", "value": "<h2>Featured Webinar</h2><p>A single webinar highlighted by its id.</p>", "id": "0005-text"},
+                {"type": "webinar_highlight", "value": {"webinar_id": 445}, "id": "0005-webinar-highlight"}
+              ],
+              "config": [{"type": "padding", "value": 1, "id": "0005-cfg-pad"}]
+            },
+            "id": "0005-section"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {"type": "text", "value": "<h2>Webinar Library</h2><p>Past webinars, most recent first. Use the subject filter to narrow the list; each card shows its collections as tags. This example caps the list, trims descriptions, and paginates 6 per page.</p>", "id": "0006-text"},
+                {"type": "webinar_library", "value": {"count": 18, "description_words": 20, "per_page": 6}, "id": "0006-webinar-library"}
+              ],
+              "config": [{"type": "padding", "value": 1, "id": "0006-cfg-pad"}]
+            },
+            "id": "0006-section"
+          }
+        ]
+      }
+    }
+  ]
+}

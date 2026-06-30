@@ -1,0 +1,99 @@
+// Webinar content reuses the renderer's Cards block for card chrome; these rules
+// only style the webinar-specific bits inside each card plus the filter and
+// pagination controls.
+
+.content-block-webinars {
+  .webinar-date {
+    margin: 0 0 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6f6f6f;
+  }
+
+  .webinar-speakers {
+    margin: 0 0 0.5rem;
+    font-style: italic;
+    color: #1d1d1d;
+  }
+
+  .webinar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .webinar-tag {
+    padding: 0.15rem 0.6rem;
+    font-size: 0.75rem;
+    background-color: #eef2f6;
+    border-radius: 1rem;
+    color: #41464b;
+  }
+
+  .webinar-empty {
+    margin: 0;
+    color: #6f6f6f;
+  }
+
+  .webinar-pagination {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+
+    button {
+      padding: 0.4rem 1rem;
+      font: inherit;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 0.25rem;
+      cursor: pointer;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: default;
+      }
+    }
+
+    .webinar-page-status {
+      font-size: 0.875rem;
+      color: #6f6f6f;
+    }
+  }
+}
+
+// Library subject filter.
+.content-block-webinars-library .webinar-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-width: 18rem;
+  margin-bottom: 1.5rem;
+
+  label {
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    font: inherit;
+  }
+}
+
+// Highlight: small eyebrow above the single featured card.
+.content-block-webinar-highlight .webinar-highlight-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #f47e42;
+}
