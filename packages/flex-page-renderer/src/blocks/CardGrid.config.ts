@@ -19,8 +19,10 @@ export interface ParsedCardGridConfig {
 const find = (config: CardGridConfigOption[], type: CardGridConfigOption['type']) =>
   config.find((c) => c.type === type)?.value;
 
-const splitColors = (raw?: string) =>
-  raw ? raw.split(',').map((c) => c.trim()).filter(Boolean) : undefined;
+const splitColors = (raw?: string) => {
+  const colors = raw ? raw.split(',').map((c) => c.trim()).filter(Boolean) : [];
+  return colors.length ? colors : undefined;
+};
 
 export function parseCardGridConfig(
   config: CardGridConfigOption[],

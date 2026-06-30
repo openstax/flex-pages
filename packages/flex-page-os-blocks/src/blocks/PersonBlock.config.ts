@@ -20,8 +20,8 @@ export interface PersonConfig {
   image?: ImageFields;
   short_bio?: string;
   full_bio?: string;
-  links: PersonLink[];
-  tags: PersonTag[];
+  links?: PersonLink[];
+  tags?: PersonTag[];
 }
 
 export interface PersonBlockConfig {

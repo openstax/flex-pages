@@ -74,6 +74,7 @@ function PersonCard({person}: {person: PersonConfig}) {
     ? {role: 'button', tabIndex: 0,
        onClick: () => setOpen(true),
        onKeyDown: (e: React.KeyboardEvent) => {
+         if (e.target !== e.currentTarget) return;
          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpen(true); }
        }}
     : {};

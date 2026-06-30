@@ -88,7 +88,8 @@
       color: text-color(white);
     }
 
-    h2, h3 {
+    .content-block-rich-text h2,
+    .content-block-rich-text h3 {
       @include scale-set-font(h4, h3);
     }
 
