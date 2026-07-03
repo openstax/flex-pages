@@ -1,0 +1,11 @@
+{
+  "versionGroups": [
+    {
+      "label": "Peer dependencies are intentionally loose ranges (react 18||19, internal ^1.x); leave them to each package to declare.",
+      "dependencyTypes": ["peer"],
+      "packages": ["**"],
+      "dependencies": ["**"],
+      "isIgnored": true
+    }
+  ]
+}

@@ -80,7 +80,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"qcfg1\">Config</h2><p data-block-key=\"qcfg2\"><b>accent_color</b>: hex color for the quote mark. defaults to orange.</p>",
+                  "value": "<h2 data-block-key=\"qcfg1\">Config</h2><p data-block-key=\"qcfg2\"><b>accent_color</b>: hex color for the quote mark. defaults to orange.</p><p data-block-key=\"qcfg3\"><b>layout</b>: how the image and text are arranged. one of <b>image-left</b> (default), <b>image-right</b>, <b>image-top</b>, or <b>compact</b> (small image, no quote mark).</p>",
                   "id": "qcfg-text-01"
                 }
               ],
@@ -102,6 +102,11 @@
                   "type": "text",
                   "value": "<h1 data-block-key=\"36jpq\">Examples</h1>",
                   "id": "f411eaea-b9b8-4574-8c72-8fde5fe7c5f1"
+                },
+                {
+                  "type": "text",
+                  "value": "<h3 data-block-key=\"qlay1\">Image Left (default)</h3>",
+                  "id": "qlay-text-left"
                 },
                 {
                   "type": "quote",
@@ -177,6 +182,93 @@
                     ]
                   },
                   "id": "qacc-quote-02"
+                },
+                {
+                  "type": "text",
+                  "value": "<h3 data-block-key=\"qlay2\">Image Right</h3>",
+                  "id": "qlay-text-right"
+                },
+                {
+                  "type": "quote",
+                  "value": {
+                    "image": {
+                      "id": 1080,
+                      "file": "https://assets.openstax.org/oscms-prodcms/media/images/michael-volo.max-800x600.webp",
+                      "title": "michael-volo",
+                      "height": 600,
+                      "width": 600,
+                      "created_at": "2024-08-07T10:47:07.129169-05:00"
+                    },
+                    "content": "<p data-block-key=\"qlay3\">This quote uses the image-right layout. The image should float to the right of the text.</p>",
+                    "name": "Michael Volo",
+                    "title": "Cool Guy",
+                    "config": [
+                      {
+                        "type": "layout",
+                        "value": "image-right",
+                        "id": "qlay-config-right"
+                      }
+                    ]
+                  },
+                  "id": "qlay-quote-right"
+                },
+                {
+                  "type": "text",
+                  "value": "<h3 data-block-key=\"qlay4\">Image Top</h3>",
+                  "id": "qlay-text-top"
+                },
+                {
+                  "type": "quote",
+                  "value": {
+                    "image": {
+                      "id": 1080,
+                      "file": "https://assets.openstax.org/oscms-prodcms/media/images/michael-volo.max-800x600.webp",
+                      "title": "michael-volo",
+                      "height": 600,
+                      "width": 600,
+                      "created_at": "2024-08-07T10:47:07.129169-05:00"
+                    },
+                    "content": "<p data-block-key=\"qlay5\">This quote uses the image-top layout. The image should be centered above the text.</p>",
+                    "name": "Michael Volo",
+                    "title": "Cool Guy",
+                    "config": [
+                      {
+                        "type": "layout",
+                        "value": "image-top",
+                        "id": "qlay-config-top"
+                      }
+                    ]
+                  },
+                  "id": "qlay-quote-top"
+                },
+                {
+                  "type": "text",
+                  "value": "<h3 data-block-key=\"qlay6\">Compact</h3>",
+                  "id": "qlay-text-compact"
+                },
+                {
+                  "type": "quote",
+                  "value": {
+                    "image": {
+                      "id": 1080,
+                      "file": "https://assets.openstax.org/oscms-prodcms/media/images/michael-volo.max-800x600.webp",
+                      "title": "michael-volo",
+                      "height": 600,
+                      "width": 600,
+                      "created_at": "2024-08-07T10:47:07.129169-05:00"
+                    },
+                    "content": "<p data-block-key=\"qlay7\">This quote uses the compact layout, with a small image and no quote mark — the \"did you know\" treatment.</p>",
+                    "name": "Michael Volo",
+                    "title": "Cool Guy",
+                    "config": [
+                      {
+                        "type": "layout",
+                        "value": "compact",
+                        "id": "qlay-config-compact"
+                      }
+                    ]
+                  },
+                  "id": "qlay-quote-compact"
                 }
               ],
               "config": [
