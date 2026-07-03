@@ -66,17 +66,18 @@
         margin: 2rem 0;
       }
 
+      // --card-divider is the card's Divider Color; the palette is the fallback.
       &:nth-child(4n+1) hr {
-        background-color: os-color(yellow);
+        background-color: var(--card-divider, #{os-color(yellow)});
       }
       &:nth-child(4n+2) hr {
-        background-color: os-color(light-blue);
+        background-color: var(--card-divider, #{os-color(light-blue)});
       }
       &:nth-child(4n+3) hr {
-        background-color: os-color(orange);
+        background-color: var(--card-divider, #{os-color(orange)});
       }
       &:nth-child(4n+4) hr {
-        background-color: os-color(green);
+        background-color: var(--card-divider, #{os-color(green)});
       }
     }
 
@@ -88,17 +89,18 @@
       background-color: var(--card-bg-color, ui-color(white));
       color: text-color(normal);
 
+      // --card-accent is the card's Accent Color; the palette is the fallback.
       &:nth-child(4n+1) {
-        border-color: os-color(yellow);
+        border-color: var(--card-accent, #{os-color(yellow)});
       }
       &:nth-child(4n+2) {
-        border-color: os-color(red);
+        border-color: var(--card-accent, #{os-color(red)});
       }
       &:nth-child(4n+3) {
-        border-color: os-color(orange);
+        border-color: var(--card-accent, #{os-color(orange)});
       }
       &:nth-child(4n+4) {
-        border-color: os-color(green);
+        border-color: var(--card-accent, #{os-color(green)});
       }
     }
 
@@ -110,21 +112,16 @@
       color: text-color(normal);
     }
 
-    &.has-custom-divider > .content-block-card hr {
-      background-color: var(--card-divider);
-    }
     // Top accent bar, on the square style only — rounded's full border clashes
     // with a square top bar; new styles that want the bar opt in here. Height
-    // from --card-accent-size; color from --card-accent or a default palette.
+    // from --card-accent-size; color from the card's Accent Color or a default
+    // palette.
     // stylelint-disable-next-line no-descending-specificity
     &.has-accent-size.card_style_square > .content-block-card {
-      &:nth-child(4n+1) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 os-color(blue); }
-      &:nth-child(4n+2) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 os-color(green); }
-      &:nth-child(4n+3) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 os-color(light-blue); }
-      &:nth-child(4n+4) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 os-color(red); }
-    }
-    &.has-accent-size.has-custom-accent.card_style_square > .content-block-card {
-      box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent);
+      &:nth-child(4n+1) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(blue)}); }
+      &:nth-child(4n+2) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(green)}); }
+      &:nth-child(4n+3) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(light-blue)}); }
+      &:nth-child(4n+4) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(red)}); }
     }
     &.dark-card-background > .content-block-card {
       color: text-color(white);
