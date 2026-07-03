@@ -117,14 +117,28 @@ $tab-scrollbar-strip: 10px;
     > .tab-panel {
       grid-area: 1 / 1;
       visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.15s ease-out, visibility 0s 0.15s;
 
       &.active {
         visibility: visible;
+        opacity: 1;
+        transition: opacity 0.15s ease-out, visibility 0s 0s;
       }
 
       &:focus-visible {
         outline: 2px solid var(--tab-active-color);
         outline-offset: 2px;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    > .tab-panels > .tab-panel {
+      transition: none;
+
+      &.active {
+        transition: none;
       }
     }
   }
