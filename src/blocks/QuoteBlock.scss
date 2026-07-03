@@ -2,7 +2,6 @@
 
 .flex-page.page div.content-block-quote {
     margin: ($normal-margin * 2) 0;
-    overflow: auto hidden;
 
     > img {
         padding: 3rem;
@@ -18,7 +17,7 @@
 
         &:before {
             color: var(--quote-accent-color, os-color(orange));
-            content: '“';
+            content: '"';
             line-height: 2.5rem;
             font-size: 6rem;
             font-weight: bold;
@@ -42,23 +41,31 @@
     }
 
     &.quote-layout-image-left {
+        display: flex;
+        align-items: flex-start;
+        gap: $normal-margin;
+
         > img {
-            float: left;
+            flex: none;
         }
         > .content-block-rich-text:before {
             left: -4rem;
         }
     }
     &.quote-layout-image-right {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        gap: $normal-margin;
+
         > img {
-            float: right;
+            flex: none;
         }
     }
     &.quote-layout-image-top {
         text-align: center;
 
         > img {
-            float: none;
             display: block;
             margin: 0 auto;
         }
@@ -73,7 +80,12 @@
         }
     }
     &.quote-layout-compact {
+        display: flex;
+        align-items: center;
+        gap: $normal-margin;
+
         > img {
+            flex: none;
             width: 12rem;
             padding: 1rem;
         }
@@ -87,16 +99,14 @@
     }
 
     // Stack the image above the text when the content container (not the
-    // viewport) is narrow, e.g. a quote inside a Hero column. Only the
-    // side-by-side layouts need it; image-top and compact lay out their own way.
+    // viewport) is narrow, e.g. a quote inside a Hero column.
     &.quote-layout-image-left,
     &.quote-layout-image-right {
         @container flex-content (max-width: #{$tablet-max}) {
+            flex-direction: column;
+            align-items: center;
             text-align: center;
 
-            > img {
-                float: none;
-            }
             .content-block-rich-text {
                 margin-top: 0;
                 padding: 0 5rem;
