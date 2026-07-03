@@ -165,7 +165,7 @@ const AddListItem = ({name, max}: {name: string; max?: number}) => {
   const listHelpers = Forms.useFormListHelpers();
   const items = formState.data[name] || [];
 
-  if (max && items.length > max) return null;
+  if (max && items.length >= max) return null;
 
   return <button type="button" onClick={
     () => listHelpers.addRecord()
