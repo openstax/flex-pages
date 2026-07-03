@@ -113,17 +113,17 @@
     &.has-custom-divider > .content-block-card hr {
       background-color: var(--card-divider);
     }
-    // Top accent bar, on every style except rounded — its full rounded border
-    // clashes with a square top bar. Height from --card-accent-size; color from
-    // --card-accent or a default palette.
+    // Top accent bar, on the square style only — rounded's full border clashes
+    // with a square top bar; new styles that want the bar opt in here. Height
+    // from --card-accent-size; color from --card-accent or a default palette.
     // stylelint-disable-next-line no-descending-specificity
-    &.has-accent-size:not(.card_style_rounded) > .content-block-card {
+    &.has-accent-size.card_style_square > .content-block-card {
       &:nth-child(4n+1) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 os-color(blue); }
       &:nth-child(4n+2) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 os-color(green); }
       &:nth-child(4n+3) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 os-color(light-blue); }
       &:nth-child(4n+4) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 os-color(red); }
     }
-    &.has-accent-size.has-custom-accent:not(.card_style_rounded) > .content-block-card {
+    &.has-accent-size.has-custom-accent.card_style_square > .content-block-card {
       box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent);
     }
     &.dark-card-background > .content-block-card {
