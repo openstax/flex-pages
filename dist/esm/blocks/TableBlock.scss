@@ -1,0 +1,183 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.content-block-table {
+  .table-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    max-width: 20rem;
+    margin-bottom: 1rem;
+
+    label {
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    input {
+      padding: 0.5rem;
+      border: 1px solid ui-color(form-border);
+      border-radius: 0.25rem;
+      font: inherit;
+    }
+  }
+
+  // Let wide tables scroll horizontally on desktop; mobile stacks instead.
+  .table-scroll {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  th,
+  td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid ui-color(form-border);
+  }
+
+  thead th {
+    border-bottom: 2px solid os-color(gray);
+    font-weight: 700;
+  }
+
+  table.condensed th,
+  table.condensed td {
+    padding: 0.35rem 0.6rem;
+  }
+
+  // Default zebra shade; inline Row Colors (set per <tr>) override it.
+  table.striped tbody tr:nth-child(even) {
+    background-color: ui-color(default-hover);
+  }
+
+  .table-sort {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0;
+    background: none;
+    border: none;
+    font: inherit;
+    font-weight: 700;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .table-sort-indicator {
+    font-size: 0.75em;
+    color: os-color(gray);
+  }
+
+  // Caption stand-in when a dynamic source yields no columns (no <table> to
+  // hold a real <caption>).
+  .table-caption {
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
+
+  .table-empty {
+    color: os-color(gray);
+    font-style: italic;
+  }
+
+  // Filter result count; also the aria-live region announcing changes.
+  .table-status {
+    min-height: 1.25rem;
+    margin: 0;
+    font-size: 0.875rem;
+    color: os-color(gray);
+  }
+
+  .table-show-more {
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: none;
+    border: 1px solid os-color(gray);
+    border-radius: 0.25rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      background-color: ui-color(default-hover);
+    }
+  }
+
+  // Responsive stacking: each row becomes a block; the header row is kept for
+  // screen readers (visually hidden) and each cell shows its column via
+  // data-label.
+  @media (max-width: 40rem) {
+    thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+
+      // Sort buttons inside the hidden header can still take keyboard focus;
+      // reveal the header while one has focus so focus never disappears
+      // off-screen.
+      &:focus-within {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+      }
+    }
+
+    table,
+    tbody,
+    tr,
+    td {
+      display: block;
+      width: 100%;
+    }
+
+    tr {
+      margin-bottom: 1rem;
+      border: 1px solid ui-color(form-border);
+    }
+
+    td {
+      position: relative;
+      padding-left: 45%;
+      border: none;
+      border-bottom: 1px solid ui-color(form-border);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0.6rem;
+        width: 40%;
+        font-weight: 700;
+      }
+
+      // The full-width empty/no-results cell has no data-label to show.
+      &.table-empty {
+        padding-left: 0.6rem;
+
+        &::before {
+          content: none;
+        }
+      }
+    }
+  }
+}
