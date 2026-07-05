@@ -66,7 +66,7 @@ export const config = {
   type: 'table',
   categories: ['content'],
   label: 'Table',
-  description: 'An accessible data table with a header row and caption. Cells hold rich text or a call-to-action; rows stack on mobile. Optional zebra striping (custom hex), condensed spacing, sorting, and filtering.',
+  description: 'An accessible data table with a header row and caption. Cells hold rich text or a call-to-action; rows stack on mobile. Optional zebra striping (default shade), custom row colors (hex list), condensed spacing, sorting, and filtering.',
   fields: [
     {name: 'caption', label: 'Caption', type: 'text',
       help: 'Describes the table; rendered as a <caption> for accessibility.'},
