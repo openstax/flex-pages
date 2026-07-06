@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 import { CardGrid } from '@openstax/flex-page-renderer/blocks/CardGrid.component';
 import { RichTextContent } from '@openstax/flex-page-renderer/blocks/RichTextBlock.component';
 import { Image } from '@openstax/flex-page-renderer/components/Image';
-import type { PersonBlockConfig, PersonConfig, PersonLink } from './PersonBlock.config.js';
+import type { ImageMask, PersonBlockConfig, PersonConfig, PersonLink } from './PersonBlock.config.js';
 import './PersonBlock.css';
 
 const LINK_LABEL: Record<PersonLink['type'], string> = {
@@ -12,12 +12,13 @@ const LINK_LABEL: Record<PersonLink['type'], string> = {
   email: 'Email', scholar: 'Google Scholar', x: 'X',
 };
 
-function Avatar({person}: {person: PersonConfig}) {
+function Avatar({person, mask}: {person: PersonConfig; mask: ImageMask}) {
+  const cls = `person-card-photo${mask === 'square' ? ' person-card-photo--square' : ''}`;
   if (person.image) {
-    return <Image image={person.image} className="person-card-photo" alt={person.name} />;
+    return <Image image={person.image} className={cls} alt={person.name} />;
   }
   const initials = person.name.split(/\s+/).map((w) => w[0]).slice(0, 2).join('');
-  return <div className="person-card-photo person-card-photo--placeholder" aria-hidden="true">{initials}</div>;
+  return <div className={`${cls} person-card-photo--placeholder`} aria-hidden="true">{initials}</div>;
 }
 
 function Tags({person}: {person: PersonConfig}) {
@@ -43,7 +44,7 @@ function Links({person}: {person: PersonConfig}) {
   </ul>;
 }
 
-function PersonModal({person, onClose}: {person: PersonConfig; onClose: () => void}) {
+function PersonModal({person, mask, onClose}: {person: PersonConfig; mask: ImageMask; onClose: () => void}) {
   React.useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
@@ -55,7 +56,7 @@ function PersonModal({person, onClose}: {person: PersonConfig; onClose: () => vo
       <div className="person-modal" role="dialog" aria-modal="true" aria-label={person.name}
            onClick={(e) => e.stopPropagation()}>
         <button type="button" className="person-modal-close" aria-label="Close" onClick={onClose}>&times;</button>
-        <Avatar person={person} />
+        <Avatar person={person} mask={mask} />
         <h3 className="person-modal-name">{person.name}</h3>
         {person.title ? <p className="person-modal-title">{person.title}</p> : null}
         <Tags person={person} />
@@ -67,7 +68,7 @@ function PersonModal({person, onClose}: {person: PersonConfig; onClose: () => vo
   );
 }
 
-function PersonCard({person}: {person: PersonConfig}) {
+function PersonCard({person, mask}: {person: PersonConfig; mask: ImageMask}) {
   const [open, setOpen] = useState(false);
   const expandable = Boolean(person.full_bio);
   const interactive = expandable
@@ -78,22 +79,22 @@ function PersonCard({person}: {person: PersonConfig}) {
          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpen(true); }
        }}
     : {};
-  return <div className={`person-card${expandable ? ' person-card--expandable' : ''}`} {...interactive}>
-    <Avatar person={person} />
+  return <div className={`person-card content-block-rich-text${expandable ? ' person-card--expandable' : ''}`} {...interactive}>
+    <Avatar person={person} mask={mask} />
     <h3 className="person-card-name">{person.name}</h3>
     {person.title ? <p className="person-card-title">{person.title}</p> : null}
     <Tags person={person} />
     {person.short_bio ? <p className="person-card-bio">{person.short_bio}</p> : null}
     <Links person={person} />
-    {open ? <PersonModal person={person} onClose={() => setOpen(false)} /> : null}
+    {open ? <PersonModal person={person} mask={mask} onClose={() => setOpen(false)} /> : null}
   </div>;
 }
 
 export function PersonBlock({data}: {data: PersonBlockConfig}) {
+  const mask: ImageMask = data.value.image_mask === 'square' ? 'square' : 'round';
   return <div className="content-block-person">
-    {data.value.heading ? <h2 className="person-block-heading">{data.value.heading}</h2> : null}
     <CardGrid config={data.value.config}>
-      {data.value.people.map((p, i) => <PersonCard key={i} person={p} />)}
+      {data.value.people.map((p, i) => <PersonCard key={i} person={p} mask={mask} />)}
     </CardGrid>
   </div>;
 }

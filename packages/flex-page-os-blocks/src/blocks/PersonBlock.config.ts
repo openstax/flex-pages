@@ -3,6 +3,8 @@ import type { CardGridConfigOption } from '@openstax/flex-page-renderer/blocks/C
 
 export type PersonLinkType = 'linkedin' | 'orcid' | 'website' | 'email' | 'scholar' | 'x';
 
+export type ImageMask = 'round' | 'square';
+
 export interface PersonLink {
   type: PersonLinkType;
   url: string;
@@ -28,7 +30,7 @@ export interface PersonBlockConfig {
   id: string;
   type: 'person';
   value: {
-    heading?: string;
+    image_mask?: ImageMask;
     people: PersonConfig[];
     config: CardGridConfigOption[];
   };
@@ -41,7 +43,12 @@ export const config = {
   description:
     'A grid of person cards (name, title, photo, short bio, links, tags). A person with a full bio gets a clickable card that opens an expanded modal. Reuses the cards grid layout/config.',
   fields: [
-    {name: 'heading', label: 'Heading', type: 'text'},
+    {name: 'image_mask', label: 'Image Mask', type: 'select',
+      help: 'Shape of each photo / initials avatar (default: round).',
+      options: [
+        {label: 'Round', value: 'round'},
+        {label: 'Square', value: 'square'},
+      ]},
     {name: 'people', label: 'People', type: 'list', fields: [
       {name: 'name', label: 'Name', type: 'text', required: true},
       {name: 'title', label: 'Title / Role', type: 'text'},
