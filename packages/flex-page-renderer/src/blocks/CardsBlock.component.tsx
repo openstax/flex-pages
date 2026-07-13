@@ -14,6 +14,7 @@ const present = (v?: string): v is string => v != null && v !== '';
 export function CardsBlock({data}: {data: CardsBlockConfig}) {
   const cardStyle = findByType(data.value.config, 'card_style')?.value;
   const styleClass = cardStyle ? `card_style_${cardStyle}` : undefined;
+  const layout = findByType(data.value.config, 'layout')?.value;
   const cardSize = findByType(data.value.config, 'card_size')?.value;
   const cardColumns = findByType(data.value.config, 'card_columns')?.value;
   const cardMinSize = findByType(data.value.config, 'card_min_size')?.value;
@@ -30,6 +31,7 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
       className={cn(
         'content-block-cards',
         styleClass,
+        layout === 'masonry' && 'layout-masonry',
         present(cardSize) && 'has-size',
         cardColumns && 'has-columns',
         present(cardMinSize) && 'has-min-size',
