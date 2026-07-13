@@ -5,6 +5,10 @@ type CardConfig = {
   id: string;
   value: 'rounded' | 'square';
 } | {
+  type: 'layout';
+  id: string;
+  value: 'grid' | 'masonry';
+} | {
   type: 'card_size';
   id: string;
   value: string;
@@ -86,9 +90,13 @@ export const config = {
         {label: 'Rounded', value: 'rounded'},
         {label: 'Square', value: 'square'},
       ]},
-      {name: 'card_size', label: 'Size', help: 'A single number representing 10px increments', type: 'number'},
-      {name: 'card_columns', label: 'Columns', help: 'Maximum cards per row. Rows reflow to fewer columns as the container narrows; set Min card width to control when.', type: 'number'},
-      {name: 'card_min_size', label: 'Min card width', help: 'Smallest a card gets before the grid wraps to fewer columns, in 10px increments (e.g. 18 = 180px). Defaults to 18.', type: 'number'},
+      {name: 'layout', label: 'Layout', type: 'select', options: [
+        {label: 'Grid', value: 'grid'},
+        {label: 'Masonry (Pinterest-style columns, packed by height)', value: 'masonry'},
+      ]},
+      {name: 'card_size', label: 'Size', help: 'A single number representing 10px increments. Grid layout only.', type: 'number'},
+      {name: 'card_columns', label: 'Columns', help: 'Maximum cards per row. Rows reflow to fewer columns as the container narrows; set Min card width to control when. Grid layout only.', type: 'number'},
+      {name: 'card_min_size', label: 'Min card width', help: 'Smallest a card gets before the grid wraps to fewer columns, in 10px increments (e.g. 18 = 180px). Defaults to 18. Grid layout only.', type: 'number'},
       {name: 'background_color', label: 'Background Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex background color for cards'},
       {name: 'border_size', label: 'Border Size', type: 'number', help: 'Outer border width in px, all sides. Leave blank for the style default; 0 = no border.'},
       {name: 'accent_size', label: 'Accent Size', type: 'number', help: 'Top accent bar height in px, independent of the border. Color comes from each card\'s Accent Color (or a default palette).'},

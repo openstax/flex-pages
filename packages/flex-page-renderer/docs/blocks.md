@@ -217,9 +217,10 @@ A wrapping grid of card tiles, each holding rich text and an optional call-to-ac
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
 | Style | `card_style` | select | see options below |  |
-| Size | `card_size` | number | a number | A single number representing 10px increments |
-| Columns | `card_columns` | number | a number | Maximum cards per row. Rows reflow to fewer columns as the container narrows; set Min card width to control when. |
-| Min card width | `card_min_size` | number | a number | Smallest a card gets before the grid wraps to fewer columns, in 10px increments (e.g. 18 = 180px). Defaults to 18. |
+| Layout | `layout` | select | see options below |  |
+| Size | `card_size` | number | a number | A single number representing 10px increments. Grid layout only. |
+| Columns | `card_columns` | number | a number | Maximum cards per row. Rows reflow to fewer columns as the container narrows; set Min card width to control when. Grid layout only. |
+| Min card width | `card_min_size` | number | a number | Smallest a card gets before the grid wraps to fewer columns, in 10px increments (e.g. 18 = 180px). Defaults to 18. Grid layout only. |
 | Background Color | `background_color` | text | must match `#[a-fA-F0-9]{6}` | Hex background color for cards |
 | Border Size | `border_size` | number | a number | Outer border width in px, all sides. Leave blank for the style default; 0 = no border. |
 | Accent Size | `accent_size` | number | a number | Top accent bar height in px, independent of the border. Color comes from each card's Accent Color (or a default palette). |
@@ -233,6 +234,13 @@ _Style (`card_style`) options:_
 | --- | --- |
 | `rounded` | Rounded |
 | `square` | Square |
+
+_Layout (`layout`) options:_
+
+| Value | Label |
+| --- | --- |
+| `grid` | Grid |
+| `masonry` | Masonry (Pinterest-style columns, packed by height) |
 
 **Cards** — an array of data nodes; each item's **Fields**:
 
