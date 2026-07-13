@@ -216,11 +216,14 @@ A wrapping grid of card tiles, each holding rich text and an optional call-to-ac
 | --- | --- | --- | --- | --- |
 | Style | `card_style` | select | see options below |  |
 | Size | `card_size` | number | a number | A single number representing 10px increments |
-| Columns | `card_columns` | number | a number | Number of columns (works with Size) |
-| Accent Colors | `accent_colors` | text |  | Comma-separated hex colors for card borders/shadows, e.g. #ff0000,#00ff00,#0000ff |
-| Divider Colors | `divider_colors` | text |  | Comma-separated hex colors for card divider lines, e.g. #ff0000,#00ff00 |
+| Columns | `card_columns` | number | a number | Maximum cards per row. Rows reflow to fewer columns as the container narrows; set Min card width to control when. |
+| Min card width | `card_min_size` | number | a number | Smallest a card gets before the grid wraps to fewer columns, in 10px increments (e.g. 18 = 180px). Defaults to 18. |
 | Background Color | `background_color` | text | must match `#[a-fA-F0-9]{6}` | Hex background color for cards |
-| Border Size | `border_size` | number | a number | Border thickness in pixels. Rounded: border width (default: 1px). Square: top accent height (default: 10px). |
+| Border Size | `border_size` | number | a number | Outer border width in px, all sides. Leave blank for the style default; 0 = no border. |
+| Accent Size | `accent_size` | number | a number | Top accent bar height in px, independent of the border. Color comes from each card's Accent Color (or a default palette). |
+| Padding | `padding` | number | a number | Top and bottom spacing around the block, in 10px increments. |
+| Padding Top | `padding_top` | number | a number | Top spacing around the block, in 10px increments. |
+| Padding Bottom | `padding_bottom` | number | a number | Bottom spacing around the block, in 10px increments. |
 
 _Style (`card_style`) options:_
 
@@ -235,6 +238,8 @@ _Style (`card_style`) options:_
 | --- | --- | --- | --- | --- |
 | Card Text | `text` | rich text | Yes |  |
 | Call To Action | `ctaBlock` | list |  |  |
+| Accent Color | `accentColor` | text |  | Hex accent color for this card: the border on rounded style, the top accent bar on square (needs Accent Size). Leave blank for the default palette. |
+| Divider Color | `dividerColor` | text |  | Hex color for divider lines in this card. Leave blank for the default palette. |
 
 **Cards › Call To Action** — an array of data nodes (max 1); each item's **Fields**:
 
