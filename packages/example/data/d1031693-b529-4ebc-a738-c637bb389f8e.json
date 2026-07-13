@@ -336,7 +336,7 @@
                       },
                       {
                         "type": "accent_size",
-                        "value": 6,
+                        "value": "6",
                         "id": "cacc-accent-size-02"
                       }
                     ]
