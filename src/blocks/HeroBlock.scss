@@ -24,8 +24,21 @@
         margin-top: calc( #{$normal-margin} * var(--padding-top-multiplier, var(--padding-multiplier, 0)));
         margin-bottom: calc( #{$normal-margin} * var(--padding-bottom-multiplier, var(--padding-multiplier, 0)));
 
+        @include width-up-to($tablet-max) {
+            grid-gap: 0;
+        }
+
         @include width-up-to($phone-max) {
             grid-template-columns: 100%;
+
+            // Lead with the headline on mobile regardless of which side the
+            // image sits on desktop.
+            .hero-content {
+                order: 1;
+            }
+            .hero-image-container {
+                order: 2;
+            }
         }
 
         .hero-content {
