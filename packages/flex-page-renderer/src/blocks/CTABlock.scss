@@ -104,8 +104,8 @@
   &.style-deep_green_outline {
       @include button();
       background-color: ui-color(white);
-      border-color: os-color(deep-green);
-      color: os-color(deep-green);
+      border-color: os-color(raise-green);
+      color: os-color(raise-green);
       @include body-font(1.6rem);
   }
 
