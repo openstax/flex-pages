@@ -956,6 +956,7 @@ A styled container that wraps content blocks, with configurable background, padd
 | Width | `width` | text |  | Maximum width of the well content (e.g., 600px, 50%, auto) |
 | Text Alignment | `text_alignment` | select | see options below |  |
 | Layout | `layout` | select | see options below |  |
+| Heading Style | `heading_style` | select | see options below | Renders Text content's h6 headings as a large, fluid-sized display quote (e.g. a testimonial pull-quote) instead of regular heading size. |
 | Analytics Label | `analytics_label` | text |  | Analytics events from within this well will include this label |
 | ID | `id` | text |  | The HTML id of the well (can be referenced by anchor links). |
 
@@ -986,3 +987,10 @@ _Layout (`layout`) options:_
 | --- | --- |
 | `stack` | Stack |
 | `wrap` | Wrap (side by side, reflowing to fewer per row on narrow screens) |
+
+_Heading Style (`heading_style`) options:_
+
+| Value | Label |
+| --- | --- |
+| `normal` | Normal |
+| `display` | Display Quote |
