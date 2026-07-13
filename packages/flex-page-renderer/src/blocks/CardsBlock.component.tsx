@@ -7,56 +7,62 @@ import type { CardBlockConfig, CardsBlockConfig } from './CardsBlock.config.js';
 import { RichTextContent } from './RichTextBlock.component.js';
 import './CardsBlock.css';
 
+// A config value counts as "set" when it is present and non-empty. Used so an
+// explicit 0 (a falsy but meaningful value) is treated as set, not absent.
+const present = (v?: string): v is string => v != null && v !== '';
+
 export function CardsBlock({data}: {data: CardsBlockConfig}) {
   const cardStyle = findByType(data.value.config, 'card_style')?.value;
   const styleClass = cardStyle ? `card_style_${cardStyle}` : undefined;
   const cardSize = findByType(data.value.config, 'card_size')?.value;
   const cardColumns = findByType(data.value.config, 'card_columns')?.value;
-  const accentColorsRaw = findByType(data.value.config, 'accent_colors')?.value;
-  const accentColors = accentColorsRaw
-    ? accentColorsRaw.split(',').map((c: string) => c.trim()).filter(Boolean)
-    : undefined;
-  const dividerColorsRaw = findByType(data.value.config, 'divider_colors')?.value;
-  const dividerColors = dividerColorsRaw
-    ? dividerColorsRaw.split(',').map((c: string) => c.trim()).filter(Boolean)
-    : undefined;
+  const cardMinSize = findByType(data.value.config, 'card_min_size')?.value;
   const backgroundColor = findByType(data.value.config, 'background_color')?.value;
   const isDarkBg = backgroundColor ? Color(backgroundColor).isDark() : false; // eslint-disable-line new-cap
   const borderSize = findByType(data.value.config, 'border_size')?.value;
+  const accentSize = findByType(data.value.config, 'accent_size')?.value;
+  const padding = findByType(data.value.config, 'padding')?.value;
+  const paddingTop = findByType(data.value.config, 'padding_top')?.value;
+  const paddingBottom = findByType(data.value.config, 'padding_bottom')?.value;
 
   return (
     <div
       className={cn(
         'content-block-cards',
         styleClass,
+        present(cardSize) && 'has-size',
         cardColumns && 'has-columns',
-        accentColors && 'has-custom-accent',
-        dividerColors && 'has-custom-divider',
+        present(cardMinSize) && 'has-min-size',
+        present(accentSize) && 'has-accent-size',
         isDarkBg && 'dark-card-background',
       )}
       style={{
         '--card-size': cardSize,
         '--card-columns': cardColumns,
-        ...(backgroundColor ? {'--card-bg-color': backgroundColor} : {}),
-        ...(borderSize ? {'--card-border-size': `${borderSize}px`} : {}),
+        '--card-min-size': cardMinSize,
+        // Set value-bearing vars only when present, so an explicit 0
+        // (e.g. border_size: 0 = no border) wins over the SCSS fallback.
+        ...(present(backgroundColor) ? {'--card-bg-color': backgroundColor} : {}),
+        ...(present(borderSize) ? {'--card-border-size': `${borderSize}px`} : {}),
+        ...(present(accentSize) ? {'--card-accent-size': `${accentSize}px`} : {}),
+        ...(present(padding) ? {'--card-padding': padding} : {}),
+        ...(present(paddingTop) ? {'--card-padding-top': paddingTop} : {}),
+        ...(present(paddingBottom) ? {'--card-padding-bottom': paddingBottom} : {}),
       } as React.CSSProperties}
     >
-      {data.value.cards.map((card, i) => <CardBlock
-        key={i}
-        data={card}
-        accentColor={accentColors ? accentColors[i % accentColors.length] : undefined}
-        dividerColor={dividerColors ? dividerColors[i % dividerColors.length] : undefined}
-      />)}
+      {data.value.cards.map((card, i) => <CardBlock key={i} data={card} />)}
     </div>
   );
 }
 
-export function CardBlock({data, accentColor, dividerColor}: {data: CardBlockConfig; accentColor?: string; dividerColor?: string}) {
+export function CardBlock({data}: {data: CardBlockConfig}) {
   const [cta] = data.ctaBlock ?? [];
-  const style = (accentColor || dividerColor)
+  // Per-card colors override the default palette via the var() fallbacks in
+  // CardsBlock.scss (accent: rounded border / square top bar; divider: hr).
+  const style = (data.accentColor || data.dividerColor)
     ? {
-      ...(accentColor ? {'--card-accent': accentColor} : {}),
-      ...(dividerColor ? {'--card-divider': dividerColor} : {}),
+      ...(data.accentColor ? {'--card-accent': data.accentColor} : {}),
+      ...(data.dividerColor ? {'--card-divider': data.dividerColor} : {}),
     } as React.CSSProperties
     : undefined;
 
