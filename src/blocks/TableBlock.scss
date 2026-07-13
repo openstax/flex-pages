@@ -147,7 +147,15 @@
 
     tr {
       margin-bottom: 1rem;
-      border: 1px solid #e0e0e0;
+      border: none;
+    }
+
+    .table-filter {
+      padding-left: 0.6rem;
+    }
+
+    .table-show-more {
+      margin-left: 0.6rem;
     }
 
     td {
