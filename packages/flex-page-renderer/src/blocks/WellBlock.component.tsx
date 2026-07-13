@@ -29,6 +29,9 @@ export type WellConfigOptions = {
   type: 'text_alignment';
   value: 'left' | 'right' | 'center';
 } | {
+  type: 'layout';
+  value: 'stack' | 'wrap';
+} | {
   type: 'analytics_label';
   value: string;
 } | {
@@ -64,6 +67,7 @@ export function WellBlock({data, content}: {data: WellBlockConfig; content?: Rea
   const margin = findByType(data.value.config, 'margin')?.value ?? 0;
   const width = findByType(data.value.config, 'width')?.value;
   const textAlign = findByType(data.value.config, 'text_alignment')?.value;
+  const layout = findByType(data.value.config, 'layout')?.value;
   const pullUp = findByType(data.value.config, 'pull_up')?.value;
   const borderColor = findByType(data.value.config, 'border_color')?.value;
   const borderSize = findByType(data.value.config, 'border_size')?.value;
@@ -81,7 +85,7 @@ export function WellBlock({data, content}: {data: WellBlockConfig; content?: Rea
       ...(pullUp ? {marginTop: `-${pullUp}rem`} : {})
     } as React.CSSProperties}
   >
-    <div className={cn('well-content', 'flex-content-container', flexAlignClass(textAlign))} style={{
+    <div className={cn('well-content', 'flex-content-container', flexAlignClass(textAlign), {'layout-wrap': layout === 'wrap'})} style={{
       background: bg.background,
       backgroundColor: bg.backgroundColor,
       borderRadius: `${borderRadius}px`,

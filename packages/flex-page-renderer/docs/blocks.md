@@ -768,6 +768,7 @@ A styled container that wraps content blocks, with configurable background, padd
 | Pull Up | `pull_up` | number | a number | Pulls the well upward by this amount in rem units. Use with extra padding on the section above to create an overlap effect. |
 | Width | `width` | text |  | Maximum width of the well content (e.g., 600px, 50%, auto) |
 | Text Alignment | `text_alignment` | select | see options below |  |
+| Layout | `layout` | select | see options below |  |
 | Analytics Label | `analytics_label` | text |  | Analytics events from within this well will include this label |
 | ID | `id` | text |  | The HTML id of the well (can be referenced by anchor links). |
 
@@ -791,3 +792,10 @@ _Text Alignment (`text_alignment`) options:_
 | `left` | Left |
 | `right` | Right |
 | `center` | Center |
+
+_Layout (`layout`) options:_
+
+| Value | Label |
+| --- | --- |
+| `stack` | Stack |
+| `wrap` | Wrap (side by side, reflowing to fewer per row on narrow screens) |
