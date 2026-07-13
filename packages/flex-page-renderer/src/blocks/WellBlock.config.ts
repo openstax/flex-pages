@@ -31,6 +31,10 @@ export const config = {
         {label: 'Right', value: 'right'},
         {label: 'Center', value: 'center'},
       ]},
+      {name: 'layout', label: 'Layout', type: 'select', options: [
+        {label: 'Stack', value: 'stack'},
+        {label: 'Wrap (side by side, reflowing to fewer per row on narrow screens)', value: 'wrap'},
+      ]},
       {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this well will include this label', type: 'text'},
       {name: 'id', label: 'ID', help: 'The HTML id of the well (can be referenced by anchor links).', type: 'text'},
     ]},
