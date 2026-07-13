@@ -447,7 +447,7 @@
                       },
                       {
                         "type": "accent_size",
-                        "value": 6,
+                        "value": "6",
                         "id": "cbg-accent-size-02"
                       }
                     ]
