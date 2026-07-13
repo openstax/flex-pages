@@ -7,10 +7,12 @@
     font-weight: bold;
     line-height: 1.1;
 
-    // Optional brand color, set via the block's Color config.
+    // Optional brand color, set via the block's Color config. Deep-green and
+    // CTA-primary read better at this size than the raw green/orange swatches,
+    // which are tuned for illustration, not text.
     &.text-blue { color: os-color(blue); }
-    &.text-green { color: os-color(green); }
-    &.text-orange { color: os-color(orange); }
+    &.text-green { color: os-color(deep-green); }
+    &.text-orange { color: ui-color(primary); }
   }
 
   .caption {
