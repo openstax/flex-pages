@@ -25,7 +25,12 @@ export const config = {
           {label: 'Yes', value: 'true'},
         ]},
       {name: 'accent_color', label: 'Accent Color', type: 'text', pattern: '#[a-fA-F0-9]{6}',
-        help: 'Hex color for the expand/collapse icon'},
+        help: 'Hex color for the expand/collapse icon and item divider.'},
+      {name: 'accent_colors', label: 'Accent Colors', type: 'text',
+        pattern: '#[a-fA-F0-9]{6}(\\s*,\\s*#[a-fA-F0-9]{6})*',
+        help: 'Comma-separated hex colors cycled per item, e.g. #ff0000,#00ff00. Overrides Accent Color.'},
+      {name: 'top_border_color', label: 'Top Border Color', type: 'text', pattern: '#[a-fA-F0-9]{6}',
+        help: 'Adds a colored border above the whole accordion.'},
     ]},
   ],
 };
