@@ -93,7 +93,9 @@ A list of collapsible items that reveal their content on demand; well suited to 
 | --- | --- | --- | --- | --- |
 | Heading Level | `heading_level` | select | see options below | Heading level for each item, for the document outline and screen-reader navigation |
 | Allow Multiple Open | `allow_multiple` | select | see options below | Allow more than one panel to be open at the same time |
-| Accent Color | `accent_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for the expand/collapse icon |
+| Accent Color | `accent_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for the expand/collapse icon and item divider. |
+| Accent Colors | `accent_colors` | text | must match `#[a-fA-F0-9]{6}(\s*,\s*#[a-fA-F0-9]{6})*` | Comma-separated hex colors cycled per item, e.g. #ff0000,#00ff00. Overrides Accent Color. |
+| Top Border Color | `top_border_color` | text | must match `#[a-fA-F0-9]{6}` | Adds a colored border above the whole accordion. |
 
 _Heading Level (`heading_level`) options:_
 
