@@ -3,10 +3,15 @@
 .flex-page.page div.content-block-cards {
     display: grid;
 
-    /* needs responsive design */
     grid-template-columns: repeat(auto-fit, minmax(min-content, calc(var(--card-size, 27) * 1rem)));
     grid-gap: ($normal-margin * 2);
     justify-content: center;
+
+    // Below tablet, force a single column rather than letting auto-fit (or
+    // has-columns' container-based toggle) settle on a cramped multi-column fit.
+    @include width-up-to($tablet-max) {
+      grid-template-columns: 1fr !important;
+    }
 
     // Fixed column count with dynamic responsive breakpoint.
     // Uses a CSS clamp toggle: shows exactly N columns when there's space,
