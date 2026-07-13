@@ -72,6 +72,13 @@ $tab-scrollbar-strip: 10px;
     cursor: pointer;
     white-space: nowrap;
     position: relative;
+    // Equal-width tabs when there's room; below tablet let each tab size to
+    // its own label instead of stretching, since the row scrolls there anyway.
+    flex: 1;
+
+    @include width-up-to($tablet-max) {
+      flex: none;
+    }
 
     &::before {
       content: attr(data-label);

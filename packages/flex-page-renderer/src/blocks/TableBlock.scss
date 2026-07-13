@@ -149,7 +149,15 @@
 
     tr {
       margin-bottom: 1rem;
-      border: 1px solid ui-color(form-border);
+      border: none;
+    }
+
+    .table-filter {
+      padding-left: 0.6rem;
+    }
+
+    .table-show-more {
+      margin-left: 0.6rem;
     }
 
     td {
