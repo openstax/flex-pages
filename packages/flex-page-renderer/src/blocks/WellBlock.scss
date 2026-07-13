@@ -11,6 +11,22 @@
     margin: 0 auto;
     box-sizing: border-box;
     overflow: hidden;
+
+    // The Width config sets an inline max-width (e.g. 50%) for desktop
+    // layout; below tablet that reads as cramped, so let it fill the
+    // container instead. Inline style needs !important to be overridden.
+    @include width-up-to($tablet-max) {
+      max-width: 100% !important;
+    }
+
+    // ...except a narrow inline max-width (50-60%) still wants some room to
+    // breathe rather than going edge-to-edge at tablet widths.
+    @include width-between($phone-max, $tablet-max) {
+      &[style*="max-width: 50%"],
+      &[style*="max-width: 60%"] {
+        max-width: 70% !important;
+      }
+    }
   }
 
   &.dark-background > .well-content {
