@@ -35,6 +35,12 @@ export const config = {
         {label: 'Stack', value: 'stack'},
         {label: 'Wrap (side by side, reflowing to fewer per row on narrow screens)', value: 'wrap'},
       ]},
+      {name: 'heading_style', label: 'Heading Style', type: 'select',
+        help: 'Renders Text content\'s h6 headings as a large, fluid-sized display quote (e.g. a testimonial pull-quote) instead of regular heading size.',
+        options: [
+          {label: 'Normal', value: 'normal'},
+          {label: 'Display Quote', value: 'display'},
+        ]},
       {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this well will include this label', type: 'text'},
       {name: 'id', label: 'ID', help: 'The HTML id of the well (can be referenced by anchor links).', type: 'text'},
     ]},

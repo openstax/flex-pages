@@ -43,6 +43,23 @@
         flex: 1 1 18rem;
       }
     }
+
+    // Renders a Text block's h6 as a large pull-quote (e.g. a testimonial)
+    // instead of its normal heading size, scaling smoothly between the
+    // phone and desktop sizes across the tablet range.
+    &.style-display-heading .content-block-rich-text h6 {
+      font-size: 4rem;
+      line-height: 1;
+      margin-bottom: 0;
+
+      @include width-up-to($phone-max) {
+        font-size: 2.4rem;
+      }
+
+      @include width-between($phone-max, $tablet-max) {
+        font-size: calc(6.6666666667vw - 1.6rem);
+      }
+    }
   }
 
   &.dark-background > .well-content {
