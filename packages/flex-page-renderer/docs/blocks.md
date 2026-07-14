@@ -240,7 +240,7 @@ _Layout (`layout`) options:_
 | Value | Label |
 | --- | --- |
 | `grid` | Grid |
-| `masonry` | Masonry (Pinterest-style columns, packed by height) |
+| `masonry` | Masonry-style columns, packed by height |
 
 **Cards** — an array of data nodes; each item's **Fields**:
 
