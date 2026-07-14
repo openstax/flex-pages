@@ -1,3 +1,5 @@
+@import 'pattern-library/core/pattern-library/headers';
+
 .content-block-table {
   .table-filter {
     display: flex;
@@ -16,6 +18,7 @@
       border: 1px solid #ccc;
       border-radius: 0.25rem;
       font: inherit;
+      @include focus-indicator();
     }
   }
 
@@ -114,8 +117,10 @@
 
   // Responsive stacking: each row becomes a block; the header row is kept for
   // screen readers (visually hidden) and each cell shows its column via
-  // data-label.
-  @media (max-width: 40rem) {
+  // data-label. Matches the site's shared phone breakpoint (not a bespoke
+  // narrower one) so tables stop scrolling horizontally at the same point
+  // every other block already treats as mobile.
+  @include width-up-to($phone-max) {
     thead {
       position: absolute;
       width: 1px;
