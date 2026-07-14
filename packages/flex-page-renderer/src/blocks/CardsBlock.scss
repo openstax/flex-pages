@@ -128,15 +128,31 @@
 
       &:nth-child(4n+1) {
         box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(blue), 0 2px 6px rgba(0, 0, 0, 0.08);
+
+        &:hover {
+          box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(blue), 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
       }
       &:nth-child(4n+2) {
         box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(green), 0 2px 6px rgba(0, 0, 0, 0.08);
+
+        &:hover {
+          box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(green), 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
       }
       &:nth-child(4n+3) {
         box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(light-blue), 0 2px 6px rgba(0, 0, 0, 0.08);
+
+        &:hover {
+          box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(light-blue), 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
       }
       &:nth-child(4n+4) {
         box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(red), 0 2px 6px rgba(0, 0, 0, 0.08);
+
+        &:hover {
+          box-shadow: 0 calc(-1 * var(--card-border-size, 10px)) 0 os-color(red), 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
       }
     }
     // Top accent bar, on the square style only — rounded's full border clashes
@@ -145,10 +161,34 @@
     // palette.
     // stylelint-disable-next-line no-descending-specificity
     &.has-accent-size.card_style_square > .content-block-card {
-      &:nth-child(4n+1) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(blue)}); }
-      &:nth-child(4n+2) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(green)}); }
-      &:nth-child(4n+3) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(light-blue)}); }
-      &:nth-child(4n+4) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(red)}); }
+      &:nth-child(4n+1) {
+        box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(blue)}), 0 2px 6px rgba(0, 0, 0, 0.08);
+
+        &:hover {
+          box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(blue)}), 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+      }
+      &:nth-child(4n+2) {
+        box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(green)}), 0 2px 6px rgba(0, 0, 0, 0.08);
+
+        &:hover {
+          box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(green)}), 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+      }
+      &:nth-child(4n+3) {
+        box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(light-blue)}), 0 2px 6px rgba(0, 0, 0, 0.08);
+
+        &:hover {
+          box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(light-blue)}), 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+      }
+      &:nth-child(4n+4) {
+        box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(red)}), 0 2px 6px rgba(0, 0, 0, 0.08);
+
+        &:hover {
+          box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(red)}), 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+      }
     }
     &.dark-card-background > .content-block-card {
       color: text-color(white);
