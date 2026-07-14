@@ -81,7 +81,7 @@ export const config = {
       ]},
       {name: 'layout', label: 'Layout', type: 'select', options: [
         {label: 'Grid', value: 'grid'},
-        {label: 'Masonry (Pinterest-style columns, packed by height)', value: 'masonry'},
+        {label: 'Masonry-style columns, packed by height', value: 'masonry'},
       ]},
       {name: 'card_size', label: 'Size', help: 'A single number representing 10px increments. Grid layout only.', type: 'number'},
       {name: 'card_columns', label: 'Columns', help: 'Maximum cards per row. Rows reflow to fewer columns as the container narrows; set Min card width to control when. Grid layout only.', type: 'number'},
