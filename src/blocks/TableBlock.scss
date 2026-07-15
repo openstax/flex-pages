@@ -15,7 +15,7 @@
 
     input {
       padding: 0.5rem;
-      border: 1px solid #ccc;
+      border: 1px solid ui-color(form-border);
       border-radius: 0.25rem;
       font: inherit;
       @include focus-indicator();
@@ -44,11 +44,11 @@
     padding: 0.75rem 1rem;
     text-align: left;
     vertical-align: top;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid ui-color(form-border);
   }
 
   thead th {
-    border-bottom: 2px solid #999;
+    border-bottom: 2px solid os-color(gray);
     font-weight: 700;
   }
 
@@ -59,7 +59,7 @@
 
   // Default zebra shade; inline Row Colors (set per <tr>) override it.
   table.striped tbody tr:nth-child(even) {
-    background-color: #f5f5f5;
+    background-color: ui-color(default-hover);
   }
 
   .table-sort {
@@ -77,7 +77,7 @@
 
   .table-sort-indicator {
     font-size: 0.75em;
-    color: #6f6f6f;
+    color: os-color(gray);
   }
 
   // Caption stand-in when a dynamic source yields no columns (no <table> to
@@ -88,7 +88,7 @@
   }
 
   .table-empty {
-    color: #6f6f6f;
+    color: os-color(gray);
     font-style: italic;
   }
 
@@ -97,21 +97,21 @@
     min-height: 1.25rem;
     margin: 0;
     font-size: 0.875rem;
-    color: #6f6f6f;
+    color: os-color(gray);
   }
 
   .table-show-more {
     margin-top: 0.75rem;
     padding: 0.5rem 1rem;
     background: none;
-    border: 1px solid #999;
+    border: 1px solid os-color(gray);
     border-radius: 0.25rem;
     font: inherit;
     font-weight: 600;
     cursor: pointer;
 
     &:hover {
-      background-color: #f5f5f5;
+      background-color: ui-color(default-hover);
     }
   }
 
@@ -167,7 +167,7 @@
       position: relative;
       padding-left: 45%;
       border: none;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid ui-color(form-border);
 
       &:last-child {
         border-bottom: none;
