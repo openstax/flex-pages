@@ -22,7 +22,9 @@
     // ...except a narrow inline max-width (50-60%) still wants some room to
     // breathe rather than going edge-to-edge at tablet widths.
     @include width-between($phone-max, $tablet-max) {
+      &[style*="max-width:50%"],
       &[style*="max-width: 50%"],
+      &[style*="max-width:60%"],
       &[style*="max-width: 60%"] {
         max-width: 70% !important;
       }
@@ -32,7 +34,7 @@
     // Big Numbers), reflowing to fewer per row as space runs out.
     &.layout-wrap {
       display: flex;
-      flex-flow: wrap;
+      flex-flow: row wrap;
       justify-content: space-evenly;
       gap: $normal-margin;
 
