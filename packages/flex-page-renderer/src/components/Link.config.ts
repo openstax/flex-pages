@@ -10,6 +10,8 @@ import type React from 'react';
 export interface LinkFields {
   text: string;
   ariaLabel?: string;
+  // The CMS serializes this field snake_case; the editor writes camelCase.
+  aria_label?: string;
   target: {
     type: string;
     value: string;

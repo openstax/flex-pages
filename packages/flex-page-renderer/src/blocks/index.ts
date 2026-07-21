@@ -15,4 +15,5 @@ export * as section from './SectionBlock.js';
 export * as well from './WellBlock.js';
 export * as columns from './ColumnsBlock.js';
 export * as tabbed_content from './TabbedContentBlock.js';
+export * as table from './TableBlock.js';
 export * as flex_page from './FlexPage.js';
