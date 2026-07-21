@@ -1,0 +1,54 @@
+.flex-page.page div.content-block-well {
+  width: 100%;
+  margin: 3rem 0;
+  padding: calc(1.5rem * var(--margin-multiplier, 0)) 0;
+}
+.flex-page.page div.content-block-well > .well-content {
+  padding: calc(1.5rem * var(--padding-multiplier, 2));
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+@media (max-width: 60em) {
+  .flex-page.page div.content-block-well > .well-content {
+    max-width: 100% !important;
+  }
+}
+@media (min-width: 37.5625em) and (max-width: 60em) {
+  .flex-page.page div.content-block-well > .well-content[style*="max-width:50%"], .flex-page.page div.content-block-well > .well-content[style*="max-width: 50%"], .flex-page.page div.content-block-well > .well-content[style*="max-width:60%"], .flex-page.page div.content-block-well > .well-content[style*="max-width: 60%"] {
+    max-width: 70% !important;
+  }
+}
+.flex-page.page div.content-block-well > .well-content.layout-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  gap: 1.5rem;
+}
+.flex-page.page div.content-block-well > .well-content.layout-wrap > .content-block-big-number {
+  flex: 1 1 18rem;
+}
+.flex-page.page div.content-block-well > .well-content.style-display-heading .content-block-rich-text h6 {
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 0;
+}
+@media (max-width: 37.5em) {
+  .flex-page.page div.content-block-well > .well-content.style-display-heading .content-block-rich-text h6 {
+    font-size: 2.4rem;
+  }
+}
+@media (min-width: 37.5625em) and (max-width: 60em) {
+  .flex-page.page div.content-block-well > .well-content.style-display-heading .content-block-rich-text h6 {
+    font-size: calc(6.6666666667vw - 1.6rem);
+  }
+}
+.flex-page.page div.content-block-well.dark-background > .well-content {
+  color: #fff;
+}
+.flex-page.page div.content-block-well.light-background > .well-content {
+  color: #424242;
+}
+
+/*# sourceMappingURL=WellBlock.css.map */
