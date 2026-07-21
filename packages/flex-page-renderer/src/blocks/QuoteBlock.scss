@@ -5,7 +5,6 @@
     overflow: auto hidden;
 
     > img {
-        float: left;
         padding: 3rem;
         border-radius: 50%;
         width: 30rem;
@@ -25,7 +24,6 @@
             font-weight: bold;
             position: relative;
             top: 0.5rem;
-            left: -4rem;
             display: block;
             height: 0;
             text-align: left;
@@ -43,18 +41,66 @@
       }
     }
 
-    // Query the content container's width, not the viewport, so a quote stacks
-    // whenever it sits in a narrow container (e.g. a Hero column) regardless of
-    // screen size.
-    @container flex-content (max-width: #{$tablet-max}) {
+    &.quote-layout-image-left {
+        > img {
+            float: left;
+        }
+        > .content-block-rich-text:before {
+            left: -4rem;
+        }
+    }
+    &.quote-layout-image-right {
+        > img {
+            float: right;
+        }
+    }
+    &.quote-layout-image-top {
         text-align: center;
 
         > img {
             float: none;
+            display: block;
+            margin: 0 auto;
         }
-        .content-block-rich-text {
+        > .content-block-rich-text {
+            margin-top: 2rem;
+
+            // Center the quote mark over the centered text; the base
+            // left-aligns it for the side-by-side layouts.
+            &:before {
+                text-align: center;
+            }
+        }
+    }
+    &.quote-layout-compact {
+        > img {
+            width: 12rem;
+            padding: 1rem;
+        }
+        > .content-block-rich-text {
             margin-top: 0;
-            padding: 0 5rem;
+
+            &:before {
+                content: none;
+            }
+        }
+    }
+
+    // Stack the image above the text when the content container (not the
+    // viewport) is narrow, e.g. a quote inside a Hero column. Only the
+    // side-by-side layouts need it; image-top and compact lay out their own way.
+    &.quote-layout-image-left,
+    &.quote-layout-image-right {
+        @container flex-content (max-width: #{$tablet-max}) {
+            text-align: center;
+
+            > img {
+                float: none;
+            }
+            .content-block-rich-text {
+                margin-top: 0;
+                padding: 0 5rem;
+            }
         }
     }
 }
