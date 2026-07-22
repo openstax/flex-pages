@@ -35,6 +35,18 @@ export type SectionConfigOptions = {
   type: 'flex';
   value: 'flex' | 'flex-grow' | 'flex-shrink';
 } | {
+  type: 'top_border_size';
+  value: string;
+} | {
+  type: 'top_border_color';
+  value: string;
+} | {
+  type: 'bottom_border_size';
+  value: string;
+} | {
+  type: 'bottom_border_color';
+  value: string;
+} | {
   type: 'rendering_condition';
   value: string;
 };
@@ -62,6 +74,10 @@ export function SectionBlock({data, content, activeConditions}: {data: SectionBl
   const padding = findByType(data.value.config, 'padding')?.value ?? 0;
   const paddingTop = findByType(data.value.config, 'padding_top')?.value;
   const paddingBottom = findByType(data.value.config, 'padding_bottom')?.value;
+  const topBorderSize = findByType(data.value.config, 'top_border_size')?.value;
+  const topBorderColor = findByType(data.value.config, 'top_border_color')?.value;
+  const bottomBorderSize = findByType(data.value.config, 'bottom_border_size')?.value;
+  const bottomBorderColor = findByType(data.value.config, 'bottom_border_color')?.value;
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
   const bg = resolveBackground(backgroundColor, gradientColor, gradientDirection);
 
@@ -75,7 +91,11 @@ export function SectionBlock({data, content, activeConditions}: {data: SectionBl
     style={{background: bg.background, backgroundColor: bg.backgroundColor,
       '--padding-multiplier': padding,
       '--padding-top-multiplier': paddingTop,
-      '--padding-bottom-multiplier': paddingBottom
+      '--padding-bottom-multiplier': paddingBottom,
+      '--top-border-size': topBorderSize ? `${topBorderSize}px` : undefined,
+      '--top-border-color': topBorderColor,
+      '--bottom-border-size': bottomBorderSize ? `${bottomBorderSize}px` : undefined,
+      '--bottom-border-color': bottomBorderColor
     } as React.CSSProperties}
   >
     <div className={cn('section-content', 'flex-content-container', flexAlignClass(textAlign))} style={{textAlign, display, flexDirection: 'column'}}>
