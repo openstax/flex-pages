@@ -13,5 +13,6 @@ export * as quote from './blocks/QuoteBlock.config.js';
 export * as big_number from './blocks/BigNumberBlock.config.js';
 export * as text from './blocks/RichTextBlock.config.js';
 export * as section from './blocks/SectionBlock.config.js';
+export * as tabs from './blocks/TabsBlock.config.js';
 export * as tabbed_content from './blocks/TabbedContentBlock.config.js';
 export * as well from './blocks/WellBlock.config.js';
