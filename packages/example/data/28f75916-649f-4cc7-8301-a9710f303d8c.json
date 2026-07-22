@@ -109,7 +109,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Heroes have a config section with a number of options. All options from sections are (should be, but are not currently) supported on heroes as well.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"4sc9\">everything from <a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;a4ee4b33-bebf-4602-ac2e-d3fa81d51076&quot;}\">sections</a></p><p data-block-key=\"8ih75\"><b>Image alignment</b>: switches the image to be on the left side (with content on the right), or control the image's vertical alignment.</p><p data-block-key=\"buhkq\"><b>Image Border Radius</b>: border radius for the hero image in pixels.</p><p data-block-key=\"buhkr\"><b>Image Border Color</b>: hex color for the hero image border (e.g. #D4450C).</p><p data-block-key=\"buhks\"><b>Image Border Size</b>: border width for the hero image in pixels.</p><p data-block-key=\"buhkt\"><b>Image Overhang</b>: a CSS value (e.g. 5rem, 10%) that extends the image beyond the content area. Percentage values are relative to the grid column width, making them responsive. The section clips the overflow to prevent horizontal scrollbars. Overhang is disabled on mobile.</p>",
+                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Heroes have a config section with a number of options. All options from sections are (should be, but are not currently) supported on heroes as well.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"4sc9\">everything from <a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;a4ee4b33-bebf-4602-ac2e-d3fa81d51076&quot;}\">sections</a></p><p data-block-key=\"8ih75\"><b>Image alignment</b>: switches the image to be on the left side (with content on the right), or control the image's vertical alignment.</p><p data-block-key=\"buhkq\"><b>Image Border Radius</b>: border radius for the hero image in pixels.</p><p data-block-key=\"buhkr\"><b>Image Border Color</b>: hex color for the hero image border (e.g. #D4450C).</p><p data-block-key=\"buhks\"><b>Image Border Size</b>: border width for the hero image in pixels.</p><p data-block-key=\"buhkt\"><b>Image Overhang</b>: a CSS value (e.g. 5rem, 10%) that extends the image beyond the content area. Percentage values are relative to the grid column width, making them responsive. The section clips the overflow to prevent horizontal scrollbars. Overhang is disabled on mobile.</p><p data-block-key=\"tbu1\"><b>Top Border Size</b>: top border width in pixels</p><p data-block-key=\"tbu2\"><b>Top Border Color</b>: hex color for the top border</p><p data-block-key=\"tbu3\"><b>Bottom Border Size</b>: bottom border width in pixels</p><p data-block-key=\"tbu4\"><b>Bottom Border Color</b>: hex color for the bottom border</p>",
                   "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
                 }
               ],
@@ -395,6 +395,80 @@
               ]
             },
             "id": "47944af2-57df-4372-85ac-38f7dd422c35"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"tbh01\">Section Borders</h2><p data-block-key=\"tbh02\">Heroes support top and bottom borders that draw a line across the full width of the section. Each side has its own size and color.</p>",
+                  "id": "hero-tb-intro-text"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "hero-tb-intro-pad"
+                }
+              ]
+            },
+            "id": "hero-tb-intro-section"
+          },
+          {
+            "type": "hero",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p data-block-key=\"tbh10\">Hero with a 3px teal top border and a 3px orange bottom border. These borders frame the entire hero section, independent of the image borders.</p>",
+                  "id": "hero-tb-demo-text"
+                }
+              ],
+              "image": {
+                "id": 1081,
+                "file": "https://assets.openstax.org/oscms-prod/media/original_images/pillar-1.jpg",
+                "title": "pillar-1",
+                "height": 240,
+                "width": 480,
+                "created_at": "2024-08-13T17:36:07.930857-05:00"
+              },
+              "imageAlt": "",
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 2,
+                  "id": "hero-tb-demo-pad"
+                },
+                {
+                  "type": "image_alignment",
+                  "value": "right",
+                  "id": "hero-tb-demo-align"
+                },
+                {
+                  "type": "top_border_size",
+                  "value": "3",
+                  "id": "hero-tb-demo-top-size"
+                },
+                {
+                  "type": "top_border_color",
+                  "value": "#0dc0dc",
+                  "id": "hero-tb-demo-top-color"
+                },
+                {
+                  "type": "bottom_border_size",
+                  "value": "3",
+                  "id": "hero-tb-demo-bottom-size"
+                },
+                {
+                  "type": "bottom_border_color",
+                  "value": "#D4450C",
+                  "id": "hero-tb-demo-bottom-color"
+                }
+              ]
+            },
+            "id": "hero-tb-demo-hero"
           },
           {
             "type": "section",
