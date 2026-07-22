@@ -48,6 +48,18 @@ export type HeroConfigOptions = {
     type: 'image_overhang';
     value: string;
 } | {
+    type: 'top_border_size';
+    value: string;
+} | {
+    type: 'top_border_color';
+    value: string;
+} | {
+    type: 'bottom_border_size';
+    value: string;
+} | {
+    type: 'bottom_border_color';
+    value: string;
+} | {
     type: 'rendering_condition';
     value: string;
 };
@@ -86,6 +98,10 @@ export function HeroBlock({data, content, activeConditions}: {data: HeroBlockCon
     const imageBorderColor = findByType(data.value.config, 'image_border_color')?.value;
     const imageBorderSize = findByType(data.value.config, 'image_border_size')?.value;
     const imageOverhang = findByType(data.value.config, 'image_overhang')?.value;
+    const topBorderSize = findByType(data.value.config, 'top_border_size')?.value;
+    const topBorderColor = findByType(data.value.config, 'top_border_color')?.value;
+    const bottomBorderSize = findByType(data.value.config, 'bottom_border_size')?.value;
+    const bottomBorderColor = findByType(data.value.config, 'bottom_border_color')?.value;
     const analytics = findByType(data.value.config, 'analytics_label')?.value;
     const bg = resolveBackground(backgroundColor, gradientColor, gradientDirection);
 
@@ -105,7 +121,11 @@ export function HeroBlock({data, content, activeConditions}: {data: HeroBlockCon
             '--image-border-radius': imageBorderRadius ? `${imageBorderRadius}px` : undefined,
             '--image-border-color': imageBorderColor,
             '--image-border-size': imageBorderSize ? `${imageBorderSize}px` : undefined,
-            '--image-overhang': imageOverhang || undefined
+            '--image-overhang': imageOverhang || undefined,
+            '--top-border-size': topBorderSize ? `${topBorderSize}px` : undefined,
+            '--top-border-color': topBorderColor,
+            '--bottom-border-size': bottomBorderSize ? `${bottomBorderSize}px` : undefined,
+            '--bottom-border-color': bottomBorderColor
         } as React.CSSProperties}
     >
         <div className={cn('hero-inner-wrapper', {'image-left': !imageRight})}>

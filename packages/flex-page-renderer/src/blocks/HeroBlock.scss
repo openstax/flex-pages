@@ -4,6 +4,8 @@
     width: 100%;
     margin: 0;
     overflow: hidden;
+    border-top: var(--top-border-size, 0) solid var(--top-border-color, transparent);
+    border-bottom: var(--bottom-border-size, 0) solid var(--bottom-border-color, transparent);
 
     &.dark-background .hero-content {
         color: text-color(white);
