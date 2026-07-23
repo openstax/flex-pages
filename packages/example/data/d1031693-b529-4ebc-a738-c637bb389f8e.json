@@ -267,25 +267,33 @@
                       {
                         "text": "<h3 data-block-key=\"cacc3\">Pink accent</h3><hr/><p data-block-key=\"cacc4\">This card sets its own accent color.</p>",
                         "ctaBlock": [],
-                        "accentColor": "#d4006a",
-                        "dividerColor": "#ffa000"
+                        "config": [
+                          {"type": "accent_color", "value": "#d4006a", "id": "cacc-ac-01"},
+                          {"type": "divider_color", "value": "#ffa000", "id": "cacc-dc-01"}
+                        ]
                       },
                       {
                         "text": "<h3 data-block-key=\"cacc5\">Blue accent</h3><hr/><p data-block-key=\"cacc6\">Each card can pick a different accent.</p>",
                         "ctaBlock": [],
-                        "accentColor": "#2b73c1",
-                        "dividerColor": "#ffa000"
+                        "config": [
+                          {"type": "accent_color", "value": "#2b73c1", "id": "cacc-ac-02"},
+                          {"type": "divider_color", "value": "#ffa000", "id": "cacc-dc-02"}
+                        ]
                       },
                       {
                         "text": "<h3 data-block-key=\"cacc7\">Teal accent</h3><hr/><p data-block-key=\"cacc8\">Dividers share one color here, also set per card.</p>",
                         "ctaBlock": [],
-                        "accentColor": "#009688",
-                        "dividerColor": "#ffa000"
+                        "config": [
+                          {"type": "accent_color", "value": "#009688", "id": "cacc-ac-03"},
+                          {"type": "divider_color", "value": "#ffa000", "id": "cacc-dc-03"}
+                        ]
                       },
                       {
                         "text": "<h3 data-block-key=\"cacc9\">Default palette</h3><hr/><p data-block-key=\"cacca\">No accent color set, so this card falls back to the default palette.</p>",
                         "ctaBlock": [],
-                        "dividerColor": "#ffa000"
+                        "config": [
+                          {"type": "divider_color", "value": "#ffa000", "id": "cacc-dc-04"}
+                        ]
                       }
                     ],
                     "config": [
@@ -315,17 +323,23 @@
                       {
                         "text": "<p data-block-key=\"caccc\">one</p>",
                         "ctaBlock": [],
-                        "accentColor": "#d4006a"
+                        "config": [
+                          {"type": "accent_color", "value": "#d4006a", "id": "cacc-ac-05"}
+                        ]
                       },
                       {
                         "text": "<p data-block-key=\"caccd\">two</p>",
                         "ctaBlock": [],
-                        "accentColor": "#d4006a"
+                        "config": [
+                          {"type": "accent_color", "value": "#d4006a", "id": "cacc-ac-06"}
+                        ]
                       },
                       {
                         "text": "<p data-block-key=\"cacce\">three</p>",
                         "ctaBlock": [],
-                        "accentColor": "#d4006a"
+                        "config": [
+                          {"type": "accent_color", "value": "#d4006a", "id": "cacc-ac-07"}
+                        ]
                       }
                     ],
                     "config": [
@@ -370,20 +384,26 @@
                       {
                         "text": "<h3 data-block-key=\"cbg03\">Dark card</h3><hr/><p data-block-key=\"cbg04\">This card has a dark background with light text.</p>",
                         "ctaBlock": [],
-                        "accentColor": "#e94560",
-                        "dividerColor": "#e94560"
+                        "config": [
+                          {"type": "accent_color", "value": "#e94560", "id": "cbg-ac-01"},
+                          {"type": "divider_color", "value": "#e94560", "id": "cbg-dc-01"}
+                        ]
                       },
                       {
                         "text": "<h3 data-block-key=\"cbg05\">Dark card</h3><hr/><p data-block-key=\"cbg06\">Text color is automatically derived.</p>",
                         "ctaBlock": [],
-                        "accentColor": "#e94560",
-                        "dividerColor": "#e94560"
+                        "config": [
+                          {"type": "accent_color", "value": "#e94560", "id": "cbg-ac-02"},
+                          {"type": "divider_color", "value": "#e94560", "id": "cbg-dc-02"}
+                        ]
                       },
                       {
                         "text": "<h3 data-block-key=\"cbg07\">Dark card</h3><hr/><p data-block-key=\"cbg08\">No need to set text color manually.</p>",
                         "ctaBlock": [],
-                        "accentColor": "#e94560",
-                        "dividerColor": "#e94560"
+                        "config": [
+                          {"type": "accent_color", "value": "#e94560", "id": "cbg-ac-03"},
+                          {"type": "divider_color", "value": "#e94560", "id": "cbg-dc-03"}
+                        ]
                       }
                     ],
                     "config": [
@@ -418,20 +438,26 @@
                       {
                         "text": "<h3 data-block-key=\"cbg0a\">Light green card</h3><hr/><p data-block-key=\"cbg0b\">Light backgrounds keep dark text.</p>",
                         "ctaBlock": [],
-                        "accentColor": "#2e7d32",
-                        "dividerColor": "#4caf50"
+                        "config": [
+                          {"type": "accent_color", "value": "#2e7d32", "id": "cbg-ac-04"},
+                          {"type": "divider_color", "value": "#4caf50", "id": "cbg-dc-04"}
+                        ]
                       },
                       {
                         "text": "<h3 data-block-key=\"cbg0c\">Light green card</h3><hr/><p data-block-key=\"cbg0d\">Accent colors work with custom backgrounds too.</p>",
                         "ctaBlock": [],
-                        "accentColor": "#1b5e20",
-                        "dividerColor": "#4caf50"
+                        "config": [
+                          {"type": "accent_color", "value": "#1b5e20", "id": "cbg-ac-05"},
+                          {"type": "divider_color", "value": "#4caf50", "id": "cbg-dc-05"}
+                        ]
                       },
                       {
                         "text": "<h3 data-block-key=\"cbg0e\">Light green card</h3><hr/><p data-block-key=\"cbg0f\">Everything composes together.</p>",
                         "ctaBlock": [],
-                        "accentColor": "#2e7d32",
-                        "dividerColor": "#4caf50"
+                        "config": [
+                          {"type": "accent_color", "value": "#2e7d32", "id": "cbg-ac-06"},
+                          {"type": "divider_color", "value": "#4caf50", "id": "cbg-dc-06"}
+                        ]
                       }
                     ],
                     "config": [
@@ -505,48 +531,6 @@
                     ]
                   },
                   "id": "cbs-cards-01"
-                },
-                {
-                  "type": "html",
-                  "value": "&nbsp;",
-                  "id": "cbs-spacer-01"
-                },
-                {
-                  "type": "text",
-                  "value": "<p data-block-key=\"cbs09\">Square cards with <b>border_size: 8</b> for a shorter 8px accent bar.</p>",
-                  "id": "cbs-text-02"
-                },
-                {
-                  "type": "cards_block",
-                  "value": {
-                    "cards": [
-                      {
-                        "text": "<p data-block-key=\"cbs0a\">shorter</p>",
-                        "ctaBlock": []
-                      },
-                      {
-                        "text": "<p data-block-key=\"cbs0b\">accent</p>",
-                        "ctaBlock": []
-                      },
-                      {
-                        "text": "<p data-block-key=\"cbs0c\">bar</p>",
-                        "ctaBlock": []
-                      }
-                    ],
-                    "config": [
-                      {
-                        "type": "card_style",
-                        "value": "square",
-                        "id": "cbs-style-02"
-                      },
-                      {
-                        "type": "border_size",
-                        "value": "8",
-                        "id": "cbs-border-02"
-                      }
-                    ]
-                  },
-                  "id": "cbs-cards-02"
                 }
               ],
               "config": [
