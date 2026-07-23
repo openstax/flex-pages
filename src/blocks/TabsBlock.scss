@@ -102,4 +102,31 @@ $tab-scrollbar-strip: 10px;
       }
     }
   }
+
+  &.content-block-flex-grow { flex: 1 0 }
+  &.content-block-flex { flex: 1 }
+  &.content-block-flex-shrink { flex: 0 1 }
+
+  &.content-block-flex,
+  &.content-block-flex-grow,
+  &.content-block-flex-shrink {
+    display: flex;
+    flex-direction: column;
+
+    > .tab-panels {
+      flex: 1;
+      min-height: 0;
+      grid-template-rows: 1fr;
+
+      > .tab-panel {
+        min-height: 0;
+        overflow-y: auto;
+      }
+    }
+  }
+
+  &.content-block-flex,
+  &.content-block-flex-shrink {
+    overflow: hidden;
+  }
 }

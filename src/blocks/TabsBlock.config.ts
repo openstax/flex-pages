@@ -9,6 +9,11 @@ export const config = {
       {name: 'content', label: 'Tab Content', type: 'blocks', categories: ['content']},
     ]},
     {name: 'config', label: 'Config', type: 'configs', configs: [
+      {name: 'flex', label: 'Height', type: 'select', options: [
+        {label: 'Grow to fill available page space', value: 'flex-grow'},
+        {label: 'Shrink to fit available page space', value: 'flex-shrink'},
+        {label: 'Fit to available page space', value: 'flex'},
+      ]},
       {name: 'tab_alignment', label: 'Tab Alignment', type: 'select', options: [
         {label: 'Left', value: 'left'},
         {label: 'Center', value: 'center'},
