@@ -6,6 +6,9 @@ import { findByType } from '../utils.js';
 import './TabsBlock.css';
 
 type TabsConfigOptions = {
+  type: 'flex';
+  value: 'flex' | 'flex-grow' | 'flex-shrink';
+} | {
   type: 'tab_alignment';
   value: 'left' | 'center' | 'right';
 } | {
@@ -39,6 +42,7 @@ export interface TabsBlockConfig {
 export function TabsBlock({data, tabs: resolvedTabs}: {data: TabsBlockConfig; tabs?: Array<{label: string; content: React.ReactNode}>}) {
   const tabs = resolvedTabs ?? data.value.tabs as unknown as Array<{label: string; content: React.ReactNode}>;
   const id = findByType(data.value.config, 'id')?.value;
+  const flex = findByType(data.value.config, 'flex')?.value;
   const alignment = findByType(data.value.config, 'tab_alignment')?.value;
   const activeColor = findByType(data.value.config, 'active_color')?.value;
   const analytics = findByType(data.value.config, 'analytics_label')?.value;
@@ -80,7 +84,7 @@ export function TabsBlock({data, tabs: resolvedTabs}: {data: TabsBlockConfig; ta
 
   return <div
     id={id}
-    className={cn('content-block-tabs', alignment && `tab-align-${alignment}`)}
+    className={cn('content-block-tabs', {[`content-block-${flex}`]: flex}, alignment && `tab-align-${alignment}`)}
     data-analytics-nav={analytics}
     style={activeColor ? {'--tab-active-color': activeColor} as React.CSSProperties : undefined}
   >
