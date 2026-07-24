@@ -55,6 +55,14 @@
     }
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openstax/flex-pages.git",
+    "directory": "packages/flex-page-os-blocks"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "main": "index.js",
   "scripts": {
     "build": "./script/build.bash",

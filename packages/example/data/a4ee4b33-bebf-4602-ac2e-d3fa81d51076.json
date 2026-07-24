@@ -80,7 +80,7 @@
               "content": [
                 {
                   "type": "text",
-                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Sections have a config section with a number of options. The most commonly used options are \"padding\", \"padding top\", and \"padding bottom\" which are all used to control the content spacing on the page.</p><p data-block-key=\"bt1e2\">This section, and the one before, have padding set to 5. The first section on this page has padding set to 7 and a background color.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"8ih75\"><b>Id</b>: sets the HTML id of the section. To be used in anchor links to scroll to certain parts of the page</p><p data-block-key=\"42t6v\"><b>Background color</b>: sets the background color of the section</p><p data-block-key=\"8d7hf\"><b>Padding</b>: Adds padding to the top and bottom of the section</p><p data-block-key=\"ds68a\"><b>Padding Top</b>: adds padding to the top only</p><p data-block-key=\"8hv0d\"><b>Padding Bottom</b>: adds padding to the bottom only</p><p data-block-key=\"2k4u0\"><b>Text alignment</b>: alignment of text in the section (left, right, or center)</p><p data-block-key=\"2gcvi\"><b>Analytics label</b>: will be set as the \"Link Nav\" option for links clicked within this section in Google Analytics.</p>",
+                  "value": "<h2 data-block-key=\"t6nx6\">Config</h2><p data-block-key=\"2ehkg\">Sections have a config section with a number of options. The most commonly used options are \"padding\", \"padding top\", and \"padding bottom\" which are all used to control the content spacing on the page.</p><p data-block-key=\"bt1e2\">This section, and the one before, have padding set to 5. The first section on this page has padding set to 7 and a background color.</p><h3 data-block-key=\"7g4su\">The options</h3><p data-block-key=\"8ih75\"><b>Id</b>: sets the HTML id of the section. To be used in anchor links to scroll to certain parts of the page</p><p data-block-key=\"42t6v\"><b>Background color</b>: sets the background color of the section</p><p data-block-key=\"8d7hf\"><b>Padding</b>: Adds padding to the top and bottom of the section</p><p data-block-key=\"ds68a\"><b>Padding Top</b>: adds padding to the top only</p><p data-block-key=\"8hv0d\"><b>Padding Bottom</b>: adds padding to the bottom only</p><p data-block-key=\"2k4u0\"><b>Text alignment</b>: alignment of text in the section (left, right, or center)</p><p data-block-key=\"2gcvi\"><b>Analytics label</b>: will be set as the \"Link Nav\" option for links clicked within this section in Google Analytics.</p><p data-block-key=\"tb01\"><b>Top Border Size</b>: top border width in pixels</p><p data-block-key=\"tb02\"><b>Top Border Color</b>: hex color for the top border</p><p data-block-key=\"tb03\"><b>Bottom Border Size</b>: bottom border width in pixels</p><p data-block-key=\"tb04\"><b>Bottom Border Color</b>: hex color for the bottom border</p>",
                   "id": "a54aa88b-7973-4f6a-86bb-a01ff8bba831"
                 }
               ],
@@ -272,6 +272,106 @@
               ]
             },
             "id": "857dfb92-36f8-436c-a6cb-43491dc88921"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h3 data-block-key=\"tb10\">Top Border</h3><p data-block-key=\"tb11\">this section has a 3px teal top border</p>",
+                  "id": "tb-top-only-text"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 2,
+                  "id": "tb-top-only-pad"
+                },
+                {
+                  "type": "top_border_size",
+                  "value": "3",
+                  "id": "tb-top-only-size"
+                },
+                {
+                  "type": "top_border_color",
+                  "value": "#0dc0dc",
+                  "id": "tb-top-only-color"
+                }
+              ]
+            },
+            "id": "tb-top-only-section"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h3 data-block-key=\"tb20\">Bottom Border</h3><p data-block-key=\"tb21\">this section has a 3px orange bottom border</p>",
+                  "id": "tb-bottom-only-text"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 2,
+                  "id": "tb-bottom-only-pad"
+                },
+                {
+                  "type": "bottom_border_size",
+                  "value": "3",
+                  "id": "tb-bottom-only-size"
+                },
+                {
+                  "type": "bottom_border_color",
+                  "value": "#D4450C",
+                  "id": "tb-bottom-only-color"
+                }
+              ]
+            },
+            "id": "tb-bottom-only-section"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h3 data-block-key=\"tb30\">Top and Bottom Borders</h3><p data-block-key=\"tb31\">this section has a 2px teal top border and a 4px purple bottom border. each side can have its own size and color.</p>",
+                  "id": "tb-both-text"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 2,
+                  "id": "tb-both-pad"
+                },
+                {
+                  "type": "top_border_size",
+                  "value": "2",
+                  "id": "tb-both-top-size"
+                },
+                {
+                  "type": "top_border_color",
+                  "value": "#0dc0dc",
+                  "id": "tb-both-top-color"
+                },
+                {
+                  "type": "bottom_border_size",
+                  "value": "4",
+                  "id": "tb-both-bottom-size"
+                },
+                {
+                  "type": "bottom_border_color",
+                  "value": "#6b21a8",
+                  "id": "tb-both-bottom-color"
+                }
+              ]
+            },
+            "id": "tb-both-section"
           },
           {
             "type": "section",

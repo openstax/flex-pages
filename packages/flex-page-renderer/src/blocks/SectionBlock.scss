@@ -3,6 +3,8 @@
 .flex-structure-container > section.content-block-section {
   width: 100%;
   margin: 0;
+  border-top: var(--top-border-size, 0) solid var(--top-border-color, transparent);
+  border-bottom: var(--bottom-border-size, 0) solid var(--bottom-border-color, transparent);
 
   &.content-block-flex-grow { flex: 1 0 }
   &.content-block-flex { flex: 1 }

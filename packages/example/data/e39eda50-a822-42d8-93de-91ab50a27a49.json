@@ -348,6 +348,18 @@
                         "id": "acc00001"
                       },
                       {
+                        "text": "Tabs",
+                        "ariaLabel": "Tabs Component",
+                        "target": {
+                          "value": "page-id",
+                          "type": "route",
+                          "params": {
+                            "id": "a7c2d1e8-5b3f-4a92-9d6e-8f1c0b4a3e57"
+                          }
+                        },
+                        "id": "tabs0001"
+                      },
+                      {
                         "text": "Table",
                         "ariaLabel": "Table Component",
                         "target": {

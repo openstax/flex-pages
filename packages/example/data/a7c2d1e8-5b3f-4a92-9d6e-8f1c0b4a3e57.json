@@ -1,0 +1,358 @@
+{
+  "metadata": {
+    "title": "Tabs",
+    "description": "Documentation and examples for the Tabs (content-level tabbed content) component.",
+    "url": "tabs"
+  },
+  "page": [
+    {
+      "type": "flex_page",
+      "id": "a7c2d1e8-0000-0000-0000-000000000000",
+      "value": {
+        "content": [
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p><strong>Page Content:</strong></p>",
+                  "id": "a7c2d1e8-0001-0000-0000-000000000001"
+                },
+                {
+                  "type": "text",
+                  "value": "<h1 data-block-key=\"t6nx6\">Tabs Component</h1>",
+                  "id": "a7c2d1e8-0001-0000-0000-000000000002"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": "7",
+                  "id": "a7c2d1e8-0001-0000-0000-000000000003"
+                },
+                {
+                  "type": "background_color",
+                  "value": "#0dc0dc",
+                  "id": "a7c2d1e8-0001-0000-0000-000000000004"
+                }
+              ]
+            },
+            "id": "a7c2d1e8-0001-0000-0000-000000000005"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<p><a data-flex-link=\"\" data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\" href=\"/flex-pages/id/e39eda50-a822-42d8-93de-91ab50a27a49\">documentation home</a></p>",
+                  "id": "a7c2d1e8-0001-0000-0000-000000000006"
+                }
+              ],
+              "config": []
+            },
+            "id": "a7c2d1e8-0001-0000-0000-000000000007"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"ov01\">Overview</h2><p data-block-key=\"ov02\">The Tabs block is the content-level counterpart to Tabbed Content. While Tabbed Content is a structural block whose tabs hold structural children (sections, columns, heroes), Tabs is a content block whose tabs hold content children (text, CTAs, cards, accordions).</p><p data-block-key=\"ov03\">Because Tabs is a content block, it can be placed inside columns, sections, wells, and other content slots. Structural concerns like background colors are handled by a parent Section.</p>",
+                  "id": "a7c2d1e8-0002-0000-0000-000000000001"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "a7c2d1e8-0002-0000-0000-000000000002"
+                }
+              ]
+            },
+            "id": "a7c2d1e8-0002-0000-0000-000000000003"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"cfg01\">Config</h2><p data-block-key=\"cfg02\"><b>tab_alignment</b>: align tabs left (default), center, or right.</p><p data-block-key=\"cfg03\"><b>active_color</b>: hex color for the active tab underline.</p><p data-block-key=\"cfg04\"><b>default_tab</b>: zero-based index of which tab to show initially.</p><p data-block-key=\"cfg05\"><b>analytics_label</b>: label for analytics events within this block.</p><p data-block-key=\"cfg06\"><b>id</b>: HTML id for anchor link targeting.</p>",
+                  "id": "a7c2d1e8-0003-0000-0000-000000000001"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "a7c2d1e8-0003-0000-0000-000000000002"
+                }
+              ]
+            },
+            "id": "a7c2d1e8-0003-0000-0000-000000000003"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h2 data-block-key=\"ex01\">Examples</h2><h3 data-block-key=\"ex02\">Tabs inside a section</h3>",
+                  "id": "a7c2d1e8-0004-0000-0000-000000000001"
+                },
+                {
+                  "type": "tabs",
+                  "value": {
+                    "tabs": [
+                      {
+                        "label": "Overview",
+                        "content": [
+                          {
+                            "type": "text",
+                            "value": "<h3 data-block-key=\"a01\">Welcome</h3><p data-block-key=\"a02\">This is the simplest use of the Tabs block: text content organized into switchable panels. Each tab holds content blocks like text, CTAs, and cards.</p>",
+                            "id": "a7c2d1e8-0004-1111-0000-000000000001"
+                          }
+                        ],
+                        "id": "a7c2d1e8-tab1"
+                      },
+                      {
+                        "label": "Details",
+                        "content": [
+                          {
+                            "type": "text",
+                            "value": "<h3 data-block-key=\"b01\">More information</h3><p data-block-key=\"b02\">Tabs follow WAI-ARIA best practices: arrow keys cycle between tabs, Home/End jump to first/last, and screen readers announce proper roles.</p>",
+                            "id": "a7c2d1e8-0004-1111-0000-000000000002"
+                          }
+                        ],
+                        "id": "a7c2d1e8-tab2"
+                      },
+                      {
+                        "label": "FAQ",
+                        "content": [
+                          {
+                            "type": "text",
+                            "value": "<h3 data-block-key=\"c01\">Frequently asked</h3><p data-block-key=\"c02\">You can add as many tabs as you need. Selecting a tab swaps the panel below without reloading the page.</p>",
+                            "id": "a7c2d1e8-0004-1111-0000-000000000003"
+                          }
+                        ],
+                        "id": "a7c2d1e8-tab3"
+                      }
+                    ],
+                    "config": []
+                  },
+                  "id": "a7c2d1e8-0004-1111-0000-000000000010"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding_bottom",
+                  "value": 1,
+                  "id": "a7c2d1e8-0004-0000-0000-000000000002"
+                }
+              ]
+            },
+            "id": "a7c2d1e8-0004-0000-0000-000000000003"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h3 data-block-key=\"col01\">Tabs inside columns</h3><p data-block-key=\"col02\">The primary use case: tabs nested inside a column layout. Each column has its own tabbed content.</p>",
+                  "id": "a7c2d1e8-0005-0000-0000-000000000001"
+                }
+              ],
+              "config": [
+                {
+                  "type": "padding",
+                  "value": 1,
+                  "id": "a7c2d1e8-0005-0000-0000-000000000002"
+                }
+              ]
+            },
+            "id": "a7c2d1e8-0005-0000-0000-000000000003"
+          },
+          {
+            "type": "columns",
+            "value": {
+              "leftContent": [
+                {
+                  "type": "tabs",
+                  "value": {
+                    "tabs": [
+                      {
+                        "label": "Plan A",
+                        "content": [
+                          {
+                            "type": "text",
+                            "value": "<h4 data-block-key=\"la01\">Basic Plan</h4><p data-block-key=\"la02\">Includes core features for individuals getting started.</p>",
+                            "id": "a7c2d1e8-0005-2222-0000-000000000001"
+                          },
+                          {
+                            "type": "cta_block",
+                            "value": {
+                              "actions": [
+                                {
+                                  "text": "Get Started",
+                                  "target": {"type": "external", "value": "#"},
+                                  "config": [{"type": "style", "value": "orange"}]
+                                }
+                              ],
+                              "config": []
+                            },
+                            "id": "a7c2d1e8-0005-2222-0000-000000000002"
+                          }
+                        ],
+                        "id": "a7c2d1e8-ltab1"
+                      },
+                      {
+                        "label": "Plan B",
+                        "content": [
+                          {
+                            "type": "text",
+                            "value": "<h4 data-block-key=\"lb01\">Pro Plan</h4><p data-block-key=\"lb02\">Everything in Basic, plus advanced features for power users.</p>",
+                            "id": "a7c2d1e8-0005-2222-0000-000000000003"
+                          },
+                          {
+                            "type": "cta_block",
+                            "value": {
+                              "actions": [
+                                {
+                                  "text": "Upgrade",
+                                  "target": {"type": "external", "value": "#"},
+                                  "config": [{"type": "style", "value": "blue_outline"}]
+                                }
+                              ],
+                              "config": []
+                            },
+                            "id": "a7c2d1e8-0005-2222-0000-000000000004"
+                          }
+                        ],
+                        "id": "a7c2d1e8-ltab2"
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "active_color",
+                        "value": "#e8590c",
+                        "id": "a7c2d1e8-0005-2222-0000-000000000005"
+                      }
+                    ]
+                  },
+                  "id": "a7c2d1e8-0005-2222-0000-000000000010"
+                }
+              ],
+              "rightContent": [
+                {
+                  "type": "tabs",
+                  "value": {
+                    "tabs": [
+                      {
+                        "label": "Features",
+                        "content": [
+                          {
+                            "type": "text",
+                            "value": "<h4 data-block-key=\"ra01\">What you get</h4><p data-block-key=\"ra02\">Free textbooks, study tools, and instructor resources — all openly licensed.</p>",
+                            "id": "a7c2d1e8-0005-3333-0000-000000000001"
+                          }
+                        ],
+                        "id": "a7c2d1e8-rtab1"
+                      },
+                      {
+                        "label": "Testimonials",
+                        "content": [
+                          {
+                            "type": "text",
+                            "value": "<blockquote data-block-key=\"q01\"><p data-block-key=\"q02\">The tabs block makes it easy to organize related content without cluttering the page.</p><p data-block-key=\"q03\">— A happy author</p></blockquote>",
+                            "id": "a7c2d1e8-0005-3333-0000-000000000002"
+                          }
+                        ],
+                        "id": "a7c2d1e8-rtab2"
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "tab_alignment",
+                        "value": "center",
+                        "id": "a7c2d1e8-0005-3333-0000-000000000003"
+                      }
+                    ]
+                  },
+                  "id": "a7c2d1e8-0005-3333-0000-000000000010"
+                }
+              ],
+              "config": [
+                {
+                  "type": "gap",
+                  "value": "3",
+                  "id": "a7c2d1e8-0005-0000-0000-000000000010"
+                }
+              ]
+            },
+            "id": "a7c2d1e8-0005-0000-0000-000000000020"
+          },
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h3 data-block-key=\"st01\">Center-aligned with custom color</h3>",
+                  "id": "a7c2d1e8-0006-0000-0000-000000000001"
+                },
+                {
+                  "type": "tabs",
+                  "value": {
+                    "tabs": [
+                      {
+                        "label": "First",
+                        "content": [
+                          {
+                            "type": "text",
+                            "value": "<p data-block-key=\"s01\">These tabs are center-aligned with a custom active color.</p>",
+                            "id": "a7c2d1e8-0006-1111-0000-000000000001"
+                          }
+                        ],
+                        "id": "a7c2d1e8-stab1"
+                      },
+                      {
+                        "label": "Second",
+                        "content": [
+                          {
+                            "type": "text",
+                            "value": "<p data-block-key=\"s02\">The active color tints the underline beneath the selected tab.</p>",
+                            "id": "a7c2d1e8-0006-1111-0000-000000000002"
+                          }
+                        ],
+                        "id": "a7c2d1e8-stab2"
+                      }
+                    ],
+                    "config": [
+                      {
+                        "type": "tab_alignment",
+                        "value": "center",
+                        "id": "a7c2d1e8-0006-1111-0000-000000000003"
+                      },
+                      {
+                        "type": "active_color",
+                        "value": "#d4006a",
+                        "id": "a7c2d1e8-0006-1111-0000-000000000004"
+                      }
+                    ]
+                  },
+                  "id": "a7c2d1e8-0006-1111-0000-000000000010"
+                }
+              ],
+              "config": []
+            },
+            "id": "a7c2d1e8-0006-0000-0000-000000000003"
+          }
+        ]
+      }
+    }
+  ]
+}
