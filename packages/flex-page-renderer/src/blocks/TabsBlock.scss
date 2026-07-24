@@ -103,9 +103,9 @@ $tab-scrollbar-strip: 10px;
     }
   }
 
-  &.content-block-flex-grow { flex: 1 0 }
+  &.content-block-flex-grow { flex: 1 0 0 }
   &.content-block-flex { flex: 1 }
-  &.content-block-flex-shrink { flex: 0 1 }
+  &.content-block-flex-shrink { flex: 0 1 0 }
 
   &.content-block-flex,
   &.content-block-flex-grow,

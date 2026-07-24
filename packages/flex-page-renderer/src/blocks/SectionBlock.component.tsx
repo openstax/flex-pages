@@ -93,9 +93,9 @@ export function SectionBlock({data, content, activeConditions}: {data: SectionBl
       '--padding-top-multiplier': paddingTop,
       '--padding-bottom-multiplier': paddingBottom,
       '--top-border-size': topBorderSize ? `${topBorderSize}px` : undefined,
-      '--top-border-color': topBorderColor,
+      '--top-border-color': topBorderSize ? topBorderColor : undefined,
       '--bottom-border-size': bottomBorderSize ? `${bottomBorderSize}px` : undefined,
-      '--bottom-border-color': bottomBorderColor
+      '--bottom-border-color': bottomBorderSize ? bottomBorderColor : undefined
     } as React.CSSProperties}
   >
     <div className={cn('section-content', 'flex-content-container', flexAlignClass(textAlign))} style={{textAlign, display, flexDirection: 'column'}}>

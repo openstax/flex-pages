@@ -119,13 +119,13 @@ export function HeroBlock({data, content, activeConditions}: {data: HeroBlockCon
             '--padding-bottom-multiplier': paddingBottom,
             '--image-vertical-align': imageVerticalAlign,
             '--image-border-radius': imageBorderRadius ? `${imageBorderRadius}px` : undefined,
-            '--image-border-color': imageBorderColor,
+            '--image-border-color': imageBorderSize ? imageBorderColor : undefined,
             '--image-border-size': imageBorderSize ? `${imageBorderSize}px` : undefined,
             '--image-overhang': imageOverhang || undefined,
             '--top-border-size': topBorderSize ? `${topBorderSize}px` : undefined,
-            '--top-border-color': topBorderColor,
+            '--top-border-color': topBorderSize ? topBorderColor : undefined,
             '--bottom-border-size': bottomBorderSize ? `${bottomBorderSize}px` : undefined,
-            '--bottom-border-color': bottomBorderColor
+            '--bottom-border-color': bottomBorderSize ? bottomBorderColor : undefined
         } as React.CSSProperties}
     >
         <div className={cn('hero-inner-wrapper', {'image-left': !imageRight})}>
