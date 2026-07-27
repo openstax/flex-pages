@@ -11,6 +11,57 @@
     margin: 0 auto;
     box-sizing: border-box;
     overflow: hidden;
+
+    // The Width config sets an inline max-width (e.g. 50%) for desktop
+    // layout; below tablet that reads as cramped, so let it fill the
+    // container instead. Inline style needs !important to be overridden.
+    @include width-up-to($tablet-max) {
+      max-width: 100% !important;
+    }
+
+    // ...except a narrow inline max-width (50-60%) still wants some room to
+    // breathe rather than going edge-to-edge at tablet widths.
+    @include width-between($phone-max, $tablet-max) {
+      &[style*="max-width:50%"],
+      &[style*="max-width: 50%"],
+      &[style*="max-width:60%"],
+      &[style*="max-width: 60%"] {
+        max-width: 70% !important;
+      }
+    }
+
+    // Lays content blocks out side by side instead of stacked (e.g. a row of
+    // Big Numbers), reflowing to fewer per row as space runs out.
+    &.layout-wrap {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      gap: $normal-margin;
+
+      // Big Numbers have no intrinsic sizing of their own; give them a
+      // shrink-to-fit basis so flex-wrap reflows them without any
+      // viewport-specific breakpoints.
+      > .content-block-big-number {
+        flex: 1 1 18rem;
+      }
+    }
+
+    // Renders a Text block's h6 as a large pull-quote (e.g. a testimonial)
+    // instead of its normal heading size, scaling smoothly between the
+    // phone and desktop sizes across the tablet range.
+    &.style-display-heading .content-block-rich-text h6 {
+      font-size: 4rem;
+      line-height: 1;
+      margin-bottom: 0;
+
+      @include width-up-to($phone-max) {
+        font-size: 2.4rem;
+      }
+
+      @include width-between($phone-max, $tablet-max) {
+        font-size: calc(6.6666666667vw - 1.6rem);
+      }
+    }
   }
 
   &.dark-background > .well-content {

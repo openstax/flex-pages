@@ -93,7 +93,9 @@ A list of collapsible items that reveal their content on demand; well suited to 
 | --- | --- | --- | --- | --- |
 | Heading Level | `heading_level` | select | see options below | Heading level for each item, for the document outline and screen-reader navigation |
 | Allow Multiple Open | `allow_multiple` | select | see options below | Allow more than one panel to be open at the same time |
-| Accent Color | `accent_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for the expand/collapse icon |
+| Accent Color | `accent_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for the expand/collapse icon and item divider. |
+| Accent Colors | `accent_colors` | text | must match `#[a-fA-F0-9]{6}(\s*,\s*#[a-fA-F0-9]{6})*` | Comma-separated hex colors cycled per item, e.g. #ff0000,#00ff00. Overrides Accent Color. |
+| Top Border Color | `top_border_color` | text | must match `#[a-fA-F0-9]{6}` | Adds a colored border above the whole accordion. |
 
 _Heading Level (`heading_level`) options:_
 
@@ -215,9 +217,10 @@ A wrapping grid of card tiles, each holding rich text and an optional call-to-ac
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
 | Style | `card_style` | select | see options below |  |
-| Size | `card_size` | number | a number | A single number representing 10px increments |
-| Columns | `card_columns` | number | a number | Maximum cards per row. Rows reflow to fewer columns as the container narrows; set Min card width to control when. |
-| Min card width | `card_min_size` | number | a number | Smallest a card gets before the grid wraps to fewer columns, in 10px increments (e.g. 18 = 180px). Defaults to 18. |
+| Layout | `layout` | select | see options below |  |
+| Size | `card_size` | number | a number | A single number representing 10px increments. Grid layout only. |
+| Columns | `card_columns` | number | a number | Maximum cards per row. Rows reflow to fewer columns as the container narrows; set Min card width to control when. Grid layout only. |
+| Min card width | `card_min_size` | number | a number | Smallest a card gets before the grid wraps to fewer columns, in 10px increments (e.g. 18 = 180px). Defaults to 18. Grid layout only. |
 | Background Color | `background_color` | text | must match `#[a-fA-F0-9]{6}` | Hex background color for cards |
 | Border Size | `border_size` | number | a number | Outer border width in px, all sides. Leave blank for the style default; 0 = no border. |
 | Accent Size | `accent_size` | number | a number | Top accent bar height in px, independent of the border. Color comes from each card's Accent Color (or a default palette). |
@@ -231,6 +234,13 @@ _Style (`card_style`) options:_
 | --- | --- |
 | `rounded` | Rounded |
 | `square` | Square |
+
+_Layout (`layout`) options:_
+
+| Value | Label |
+| --- | --- |
+| `grid` | Grid |
+| `masonry` | Masonry-style columns, packed by height |
 
 **Cards** — an array of data nodes; each item's **Fields**:
 
@@ -953,6 +963,8 @@ A styled container that wraps content blocks, with configurable background, padd
 | Pull Up | `pull_up` | number | a number | Pulls the well upward by this amount in rem units. Use with extra padding on the section above to create an overlap effect. |
 | Width | `width` | text |  | Maximum width of the well content (e.g., 600px, 50%, auto) |
 | Text Alignment | `text_alignment` | select | see options below |  |
+| Layout | `layout` | select | see options below |  |
+| Heading Style | `heading_style` | select | see options below | Renders Text content's h6 headings as a large, fluid-sized display quote (e.g. a testimonial pull-quote) instead of regular heading size. |
 | Analytics Label | `analytics_label` | text |  | Analytics events from within this well will include this label |
 | ID | `id` | text |  | The HTML id of the well (can be referenced by anchor links). |
 
@@ -976,3 +988,17 @@ _Text Alignment (`text_alignment`) options:_
 | `left` | Left |
 | `right` | Right |
 | `center` | Center |
+
+_Layout (`layout`) options:_
+
+| Value | Label |
+| --- | --- |
+| `stack` | Stack |
+| `wrap` | Wrap (side by side, reflowing to fewer per row on narrow screens) |
+
+_Heading Style (`heading_style`) options:_
+
+| Value | Label |
+| --- | --- |
+| `normal` | Normal |
+| `display` | Display Quote |
