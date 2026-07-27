@@ -10,11 +10,11 @@ export function resolveBackground(
   if (gradientColor) {
     const direction = gradientDirection || 'to bottom';
     const background = `linear-gradient(${direction}, ${backgroundColor}, ${gradientColor})`;
-    const mixed = Color(backgroundColor).mix(Color(gradientColor), 0.5); // eslint-disable-line new-cap
+    const mixed = Color(backgroundColor).mix(Color(gradientColor), 0.5);  
     return {background, backgroundColor, isDark: mixed.isDark()};
   }
 
-  return {backgroundColor, isDark: Color(backgroundColor).isDark()}; // eslint-disable-line new-cap
+  return {backgroundColor, isDark: Color(backgroundColor).isDark()};  
 }
 
 export function findByType<Union extends {type: string}, T extends string>(entries: Union[] | undefined, type: T) {

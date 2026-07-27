@@ -59,7 +59,7 @@ const STACK_AT_DEFAULT = '60em';
 // cspell:ignore cqmin cqmax -- CSS container query length units
 const STACK_AT_PATTERN = /^\d+(\.\d+)?(px|em|rem|%|vw|vh|cqw|cqi|cqmin|cqmax|ch|ex)$/;
 
-// eslint-disable-next-line complexity
+ 
 export function ColumnsBlock({data, leftContent, rightContent}: {data: ColumnsBlockConfig; leftContent?: React.ReactNode; rightContent?: React.ReactNode}) {
   const id = findByType(data.value.config, 'id')?.value;
   const gap = findByType(data.value.config, 'gap')?.value ?? 0;
