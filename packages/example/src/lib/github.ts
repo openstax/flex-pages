@@ -45,7 +45,7 @@ export async function fetchPageList(token: string): Promise<PageListItem[]> {
   if (res.status === 401) throw new Error('Invalid or expired token');
   if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   
   const entries: any[] = await res.json();
   const jsonFiles = entries.filter(e => e.type === 'file' && e.name.endsWith('.json'));
 
@@ -61,7 +61,7 @@ export async function fetchPageList(token: string): Promise<PageListItem[]> {
   return items.sort((a, b) => a.title.localeCompare(b.title));
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export async function fetchPage(id: string, token: string): Promise<{page: any; metadata: PageMetadata; sha: string}> {
   const res = await fetch(
     `https://api.github.com/repos/${REPO}/contents/${filePath(id)}`,
@@ -78,7 +78,7 @@ export async function fetchPage(id: string, token: string): Promise<{page: any; 
   return {page: fileData.page[0], metadata, sha: data.sha};
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export async function savePage(id: string, page: any, metadata: PageMetadata, sha: string, token: string): Promise<{sha: string}> {
   const content = JSON.stringify({metadata, page: [page]}, null, 2) + '\n';
   const encoded = btoa(

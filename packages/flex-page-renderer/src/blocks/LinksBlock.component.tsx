@@ -45,7 +45,7 @@ export function LinksBlock({data}: {data: LinksBlockConfig}) {
 
   const useCustom = Boolean(customColor);
   const customColorClass = useCustom
-    ? Color(customColor).isDark() ? 'custom-color-dark' : 'custom-color-light' // eslint-disable-line new-cap
+    ? Color(customColor).isDark() ? 'custom-color-dark' : 'custom-color-light'  
     : undefined;
   const style = useCustom
     ? {'--link-bg-color': customColor} as React.CSSProperties

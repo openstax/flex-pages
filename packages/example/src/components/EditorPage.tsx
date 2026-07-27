@@ -39,7 +39,7 @@ const editorRoutes: RouteConfig = {
   },
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 type PageData = {page: any; metadata: PageMetadata; sha: string};
 
 const EditorPage = () => {
