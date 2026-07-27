@@ -47,14 +47,15 @@
 
     display: flex;
     flex-direction: row;
-
-    .content-block-columns-left {
-      margin-right: calc( #{$normal-margin} * var(--col-gap, 0));
-    }
+    gap: calc( #{$normal-margin} * var(--col-gap, 0));
 
     .content-block-columns-left,
     .content-block-columns-right {
       flex: var(--col-flex, unset);
+    }
+
+    @include width-up-to($phone-max) {
+      flex-direction: column;
     }
   }
 

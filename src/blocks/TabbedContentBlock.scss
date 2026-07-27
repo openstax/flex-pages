@@ -72,6 +72,13 @@ $tab-scrollbar-strip: 10px;
     cursor: pointer;
     white-space: nowrap;
     position: relative;
+    // Equal-width tabs when there's room; below tablet let each tab size to
+    // its own label instead of stretching, since the row scrolls there anyway.
+    flex: 1;
+
+    @include width-up-to($tablet-max) {
+      flex: none;
+    }
 
     &::before {
       content: attr(data-label);
@@ -117,14 +124,30 @@ $tab-scrollbar-strip: 10px;
     > .tab-panel {
       grid-area: 1 / 1;
       visibility: hidden;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease-out, visibility 0s 0.15s;
 
       &.active {
         visibility: visible;
+        pointer-events: auto;
+        opacity: 1;
+        transition: opacity 0.15s ease-out, visibility 0s 0s;
       }
 
       &:focus-visible {
         outline: 2px solid var(--tab-active-color);
         outline-offset: 2px;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    > .tab-panels > .tab-panel {
+      transition: none;
+
+      &.active {
+        transition: none;
       }
     }
   }
