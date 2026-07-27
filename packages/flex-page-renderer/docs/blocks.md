@@ -34,7 +34,7 @@ Most blocks have a data-node `value`, but some hold a single scalar `value` inst
 
 A block may be placed in a slot when the slot's allowed categories include one of the block's categories.
 
-- **content**: Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`)
+- **content**: Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Text (`text`), Well (`well`)
 - **page**: Page (`flex_page`)
 - **structure**: Columns (`columns`), Divider (`divider`), HTML (`html`), Hero (`hero`), Section (`section`), Tabbed Content (`tabbed_content`)
 
@@ -248,8 +248,13 @@ _Layout (`layout`) options:_
 | --- | --- | --- | --- | --- |
 | Card Text | `text` | rich text | Yes |  |
 | Call To Action | `ctaBlock` | list |  |  |
-| Accent Color | `accentColor` | text |  | Hex accent color for this card: the border on rounded style, the top accent bar on square (needs Accent Size). Leave blank for the default palette. |
-| Divider Color | `dividerColor` | text |  | Hex color for divider lines in this card. Leave blank for the default palette. |
+
+_Cards item — entries of its `config` array:_
+
+| Option | Key | Type | Values / format | Description |
+| --- | --- | --- | --- | --- |
+| Accent Color | `accent_color` | text | must match `#[a-fA-F0-9]{6}` | Hex accent color for this card: the border on rounded style, the top accent bar on square (needs Accent Size). Leave blank for the default palette. |
+| Divider Color | `divider_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for divider lines in this card. Leave blank for the default palette. |
 
 **Cards › Call To Action** — an array of data nodes (max 1); each item's **Fields**:
 
@@ -287,8 +292,8 @@ A two-column layout that stacks vertically on smaller screens, with configurable
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Left Column Content | `leftContent` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
-| Right Column Content | `rightContent` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Left Column Content | `leftContent` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Text (`text`), Well (`well`) |
+| Right Column Content | `rightContent` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -382,7 +387,7 @@ Like a section, but with a dedicated image on one side and rich options for how 
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -406,6 +411,10 @@ Like a section, but with a dedicated image on one side and rich options for how 
 | Padding Bottom | `padding_bottom` | number | a number | Bottom padding, in 10px increments |
 | Analytics Label | `analytics_label` | text |  | Analytics events from within this section will include this label |
 | ID | `id` | text |  | The HTML id of the section (can be referenced by anchor links). |
+| Top Border Size | `top_border_size` | number | a number | Top border width in pixels |
+| Top Border Color | `top_border_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for the top border |
+| Bottom Border Size | `bottom_border_size` | number | a number | Bottom border width in pixels |
+| Bottom Border Color | `bottom_border_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for the bottom border |
 | Image Border Radius | `image_border_radius` | number | a number | Border radius for the hero image in pixels |
 | Image Border Color | `image_border_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for the hero image border |
 | Image Border Size | `image_border_size` | number | a number | Border width for the hero image in pixels |
@@ -607,7 +616,7 @@ A fixed-width container for content blocks — the primary content container for
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Section Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Section Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -627,6 +636,10 @@ A fixed-width container for content blocks — the primary content container for
 | Padding | `padding` | number | a number | Top and Bottom padding, in 10px increments |
 | Padding Top | `padding_top` | number | a number | Top padding, in 10px increments |
 | Padding Bottom | `padding_bottom` | number | a number | Bottom padding, in 10px increments |
+| Top Border Size | `top_border_size` | number | a number | Top border width in pixels |
+| Top Border Color | `top_border_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for the top border |
+| Bottom Border Size | `bottom_border_size` | number | a number | Bottom border width in pixels |
+| Bottom Border Color | `bottom_border_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for the bottom border |
 | Analytics Label | `analytics_label` | text |  | Analytics events from within this section will include this label |
 | ID | `id` | text |  | The HTML id of the section (can be referenced by anchor links). |
 | Rendering Condition | `rendering_condition` | text |  | Comma-separated condition slugs. Block renders only when at least one is active. |
@@ -729,6 +742,60 @@ _Border Width (`border_width`) options:_
 | Tab Label | `label` | text | Yes |  |
 | Tab Content | `content` | child blocks |  |  |
 
+### Tabbed Content — `tabs`
+
+*Categories: content*
+
+Organizes content blocks into switchable tabbed panels, following WAI-ARIA tab keyboard patterns.
+
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
+
+**Child content**
+
+| Slot | Key | Allowed blocks |
+| --- | --- | --- |
+| Tab Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Text (`text`), Well (`well`) |
+
+**Fields**
+
+| Field | Key | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| Tabs | `tabs` | list |  |  |
+
+**Config** — entries of the data node's `config` array:
+
+| Option | Key | Type | Values / format | Description |
+| --- | --- | --- | --- | --- |
+| Height | `flex` | select | see options below |  |
+| Tab Alignment | `tab_alignment` | select | see options below |  |
+| Active Tab Color | `active_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for the active tab underline |
+| Default Tab | `default_tab` | number | a number | Zero-based index of the tab to show by default |
+| Analytics Label | `analytics_label` | text |  | Analytics events from within this block will include this label |
+| ID | `id` | text |  | The HTML id of the tabs block (can be referenced by anchor links). |
+
+_Height (`flex`) options:_
+
+| Value | Label |
+| --- | --- |
+| `flex-grow` | Grow to fill available page space |
+| `flex-shrink` | Shrink to fit available page space |
+| `flex` | Fit to available page space |
+
+_Tab Alignment (`tab_alignment`) options:_
+
+| Value | Label |
+| --- | --- |
+| `left` | Left |
+| `center` | Center |
+| `right` | Right |
+
+**Tabs** — an array of data nodes; each item's **Fields**:
+
+| Field | Key | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| Tab Label | `label` | text | Yes |  |
+| Tab Content | `content` | child blocks |  |  |
+
 ### Text — `text`
 
 *Categories: content*
@@ -755,7 +822,7 @@ A styled container that wraps content blocks, with configurable background, padd
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Well Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Text (`text`), Well (`well`) |
+| Well Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Text (`text`), Well (`well`) |
 
 **Fields**
 
