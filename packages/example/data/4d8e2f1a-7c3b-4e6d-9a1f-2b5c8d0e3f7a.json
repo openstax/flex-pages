@@ -1,0 +1,455 @@
+{
+ "metadata": {
+  "title": "Table",
+  "description": "Documentation and examples for the Table component.",
+  "url": "table"
+ },
+ "page": [
+  {
+   "id": "table-page",
+   "type": "flex_page",
+   "value": {
+    "content": [
+     {
+      "type": "section",
+      "value": {
+       "content": [
+        {
+         "type": "text",
+         "value": "<p><b>Page Content:</b></p>",
+         "id": "0001-text-category"
+        },
+        {
+         "type": "text",
+         "value": "<h1>Table</h1>",
+         "id": "0001-text-title"
+        }
+       ],
+       "config": [
+        {
+         "type": "padding",
+         "value": 7,
+         "id": "0001-cfg-pad"
+        },
+        {
+         "type": "background_color",
+         "value": "#0dc0dc",
+         "id": "0001-cfg-bg"
+        }
+       ]
+      },
+      "id": "0001-section-title"
+     },
+     {
+      "type": "section",
+      "value": {
+       "content": [
+        {
+         "type": "text",
+         "value": "<p><a data-flex-link data-link-type=\"route\" data-link-value=\"page-id\" data-link-params=\"{&quot;id&quot;:&quot;e39eda50-a822-42d8-93de-91ab50a27a49&quot;}\">documentation home</a></p>",
+         "id": "0002-text-breadcrumb"
+        }
+       ],
+       "config": []
+      },
+      "id": "0002-section-breadcrumb"
+     },
+     {
+      "type": "section",
+      "value": {
+       "content": [
+        {
+         "type": "text",
+         "value": "<h2>Overview</h2><p>Table renders an accessible, semantic data table \u2014 a <code>&lt;caption&gt;</code>, a header row of <code>&lt;th&gt;</code> cells, and body rows. Each cell holds rich text or a call-to-action. On narrow screens the rows stack, with each cell labeled by its column.</p><p>Zebra striping (with custom hex colors), condensed spacing, column sorting, and a filter box are all optional config. Sorting and filtering run in the browser over the rows you author \u2014 there is no data import.</p>",
+         "id": "0003-text-overview"
+        }
+       ],
+       "config": [
+        {
+         "type": "padding_bottom",
+         "value": 1,
+         "id": "0003-cfg-pad"
+        }
+       ]
+      },
+      "id": "0003-section-overview"
+     },
+     {
+      "type": "section",
+      "value": {
+       "content": [
+        {
+         "type": "text",
+         "value": "<h2>Config</h2><h3>Content</h3><p><b>caption</b>: a short description, rendered as the table's <code>&lt;caption&gt;</code>.</p><p><b>columns</b>: the header row \u2014 one <b>header</b> label per column.</p><p><b>rows</b>: each row is a list of <b>cells</b>; a cell has rich-text <b>content</b> or a <b>cta</b> (the CTA wins when both are set).</p><h3>Styling &amp; behavior</h3><p><b>striped</b>: shade alternating rows. <b>row_colors</b>: comma-separated hex colors cycled across rows, overriding the default shade. <b>condensed</b>: tighter padding. <b>sortable</b>: click headers to sort. <b>filterable</b>: show a filter box.</p>",
+         "id": "0004-text-config"
+        }
+       ],
+       "config": [
+        {
+         "type": "padding",
+         "value": 1,
+         "id": "0004-cfg-pad"
+        }
+       ]
+      },
+      "id": "0004-section-config"
+     },
+     {
+      "type": "section",
+      "value": {
+       "content": [
+        {
+         "type": "text",
+         "value": "<h2>Example: basic</h2><p>A plain table with a caption, header row, rich-text cells, and a CTA in the last column.</p>",
+         "id": "0005-text-examples"
+        },
+        {
+         "type": "table",
+         "value": {
+          "caption": "Getting OpenStax books",
+          "columns": [
+           {
+            "header": "Subject"
+           },
+           {
+            "header": "Format"
+           },
+           {
+            "header": "Get it"
+           }
+          ],
+          "rows": [
+           {
+            "cells": [
+             {
+              "content": "<p>College Algebra</p>"
+             },
+             {
+              "content": "<p>Web, PDF, print</p>"
+             },
+             {
+              "cta": [
+               {
+                "text": "Browse",
+                "target": {
+                 "type": "external",
+                 "value": "https://openstax.org/details/books/college-algebra"
+                },
+                "config": [
+                 {
+                  "type": "style",
+                  "value": "orange"
+                 }
+                ],
+                "aria_label": "Browse College Algebra formats"
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "cells": [
+             {
+              "content": "<p>Biology 2e</p>"
+             },
+             {
+              "content": "<p>Web, PDF</p>"
+             },
+             {
+              "cta": [
+               {
+                "text": "Browse",
+                "target": {
+                 "type": "external",
+                 "value": "https://openstax.org/details/books/biology-2e"
+                },
+                "config": [
+                 {
+                  "type": "style",
+                  "value": "orange"
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "cells": [
+             {
+              "content": "<p>U.S. History</p>"
+             },
+             {
+              "content": "<p>Web, PDF, print</p>"
+             },
+             {
+              "cta": [
+               {
+                "text": "Browse",
+                "target": {
+                 "type": "external",
+                 "value": "https://openstax.org/details/books/us-history"
+                },
+                "config": [
+                 {
+                  "type": "style",
+                  "value": "orange"
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ],
+          "config": []
+         },
+         "id": "0005-table-basic"
+        }
+       ],
+       "config": [
+        {
+         "type": "padding",
+         "value": 1,
+         "id": "0005-cfg-pad"
+        }
+       ]
+      },
+      "id": "0005-section-examples"
+     },
+     {
+      "type": "section",
+      "value": {
+       "content": [
+        {
+         "type": "text",
+         "value": "<h2>Example: striped, sortable &amp; filterable</h2><p>Custom alternating row colors, condensed spacing, sortable headers, and a filter box. Click a header to sort; type in the filter box to narrow the rows.</p>",
+         "id": "0006-text-examples"
+        },
+        {
+         "type": "table",
+         "value": {
+          "caption": "OpenStax titles by subject",
+          "columns": [
+           {
+            "header": "Title",
+            "type": "text"
+           },
+           {
+            "header": "Subject",
+            "type": "text"
+           },
+           {
+            "header": "Edition",
+            "type": "number"
+           },
+           {
+            "header": "Published",
+            "type": "date"
+           }
+          ],
+          "rows": [
+           {
+            "cells": [
+             {
+              "content": "<p>College Algebra</p>"
+             },
+             {
+              "content": "<p>Math</p>"
+             },
+             {
+              "content": "<p>2</p>"
+             },
+             {
+              "content": "<p>03/28/2018</p>"
+             }
+            ]
+           },
+           {
+            "cells": [
+             {
+              "content": "<p>Biology</p>"
+             },
+             {
+              "content": "<p>Science</p>"
+             },
+             {
+              "content": "<p>2e</p>"
+             },
+             {
+              "content": "<p>12/31/2025</p>"
+             }
+            ]
+           },
+           {
+            "cells": [
+             {
+              "content": "<p>Psychology</p>"
+             },
+             {
+              "content": "<p>Social Sciences</p>"
+             },
+             {
+              "content": "<p>2e</p>"
+             },
+             {
+              "content": "<p>01/05/2026</p>"
+             }
+            ]
+           },
+           {
+            "cells": [
+             {
+              "content": "<p>Anatomy &amp; Physiology</p>"
+             },
+             {
+              "content": "<p>Social Sciences</p>"
+             },
+             {
+              "content": "<p>3e</p>"
+             },
+             {
+              "content": "<p>06/15/2024</p>"
+             }
+            ]
+           },
+           {
+            "cells": [
+             {
+              "content": "<p>Chemistry</p>"
+             },
+             {
+              "content": "<p>Science</p>"
+             },
+             {
+              "content": "<p>2e</p>"
+             },
+             {
+              "content": "<p>02/14/2019</p>"
+             }
+            ]
+           },
+           {
+            "cells": [
+             {
+              "content": "<p>Calculus Volume 1</p>"
+             },
+             {
+              "content": "<p>Math</p>"
+             },
+             {
+              "content": "<p>1</p>"
+             },
+             {
+              "content": "<p>09/30/2021</p>"
+             }
+            ]
+           }
+          ],
+          "config": [
+           {
+            "type": "striped",
+            "value": "on",
+            "id": "0006-cfg-striped"
+           },
+           {
+            "type": "row_colors",
+            "value": "#ffffff,#eef6ff",
+            "id": "0006-cfg-rowcolors"
+           },
+           {
+            "type": "condensed",
+            "value": "on",
+            "id": "0006-cfg-condensed"
+           },
+           {
+            "type": "sortable",
+            "value": "on",
+            "id": "0006-cfg-sortable"
+           },
+           {
+            "type": "filterable",
+            "value": "on",
+            "id": "0006-cfg-filterable"
+           },
+           {
+            "type": "default_sort_column",
+            "value": 4,
+            "id": "0006-cfg-defaultsortcol"
+           },
+           {
+            "type": "default_sort_direction",
+            "value": "desc",
+            "id": "0006-cfg-defaultsortdir"
+           },
+           {
+            "type": "row_limit",
+            "value": 4,
+            "id": "0006-cfg-rowlimit"
+           },
+           {
+            "type": "empty_message",
+            "value": "No titles found.",
+            "id": "0006-cfg-emptymsg"
+           },
+           {
+            "type": "id",
+            "value": "titles-table",
+            "id": "0006-cfg-id"
+           }
+          ]
+         },
+         "id": "0006-table-advanced"
+        }
+       ],
+       "config": [
+        {
+         "type": "padding",
+         "value": 1,
+         "id": "0006-cfg-pad"
+        }
+       ]
+      },
+      "id": "0006-section-examples"
+     },
+     {
+      "type": "section",
+      "value": {
+       "content": [
+        {
+         "type": "text",
+         "value": "<h2>Empty table</h2><p>A table whose data source returned nothing (the CMS serializes empty <code>columns</code>/<code>rows</code>) keeps its caption and shows the authored empty message instead of vanishing.</p>",
+         "id": "0007-text-empty"
+        },
+        {
+         "type": "table",
+         "value": {
+          "caption": "Upcoming events",
+          "columns": [],
+          "rows": [],
+          "config": [
+           {
+            "type": "empty_message",
+            "value": "No events are scheduled right now \u2014 check back soon.",
+            "id": "0007-cfg-emptymsg"
+           }
+          ]
+         },
+         "id": "0007-table-empty"
+        }
+       ],
+       "config": [
+        {
+         "type": "padding",
+         "value": 1,
+         "id": "0007-cfg-pad"
+        }
+       ]
+      },
+      "id": "0007-section-empty"
+     }
+    ]
+   }
+  }
+ ]
+}
