@@ -1,0 +1,160 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page div.content-block-cards {
+    display: grid;
+
+    // Smallest a card gets before the grid wraps to fewer columns. Adjustable
+    // per block via the Min card width config.
+    --col-floor: 18rem;
+
+    // Default: stretch cards to fill the container width, down to the floor.
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--col-floor)), 1fr));
+    grid-gap: ($normal-margin * 2);
+
+    // Block top/bottom spacing, as --card-padding-* multiples of $normal-margin.
+    padding-top: calc(#{$normal-margin} * var(--card-padding-top, var(--card-padding, 0)));
+    padding-bottom: calc(#{$normal-margin} * var(--card-padding-bottom, var(--card-padding, 0)));
+
+    // Min card width: tune the wrap threshold (when the grid drops a column),
+    // in the same 10px steps as Size.
+    &.has-min-size {
+        --col-floor: calc(var(--card-min-size) * 1rem);
+    }
+
+    // Explicit card size: cap the column width and center the grid.
+    &.has-size {
+        grid-template-columns: repeat(auto-fit, minmax(min-content, calc(var(--card-size, 27) * 1rem)));
+        justify-content: center;
+    }
+
+    // Columns sets the MAX cards per row. Tracks fill the width (1fr) but never get
+    // narrower than --col-floor; once the 1/N share would dip below the floor the
+    // grid reflows to fewer columns, down to one — driven by the container width,
+    // with no fixed breakpoint. min(100%, …) keeps a lone card from overflowing.
+    // repeat()'s count can't be a custom property, so the column cap is enforced by
+    // sizing each track to its 1/N share rather than by a literal repeat count.
+    &.has-columns {
+        grid-template-columns: repeat(auto-fit,
+            minmax(
+                min(100%, max(var(--col-floor),
+                    (100% - (var(--card-columns) - 1) * #{$normal-margin * 2}) / var(--card-columns)
+                )),
+                1fr
+            )
+        );
+    }
+
+    // Masonry-style layout: cards pack into fixed columns by height
+    // instead of a grid row, for decorative card walls (e.g. a wall of
+    // quotes) rather than aligned content tiles.
+    &.layout-masonry {
+      display: block;
+      column-count: 3;
+      column-gap: ($normal-margin * 2);
+
+      @include width-up-to($phone-max) {
+        column-count: 1;
+      }
+
+      @include width-between($phone-max, $tablet-max) {
+        column-count: 2;
+      }
+
+      > .content-block-card {
+        break-inside: avoid;
+        margin-bottom: ($normal-margin * 2);
+      }
+    }
+
+    > .content-block-card {
+      /* to show above divider images */
+      position: relative;
+      z-index: 1;
+
+      // Light drop shadow on every card. Uses filter (not box-shadow) so it
+      // coexists with the top-accent box-shadow and follows the rounded corners.
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+
+      display: flex;
+      flex-direction: column;
+
+      > .content-block-rich-text {
+        flex: 1;
+      }
+
+      hr {
+        border: none;
+        height: 5px;
+        margin: 2rem 0;
+      }
+
+      // --card-divider is the card's Divider Color; the palette is the fallback.
+      &:nth-child(4n+1) hr {
+        background-color: var(--card-divider, #{os-color(yellow)});
+      }
+      &:nth-child(4n+2) hr {
+        background-color: var(--card-divider, #{os-color(light-blue)});
+      }
+      &:nth-child(4n+3) hr {
+        background-color: var(--card-divider, #{os-color(orange)});
+      }
+      &:nth-child(4n+4) hr {
+        background-color: var(--card-divider, #{os-color(green)});
+      }
+    }
+
+    &.card_style_rounded > .content-block-card {
+      border-radius: 1rem;
+      border-width: var(--card-border-size, 1px);
+      border-style: solid;
+      padding: ($normal-margin * 1.25);
+      background-color: var(--card-bg-color, ui-color(white));
+      color: text-color(normal);
+
+      // --card-accent is the card's Accent Color; the palette is the fallback.
+      &:nth-child(4n+1) {
+        border-color: var(--card-accent, #{os-color(yellow)});
+      }
+      &:nth-child(4n+2) {
+        border-color: var(--card-accent, #{os-color(red)});
+      }
+      &:nth-child(4n+3) {
+        border-color: var(--card-accent, #{os-color(orange)});
+      }
+      &:nth-child(4n+4) {
+        border-color: var(--card-accent, #{os-color(green)});
+      }
+    }
+
+    // stylelint-disable-next-line no-descending-specificity
+    &.card_style_square > .content-block-card {
+      border: var(--card-border-size, 1px) solid ui-color(form-border);
+      padding: ($normal-margin * 1.25);
+      background-color: var(--card-bg-color, ui-color(white));
+      color: text-color(normal);
+    }
+
+    // Top accent bar, on the square style only — rounded's full border clashes
+    // with a square top bar; new styles that want the bar opt in here. Height
+    // from --card-accent-size; color from the card's Accent Color or a default
+    // palette.
+    // stylelint-disable-next-line no-descending-specificity
+    &.has-accent-size.card_style_square > .content-block-card {
+      &:nth-child(4n+1) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(blue)}); }
+      &:nth-child(4n+2) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(green)}); }
+      &:nth-child(4n+3) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(light-blue)}); }
+      &:nth-child(4n+4) { box-shadow: 0 calc(-1 * var(--card-accent-size)) 0 var(--card-accent, #{os-color(red)}); }
+    }
+    &.dark-card-background > .content-block-card {
+      color: text-color(white);
+    }
+
+    h2, h3 {
+      @include scale-set-font(h4, h3);
+    }
+
+    // CTAs inside cards render a touch bolder than elsewhere.
+    .cta-link {
+      font-weight: bold;
+    }
+}
