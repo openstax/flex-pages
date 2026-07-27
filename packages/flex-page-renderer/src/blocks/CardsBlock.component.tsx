@@ -18,7 +18,7 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
   const cardColumns = findByType(data.value.config, 'card_columns')?.value;
   const cardMinSize = findByType(data.value.config, 'card_min_size')?.value;
   const backgroundColor = findByType(data.value.config, 'background_color')?.value;
-  const isDarkBg = backgroundColor ? Color(backgroundColor).isDark() : false; // eslint-disable-line new-cap
+  const isDarkBg = backgroundColor ? Color(backgroundColor).isDark() : false;  
   const borderSize = findByType(data.value.config, 'border_size')?.value;
   const accentSize = findByType(data.value.config, 'accent_size')?.value;
   const padding = findByType(data.value.config, 'padding')?.value;

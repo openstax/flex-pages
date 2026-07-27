@@ -13,7 +13,7 @@ export function CTALink({link}: {link: CTALinkFields}) {
 
     const useCustom = Boolean(customColor);
     const customColorClass = useCustom
-        ? Color(customColor).isDark() ? 'style-custom-dark' : 'style-custom-light' // eslint-disable-line new-cap
+        ? Color(customColor).isDark() ? 'style-custom-dark' : 'style-custom-light'  
         : undefined;
     const styleClass = !useCustom && stylePreset ? `style-${stylePreset}` : undefined;
     const style = useCustom

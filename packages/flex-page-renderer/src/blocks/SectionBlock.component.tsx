@@ -60,7 +60,7 @@ export interface SectionBlockConfig {
   };
 }
 
-// eslint-disable-next-line complexity
+ 
 export function SectionBlock({data, content, activeConditions}: {data: SectionBlockConfig; content?: React.ReactNode; activeConditions?: string[]}) {
   const condition = findByType(data.value.config, 'rendering_condition')?.value;
   if (condition && !condition.split(',').some(c => activeConditions?.includes(c.trim()))) return null;

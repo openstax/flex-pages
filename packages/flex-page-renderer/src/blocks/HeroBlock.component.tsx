@@ -81,7 +81,7 @@ const parseAlignment = (alignment: string) => {
     return 'center';
 };
 
-// eslint-disable-next-line complexity
+ 
 export function HeroBlock({data, content, activeConditions}: {data: HeroBlockConfig; content?: React.ReactNode; activeConditions?: string[]}) {
     const condition = findByType(data.value.config, 'rendering_condition')?.value;
     if (condition && !condition.split(',').some(c => activeConditions?.includes(c.trim()))) return null;
