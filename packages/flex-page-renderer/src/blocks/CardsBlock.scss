@@ -44,6 +44,28 @@
         );
     }
 
+    // Masonry-style layout: cards pack into fixed columns by height
+    // instead of a grid row, for decorative card walls (e.g. a wall of
+    // quotes) rather than aligned content tiles.
+    &.layout-masonry {
+      display: block;
+      column-count: 3;
+      column-gap: ($normal-margin * 2);
+
+      @include width-up-to($phone-max) {
+        column-count: 1;
+      }
+
+      @include width-between($phone-max, $tablet-max) {
+        column-count: 2;
+      }
+
+      > .content-block-card {
+        break-inside: avoid;
+        margin-bottom: ($normal-margin * 2);
+      }
+    }
+
     > .content-block-card {
       /* to show above divider images */
       position: relative;
