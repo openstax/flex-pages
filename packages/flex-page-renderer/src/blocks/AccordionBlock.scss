@@ -9,6 +9,11 @@
   // page's brand color. Only rendered when Top Border Color is set.
   &.has-top-border {
     border-top: 0.5rem solid var(--accordion-top-border-color);
+
+    // Avoid a second 1px divider directly under the top border.
+    .accordion-item:first-child {
+      border-top: none;
+    }
   }
 
   .accordion-item {
