@@ -57,12 +57,12 @@ export function CardsBlock({data}: {data: CardsBlockConfig}) {
 
 export function CardBlock({data}: {data: CardBlockConfig}) {
   const [cta] = data.ctaBlock ?? [];
-  // Per-card colors override the default palette via the var() fallbacks in
-  // CardsBlock.scss (accent: rounded border / square top bar; divider: hr).
-  const style = (data.accentColor || data.dividerColor)
+  const accentColor = findByType(data.config, 'accent_color')?.value;
+  const dividerColor = findByType(data.config, 'divider_color')?.value;
+  const style = (accentColor || dividerColor)
     ? {
-      ...(data.accentColor ? {'--card-accent': data.accentColor} : {}),
-      ...(data.dividerColor ? {'--card-divider': data.dividerColor} : {}),
+      ...(accentColor ? {'--card-accent': accentColor} : {}),
+      ...(dividerColor ? {'--card-divider': dividerColor} : {}),
     } as React.CSSProperties
     : undefined;
 

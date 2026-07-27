@@ -42,11 +42,20 @@ type CardConfig = {
   value: string;
 };
 
+type CardItemConfig = {
+  type: 'accent_color';
+  id: string;
+  value: string;
+} | {
+  type: 'divider_color';
+  id: string;
+  value: string;
+};
+
 export type CardBlockConfig = {
   text: string;
   ctaBlock: CTALinkFields[];
-  accentColor?: string;
-  dividerColor?: string;
+  config?: CardItemConfig[];
 };
 
 export type CardsBlockConfig = {
@@ -67,8 +76,10 @@ export const config = {
     {name: 'cards', label: 'Cards', type: 'list', fields: [
       {name: 'text', label: 'Card Text', type: 'rich-text', required: true},
       {name: 'ctaBlock', label: 'Call To Action', type: 'list', fields: ctaLinkFieldConfig, max: 1},
-      {name: 'accentColor', label: 'Accent Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex accent color for this card: the border on rounded style, the top accent bar on square (needs Accent Size). Leave blank for the default palette.'},
-      {name: 'dividerColor', label: 'Divider Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex color for divider lines in this card. Leave blank for the default palette.'},
+      {name: 'config', label: 'Config', type: 'configs', configs: [
+        {name: 'accent_color', label: 'Accent Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex accent color for this card: the border on rounded style, the top accent bar on square (needs Accent Size). Leave blank for the default palette.'},
+        {name: 'divider_color', label: 'Divider Color', type: 'text', pattern: '#[a-fA-F0-9]{6}', help: 'Hex color for divider lines in this card. Leave blank for the default palette.'},
+      ]},
     ]},
     {name: 'config', label: 'Config', type: 'configs', configs: [
       {name: 'card_style', label: 'Style', type: 'select', options: [
