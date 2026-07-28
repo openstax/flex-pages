@@ -35,12 +35,22 @@ function cellText(cell: TableCellConfig | undefined): string {
   return decodeEntities(stripped).replace(/\s+/g, ' ').trim();
 }
 
+// Parse the authored date formats explicitly — Date.parse is engine-dependent
+// for non-ISO input like MM/DD/YYYY — and fall back to Date.parse otherwise.
+function parseDate(text: string): number {
+  const iso = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(text);
+  if (iso) return Date.UTC(+iso[1], +iso[2] - 1, +iso[3]);
+  const us = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(text);
+  if (us) return Date.UTC(+us[3], +us[1] - 1, +us[2]);
+  return Date.parse(text);
+}
+
 // Compare two cells' text by the column's declared sort type; values that
 // don't parse fall back to a natural-order string compare.
 function compareCellText(a: string, b: string, type: string | undefined): number {
   if (type === 'date') {
-    const da = Date.parse(a);
-    const db = Date.parse(b);
+    const da = parseDate(a);
+    const db = parseDate(b);
     if (!isNaN(da) && !isNaN(db)) return da - db;
   }
   if (type === 'number') {

@@ -21,33 +21,43 @@ export interface TableRowConfig {
 
 type TableConfigOption = {
   type: 'striped';
+  id: string;
   value: string;
 } | {
   type: 'condensed';
+  id: string;
   value: string;
 } | {
   type: 'row_colors';
+  id: string;
   value: string;
 } | {
   type: 'sortable';
+  id: string;
   value: string;
 } | {
   type: 'filterable';
+  id: string;
   value: string;
 } | {
   type: 'default_sort_column';
+  id: string;
   value: string;
 } | {
   type: 'default_sort_direction';
+  id: string;
   value: string;
 } | {
   type: 'row_limit';
+  id: string;
   value: string;
 } | {
   type: 'empty_message';
+  id: string;
   value: string;
 } | {
   type: 'id';
+  id: string;
   value: string;
 };
 
@@ -115,7 +125,7 @@ export const config = {
       {name: 'empty_message', label: 'Empty Message', type: 'text',
         help: 'Shown when the table has no rows (e.g. a dynamic source returns nothing).'},
       {name: 'id', label: 'ID', type: 'text',
-        help: 'The HTML id of the table (can be referenced by anchor links).'},
+        help: 'HTML id for this table block, for anchor links that jump to it.'},
     ]},
   ],
 };

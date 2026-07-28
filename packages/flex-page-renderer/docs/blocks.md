@@ -815,7 +815,7 @@ An accessible data table with a header row and caption. Cells hold rich text or 
 | Default Sort Direction | `default_sort_direction` | select | see options below | Direction for the default sort. Default ascending. |
 | Row Limit | `row_limit` | number | a number | Show at most this many rows, with a "Show more" control for the rest. |
 | Empty Message | `empty_message` | text |  | Shown when the table has no rows (e.g. a dynamic source returns nothing). |
-| ID | `id` | text |  | The HTML id of the table (can be referenced by anchor links). |
+| ID | `id` | text |  | HTML id for this table block, for anchor links that jump to it. |
 
 _Zebra Striping (`striped`) options:_
 
