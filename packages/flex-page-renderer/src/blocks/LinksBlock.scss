@@ -16,11 +16,13 @@
     grid-template-columns: repeat(auto-fit, min(30rem, 100%));
     justify-content: center;
 
-    @include width-up-to($phone-max) {
+    // Respond to the width the links actually get, not the viewport, so the
+    // grid reflows correctly inside a hero column, a full-width section, etc.
+    @container flex-content (max-width: #{$phone-max}) {
       grid-template-columns: 1fr;
     }
 
-    @include width-between($phone-max, $tablet-max) {
+    @container flex-content (min-width: #{$phone-max}) and (max-width: #{$tablet-max}) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       grid-gap: 1.5rem;
     }

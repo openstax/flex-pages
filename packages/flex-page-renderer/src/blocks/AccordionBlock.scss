@@ -46,7 +46,7 @@
         display: none;
       }
 
-      @include width-up-to($phone-max) {
+      @container flex-content (max-width: #{$phone-max}) {
         padding: 0 $tight-margin $normal-margin;
       }
     }

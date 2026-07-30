@@ -54,7 +54,7 @@
       flex: var(--col-flex, unset);
     }
 
-    @include width-up-to($phone-max) {
+    @container flex-structure (max-width: #{$phone-max}) {
       flex-direction: column;
     }
   }
