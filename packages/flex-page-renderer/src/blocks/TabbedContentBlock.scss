@@ -72,13 +72,10 @@ $tab-scrollbar-strip: 10px;
     cursor: pointer;
     white-space: nowrap;
     position: relative;
-    // Equal-width tabs when there's room; below tablet let each tab size to
-    // its own label instead of stretching, since the row scrolls there anyway.
-    flex: 1;
-
-    @include width-up-to($tablet-max) {
-      flex: none;
-    }
+    // Tabs size to their own label rather than stretching to fill the row —
+    // stretching looks unbalanced with only a few tabs. Use the Tab Alignment
+    // option to position the group; the row scrolls when tabs overflow.
+    flex: 0 0 auto;
 
     &::before {
       content: attr(data-label);

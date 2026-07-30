@@ -52,11 +52,11 @@
       column-count: 3;
       column-gap: ($normal-margin * 2);
 
-      @include width-up-to($phone-max) {
+      @container flex-content (max-width: #{$phone-max}) {
         column-count: 1;
       }
 
-      @include width-between($phone-max, $tablet-max) {
+      @container flex-content (min-width: #{$phone-max}) and (max-width: #{$tablet-max}) {
         column-count: 2;
       }
 

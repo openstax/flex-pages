@@ -15,13 +15,13 @@
     // The Width config sets an inline max-width (e.g. 50%) for desktop
     // layout; below tablet that reads as cramped, so let it fill the
     // container instead. Inline style needs !important to be overridden.
-    @include width-up-to($tablet-max) {
+    @container flex-content (max-width: #{$tablet-max}) {
       max-width: 100% !important;
     }
 
     // ...except a narrow inline max-width (50-60%) still wants some room to
     // breathe rather than going edge-to-edge at tablet widths.
-    @include width-between($phone-max, $tablet-max) {
+    @container flex-content (min-width: #{$phone-max}) and (max-width: #{$tablet-max}) {
       &[style*="max-width:50%"],
       &[style*="max-width: 50%"],
       &[style*="max-width:60%"],
@@ -54,11 +54,11 @@
       line-height: 1;
       margin-bottom: 0;
 
-      @include width-up-to($phone-max) {
+      @container flex-content (max-width: #{$phone-max}) {
         font-size: 2.4rem;
       }
 
-      @include width-between($phone-max, $tablet-max) {
+      @container flex-content (min-width: #{$phone-max}) and (max-width: #{$tablet-max}) {
         font-size: calc(6.6666666667vw - 1.6rem);
       }
     }
