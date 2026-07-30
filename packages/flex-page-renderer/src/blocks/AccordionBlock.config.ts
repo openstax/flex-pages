@@ -9,6 +9,10 @@ export const config = {
       {name: 'content', label: 'Content', type: 'rich-text', required: true},
       {name: 'id', label: 'ID', type: 'text',
         help: 'The HTML id of the item (can be referenced by anchor links).'},
+      {name: 'config', label: 'Config', type: 'configs', configs: [
+        {name: 'accent_color', label: 'Accent Color', type: 'text', pattern: '#[a-fA-F0-9]{6}',
+          help: 'Hex color for this item\'s expand/collapse icon and divider. Leave blank for the default palette.'},
+      ]},
     ]},
     {name: 'config', label: 'Config', type: 'configs', configs: [
       {name: 'heading_level', label: 'Heading Level', type: 'select',
@@ -24,11 +28,6 @@ export const config = {
           {label: 'No', value: 'false'},
           {label: 'Yes', value: 'true'},
         ]},
-      {name: 'accent_color', label: 'Accent Color', type: 'text', pattern: '#[a-fA-F0-9]{6}',
-        help: 'Hex color for the expand/collapse icon and item divider.'},
-      {name: 'accent_colors', label: 'Accent Colors', type: 'text',
-        pattern: '#[a-fA-F0-9]{6}(\\s*,\\s*#[a-fA-F0-9]{6})*',
-        help: 'Comma-separated hex colors cycled per item, e.g. #ff0000,#00ff00. Overrides Accent Color.'},
       {name: 'top_border_color', label: 'Top Border Color', type: 'text', pattern: '#[a-fA-F0-9]{6}',
         help: 'Adds a colored border above the whole accordion.'},
     ]},

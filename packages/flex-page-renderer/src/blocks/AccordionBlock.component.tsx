@@ -12,13 +12,12 @@ type AccordionConfigOptions = {
   type: 'allow_multiple';
   value: string;
 } | {
-  type: 'accent_color';
-  value: string;
-} | {
-  type: 'accent_colors';
-  value: string;
-} | {
   type: 'top_border_color';
+  value: string;
+};
+
+type AccordionItemConfigOptions = {
+  type: 'accent_color';
   value: string;
 };
 
@@ -26,6 +25,7 @@ export type AccordionItemConfig = {
   header: string;
   content: string;
   id: string;
+  config?: AccordionItemConfigOptions[];
 };
 
 export interface AccordionBlockConfig {
@@ -52,9 +52,6 @@ export function AccordionBlock({data}: {data: AccordionBlockConfig}) {
   const items = data.value.items;
   const headingLevel = findByType(data.value.config, 'heading_level')?.value ?? '3';
   const allowMultiple = findByType(data.value.config, 'allow_multiple')?.value === 'true';
-  const accentColor = findByType(data.value.config, 'accent_color')?.value;
-  const accentColors = (findByType(data.value.config, 'accent_colors')?.value ?? '')
-    .split(',').map((c) => c.trim()).filter(Boolean);
   const topBorderColor = findByType(data.value.config, 'top_border_color')?.value;
   const baseId = `accordion-${data.id}`;
 
@@ -132,7 +129,7 @@ export function AccordionBlock({data}: {data: AccordionBlockConfig}) {
       const triggerId = `${baseId}-trigger-${anchorId}`;
       const panelId = `${baseId}-panel-${anchorId}`;
       const isOpen = open.has(i);
-      const itemAccentColor = accentColors.length ? accentColors[i % accentColors.length] : accentColor;
+      const itemAccentColor = findByType(item.config, 'accent_color')?.value;
 
       return <div
         key={i}
