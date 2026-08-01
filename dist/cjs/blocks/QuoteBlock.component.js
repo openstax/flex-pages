@@ -1,0 +1,23 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.QuoteBlock = QuoteBlock;
+const jsx_runtime_1 = require("react/jsx-runtime");
+const classnames_1 = __importDefault(require("classnames"));
+const Image_js_1 = require("../components/Image.js");
+const utils_js_1 = require("../utils.js");
+const RichTextBlock_component_js_1 = require("./RichTextBlock.component.js");
+require("./QuoteBlock.css");
+function QuoteBlock({ data }) {
+    var _a, _b, _c;
+    const accentColor = (_a = (0, utils_js_1.findByType)(data.value.config, 'accent_color')) === null || _a === void 0 ? void 0 : _a.value;
+    const layout = (_c = (_b = (0, utils_js_1.findByType)(data.value.config, 'layout')) === null || _b === void 0 ? void 0 : _b.value) !== null && _c !== void 0 ? _c : 'image-left';
+    const image = data.value.image;
+    const hasImage = Boolean(image === null || image === void 0 ? void 0 : image.file);
+    const style = accentColor
+        ? { '--quote-accent-color': accentColor }
+        : undefined;
+    return (0, jsx_runtime_1.jsxs)("div", { className: (0, classnames_1.default)('content-block-quote', `quote-layout-${layout}`, { 'no-image': !hasImage }), style: style, children: [hasImage ? (0, jsx_runtime_1.jsx)(Image_js_1.Image, { alt: "", image: image }) : null, (0, jsx_runtime_1.jsxs)("div", { className: "quote-body", children: [(0, jsx_runtime_1.jsx)(RichTextBlock_component_js_1.RichTextContent, { html: data.value.content }), (0, jsx_runtime_1.jsxs)("div", { className: "quotee", children: [(0, jsx_runtime_1.jsx)("span", { className: "name", children: data.value.name }), data.value.title ? (0, jsx_runtime_1.jsx)("span", { className: "title", children: data.value.title }) : null] })] })] });
+}

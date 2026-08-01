@@ -1,0 +1,34 @@
+import React from 'react';
+import { LinkFields } from '../components/Link.config.js';
+import './LinksBlock.css';
+type LinksConfig = {
+    type: 'style';
+    value: string;
+} | {
+    type: 'color';
+    value: string;
+} | {
+    type: 'custom_color';
+    value: string;
+} | {
+    type: 'layout';
+    value: string;
+} | {
+    type: 'size';
+    value: string;
+} | {
+    type: 'analytics_label';
+    value: string;
+};
+export interface LinksBlockConfig {
+    id: string;
+    type: 'links_group';
+    value: {
+        links: LinkFields[];
+        config: LinksConfig[];
+    };
+}
+export declare function LinksBlock({ data }: {
+    data: LinksBlockConfig;
+}): React.JSX.Element;
+export {};
