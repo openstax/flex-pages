@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React from 'react';
 import { Image, ImageFields } from '../components/Image.js';
 import { findByType } from '../utils.js';
@@ -16,7 +17,7 @@ export interface QuoteBlockConfig {
   id: string;
   type: 'quote';
   value: {
-    image: ImageFields;
+    image?: ImageFields;
     content: string;
     name: string;
     title?: string;
@@ -27,16 +28,22 @@ export interface QuoteBlockConfig {
 export function QuoteBlock({data}: {data: QuoteBlockConfig}) {
   const accentColor = findByType(data.value.config, 'accent_color')?.value;
   const layout = findByType(data.value.config, 'layout')?.value ?? 'image-left';
+  const image = data.value.image;
+  const hasImage = Boolean(image?.file);
   const style = accentColor
     ? {'--quote-accent-color': accentColor} as React.CSSProperties
     : undefined;
 
-  return <div className={`content-block-quote quote-layout-${layout}`} style={style}>
-    <Image alt="" image={data.value.image} />
-    <RichTextContent html={data.value.content} />
-    <div className="quotee">
-      <span className="name">{data.value.name}</span>
-      {data.value.title ? <span className="title">{data.value.title}</span> : null}
+  return <div className={cn('content-block-quote', `quote-layout-${layout}`, {'no-image': !hasImage})} style={style}>
+    {hasImage ? <Image alt="" image={image!} /> : null}
+    {/* Group the quote and quotee so they stack together as one column beside
+        the image, rather than each becoming a separate flex item in the row. */}
+    <div className="quote-body">
+      <RichTextContent html={data.value.content} />
+      <div className="quotee">
+        <span className="name">{data.value.name}</span>
+        {data.value.title ? <span className="title">{data.value.title}</span> : null}
+      </div>
     </div>
   </div>;
 }

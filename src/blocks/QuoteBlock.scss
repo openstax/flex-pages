@@ -11,7 +11,14 @@
         height: auto;
     }
 
-    > .content-block-rich-text {
+    // The quote text and quotee are grouped in .quote-body so they stack as a
+    // single column beside the image (rather than each being a flex sibling of
+    // the image). They flow as normal blocks, so no display rule is needed here.
+    > .quote-body {
+        min-width: 0;
+    }
+
+    .content-block-rich-text {
         margin-top: 5rem;
         overflow: visible;
 
@@ -28,7 +35,7 @@
             text-align: left;
         }
     }
-    > .quotee {
+    .quotee {
       .name {
           font-weight: bold;
       }
@@ -48,8 +55,16 @@
         > img {
             flex: none;
         }
-        > .content-block-rich-text:before {
+        > .quote-body {
+            flex: 1;
+        }
+        // Pull the quote mark left into the gap beside the image. With no image
+        // there is no gap, so the offset would hang it off the edge (see below).
+        .content-block-rich-text:before {
             left: -4rem;
+        }
+        &.no-image .content-block-rich-text:before {
+            left: 0;
         }
     }
     &.quote-layout-image-right {
@@ -61,6 +76,9 @@
         > img {
             flex: none;
         }
+        > .quote-body {
+            flex: 1;
+        }
     }
     &.quote-layout-image-top {
         text-align: center;
@@ -69,7 +87,7 @@
             display: block;
             margin: 0 auto;
         }
-        > .content-block-rich-text {
+        .content-block-rich-text {
             margin-top: 2rem;
 
             // Center the quote mark over the centered text; the base
@@ -89,7 +107,10 @@
             width: 12rem;
             padding: 1rem;
         }
-        > .content-block-rich-text {
+        > .quote-body {
+            flex: 1;
+        }
+        .content-block-rich-text {
             margin-top: 0;
 
             &:before {
