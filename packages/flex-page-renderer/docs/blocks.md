@@ -590,7 +590,7 @@ A testimonial showing a quote alongside the quotee's name, title, and photo.
 | Quote Text | `content` | long text | Yes |  |
 | Quotee's title | `title` | text |  |  |
 | Quotee's name | `name` | text | Yes |  |
-| Image | `image` | image | Yes |  |
+| Image | `image` | image |  |  |
 
 **Config** — entries of the data node's `config` array:
 
