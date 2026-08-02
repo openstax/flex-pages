@@ -1,0 +1,15 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page .content-block-big-numbers {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  gap: $normal-margin;
+
+  // Big Numbers have no intrinsic sizing of their own; give them a
+  // shrink-to-fit basis so flex-wrap reflows them without any
+  // viewport-specific breakpoints.
+  > .content-block-big-number {
+    flex: 1 1 18rem;
+  }
+}
