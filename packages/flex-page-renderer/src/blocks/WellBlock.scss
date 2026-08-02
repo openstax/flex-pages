@@ -30,22 +30,6 @@
       }
     }
 
-    // Lays content blocks out side by side instead of stacked (e.g. a row of
-    // Big Numbers), reflowing to fewer per row as space runs out.
-    &.layout-wrap {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-evenly;
-      gap: $normal-margin;
-
-      // Big Numbers have no intrinsic sizing of their own; give them a
-      // shrink-to-fit basis so flex-wrap reflows them without any
-      // viewport-specific breakpoints.
-      > .content-block-big-number {
-        flex: 1 1 18rem;
-      }
-    }
-
     // Renders a Text block's h6 as a large pull-quote (e.g. a testimonial)
     // instead of its normal heading size, scaling smoothly between the
     // phone and desktop sizes across the tablet range.
