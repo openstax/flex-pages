@@ -1,0 +1,137 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page div.content-block-quote {
+    margin: ($normal-margin * 2) 0;
+
+    > img {
+        padding: 3rem;
+        border-radius: 50%;
+        width: 30rem;
+        max-width: 100%;
+        height: auto;
+    }
+
+    // The quote text and quotee are grouped in .quote-body so they stack as a
+    // single column beside the image (rather than each being a flex sibling of
+    // the image). They flow as normal blocks, so no display rule is needed here.
+    > .quote-body {
+        min-width: 0;
+    }
+
+    .content-block-rich-text {
+        margin-top: 5rem;
+        overflow: visible;
+
+        &:before {
+            color: var(--quote-accent-color, os-color(orange));
+            content: '“';
+            line-height: 2.5rem;
+            font-size: 6rem;
+            font-weight: bold;
+            position: relative;
+            top: 0.5rem;
+            display: block;
+            height: 0;
+            text-align: left;
+        }
+    }
+    .quotee {
+      .name {
+          font-weight: bold;
+      }
+      .title {
+          &:before {
+              content: ' ';
+          }
+          font-style: italic;
+      }
+    }
+
+    &.quote-layout-image-left {
+        display: flex;
+        align-items: flex-start;
+        gap: $normal-margin;
+
+        > img {
+            flex: none;
+        }
+        > .quote-body {
+            flex: 1;
+        }
+        // Pull the quote mark left into the gap beside the image. With no image
+        // there is no gap, so the offset would hang it off the edge (see below).
+        .content-block-rich-text:before {
+            left: -4rem;
+        }
+        &.no-image .content-block-rich-text:before {
+            left: 0;
+        }
+    }
+    &.quote-layout-image-right {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        gap: $normal-margin;
+
+        > img {
+            flex: none;
+        }
+        > .quote-body {
+            flex: 1;
+        }
+    }
+    &.quote-layout-image-top {
+        text-align: center;
+
+        > img {
+            display: block;
+            margin: 0 auto;
+        }
+        .content-block-rich-text {
+            margin-top: 2rem;
+
+            // Center the quote mark over the centered text; the base
+            // left-aligns it for the side-by-side layouts.
+            &:before {
+                text-align: center;
+            }
+        }
+    }
+    &.quote-layout-compact {
+        display: flex;
+        align-items: center;
+        gap: $normal-margin;
+
+        > img {
+            flex: none;
+            width: 12rem;
+            padding: 1rem;
+        }
+        > .quote-body {
+            flex: 1;
+        }
+        .content-block-rich-text {
+            margin-top: 0;
+
+            &:before {
+                content: none;
+            }
+        }
+    }
+
+    // Stack the image above the text when the content container (not the
+    // viewport) is narrow, e.g. a quote inside a Hero column.
+    &.quote-layout-image-left,
+    &.quote-layout-image-right {
+        @container flex-content (max-width: #{$tablet-max}) {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            .content-block-rich-text {
+                margin-top: 0;
+                padding: 0 5rem;
+            }
+        }
+    }
+}
