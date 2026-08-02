@@ -34,8 +34,9 @@ Most blocks have a data-node `value`, but some hold a single scalar `value` inst
 
 A block may be placed in a slot when the slot's allowed categories include one of the block's categories.
 
-- **content**: Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`)
+- **content**: Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`)
 - **page**: Page (`flex_page`)
+- **stat**: Big Number (`big_number`)
 - **structure**: Columns (`columns`), Divider (`divider`), HTML (`html`), Hero (`hero`), Section (`section`), Tabbed Content (`tabbed_content`)
 
 ## Value types
@@ -126,7 +127,7 @@ _Items item — entries of its `config` array:_
 
 ### Big Number — `big_number`
 
-*Categories: content*
+*Categories: content, stat*
 
 A large statistic with an optional caption, e.g. "8M+ learners".
 
@@ -148,6 +149,26 @@ _Color (`color`) options:_
 | `blue` | Blue |
 | `green` | Green |
 | `orange` | Orange |
+
+### Big Numbers — `big_numbers`
+
+*Categories: content*
+
+A row of Big Number blocks that reflows to fewer per row as space narrows, e.g. an impact-stats band.
+
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
+
+**Child content**
+
+| Slot | Key | Allowed blocks |
+| --- | --- | --- |
+| Numbers | `content` | Big Number (`big_number`) |
+
+**Fields**
+
+| Field | Key | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| Numbers | `content` | child blocks |  |  |
 
 ### Call to Action — `cta_block`
 
@@ -296,8 +317,8 @@ A two-column layout that stacks vertically on smaller screens, with configurable
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Left Column Content | `leftContent` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
-| Right Column Content | `rightContent` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
+| Left Column Content | `leftContent` | Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
+| Right Column Content | `rightContent` | Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -391,7 +412,7 @@ Like a section, but with a dedicated image on one side and rich options for how 
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
+| Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -620,7 +641,7 @@ A fixed-width container for content blocks — the primary content container for
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Section Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
+| Section Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -758,7 +779,7 @@ Organizes content blocks into switchable tabbed panels, following WAI-ARIA tab k
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Tab Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
+| Tab Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -944,7 +965,7 @@ A styled container that wraps content blocks, with configurable background, padd
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Well Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
+| Well Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -967,8 +988,7 @@ A styled container that wraps content blocks, with configurable background, padd
 | Pull Up | `pull_up` | number | a number | Pulls the well upward by this amount in rem units. Use with extra padding on the section above to create an overlap effect. |
 | Width | `width` | text |  | Maximum width of the well content (e.g., 600px, 50%, auto) |
 | Text Alignment | `text_alignment` | select | see options below |  |
-| Layout | `layout` | select | see options below |  |
-| Heading Style | `heading_style` | select | see options below | Renders Text content's h6 headings as a large, fluid-sized display quote (e.g. a testimonial pull-quote) instead of regular heading size. |
+| Heading Style | `heading_style` | select | see options below | Display Quote makes any level-6 heading (H6) inside this well render as a large, oversized pull-quote — for short testimonial-style lines. Normal leaves headings at their usual size. |
 | Analytics Label | `analytics_label` | text |  | Analytics events from within this well will include this label |
 | ID | `id` | text |  | The HTML id of the well (can be referenced by anchor links). |
 
@@ -992,13 +1012,6 @@ _Text Alignment (`text_alignment`) options:_
 | `left` | Left |
 | `right` | Right |
 | `center` | Center |
-
-_Layout (`layout`) options:_
-
-| Value | Label |
-| --- | --- |
-| `stack` | Stack |
-| `wrap` | Wrap (side by side, reflowing to fewer per row on narrow screens) |
 
 _Heading Style (`heading_style`) options:_
 

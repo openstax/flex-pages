@@ -31,12 +31,8 @@ export const config = {
         {label: 'Right', value: 'right'},
         {label: 'Center', value: 'center'},
       ]},
-      {name: 'layout', label: 'Layout', type: 'select', options: [
-        {label: 'Stack', value: 'stack'},
-        {label: 'Wrap (side by side, reflowing to fewer per row on narrow screens)', value: 'wrap'},
-      ]},
       {name: 'heading_style', label: 'Heading Style', type: 'select',
-        help: 'Renders Text content\'s h6 headings as a large, fluid-sized display quote (e.g. a testimonial pull-quote) instead of regular heading size.',
+        help: 'Display Quote makes any level-6 heading (H6) inside this well render as a large, oversized pull-quote — for short testimonial-style lines. Normal leaves headings at their usual size.',
         options: [
           {label: 'Normal', value: 'normal'},
           {label: 'Display Quote', value: 'display'},
