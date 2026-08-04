@@ -53,10 +53,6 @@
     .content-block-columns-right {
       flex: var(--col-flex, unset);
     }
-
-    @container flex-structure (max-width: #{$phone-max}) {
-      flex-direction: column;
-    }
   }
 
   &.dark-background > div.columns-content {
