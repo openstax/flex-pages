@@ -9,8 +9,8 @@ import type React from 'react';
 
 export interface LinkFields {
   text: string;
-  ariaLabel?: string;
-  // The CMS serializes this field snake_case; the editor writes camelCase.
+  // Flex pages read the API without the camelCase mapping (os-webview passes
+  // noCamelCase), so this stays the snake_case name the CMS block declares.
   aria_label?: string;
   target: {
     type: string;
@@ -21,7 +21,7 @@ export interface LinkFields {
 
 export const linkFieldConfig = [
   {name: 'text', label: 'Link Text', type: 'text', required: true},
-  {name: 'ariaLabel', label: 'Aria Label', type: 'text'},
+  {name: 'aria_label', label: 'Aria Label', type: 'text'},
   {name: 'target', label: 'Link Target', type: 'link-target', required: true},
 ];
 
