@@ -1,6 +1,5 @@
 @import 'pattern-library/core/pattern-library/headers';
 
-// Space reserved to the left of the quote text for the hanging quote mark.
 $quote-mark-gutter: 4rem;
 
 .flex-page.page div.content-block-quote {
@@ -14,9 +13,6 @@ $quote-mark-gutter: 4rem;
         height: auto;
     }
 
-    // The quote text and quotee are grouped in .quote-body so they stack as a
-    // single column beside the image (rather than each being a flex sibling of
-    // the image). They flow as normal blocks, so no display rule is needed here.
     > .quote-body {
         min-width: 0;
     }
@@ -25,9 +21,8 @@ $quote-mark-gutter: 4rem;
         margin-top: 5rem;
         overflow: visible;
 
-        // The mark hangs in a gutter reserved on the text itself, so it clears
-        // the quote in every layout. Positioning it per-layout only worked
-        // where an image happened to sit to the left.
+        // The mark hangs in a gutter on the text itself, so it clears the
+        // quote in every layout.
         position: relative;
         padding-left: $quote-mark-gutter;
 
@@ -86,9 +81,8 @@ $quote-mark-gutter: 4rem;
             display: block;
             margin: 0 auto;
         }
-        // Shrink the text column to its content (capped at a readable measure)
-        // and centre it, so the quote mark hangs just beside the text rather
-        // than stranded against the far edge of a full-width container.
+        // Shrink to the text so the quote mark hangs beside it rather than
+        // stranded at the edge of a full-width container.
         > .quote-body {
             width: fit-content;
             max-width: $text-content-max;
@@ -121,8 +115,6 @@ $quote-mark-gutter: 4rem;
         }
     }
 
-    // Stack the image above the text when the content container (not the
-    // viewport) is narrow, e.g. a quote inside a Hero column.
     &.quote-layout-image-left,
     &.quote-layout-image-right {
         @container flex-content (max-width: #{$tablet-max}) {
@@ -132,8 +124,7 @@ $quote-mark-gutter: 4rem;
 
             .content-block-rich-text {
                 margin-top: 0;
-                // Left side must stay at least $quote-mark-gutter wide so the
-                // hanging quote mark still clears the text.
+                // Left padding must stay >= $quote-mark-gutter so the mark clears the text.
                 padding: 0 5rem;
             }
         }

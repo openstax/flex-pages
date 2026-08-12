@@ -13,9 +13,8 @@
     overflow: hidden;
     max-width: var(--well-max-width, none);
 
-    // Every authored Width is a percentage, so it stays narrow no matter how
-    // little room the well has. Below tablet that reads as cramped — fill the
-    // container instead.
+    // Width is a percentage, so it stays narrow however little room the well
+    // has. Below tablet that reads as cramped.
     @container flex-content (max-width: #{$tablet-max}) {
       max-width: 100%;
     }

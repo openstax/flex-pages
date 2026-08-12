@@ -5,8 +5,6 @@
   max-width: $text-content-max;
   margin: $normal-margin auto;
 
-  // A colored top border for the whole accordion, e.g. to theme it to a
-  // page's brand color. Only rendered when Top Border Color is set.
   &.has-top-border {
     border-top: 0.5rem solid var(--accordion-top-border-color);
 
@@ -17,8 +15,6 @@
   }
 
   .accordion-item {
-    // Accent Color(s) are set per item as an inline --accordion-accent-color;
-    // falls back to the plain divider when no accent is configured.
     border-bottom: 1px solid var(--accordion-accent-color, ui-color(form-border));
 
     &:first-child {

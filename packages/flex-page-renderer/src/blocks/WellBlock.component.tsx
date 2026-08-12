@@ -78,8 +78,8 @@ export function WellBlock({data, content}: {data: WellBlockConfig; content?: Rea
     style={{
       '--padding-multiplier': padding,
       '--margin-multiplier': margin,
-      // The Width config travels as a custom property, not an inline max-width,
-      // so the stylesheet can drop it on narrow containers without !important.
+      // A custom property, not an inline max-width, so the stylesheet can drop
+      // it on narrow containers without !important.
       ...(width ? {'--well-max-width': width} : {}),
       ...(pullUp ? {marginTop: `-${pullUp}rem`} : {})
     } as React.CSSProperties}

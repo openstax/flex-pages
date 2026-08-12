@@ -16,8 +16,6 @@
     grid-template-columns: repeat(auto-fit, min(30rem, 100%));
     justify-content: center;
 
-    // Respond to the width the links actually get, not the viewport, so the
-    // grid reflows correctly inside a hero column, a full-width section, etc.
     @container flex-content (max-width: #{$phone-max}) {
       grid-template-columns: 1fr;
     }

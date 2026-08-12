@@ -7,9 +7,8 @@
     font-weight: bold;
     line-height: 1.1;
 
-    // Optional brand color, set via the block's Color config. Deep-green and
-    // CTA-primary read better at this size than the raw green/orange swatches,
-    // which are tuned for illustration, not text.
+    // The raw green/orange swatches are tuned for illustration; deep-green and
+    // CTA-primary read better at text scale.
     &.text-blue { color: os-color(blue); }
     &.text-green { color: os-color(deep-green); }
     &.text-orange { color: ui-color(primary); }

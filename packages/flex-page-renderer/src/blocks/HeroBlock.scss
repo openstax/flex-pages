@@ -26,13 +26,10 @@
         margin-top: calc( #{$normal-margin} * var(--padding-top-multiplier, var(--padding-multiplier, 0)));
         margin-bottom: calc( #{$normal-margin} * var(--padding-bottom-multiplier, var(--padding-multiplier, 0)));
 
-        // Stack the image and text once the hero's own width (not the viewport)
-        // drops below phone width — e.g. a hero placed inside a narrow column.
         @container flex-structure (max-width: #{$phone-max}) {
             grid-template-columns: 100%;
 
-            // Lead with the headline on mobile regardless of which side the
-            // image sits on desktop.
+            // Lead with the headline once stacked, whichever side the image is on.
             .hero-content {
                 order: 1;
             }

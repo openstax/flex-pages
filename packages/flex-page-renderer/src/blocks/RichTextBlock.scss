@@ -1,9 +1,8 @@
 @import 'pattern-library/core/pattern-library/headers';
 
 .flex-page.page div.content-block-rich-text {
-  // flow-root contains this block's own floated images (img.left/right) by
-  // establishing a BFC. width:auto (not 100%) lets the BFC shrink to sit
-  // beside an adjacent float instead of dropping below it.
+  // flow-root contains this block's own floated images. width:auto (not 100%)
+  // lets it shrink beside an adjacent float instead of dropping below it.
   display: flow-root;
   width: auto;
 

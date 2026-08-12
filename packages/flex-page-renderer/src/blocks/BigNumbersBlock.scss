@@ -6,9 +6,7 @@
   justify-content: space-evenly;
   gap: $normal-margin;
 
-  // Big Numbers have no intrinsic sizing of their own; give them a
-  // shrink-to-fit basis so flex-wrap reflows them without any
-  // viewport-specific breakpoints.
+  // Shrink-to-fit basis, so the row reflows with no viewport breakpoints.
   > .content-block-big-number {
     flex: 1 1 18rem;
   }
