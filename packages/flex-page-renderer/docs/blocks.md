@@ -204,7 +204,7 @@ _Layout (`layout`) options:_
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | Link Text | `text` | text | Yes |  |
-| Aria Label | `ariaLabel` | text |  |  |
+| Aria Label | `aria_label` | text |  |  |
 | Link Target | `target` | link | Yes |  |
 
 _Actions item — entries of its `config` array:_
@@ -286,7 +286,7 @@ _Cards item — entries of its `config` array:_
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | Link Text | `text` | text | Yes |  |
-| Aria Label | `ariaLabel` | text |  |  |
+| Aria Label | `aria_label` | text |  |  |
 | Link Target | `target` | link | Yes |  |
 
 _Cards › Call To Action item — entries of its `config` array:_
@@ -551,7 +551,7 @@ _Layout (`layout`) options:_
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | Link Text | `text` | text | Yes |  |
-| Aria Label | `ariaLabel` | text |  |  |
+| Aria Label | `aria_label` | text |  |  |
 | Link Target | `target` | link | Yes |  |
 
 ### Page — `flex_page`
@@ -920,7 +920,7 @@ _Sort Type (`type`) options:_
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | Link Text | `text` | text | Yes |  |
-| Aria Label | `ariaLabel` | text |  |  |
+| Aria Label | `aria_label` | text |  |  |
 | Link Target | `target` | link | Yes |  |
 
 _Rows › Cells › Call To Action item — entries of its `config` array:_
@@ -988,7 +988,6 @@ A styled container that wraps content blocks, with configurable background, padd
 | Pull Up | `pull_up` | number | a number | Pulls the well upward by this amount in rem units. Use with extra padding on the section above to create an overlap effect. |
 | Width | `width` | text |  | Maximum width of the well content (e.g., 600px, 50%, auto) |
 | Text Alignment | `text_alignment` | select | see options below |  |
-| Heading Style | `heading_style` | select | see options below | Display Quote makes any level-6 heading (H6) inside this well render as a large, oversized pull-quote — for short testimonial-style lines. Normal leaves headings at their usual size. |
 | Analytics Label | `analytics_label` | text |  | Analytics events from within this well will include this label |
 | ID | `id` | text |  | The HTML id of the well (can be referenced by anchor links). |
 
@@ -1012,10 +1011,3 @@ _Text Alignment (`text_alignment`) options:_
 | `left` | Left |
 | `right` | Right |
 | `center` | Center |
-
-_Heading Style (`heading_style`) options:_
-
-| Value | Label |
-| --- | --- |
-| `normal` | Normal |
-| `display` | Display Quote |

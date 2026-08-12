@@ -31,12 +31,6 @@ export const config = {
         {label: 'Right', value: 'right'},
         {label: 'Center', value: 'center'},
       ]},
-      {name: 'heading_style', label: 'Heading Style', type: 'select',
-        help: 'Display Quote makes any level-6 heading (H6) inside this well render as a large, oversized pull-quote — for short testimonial-style lines. Normal leaves headings at their usual size.',
-        options: [
-          {label: 'Normal', value: 'normal'},
-          {label: 'Display Quote', value: 'display'},
-        ]},
       {name: 'analytics_label', label: 'Analytics Label', help: 'Analytics events from within this well will include this label', type: 'text'},
       {name: 'id', label: 'ID', help: 'The HTML id of the well (can be referenced by anchor links).', type: 'text'},
     ]},
