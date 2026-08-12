@@ -2,19 +2,14 @@ import React from 'react';
 import type { TableCellConfig } from './blocks/TableBlock.config.js';
 
 export type TableCellPosition = {
-  // Index into the table's underlying `rows` data, not the on-screen row —
-  // stable across sorting, filtering, and row-limit "show more".
+  // Index into the underlying `rows` data, not the on-screen row: stable
+  // across sorting, filtering, and row limits.
   rowIndex: number;
   columnIndex: number;
 };
 
-// Lets a host claim specific table cells and render them itself, while the
-// TableBlock keeps doing sorting, filtering, striping, row colors, row
-// limits, and the anchor id/mobile data-label behavior for everything else.
-//
-// Returning `undefined` means "not mine, use the default cell rendering".
-// Returning `null` means "render nothing" — a deliberate empty cell, distinct
-// from opting out.
+// Lets a host render specific table cells itself. Return `undefined` to fall
+// through to the default rendering, `null` for a deliberately empty cell.
 export type TableCellRenderer = (
   cell: TableCellConfig,
   position: TableCellPosition
