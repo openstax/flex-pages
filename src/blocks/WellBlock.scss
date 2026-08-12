@@ -11,40 +11,13 @@
     margin: 0 auto;
     box-sizing: border-box;
     overflow: hidden;
+    max-width: var(--well-max-width, none);
 
-    // The Width config sets an inline max-width (e.g. 50%) for desktop
-    // layout; below tablet that reads as cramped, so let it fill the
-    // container instead. Inline style needs !important to be overridden.
+    // Every authored Width is a percentage, so it stays narrow no matter how
+    // little room the well has. Below tablet that reads as cramped — fill the
+    // container instead.
     @container flex-content (max-width: #{$tablet-max}) {
-      max-width: 100% !important;
-    }
-
-    // ...except a narrow inline max-width (50-60%) still wants some room to
-    // breathe rather than going edge-to-edge at tablet widths.
-    @container flex-content (min-width: #{$phone-max}) and (max-width: #{$tablet-max}) {
-      &[style*="max-width:50%"],
-      &[style*="max-width: 50%"],
-      &[style*="max-width:60%"],
-      &[style*="max-width: 60%"] {
-        max-width: 70% !important;
-      }
-    }
-
-    // Renders a Text block's h6 as a large pull-quote (e.g. a testimonial)
-    // instead of its normal heading size, scaling smoothly between the
-    // phone and desktop sizes across the tablet range.
-    &.style-display-heading .content-block-rich-text h6 {
-      font-size: 4rem;
-      line-height: 1;
-      margin-bottom: 0;
-
-      @container flex-content (max-width: #{$phone-max}) {
-        font-size: 2.4rem;
-      }
-
-      @container flex-content (min-width: #{$phone-max}) and (max-width: #{$tablet-max}) {
-        font-size: calc(6.6666666667vw - 1.6rem);
-      }
+      max-width: 100%;
     }
   }
 
