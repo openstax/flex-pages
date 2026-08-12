@@ -25,7 +25,7 @@
                     "actions": [
                       {
                         "text": "Components",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "#components",
                           "type": "anchor"
@@ -133,7 +133,7 @@
                     "links": [
                       {
                         "text": "Section",
-                        "aria_label": "Section Component",
+                        "ariaLabel": "Section Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -145,7 +145,7 @@
                       },
                       {
                         "text": "Hero",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -157,7 +157,7 @@
                       },
                       {
                         "text": "Divider",
-                        "aria_label": "Divider Component",
+                        "ariaLabel": "Divider Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -169,7 +169,7 @@
                       },
                       {
                         "text": "Columns",
-                        "aria_label": "Columns Component",
+                        "ariaLabel": "Columns Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -181,7 +181,7 @@
                       },
                       {
                         "text": "Tabbed Content",
-                        "aria_label": "Tabbed Content Component",
+                        "ariaLabel": "Tabbed Content Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -253,7 +253,7 @@
                     "links": [
                       {
                         "text": "Text",
-                        "aria_label": "Text Component",
+                        "ariaLabel": "Text Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -265,7 +265,7 @@
                       },
                       {
                         "text": "Cards Block",
-                        "aria_label": "Cards Block Component",
+                        "ariaLabel": "Cards Block Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -277,7 +277,7 @@
                       },
                       {
                         "text": "Calls to Action",
-                        "aria_label": "Calls to Action Component",
+                        "ariaLabel": "Calls to Action Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -289,7 +289,7 @@
                       },
                       {
                         "text": "Links Group",
-                        "aria_label": "Links Group Component",
+                        "ariaLabel": "Links Group Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -301,7 +301,7 @@
                       },
                       {
                         "text": "Quote",
-                        "aria_label": "Quote Component",
+                        "ariaLabel": "Quote Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -313,7 +313,7 @@
                       },
                       {
                         "text": "Big Number",
-                        "aria_label": "Big Number Component",
+                        "ariaLabel": "Big Number Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -325,7 +325,7 @@
                       },
                       {
                         "text": "Well",
-                        "aria_label": "Well Component",
+                        "ariaLabel": "Well Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -337,7 +337,7 @@
                       },
                       {
                         "text": "Accordion",
-                        "aria_label": "Accordion Component",
+                        "ariaLabel": "Accordion Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -349,7 +349,7 @@
                       },
                       {
                         "text": "Tabs",
-                        "aria_label": "Tabs Component",
+                        "ariaLabel": "Tabs Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -421,7 +421,7 @@
                     "links": [
                       {
                         "text": "Book Tiles",
-                        "aria_label": "Book Tiles Component",
+                        "ariaLabel": "Book Tiles Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -433,7 +433,7 @@
                       },
                       {
                         "text": "OpenStax Text",
-                        "aria_label": "OpenStax Text Component",
+                        "ariaLabel": "OpenStax Text Component",
                         "target": {
                           "value": "page-id",
                           "type": "route",
@@ -513,7 +513,7 @@
                     "actions": [
                       {
                         "text": "FlexPage Issue Backlog",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.atlassian.net/jira/software/c/projects/DISCO/issues/?filter=10023",
                           "type": "external"
@@ -529,7 +529,7 @@
                       },
                       {
                         "text": "Feature Request",
-                        "aria_label": "",
+                        "ariaLabel": "",
                         "target": {
                           "value": "https://openstax.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10001&issuetype=10005&components=10003&labels=FlexPages&priority=4",
                           "type": "external"

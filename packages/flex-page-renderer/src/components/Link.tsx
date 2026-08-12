@@ -60,5 +60,5 @@ export function LinkComponent({linkTarget, ariaLabel, children, ...props}: LinkC
 }
 
 export function Link({link, ...props}: LinkProps) {
-  return <LinkComponent linkTarget={link.target} ariaLabel={link.aria_label} {...props}>{link.text}</LinkComponent>;
+  return <LinkComponent linkTarget={link.target} ariaLabel={link.ariaLabel} {...props}>{link.text}</LinkComponent>;
 }

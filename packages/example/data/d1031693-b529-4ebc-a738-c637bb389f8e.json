@@ -742,7 +742,7 @@
                         "ctaBlock": [
                           {
                             "text": "this is a cta",
-                            "aria_label": "",
+                            "ariaLabel": "",
                             "target": {
                               "value": "https://openstax.org",
                               "type": "external"
@@ -756,7 +756,7 @@
                         "ctaBlock": [
                           {
                             "text": "this is a cta",
-                            "aria_label": "",
+                            "ariaLabel": "",
                             "target": {
                               "value": "https://openstax.org",
                               "type": "external"
@@ -770,7 +770,7 @@
                         "ctaBlock": [
                           {
                             "text": "this is a cta",
-                            "aria_label": "",
+                            "ariaLabel": "",
                             "target": {
                               "value": "https://openstax.org",
                               "type": "external"
