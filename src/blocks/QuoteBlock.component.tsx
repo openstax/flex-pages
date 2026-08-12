@@ -36,8 +36,6 @@ export function QuoteBlock({data}: {data: QuoteBlockConfig}) {
 
   return <div className={cn('content-block-quote', `quote-layout-${layout}`, {'no-image': !hasImage})} style={style}>
     {hasImage ? <Image alt="" image={image!} /> : null}
-    {/* Group the quote and quotee so they stack together as one column beside
-        the image, rather than each becoming a separate flex item in the row. */}
     <div className="quote-body">
       <RichTextContent html={data.value.content} />
       <div className="quotee">

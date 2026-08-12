@@ -72,9 +72,8 @@ $tab-scrollbar-strip: 10px;
     cursor: pointer;
     white-space: nowrap;
     position: relative;
-    // Tabs size to their own label rather than stretching to fill the row —
-    // stretching looks unbalanced with only a few tabs. Use the Tab Alignment
-    // option to position the group; the row scrolls when tabs overflow.
+    // Size to the label; stretching to fill the row looks unbalanced with only
+    // a few tabs. Tab Alignment positions the group instead.
     flex: 0 0 auto;
 
     &::before {
