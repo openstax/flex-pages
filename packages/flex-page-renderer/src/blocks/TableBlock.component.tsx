@@ -175,9 +175,6 @@ export function TableBlock({data}: {data: TableBlockConfig}) {
                 return <tr key={rowIndex} style={bg ? {backgroundColor: bg} : undefined}>
                   {columns.map((col, ci) => {
                     const cell = row.cells?.[ci];
-                    // rowIndex identifies the cell's position in the underlying
-                    // `rows` data (not on-screen `position`), so a host renderer
-                    // can resolve the same cell after a sort or filter.
                     const custom = cellRenderer?.(cell ?? {}, {rowIndex, columnIndex: ci});
                     if (custom !== undefined) {
                       return <td key={ci} data-label={col.header}>{custom}</td>;
