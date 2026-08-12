@@ -1,6 +1,7 @@
 'use client';
 import cn from 'classnames';
 import React from 'react';
+import { TableCellContext } from '../TableCellContext.js';
 import { findByType } from '../utils.js';
 import { CTALink } from './CTABlock.component.js';
 import { RichTextContent } from './RichTextBlock.component.js';
@@ -62,6 +63,7 @@ function compareCellText(a: string, b: string, type: string | undefined): number
 }
 
 export function TableBlock({data}: {data: TableBlockConfig}) {
+  const cellRenderer = React.useContext(TableCellContext);
   const columns = data.value.columns ?? [];
   const rows = data.value.rows ?? [];
 
@@ -173,6 +175,10 @@ export function TableBlock({data}: {data: TableBlockConfig}) {
                 return <tr key={rowIndex} style={bg ? {backgroundColor: bg} : undefined}>
                   {columns.map((col, ci) => {
                     const cell = row.cells?.[ci];
+                    const custom = cellRenderer?.(cell ?? {}, {rowIndex, columnIndex: ci});
+                    if (custom !== undefined) {
+                      return <td key={ci} data-label={col.header}>{custom}</td>;
+                    }
                     const cta = cell?.cta?.[0];
                     return <td key={ci} data-label={col.header}>
                       {cta ? <CTALink link={cta} /> : <RichTextContent html={cell?.content ?? ''} />}
