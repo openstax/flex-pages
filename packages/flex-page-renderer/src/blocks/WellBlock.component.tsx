@@ -29,9 +29,6 @@ export type WellConfigOptions = {
   type: 'text_alignment';
   value: 'left' | 'right' | 'center';
 } | {
-  type: 'heading_style';
-  value: 'normal' | 'display';
-} | {
   type: 'analytics_label';
   value: string;
 } | {
@@ -67,7 +64,6 @@ export function WellBlock({data, content}: {data: WellBlockConfig; content?: Rea
   const margin = findByType(data.value.config, 'margin')?.value ?? 0;
   const width = findByType(data.value.config, 'width')?.value;
   const textAlign = findByType(data.value.config, 'text_alignment')?.value;
-  const headingStyle = findByType(data.value.config, 'heading_style')?.value;
   const pullUp = findByType(data.value.config, 'pull_up')?.value;
   const borderColor = findByType(data.value.config, 'border_color')?.value;
   const borderSize = findByType(data.value.config, 'border_size')?.value;
@@ -82,17 +78,17 @@ export function WellBlock({data, content}: {data: WellBlockConfig; content?: Rea
     style={{
       '--padding-multiplier': padding,
       '--margin-multiplier': margin,
+      // The Width config travels as a custom property, not an inline max-width,
+      // so the stylesheet can drop it on narrow containers without !important.
+      ...(width ? {'--well-max-width': width} : {}),
       ...(pullUp ? {marginTop: `-${pullUp}rem`} : {})
     } as React.CSSProperties}
   >
-    <div className={cn('well-content', 'flex-content-container', flexAlignClass(textAlign), {
-      'style-display-heading': headingStyle === 'display',
-    })} style={{
+    <div className={cn('well-content', 'flex-content-container', flexAlignClass(textAlign))} style={{
       background: bg.background,
       backgroundColor: bg.backgroundColor,
       borderRadius: `${borderRadius}px`,
       textAlign,
-      maxWidth: width,
       ...(borderColor ? {border: `${borderSize ?? 1}px solid ${borderColor}`} : {})
     }}>
       {content}
