@@ -204,7 +204,7 @@ _Layout (`layout`) options:_
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | Link Text | `text` | text | Yes |  |
-| Aria Label | `aria_label` | text |  |  |
+| Aria Label | `ariaLabel` | text |  |  |
 | Link Target | `target` | link | Yes |  |
 
 _Actions item — entries of its `config` array:_
@@ -286,7 +286,7 @@ _Cards item — entries of its `config` array:_
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | Link Text | `text` | text | Yes |  |
-| Aria Label | `aria_label` | text |  |  |
+| Aria Label | `ariaLabel` | text |  |  |
 | Link Target | `target` | link | Yes |  |
 
 _Cards › Call To Action item — entries of its `config` array:_
@@ -551,7 +551,7 @@ _Layout (`layout`) options:_
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | Link Text | `text` | text | Yes |  |
-| Aria Label | `aria_label` | text |  |  |
+| Aria Label | `ariaLabel` | text |  |  |
 | Link Target | `target` | link | Yes |  |
 
 ### Page — `flex_page`
@@ -920,7 +920,7 @@ _Sort Type (`type`) options:_
 | Field | Key | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | Link Text | `text` | text | Yes |  |
-| Aria Label | `aria_label` | text |  |  |
+| Aria Label | `ariaLabel` | text |  |  |
 | Link Target | `target` | link | Yes |  |
 
 _Rows › Cells › Call To Action item — entries of its `config` array:_
