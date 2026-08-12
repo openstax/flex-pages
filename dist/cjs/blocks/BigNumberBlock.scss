@@ -1,0 +1,23 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page div.content-block-big-number {
+  .number {
+    display: block;
+    font-size: 4.8rem;
+    font-weight: bold;
+    line-height: 1.1;
+
+    // The raw green/orange swatches are tuned for illustration; deep-green and
+    // CTA-primary read better at text scale.
+    &.text-blue { color: os-color(blue); }
+    &.text-green { color: os-color(deep-green); }
+    &.text-orange { color: ui-color(primary); }
+  }
+
+  .caption {
+    @include set-font(body-regular);
+    display: block;
+    font-size: 1.3rem;
+    color: os-color(gray);
+  }
+}

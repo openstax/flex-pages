@@ -1,0 +1,132 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+$quote-mark-gutter: 4rem;
+
+.flex-page.page div.content-block-quote {
+    margin: ($normal-margin * 2) 0;
+
+    > img {
+        padding: 3rem;
+        border-radius: 50%;
+        width: 30rem;
+        max-width: 100%;
+        height: auto;
+    }
+
+    > .quote-body {
+        min-width: 0;
+    }
+
+    .content-block-rich-text {
+        margin-top: 5rem;
+        overflow: visible;
+
+        // The mark hangs in a gutter on the text itself, so it clears the
+        // quote in every layout.
+        position: relative;
+        padding-left: $quote-mark-gutter;
+
+        &:before {
+            color: var(--quote-accent-color, os-color(orange));
+            content: '“';
+            line-height: 2.5rem;
+            font-size: 6rem;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+    }
+    .quotee {
+      .name {
+          font-weight: bold;
+      }
+      .title {
+          &:before {
+              content: ' ';
+          }
+          font-style: italic;
+      }
+    }
+
+    &.quote-layout-image-left {
+        display: flex;
+        align-items: flex-start;
+        gap: $normal-margin;
+
+        > img {
+            flex: none;
+        }
+        > .quote-body {
+            flex: 1;
+        }
+    }
+    &.quote-layout-image-right {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        gap: $normal-margin;
+
+        > img {
+            flex: none;
+        }
+        > .quote-body {
+            flex: 1;
+        }
+    }
+    &.quote-layout-image-top {
+        text-align: center;
+
+        > img {
+            display: block;
+            margin: 0 auto;
+        }
+        // Shrink to the text so the quote mark hangs beside it rather than
+        // stranded at the edge of a full-width container.
+        > .quote-body {
+            width: fit-content;
+            max-width: $text-content-max;
+            margin: 0 auto;
+        }
+        .content-block-rich-text {
+            margin-top: 2rem;
+        }
+    }
+    &.quote-layout-compact {
+        display: flex;
+        align-items: center;
+        gap: $normal-margin;
+
+        > img {
+            flex: none;
+            width: 12rem;
+            padding: 1rem;
+        }
+        > .quote-body {
+            flex: 1;
+        }
+        .content-block-rich-text {
+            margin-top: 0;
+            padding-left: 0;
+
+            &:before {
+                content: none;
+            }
+        }
+    }
+
+    &.quote-layout-image-left,
+    &.quote-layout-image-right {
+        @container flex-content (max-width: #{$tablet-max}) {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            .content-block-rich-text {
+                margin-top: 0;
+                // Left padding must stay >= $quote-mark-gutter so the mark clears the text.
+                padding: 0 5rem;
+            }
+        }
+    }
+}

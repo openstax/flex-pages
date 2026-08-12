@@ -1,0 +1,29 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page div.content-block-well {
+  width: 100%;
+  margin: ($normal-margin * 2) 0;
+  padding: calc( #{$normal-margin} * var(--margin-multiplier, 0)) 0;
+
+  > .well-content {
+    padding: calc( #{$normal-margin} * var(--padding-multiplier, 2));
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    max-width: var(--well-max-width, none);
+
+    // Width is a percentage, so it stays narrow however little room the well
+    // has. Below tablet that reads as cramped.
+    @container flex-content (max-width: #{$tablet-max}) {
+      max-width: 100%;
+    }
+  }
+
+  &.dark-background > .well-content {
+    color: text-color(white);
+  }
+  &.light-background > .well-content {
+    color: text-color(normal);
+  }
+}

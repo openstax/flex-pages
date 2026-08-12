@@ -1,0 +1,13 @@
+@import 'pattern-library/core/pattern-library/headers';
+
+.flex-page.page .content-block-big-numbers {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  gap: $normal-margin;
+
+  // Shrink-to-fit basis, so the row reflows with no viewport breakpoints.
+  > .content-block-big-number {
+    flex: 1 1 18rem;
+  }
+}
