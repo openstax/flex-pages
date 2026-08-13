@@ -228,6 +228,10 @@ export function generateBlockDocs<D extends BlockProcessingDefinitions<any>>(
     'Most blocks have a data-node `value`, but some hold a single scalar `value` instead, with no **Fields** and no `config`. Each per-block schema below says which.',
     ''
   );
+  out.push(
+    'Keys below are camelCase because that is what reaches a block: the CMS emits them snake_case (`aria_label`), and the host camelCases every key of the payload before rendering it. A host that skips that step must camelCase the keys itself.',
+    ''
+  );
 
   // Category summary
   const categories = [...new Set(blocks.flatMap((b) => b.definition.config.categories))].sort();

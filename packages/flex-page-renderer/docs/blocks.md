@@ -30,6 +30,8 @@ Two field types hold arrays, and their element shapes differ:
 
 Most blocks have a data-node `value`, but some hold a single scalar `value` instead, with no **Fields** and no `config`. Each per-block schema below says which.
 
+Keys below are camelCase because that is what reaches a block: the CMS emits them snake_case (`aria_label`), and the host camelCases every key of the payload before rendering it. A host that skips that step must camelCase the keys itself.
+
 ## Block categories
 
 A block may be placed in a slot when the slot's allowed categories include one of the block's categories.
