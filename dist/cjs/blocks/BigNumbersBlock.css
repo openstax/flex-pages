@@ -1,0 +1,11 @@
+.flex-page.page .content-block-big-numbers {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  gap: 1.5rem;
+}
+.flex-page.page .content-block-big-numbers > .content-block-big-number {
+  flex: 1 1 18rem;
+}
+
+/*# sourceMappingURL=BigNumbersBlock.css.map */

@@ -1,0 +1,117 @@
+.content-block-tabs {
+  --tab-active-color: #002469;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+.content-block-tabs > .tab-list {
+  position: relative;
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 10px;
+  margin-bottom: -10px;
+}
+.content-block-tabs > .tab-list::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  border-bottom: 1px solid #d5d5d5;
+}
+.content-block-tabs > .tab-list::-webkit-scrollbar {
+  height: 4px;
+}
+.content-block-tabs > .tab-list::-webkit-scrollbar-thumb {
+  background: #d5d5d5;
+  border-radius: 2px;
+}
+.content-block-tabs.tab-align-center > .tab-list {
+  justify-content: center;
+}
+.content-block-tabs.tab-align-right > .tab-list {
+  justify-content: flex-end;
+}
+.content-block-tabs .tab-list > .tab-button {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 1.2rem 2rem;
+  font-size: 1.6rem;
+  font-family: inherit;
+  color: #424242;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+}
+.content-block-tabs .tab-list > .tab-button::before {
+  content: attr(data-label);
+  font-weight: bold;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.content-block-tabs .tab-list > .tab-button:focus-visible {
+  outline: 2px solid var(--tab-active-color);
+  outline-offset: -2px;
+}
+.content-block-tabs .tab-list > .tab-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  transition: background 0.15s ease;
+}
+.content-block-tabs .tab-list > .tab-button.active {
+  font-weight: bold;
+}
+.content-block-tabs .tab-list > .tab-button.active::after {
+  background: var(--tab-active-color);
+}
+.content-block-tabs > .tab-panels {
+  display: grid;
+  margin-top: 1.5rem;
+}
+.content-block-tabs > .tab-panels > .tab-panel {
+  grid-area: 1/1;
+  visibility: hidden;
+}
+.content-block-tabs > .tab-panels > .tab-panel.active {
+  visibility: visible;
+}
+.content-block-tabs > .tab-panels > .tab-panel:focus-visible {
+  outline: 2px solid var(--tab-active-color);
+  outline-offset: 2px;
+}
+.content-block-tabs.content-block-flex-grow {
+  flex: 1 0 auto;
+}
+.content-block-tabs.content-block-flex {
+  flex: 1 1 auto;
+}
+.content-block-tabs.content-block-flex-shrink {
+  flex: 0 1 auto;
+}
+.content-block-tabs.content-block-flex, .content-block-tabs.content-block-flex-grow, .content-block-tabs.content-block-flex-shrink {
+  display: flex;
+  flex-direction: column;
+}
+.content-block-tabs.content-block-flex > .tab-panels, .content-block-tabs.content-block-flex-grow > .tab-panels, .content-block-tabs.content-block-flex-shrink > .tab-panels {
+  flex: 1;
+  min-height: 0;
+  grid-template-rows: 1fr;
+}
+.content-block-tabs.content-block-flex > .tab-panels > .tab-panel, .content-block-tabs.content-block-flex-grow > .tab-panels > .tab-panel, .content-block-tabs.content-block-flex-shrink > .tab-panels > .tab-panel {
+  min-height: 0;
+  overflow-y: auto;
+}
+.content-block-tabs.content-block-flex, .content-block-tabs.content-block-flex-shrink {
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=TabsBlock.css.map */
