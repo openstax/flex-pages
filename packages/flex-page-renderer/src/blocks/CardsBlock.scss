@@ -44,6 +44,25 @@
         );
     }
 
+    &.layout-masonry {
+      display: block;
+      column-count: 3;
+      column-gap: ($normal-margin * 2);
+
+      @container flex-content (max-width: #{$phone-max}) {
+        column-count: 1;
+      }
+
+      @container flex-content (min-width: #{$phone-max}) and (max-width: #{$tablet-max}) {
+        column-count: 2;
+      }
+
+      > .content-block-card {
+        break-inside: avoid;
+        margin-bottom: ($normal-margin * 2);
+      }
+    }
+
     > .content-block-card {
       /* to show above divider images */
       position: relative;

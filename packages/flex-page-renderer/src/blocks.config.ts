@@ -11,6 +11,7 @@ export * as hero from './blocks/HeroBlock.config.js';
 export * as links_group from './blocks/LinksBlock.config.js';
 export * as quote from './blocks/QuoteBlock.config.js';
 export * as big_number from './blocks/BigNumberBlock.config.js';
+export * as big_numbers from './blocks/BigNumbersBlock.config.js';
 export * as text from './blocks/RichTextBlock.config.js';
 export * as section from './blocks/SectionBlock.config.js';
 export * as tabs from './blocks/TabsBlock.config.js';

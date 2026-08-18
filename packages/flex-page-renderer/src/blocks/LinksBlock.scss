@@ -15,6 +15,15 @@
     grid-gap: 3rem 5rem;
     grid-template-columns: repeat(auto-fit, min(30rem, 100%));
     justify-content: center;
+
+    @container flex-content (max-width: #{$phone-max}) {
+      grid-template-columns: 1fr;
+    }
+
+    @container flex-content (min-width: #{$phone-max}) and (max-width: #{$tablet-max}) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-gap: 1.5rem;
+    }
   }
   &.layout-inline {
     margin: ($normal-margin * 1.5) 0;

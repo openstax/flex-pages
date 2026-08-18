@@ -102,7 +102,7 @@ export function ColumnsBlock({data, leftContent, rightContent}: {data: ColumnsBl
   const stackCSS = `@container flex-structure (max-width: ${stackAt}) {
     ${sel} { flex-shrink: 0; display: block }
     ${sel}.content-block-flex > div.columns-content,
-    ${sel}.content-block-flex-shrink > div.columns-content { overflow-y: auto; height: unset; max-height: unset }
+    ${sel}.content-block-flex-shrink > div.columns-content { overflow-y: auto }
     ${sel} > div.columns-content { display: block; overflow: auto }
     ${sel} > div.columns-content .content-block-columns-left { margin-right: unset }
     ${sel} > div.columns-content .content-block-columns-left,

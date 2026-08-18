@@ -12,6 +12,11 @@ type AccordionConfigOptions = {
   type: 'allow_multiple';
   value: string;
 } | {
+  type: 'top_border_color';
+  value: string;
+};
+
+type AccordionItemConfigOptions = {
   type: 'accent_color';
   value: string;
 };
@@ -20,6 +25,7 @@ export type AccordionItemConfig = {
   header: string;
   content: string;
   id: string;
+  config?: AccordionItemConfigOptions[];
 };
 
 export interface AccordionBlockConfig {
@@ -46,7 +52,7 @@ export function AccordionBlock({data}: {data: AccordionBlockConfig}) {
   const items = data.value.items;
   const headingLevel = findByType(data.value.config, 'heading_level')?.value ?? '3';
   const allowMultiple = findByType(data.value.config, 'allow_multiple')?.value === 'true';
-  const accentColor = findByType(data.value.config, 'accent_color')?.value;
+  const topBorderColor = findByType(data.value.config, 'top_border_color')?.value;
   const baseId = `accordion-${data.id}`;
 
   const [open, setOpen] = React.useState<Set<number>>(new Set());
@@ -115,16 +121,21 @@ export function AccordionBlock({data}: {data: AccordionBlockConfig}) {
   const Heading = `h${headingLevel}` as React.ElementType;
 
   return <div
-    className="content-block-accordion"
-    style={accentColor ? {'--accordion-accent-color': accentColor} as React.CSSProperties : undefined}
+    className={cn('content-block-accordion', {'has-top-border': !!topBorderColor})}
+    style={topBorderColor ? {'--accordion-top-border-color': topBorderColor} as React.CSSProperties : undefined}
   >
     {items.map((item, i) => {
       const anchorId = toAnchorId(item.id, i);
       const triggerId = `${baseId}-trigger-${anchorId}`;
       const panelId = `${baseId}-panel-${anchorId}`;
       const isOpen = open.has(i);
+      const itemAccentColor = findByType(item.config, 'accent_color')?.value;
 
-      return <div key={i} className={cn('accordion-item', {open: isOpen})}>
+      return <div
+        key={i}
+        className={cn('accordion-item', {open: isOpen})}
+        style={itemAccentColor ? {'--accordion-accent-color': itemAccentColor} as React.CSSProperties : undefined}
+      >
         <Heading className="accordion-header" id={anchorId}>
           <button
             ref={(el) => { buttonRefs.current[i] = el; }}

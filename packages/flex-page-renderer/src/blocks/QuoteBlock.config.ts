@@ -7,7 +7,7 @@ export const config = {
     {name: 'content', label: 'Quote Text', type: 'long-text', required: true},
     {name: 'title', label: 'Quotee\'s title', type: 'text'},
     {name: 'name', label: 'Quotee\'s name', type: 'text', required: true},
-    {name: 'image', label: 'Image', type: 'image', required: true},
+    {name: 'image', label: 'Image', type: 'image'},
     {name: 'config', label: 'Config', type: 'configs', configs: [
       {name: 'layout', label: 'Layout', type: 'select', help: 'How the image and text are arranged.', options: [
         {label: 'Image Left', value: 'image-left'},

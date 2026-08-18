@@ -72,6 +72,9 @@ $tab-scrollbar-strip: 10px;
     cursor: pointer;
     white-space: nowrap;
     position: relative;
+    // Size to the label; stretching to fill the row looks unbalanced with only
+    // a few tabs. Tab Alignment positions the group instead.
+    flex: 0 0 auto;
 
     &::before {
       content: attr(data-label);
@@ -117,14 +120,30 @@ $tab-scrollbar-strip: 10px;
     > .tab-panel {
       grid-area: 1 / 1;
       visibility: hidden;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease-out, visibility 0s 0.15s;
 
       &.active {
         visibility: visible;
+        pointer-events: auto;
+        opacity: 1;
+        transition: opacity 0.15s ease-out, visibility 0s 0s;
       }
 
       &:focus-visible {
         outline: 2px solid var(--tab-active-color);
         outline-offset: 2px;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    > .tab-panels > .tab-panel {
+      transition: none;
+
+      &.active {
+        transition: none;
       }
     }
   }
