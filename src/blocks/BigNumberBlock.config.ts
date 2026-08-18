@@ -1,6 +1,6 @@
 export const config = {
   type: 'big_number',
-  categories: ['content'],
+  categories: ['content', 'stat'],
   label: 'Big Number',
   description: 'A large statistic with an optional caption, e.g. "8M+ learners".',
   fields: [

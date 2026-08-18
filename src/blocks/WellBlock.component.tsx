@@ -78,6 +78,9 @@ export function WellBlock({data, content}: {data: WellBlockConfig; content?: Rea
     style={{
       '--padding-multiplier': padding,
       '--margin-multiplier': margin,
+      // A custom property, not an inline max-width, so the stylesheet can drop
+      // it on narrow containers without !important.
+      ...(width ? {'--well-max-width': width} : {}),
       ...(pullUp ? {marginTop: `-${pullUp}rem`} : {})
     } as React.CSSProperties}
   >
@@ -86,7 +89,6 @@ export function WellBlock({data, content}: {data: WellBlockConfig; content?: Rea
       backgroundColor: bg.backgroundColor,
       borderRadius: `${borderRadius}px`,
       textAlign,
-      maxWidth: width,
       ...(borderColor ? {border: `${borderSize ?? 1}px solid ${borderColor}`} : {})
     }}>
       {content}

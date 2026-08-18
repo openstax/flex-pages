@@ -26,8 +26,16 @@
         margin-top: calc( #{$normal-margin} * var(--padding-top-multiplier, var(--padding-multiplier, 0)));
         margin-bottom: calc( #{$normal-margin} * var(--padding-bottom-multiplier, var(--padding-multiplier, 0)));
 
-        @include width-up-to($phone-max) {
+        @container flex-structure (max-width: #{$phone-max}) {
             grid-template-columns: 100%;
+
+            // Lead with the headline once stacked, whichever side the image is on.
+            .hero-content {
+                order: 1;
+            }
+            .hero-image-container {
+                order: 2;
+            }
         }
 
         .hero-content {
@@ -41,7 +49,7 @@
             flex-direction: column;
             justify-content: center;
 
-            @include width-up-to($phone-max) {
+            @container flex-structure (max-width: #{$phone-max}) {
                 margin: 0 auto 2rem;
             }
         }

@@ -1,8 +1,9 @@
 @import 'pattern-library/core/pattern-library/headers';
 
+$quote-mark-gutter: 4rem;
+
 .flex-page.page div.content-block-quote {
     margin: ($normal-margin * 2) 0;
-    overflow: auto hidden;
 
     > img {
         padding: 3rem;
@@ -12,9 +13,18 @@
         height: auto;
     }
 
-    > .content-block-rich-text {
+    > .quote-body {
+        min-width: 0;
+    }
+
+    .content-block-rich-text {
         margin-top: 5rem;
         overflow: visible;
+
+        // The mark hangs in a gutter on the text itself, so it clears the
+        // quote in every layout.
+        position: relative;
+        padding-left: $quote-mark-gutter;
 
         &:before {
             color: var(--quote-accent-color, os-color(orange));
@@ -22,14 +32,12 @@
             line-height: 2.5rem;
             font-size: 6rem;
             font-weight: bold;
-            position: relative;
+            position: absolute;
+            left: 0;
             top: 0.5rem;
-            display: block;
-            height: 0;
-            text-align: left;
         }
     }
-    > .quotee {
+    .quotee {
       .name {
           font-weight: bold;
       }
@@ -42,43 +50,64 @@
     }
 
     &.quote-layout-image-left {
+        display: flex;
+        align-items: flex-start;
+        gap: $normal-margin;
+
         > img {
-            float: left;
+            flex: none;
         }
-        > .content-block-rich-text:before {
-            left: -4rem;
+        > .quote-body {
+            flex: 1;
         }
     }
     &.quote-layout-image-right {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        gap: $normal-margin;
+
         > img {
-            float: right;
+            flex: none;
+        }
+        > .quote-body {
+            flex: 1;
         }
     }
     &.quote-layout-image-top {
         text-align: center;
 
         > img {
-            float: none;
             display: block;
             margin: 0 auto;
         }
-        > .content-block-rich-text {
+        // Shrink to the text so the quote mark hangs beside it rather than
+        // stranded at the edge of a full-width container.
+        > .quote-body {
+            width: fit-content;
+            max-width: $text-content-max;
+            margin: 0 auto;
+        }
+        .content-block-rich-text {
             margin-top: 2rem;
-
-            // Center the quote mark over the centered text; the base
-            // left-aligns it for the side-by-side layouts.
-            &:before {
-                text-align: center;
-            }
         }
     }
     &.quote-layout-compact {
+        display: flex;
+        align-items: center;
+        gap: $normal-margin;
+
         > img {
+            flex: none;
             width: 12rem;
             padding: 1rem;
         }
-        > .content-block-rich-text {
+        > .quote-body {
+            flex: 1;
+        }
+        .content-block-rich-text {
             margin-top: 0;
+            padding-left: 0;
 
             &:before {
                 content: none;
@@ -86,19 +115,16 @@
         }
     }
 
-    // Stack the image above the text when the content container (not the
-    // viewport) is narrow, e.g. a quote inside a Hero column. Only the
-    // side-by-side layouts need it; image-top and compact lay out their own way.
     &.quote-layout-image-left,
     &.quote-layout-image-right {
         @container flex-content (max-width: #{$tablet-max}) {
+            flex-direction: column;
+            align-items: center;
             text-align: center;
 
-            > img {
-                float: none;
-            }
             .content-block-rich-text {
                 margin-top: 0;
+                // Left padding must stay >= $quote-mark-gutter so the mark clears the text.
                 padding: 0 5rem;
             }
         }

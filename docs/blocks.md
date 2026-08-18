@@ -34,8 +34,9 @@ Most blocks have a data-node `value`, but some hold a single scalar `value` inst
 
 A block may be placed in a slot when the slot's allowed categories include one of the block's categories.
 
-- **content**: Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`)
+- **content**: Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`)
 - **page**: Page (`flex_page`)
+- **stat**: Big Number (`big_number`)
 - **structure**: Columns (`columns`), Divider (`divider`), HTML (`html`), Hero (`hero`), Section (`section`), Tabbed Content (`tabbed_content`)
 
 ## Value types
@@ -93,7 +94,7 @@ A list of collapsible items that reveal their content on demand; well suited to 
 | --- | --- | --- | --- | --- |
 | Heading Level | `heading_level` | select | see options below | Heading level for each item, for the document outline and screen-reader navigation |
 | Allow Multiple Open | `allow_multiple` | select | see options below | Allow more than one panel to be open at the same time |
-| Accent Color | `accent_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for the expand/collapse icon |
+| Top Border Color | `top_border_color` | text | must match `#[a-fA-F0-9]{6}` | Adds a colored border above the whole accordion. |
 
 _Heading Level (`heading_level`) options:_
 
@@ -118,9 +119,15 @@ _Allow Multiple Open (`allow_multiple`) options:_
 | Content | `content` | rich text | Yes |  |
 | ID | `id` | text |  | The HTML id of the item (can be referenced by anchor links). |
 
+_Items item — entries of its `config` array:_
+
+| Option | Key | Type | Values / format | Description |
+| --- | --- | --- | --- | --- |
+| Accent Color | `accent_color` | text | must match `#[a-fA-F0-9]{6}` | Hex color for this item's expand/collapse icon and divider. Leave blank for the default palette. |
+
 ### Big Number — `big_number`
 
-*Categories: content*
+*Categories: content, stat*
 
 A large statistic with an optional caption, e.g. "8M+ learners".
 
@@ -142,6 +149,26 @@ _Color (`color`) options:_
 | `blue` | Blue |
 | `green` | Green |
 | `orange` | Orange |
+
+### Big Numbers — `big_numbers`
+
+*Categories: content*
+
+A row of Big Number blocks that reflows to fewer per row as space narrows, e.g. an impact-stats band.
+
+`value` is a data node — the **Fields** below, plus a `config` array of the **Config** entries below.
+
+**Child content**
+
+| Slot | Key | Allowed blocks |
+| --- | --- | --- |
+| Numbers | `content` | Big Number (`big_number`) |
+
+**Fields**
+
+| Field | Key | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| Numbers | `content` | child blocks |  |  |
 
 ### Call to Action — `cta_block`
 
@@ -215,9 +242,10 @@ A wrapping grid of card tiles, each holding rich text and an optional call-to-ac
 | Option | Key | Type | Values / format | Description |
 | --- | --- | --- | --- | --- |
 | Style | `card_style` | select | see options below |  |
-| Size | `card_size` | number | a number | A single number representing 10px increments |
-| Columns | `card_columns` | number | a number | Maximum cards per row. Rows reflow to fewer columns as the container narrows; set Min card width to control when. |
-| Min card width | `card_min_size` | number | a number | Smallest a card gets before the grid wraps to fewer columns, in 10px increments (e.g. 18 = 180px). Defaults to 18. |
+| Layout | `layout` | select | see options below |  |
+| Size | `card_size` | number | a number | A single number representing 10px increments. Grid layout only. |
+| Columns | `card_columns` | number | a number | Maximum cards per row. Rows reflow to fewer columns as the container narrows; set Min card width to control when. Grid layout only. |
+| Min card width | `card_min_size` | number | a number | Smallest a card gets before the grid wraps to fewer columns, in 10px increments (e.g. 18 = 180px). Defaults to 18. Grid layout only. |
 | Background Color | `background_color` | text | must match `#[a-fA-F0-9]{6}` | Hex background color for cards |
 | Border Size | `border_size` | number | a number | Outer border width in px, all sides. Leave blank for the style default; 0 = no border. |
 | Accent Size | `accent_size` | number | a number | Top accent bar height in px, independent of the border. Color comes from each card's Accent Color (or a default palette). |
@@ -231,6 +259,13 @@ _Style (`card_style`) options:_
 | --- | --- |
 | `rounded` | Rounded |
 | `square` | Square |
+
+_Layout (`layout`) options:_
+
+| Value | Label |
+| --- | --- |
+| `grid` | Grid |
+| `masonry` | Masonry-style columns, packed by height |
 
 **Cards** — an array of data nodes; each item's **Fields**:
 
@@ -282,8 +317,8 @@ A two-column layout that stacks vertically on smaller screens, with configurable
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Left Column Content | `leftContent` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
-| Right Column Content | `rightContent` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
+| Left Column Content | `leftContent` | Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
+| Right Column Content | `rightContent` | Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -377,7 +412,7 @@ Like a section, but with a dedicated image on one side and rich options for how 
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
+| Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -576,7 +611,7 @@ A testimonial showing a quote alongside the quotee's name, title, and photo.
 | Quote Text | `content` | long text | Yes |  |
 | Quotee's title | `title` | text |  |  |
 | Quotee's name | `name` | text | Yes |  |
-| Image | `image` | image | Yes |  |
+| Image | `image` | image |  |  |
 
 **Config** — entries of the data node's `config` array:
 
@@ -606,7 +641,7 @@ A fixed-width container for content blocks — the primary content container for
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Section Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
+| Section Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -744,7 +779,7 @@ Organizes content blocks into switchable tabbed panels, following WAI-ARIA tab k
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Tab Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
+| Tab Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
 
 **Fields**
 
@@ -930,7 +965,7 @@ A styled container that wraps content blocks, with configurable background, padd
 
 | Slot | Key | Allowed blocks |
 | --- | --- | --- |
-| Well Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
+| Well Content | `content` | Accordion (`accordion`), Big Number (`big_number`), Big Numbers (`big_numbers`), Call to Action (`cta_block`), Cards Block (`cards_block`), HTML (`html`), Links (`links_group`), Quote (`quote`), Tabbed Content (`tabs`), Table (`table`), Text (`text`), Well (`well`) |
 
 **Fields**
 

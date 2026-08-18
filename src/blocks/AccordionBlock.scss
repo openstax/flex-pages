@@ -1,14 +1,21 @@
 @import 'pattern-library/core/pattern-library/headers';
 
 .content-block-accordion {
-  --accordion-accent-color: #{os-color(gray)};
-
   width: 100%;
   max-width: $text-content-max;
   margin: $normal-margin auto;
 
+  &.has-top-border {
+    border-top: 0.5rem solid var(--accordion-top-border-color);
+
+    // Avoid a second 1px divider directly under the top border.
+    .accordion-item:first-child {
+      border-top: none;
+    }
+  }
+
   .accordion-item {
-    border-bottom: 1px solid ui-color(form-border);
+    border-bottom: 1px solid var(--accordion-accent-color, ui-color(form-border));
 
     &:first-child {
       border-top: 1px solid ui-color(form-border);
@@ -35,7 +42,7 @@
         display: none;
       }
 
-      @include width-up-to($phone-max) {
+      @container flex-content (max-width: #{$phone-max}) {
         padding: 0 $tight-margin $normal-margin;
       }
     }
@@ -64,7 +71,7 @@
 
   .accordion-icon {
     flex: none;
-    color: var(--accordion-accent-color);
+    color: var(--accordion-accent-color, os-color(gray));
     transition: transform 0.2s ease;
   }
 
