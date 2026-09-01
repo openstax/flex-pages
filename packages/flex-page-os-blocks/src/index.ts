@@ -8,3 +8,9 @@ export type {
 } from './blocks/BookTileListBlock.config.js';
 export { fetchBooks } from './lib/fetchBooks.js';
 export type { BookData, FetchBooks } from './lib/fetchBooks.js';
+export { Component as ContentCardComponent, createContentCard } from './blocks/ContentCardBlock.component.js';
+export { config as contentCardConfig } from './blocks/ContentCardBlock.config.js';
+export { createContentCardPrefetch, prefetch as contentCardPrefetch } from './blocks/ContentCardBlock.prefetch.js';
+export type { ContentCardBlockConfig, ContentCardValue, ContentReference } from './blocks/ContentCardBlock.config.js';
+export { fetchContent } from './lib/fetchContent.js';
+export type { ContentData, ContentRef, FetchContent } from './lib/fetchContent.js';
