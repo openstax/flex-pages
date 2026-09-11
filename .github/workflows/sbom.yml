@@ -21,6 +21,7 @@ on:
 
 permissions:
   contents: read
+  packages: read
 
 jobs:
   emit:
@@ -38,7 +39,10 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
 
+      - run: echo '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' >> ~/.npmrc
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm sbom --sbom-format=cyclonedx > /tmp/sbom.json
 
       # birder is private and this repo is public, so the run's GITHUB_TOKEN
