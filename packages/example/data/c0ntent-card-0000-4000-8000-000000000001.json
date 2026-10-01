@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "title": "Content Card",
+    "description": "Demo of the OpenStax Content Card block (links to another CMS page, hydrates display data by reference).",
+    "url": "content-card"
+  },
+  "page": [
+    {
+      "id": "content-card-page",
+      "type": "flex_page",
+      "value": {
+        "content": [
+          {
+            "type": "section",
+            "value": {
+              "content": [
+                {
+                  "type": "text",
+                  "value": "<h1>Content Card</h1>",
+                  "id": "cc-text-title"
+                },
+                {
+                  "type": "text",
+                  "value": "<p>A card auto-pulls title and image from the referenced page (no overrides set here).</p>",
+                  "id": "cc-text-intro"
+                },
+                {
+                  "type": "content_card",
+                  "id": "cc-demo-1",
+                  "value": {
+                    "reference": {
+                      "id": "38",
+                      "type": "books.book",
+                      "slug": "algebra-and-trigonometry",
+                      "url": "/details/books/algebra-and-trigonometry",
+                      "title": "Algebra and Trigonometry"
+                    },
+                    "title": null,
+                    "image": null,
+                    "excerpt": null
+                  }
+                },
+                {
+                  "type": "content_card",
+                  "id": "cc-demo-2",
+                  "value": {
+                    "reference": {
+                      "id": "38",
+                      "type": "books.book",
+                      "slug": "algebra-and-trigonometry",
+                      "url": "/details/books/algebra-and-trigonometry",
+                      "title": "Algebra and Trigonometry"
+                    },
+                    "title": "Custom title override",
+                    "image": null,
+                    "excerpt": "This card overrides the title and excerpt while still pulling the cover image from the book."
+                  }
+                }
+              ],
+              "config": []
+            },
+            "id": "cc-section"
+          }
+        ]
+      }
+    }
+  ]
+}
