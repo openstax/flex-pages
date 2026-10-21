@@ -13,7 +13,9 @@ export type { LinkFields, LinkProps } from './Link.config.js';
 export { linkFieldConfig } from './Link.config.js';
 
 export type LinkComponentProps = {
-  linkTarget: LinkTarget;
+  // null/undefined: a CMS author can save a CTA without picking a target;
+  // the serialized JSON then carries target: null.
+  linkTarget: LinkTarget | null | undefined;
   ariaLabel?: string;
   children?: React.ReactNode;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement> & React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -24,14 +26,21 @@ export type LinkComponentProps = {
 // use this component directly. The descriptor prop is `linkTarget` so it does
 // not collide with the DOM anchor `target` attribute (still passable as a prop).
 export function LinkComponent({linkTarget, ariaLabel, children, ...props}: LinkComponentProps) {
-  const type = linkTarget.type;
   const actions = React.useContext(ActionContext);
   const routes = React.useContext(RouteContext);
-  const route = type === 'route' ? routes[linkTarget.value] : undefined;
 
   const onClick = React.useCallback((e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
-    handleLinkClick(e, e.currentTarget, linkTarget, { routes, actions });
+    if (linkTarget) {
+      handleLinkClick(e, e.currentTarget, linkTarget, { routes, actions });
+    }
   }, [linkTarget, routes, actions]);
+
+  // Render nothing rather than crash the page tree on an unset target -
+  // same treatment as an unknown route below.
+  if (!linkTarget) return null;
+
+  const type = linkTarget.type;
+  const route = type === 'route' ? routes[linkTarget.value] : undefined;
 
   if (type === 'action') {
     return <button
