@@ -1,0 +1,19 @@
+.content-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+
+  .content-card-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .content-card-title {
+    font-weight: 700;
+  }
+
+  .content-card-excerpt {
+    font-size: 0.875rem;
+  }
+}
