@@ -8,6 +8,14 @@
       @include body-font(2rem);
       white-space: break-spaces;
       height: auto;
+
+      // The button() focus glow is a blurred, translucent shadow that measures about 2:1 against
+      // white. A solid outline outside the button keeps the indicator at 3:1 or better (WCAG 1.4.11)
+      // on every color, including the white button, which has no fill to stand out from the page.
+      &:focus-visible {
+          outline: 0.3rem solid ui-color(focus-outline);
+          outline-offset: 0.2rem;
+      }
   }
 
   &.layout-grid {
