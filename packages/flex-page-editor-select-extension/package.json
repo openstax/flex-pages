@@ -6,7 +6,7 @@
     "react-select": "^5.10.1"
   },
   "devDependencies": {
-    "@openstax/ui-components": "github:openstax/ui-components#1.22.4",
+    "@openstax/ui-components": "github:openstax/ui-components#1.27.3",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "cspell": "^10.0.0",
